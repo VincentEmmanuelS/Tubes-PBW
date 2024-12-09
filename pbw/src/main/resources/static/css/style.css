@@ -1,0 +1,99 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    background-color: black;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    z-index: 100;
+}
+
+#leftSection {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start; 
+    justify-content: space-between;
+}
+
+#leftSection h1 {
+    font-size: 2em;
+    font-weight: bold;
+    color: orange;
+}
+
+#leftSection .links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#leftSection a {
+    font-size: 1.2em;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    margin-right: 15px;
+}
+
+#leftSection a:hover {
+    text-decoration: underline;
+}
+
+#rightSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#rightSection button {
+    padding: 15px 30px;
+    font-size: 1.2em;
+    cursor: pointer;
+    background-color: orange;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+#rightSection button:hover {
+    background-color: #218188;
+}
+
+#imageProto {
+    width: 100%;
+    height: 800px;
+    background-color: red;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#registerSection {
+    height: 100%;
+    width: 30%;
+    background-color: aquamarine;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+footer {
+    width: 100%;
+    height: 400px;
+    background-color: black;
+}
