@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    background-color: black;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    z-index: 100;
+}
+
+#leftSection {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    align-items: center; 
+    justify-content: space-between;
+}
+
+#leftSection h1 {
+    font-size: 2em;
+    font-weight: bold;
+    color: orange;
+}
+
+#leftSection .links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#leftSection a {
+    font-size: 1.2em;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    margin-right: 15px;
+}
+
+#leftSection a:hover {
+    text-decoration: underline;
+}
+
+#rightSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#rightSection button {
+    padding: 15px 30px;
+    font-size: 1.2em;
+    cursor: pointer;
+    background-color: orange;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+#rightSection button:hover {
+    background-color: rgb(179, 119, 9);
+}
+
+#imageProto {
+    width: 100%;
+    height: 800px;
+    background-color: gray;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#registerSection {
+    height: 100%;
+    width: 30%;
+    background-color: lightgray;
+    padding: 30px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+footer {
+    width: 100%;
+    height: 400px;
+    background-color: black;
+}
+
+h2 {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
