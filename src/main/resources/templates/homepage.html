@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RunTracker</title>
     <link rel="stylesheet" href="/css/homepage.css">
+    <title>RunTracker</title>
 </head>
 <body>
     <header>
@@ -19,7 +19,9 @@
             </div>
         </div>
         <div id="rightSection">
-            <button>Login</button>
+            <a href="/login">
+                <button>Login</button>
+            </a>
         </div>
     </header>
 
@@ -33,17 +35,17 @@
 
                 <h2>Sign Up</h2>
                 <!-- method POST -->
-                <form action="">
+                <form action="login" method="post">
                     <label for="">Email</label>
-                    <input type="email" placeholder="masukan email">
+                    <input type="email" name="email" placeholder="Masukan email">
                     <label for="">Password</label>
-                    <input type="password" name="password" placeholder="masukan password">
+                    <input type="password" name="password" placeholder="Masukan password">
                     <label for="">Confirm password</label>
-                    <input type="password" name="password" placeholder="masukan password">
-                    <button type="submit">Sign Up</button>
+                    <input type="password" name="password" placeholder="Masukan password">
+                    <button type="submit" value="signup">Sign Up</button>
                 </form>
 
-                <div>By signing up for RunTracker, you agree to the <a href="">Terms of Service</a>. View our <a href="">Privacy Policy</a>.</div>
+                <div id="footerMain">By signing up for RunTracker, you agree to the <a href="">Terms of Service</a>. View our <a href="">Privacy Policy</a>.</div>
             </div>
         </div>
     </main>
