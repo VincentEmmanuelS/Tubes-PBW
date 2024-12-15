@@ -8,73 +8,9 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-header {
-    position: sticky;
-    top: 0;
-    background-color: black;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    z-index: 100;
-}
-
-#leftSection {
-    display: flex;
-    flex-direction: row;
-    gap: 30px;
-    align-items: center; 
-    justify-content: space-between;
-}
-
-#leftSection h1 {
-    font-size: 2em;
-    font-weight: bold;
-    color: orange;
-}
-
-#leftSection .links {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-#leftSection a {
-    font-size: 1.2em;
-    color: white;
-    text-decoration: none;
-    cursor: pointer;
-    margin-right: 15px;
-}
-
-#leftSection a:hover {
-    text-decoration: underline;
-}
-
-#rightSection {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#rightSection button {
-    padding: 15px 30px;
-    font-size: 1.2em;
-    cursor: pointer;
-    background-color: orange;
-    color: white;
-    border: none;
-    border-radius: 5px;
-}
-
-#rightSection button:hover {
-    background-color: rgb(179, 119, 9);
-}
-
 #imageProto {
-    width: 100%;
-    height: 800px;
+    width: auto;
+    height: 80vh;
     background-color: gray;
     position: relative;
     display: flex;
@@ -84,7 +20,7 @@ header {
 
 #loginSection {
     height: 80%;
-    width: 20%;
+    width: 25vw;
     background-color: lightgray;
     text-align: center;
     position: relative;
@@ -98,14 +34,18 @@ header {
 
 #loginSection #top {
     background-color: brown;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 #loginSection #mid {
     padding: 30px;
+    padding-bottom: 0px;
 }
 
 #loginSection #bottom {
     padding: 30px;
+    padding-top: 0px;
 }
 
 form {
@@ -146,9 +86,4 @@ footer {
     width: 100%;
     height: 400px;
     background-color: black;
-}
-
-h2 {
-    margin-top: 30px;
-    margin-bottom: 30px;
 }
