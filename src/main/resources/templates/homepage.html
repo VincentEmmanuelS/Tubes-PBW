@@ -11,7 +11,14 @@
         <div id="leftSection">
             <h1>RunTracker</h1>
             <div class="buttons">
-                <a href="">Activities</a>
+                <div class="dropdown">
+                    <a href="">Activities</a>
+                    <ul class="dropdown-list">
+                        <li><h2>Top Sports</h2></li>
+                        <li><a href="#">Running</a></li>
+                        <li><a href="#">Cycling</a></li>
+                    </ul>
+                </div>
                 <a href="">Features</a>
                 <a href="">Maps</a>
                 <a href="">Challenges</a>
@@ -29,11 +36,11 @@
         <div id="imageProto">
             <!-- insert image + styling -->
             <div id="registerSection">
-                <h2>Community-Powered Motivation</h2>
-                <p>Track your progress and cheer each other on. Join over 100 million active people on RunTracker for free.</p>
-                <p>Already a Member? <a href="">Log In</a></p>
-
-                <h2>Sign Up</h2>
+                <h2 id="header_big">Community-Powered Motivation</h2>
+                <p id="text_small">Track your progress and cheer each other on. Join over 100 million active people on RunTracker for free.</p>
+                
+                <h2 id="header_mid">Sign Up</h2>
+                <p id="text_small">Already a Member? <a href="/login">Log In</a></p>
                 <!-- method POST -->
                 <form action="login" method="post">
                     <label for="">Email</label>
