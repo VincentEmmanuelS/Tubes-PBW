@@ -14,7 +14,7 @@ header {
     position: sticky;
     top: 0;
     background-color: black;
-    width: 100%;
+    width: 100vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -79,28 +79,29 @@ header {
 /* body start here */
 
 .BodyContainer{
-    width: 1200px;
+    width: 100%;
     height: 100vh; /* Full height of the viewport */
     overflow: hidden; /* Prevent scrolling of the entire container */
     /* background-color: white; */
-    /* border-style: solid; */
+    
     display: flex;
+    justify-content: center;
+    
+    
 }
 
 .BodyLeftSectionContainer{
-    width: 40%;
+    width: 20%;
     /* height : 1440px; */
-    border-style: solid;
+    /* border-style: solid; */
     justify-items: center;
     overflow: hidden;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
 }
 
-.FeedContainer{
-    width: 60%;
-    /* height : 1440px; */
-    border-style: solid;
-    overflow-y: auto;
-}
+
 
 .ProfileQuickLook{
     width: 90%;
@@ -147,41 +148,146 @@ header {
 .StatisticQuickLook{
     width: 90%;
     height: 500px;
-    border-style: solid;
-    background-color: bisque;
+    /* border-style: solid; */
+    
     margin-top: 30px;
     justify-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
 }
 .statistictype{
-    width: 90%;
-    height: 100px;
-    border-style: solid;
-    background-color: bisque;
+    width: 100%;
+    height: 60px;
+    /* border-style: solid; */
+    
     justify-items: center;
     align-items: center;
     display: flex;
     justify-content: center;
 }
 
+
+
 .statistictype button{
     width: 50%;
     height: 100%;
-    border-style: solid;
-    background-color: bisque;
+    /* border-style: solid; */
+    background-color: #e6e6e6fc;
+    border: none;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.statistictype button:hover{
+    width: 50%;
+    height: 100%;
+    /* border-style: solid; */
+    background-color: white;
+    border: none;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
 }
 
 .statisticbody{
-    width: 90%;
-    height: 300px;
-    border-style: solid;
-    background-color: bisque;
+    width: 100%;
+    height: 100%;
+    /* border-style: solid; */
+    background-color: white;
     justify-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:20px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    box-sizing: border-box;
+
+    
 }
 
+
+
+/* FEED */
+.feed{
+    width: 90%;
+    height: 400px;
+    background-color: white;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+.FeedContainer{
+    
+    width: 700px;
+    /* height : 1440px; */
+    /* border-style: solid; */
+    overflow-y:auto;
+    /* display: flex; */
+    scrollbar-width: thin;    /* Optional: Adjust scrollbar width */
+    scrollbar-color: transparent transparent;
+    align-items: center;
+    flex-direction: column;
+    /* justify-content: center; */
+    justify-self: center;
+    flex-basis: auto;
+    flex-shrink: 0;
+    flex-grow: 0;
+    
+
+}
+
+.FeedContainersub{
+    width: 100%;
+    
+    
+}
+
+/* GRAPH */
 #statisticgraph{
     
     justify-items: center;
     width: 90%;
     height: 100px;
     border-style: solid;
+    
 }
+#statisticgraph {
+    display: grid;                /* Use grid layout to center content */
+    place-items: center;          /* This centers both horizontally and vertically */
+    width: 90%;
+    height: 100px;
+    border-style: solid;
+    position: relative;           /* Make this container the reference for absolute positioning */
+    text-align: center;           /* Center the text horizontally */
+  }
+  
+  .bar-graph {
+    position: absolute;           /* Position the graph absolutely within the container */
+    top: 0;                        /* Align the graph at the top */
+    left: 0;                       /* Align the graph to the left */
+    display: flex;                 /* Flexbox to arrange bars horizontally */
+    justify-content: space-between; /* Space the bars out evenly */
+    align-items: flex-end;         /* Align bars to the bottom of the container */
+    width: 100%;                   /* Make the graph fill the entire width of the container */
+    height: 100%;                  /* Make the graph fill the entire height of the container */
+  }
+  
+  .bar {
+    width: 40px;
+    background-color: #3498db;
+    border-radius: 5px 5px 0 0;
+  }
+  
+  #statisticgraph p {
+    position: absolute;           /* Position the text absolutely on top of the graph */
+    bottom: 10px;                 /* Move the text up slightly from the bottom */
+    left: 50%;                    /* Center horizontally */
+    transform: translateX(-50%);  /* Ensure it's exactly centered */
+    font-size: 18px;
+    color: #333;
+  }
+  

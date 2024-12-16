@@ -1,0 +1,77 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    background-color: black;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    z-index: 100;
+}
+
+#leftSection {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    align-items: center; 
+    justify-content: space-between;
+}
+
+#leftSection h1 {
+    font-size: 2em;
+    font-weight: bold;
+    color: orange;
+}
+
+#leftSection .links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#leftSection a {
+    font-size: 1.2em;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    margin-right: 15px;
+}
+
+#leftSection a:hover {
+    text-decoration: underline;
+}
+
+#rightSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#rightSection div{
+    
+}
+
+#rightSection button {
+    padding: 15px 30px;
+    font-size: 1.2em;
+    cursor: pointer;
+    background-color: orange;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+#rightSection button:hover {
+    background-color: rgb(179, 119, 9);
+}

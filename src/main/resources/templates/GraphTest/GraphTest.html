@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Bar Graph</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f4f4f9;
+    }
+
+    .graph-container {
+      width: 80%;
+      max-width: 600px;
+      text-align: center;
+    }
+
+    .bar-graph {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end; /* Align bars to the bottom */
+      height: 200px;
+      margin-bottom: 10px;
+    }
+
+    .bar {
+      width: 40px;
+      background-color: #3498db;
+      border-radius: 5px 5px 0 0; /* Rounded top corners */
+      transition: all 0.3s ease;
+    }
+
+    .bar:hover {
+      background-color: #2980b9;
+      transform: scale(1.1);
+    }
+
+    .labels {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+    }
+
+    .label {
+      width: 40px;
+      font-size: 14px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="graph-container">
+    <div class="bar-graph">
+      <div class="bar" style="height: 120px;"></div> <!-- Sunday -->
+      <div class="bar" style="height: 80px;"></div>  <!-- Monday -->
+      <div class="bar" style="height: 150px;"></div> <!-- Tuesday -->
+      <div class="bar" style="height: 100px;"></div> <!-- Wednesday -->
+      <div class="bar" style="height: 60px;"></div>  <!-- Thursday -->
+      <div class="bar" style="height: 200px;"></div> <!-- Friday -->
+      <div class="bar" style="height: 50px;"></div>  <!-- Saturday -->
+    </div>
+
+    <div class="labels">
+      <div class="label">S</div>
+      <div class="label">M</div>
+      <div class="label">T</div>
+      <div class="label">W</div>
+      <div class="label">T</div>
+      <div class="label">F</div>
+      <div class="label">S</div>
+    </div>
+  </div>
+
+</body>
+</html>
