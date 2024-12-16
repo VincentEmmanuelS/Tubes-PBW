@@ -1,0 +1,43 @@
+footer{
+    box-sizing: border-box;
+    width: 100%;
+    height: 550px;
+    background-color: pink;
+    display: flex;
+    flex-direction: row;
+    column-gap: 5rem;
+    justify-content: center;
+}
+#judul{
+    color: orange;
+    font-size: large;
+    width: 40%;
+}
+#footermid{
+    justify-content: space-evenly;
+    display: flex;
+    flex-direction: row;
+    width: 70vw;
+    
+}
+.footerRef{
+    color: white;
+    text-decoration: none;
+}
+footer div{
+    display: flex;
+    flex-direction: column;
+    padding-top: 30px; ;
+    row-gap: 1rem;
+}
+#download div{
+    color: white;
+    display: flex;
+    
+}
+.footerRef:hover{
+    text-decoration: underline;
+}
+#footermid div{
+    width: 20%;
+}

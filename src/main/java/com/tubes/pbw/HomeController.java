@@ -15,4 +15,8 @@ public class HomeController {
     public String LoginPages(){
         return "Signup";
     }
+    @GetMapping("/footer")
+    public String footer(){
+        return "footeronboard";
+    }
 }

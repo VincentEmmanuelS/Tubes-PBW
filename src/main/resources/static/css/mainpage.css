@@ -112,6 +112,9 @@ form {
 form button:hover {
     background-color: gray;
 }
+#judul{
+    color: orange;
+}
 footer{
     box-sizing: border-box;
     width: 100%;
@@ -146,4 +149,11 @@ footer div{
 }
 .footerRef:hover{
     text-decoration: underline;
+}
+button#signup:hover{
+    background-color: gray;
+}
+
+button{
+    width: 100%;
 }
