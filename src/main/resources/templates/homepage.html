@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="/css/homepage.css">
     <link rel="stylesheet" href="/css/text.css">
     <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/footer.css">
     <title>RunTracker</title>
 </head>
 <body>
@@ -41,10 +42,10 @@
                 <h2 id="header_big">Community-Powered Motivation</h2>
                 <p id="text_small">Track your progress and cheer each other on. Join over 100 million active people on RunTracker for free.</p>
                 
-                <h2 id="header_mid">Sign Up</h2>
+                <!-- <h2 id="header_mid">Sign Up</h2> -->
                 <p id="text_small">Already a Member? <a href="/login">Log In</a></p>
                 <!-- method POST -->
-                <form action="login" method="post">
+                <!-- <form action="login" method="post">
                     <label for="">Email</label>
                     <input type="email" name="email" placeholder="Masukan email">
                     <label for="">Password</label>
@@ -52,7 +53,11 @@
                     <label for="">Confirm password</label>
                     <input type="password" name="password" placeholder="Masukan password">
                     <button type="submit" value="signup">Sign Up</button>
-                </form>
+                </form> -->
+
+                <a href="/signup">
+                    <button id="buttonSignUp" type="submit" value="signup">Sign Up</button>
+                </a>
 
                 <div id="footerMain">By signing up for RunTracker, you agree to the <a href="">Terms of Service</a>. View our <a href="">Privacy Policy</a>.</div>
             </div>
@@ -60,7 +65,46 @@
     </main>
 
     <footer>
-        
+        <div id="download">
+            <div>RunTracker</div>
+            <div>RunTracker protect your data read more our <a href="">Privacy Policy</a></div>
+            <div id="imageArea">
+                <a href="https://www.instagram.com" target="_blank">
+                    <img src="images/InstagramWhite.png" alt="Instagram logo">
+                </a>
+                <a href="https://www.youtube.com" target="_blank">
+                    <img src="images/YoutubeWhite.png" alt="Youtube logo">
+                </a>
+            </div>
+        </div>
+        <div id="footermid">
+            <div id="features">
+                <a class="footerRef" href="">Features</a>
+                <a class="footerRef" href="">Subscription</a>
+                <a class="footerRef" href="">Family Plan</a>
+                <a class="footerRef" href="">Student Discount</a>
+                <a class="footerRef" href="">Send a gift</a>
+                <a class="footerRef" href="">About</a>
+                <a class="footerRef" href="">Carrers</a>
+                <a class="footerRef" href="">Press</a>
+            </div>
+            <div id="Routes">
+                <a class="footerRef" href="">Routes</a>
+            </div>
+            <div id="information">
+                <a class="footerRef" href="">What's new</a>
+                <a class="footerRef" href="">Stories</a>
+                <a class="footerRef" href="">Support</a>
+                <a class="footerRef" href="">Bussiness</a>
+                <a class="footerRef" href="">Partner Center</a>
+            </div>
+            <div id="terms">
+                <a class="footerRef" href="">Terms</a>
+                <a class="footerRef" href="">Privacy</a>
+                <a class="footerRef" href="">Do Not Share My<br> Personal information</a>
+                <a class="footerRef" href="">Login</a>
+            </div>
+        </div>
     </footer>
 </body>
 </html>
