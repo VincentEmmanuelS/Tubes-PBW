@@ -5,7 +5,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class ManualEntryController {    
-    @GetMapping("/")
+    
+    @GetMapping("/manualentry")
     public String halamanManualEntry(){
         return "/ManualEntry/ManualEntry";
     }
