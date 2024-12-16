@@ -1,0 +1,187 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    justify-items: center;
+    background-color:#e6e6e6fc;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    background-color: black;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    z-index: 100;
+}
+
+#leftSection {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    align-items: center; 
+    justify-content: space-between;
+}
+
+#leftSection h1 {
+    font-size: 2em;
+    font-weight: bold;
+    color: orange;
+}
+
+#leftSection .links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#leftSection a {
+    font-size: 1.2em;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    margin-right: 15px;
+}
+
+#leftSection a:hover {
+    text-decoration: underline;
+}
+
+#rightSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#rightSection a {
+    font-size: 1.2em;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    margin-right: 15px;
+}
+
+#rightSection a:hover {
+    text-decoration: underline;
+}
+
+
+
+
+
+/* body start here */
+
+.BodyContainer{
+    width: 1200px;
+    height: 100vh; /* Full height of the viewport */
+    overflow: hidden; /* Prevent scrolling of the entire container */
+    /* background-color: white; */
+    /* border-style: solid; */
+    display: flex;
+}
+
+.BodyLeftSectionContainer{
+    width: 40%;
+    /* height : 1440px; */
+    border-style: solid;
+    justify-items: center;
+    overflow: hidden;
+}
+
+.FeedContainer{
+    width: 60%;
+    /* height : 1440px; */
+    border-style: solid;
+    overflow-y: auto;
+}
+
+.ProfileQuickLook{
+    width: 90%;
+    height: 300px;
+    /* border-style: solid; */
+    background-color: white;
+    margin-top: 30px;
+    justify-items: center;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+}
+
+.ProfileQuickLook > p{
+    margin-top: 10px;
+    font-size: 30px;
+    
+}
+
+.ProfileQuickLook > legend{
+    margin-top: 10px;
+    
+}
+
+.ProfileQuickLook > p:nth-of-type(2){
+    margin-top: 3px;
+    font-size: 25px;
+}
+.circle {
+    
+    width: 100px; /* Set the width of the circle */
+    height: 100px; /* Set the height of the circle */
+    background-color: #ffa600; /* Background color of the circle */
+    border-radius: 50%; /* Make the div round */
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    color: white; /* Text color */
+    font-family: Arial, sans-serif; /* Font style */
+}
+.StatisticQuickLook{
+    width: 90%;
+    height: 500px;
+    border-style: solid;
+    background-color: bisque;
+    margin-top: 30px;
+    justify-items: center;
+}
+.statistictype{
+    width: 90%;
+    height: 100px;
+    border-style: solid;
+    background-color: bisque;
+    justify-items: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.statistictype button{
+    width: 50%;
+    height: 100%;
+    border-style: solid;
+    background-color: bisque;
+}
+
+.statisticbody{
+    width: 90%;
+    height: 300px;
+    border-style: solid;
+    background-color: bisque;
+    justify-items: center;
+}
+
+#statisticgraph{
+    
+    justify-items: center;
+    width: 90%;
+    height: 100px;
+    border-style: solid;
+}
