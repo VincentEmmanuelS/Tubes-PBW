@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="/css/homepage.css">
     <link rel="stylesheet" href="/css/text.css">
     <link rel="stylesheet" href="/css/header.css">
     <link rel="stylesheet" href="/css/footer.css">
-    <title>RunTracker | Log In</title>
+    <title>RunTracker</title>
 </head>
 <body>
     <header>
@@ -29,8 +29,8 @@
             </div>
         </div>
         <div id="rightSection">
-            <a href="/signup">
-                <button>Join For Free</button>
+            <a href="/login">
+                <button>Login</button>
             </a>
         </div>
     </header>
@@ -38,34 +38,28 @@
     <main>
         <div id="imageProto">
             <!-- insert image + styling -->
-            <div id="loginSection">
-                <div id="top">
-                    <h2 id="header_big">Log In</h2>
-                </div>
+            <div id="registerSection">
+                <h2 id="header_big">Community-Powered Motivation</h2>
+                <p id="text_small">Track your progress and cheer each other on. Join over 100 million active people on RunTracker for free.</p>
+                
+                <!-- <h2 id="header_mid">Sign Up</h2> -->
+                <p id="text_small">Already a Member? <a href="/login">Log In</a></p>
+                <!-- method POST -->
+                <!-- <form action="login" method="post">
+                    <label for="">Email</label>
+                    <input type="email" name="email" placeholder="Masukan email">
+                    <label for="">Password</label>
+                    <input type="password" name="password" placeholder="Masukan password">
+                    <label for="">Confirm password</label>
+                    <input type="password" name="password" placeholder="Masukan password">
+                    <button type="submit" value="signup">Sign Up</button>
+                </form> -->
 
-                <div id="mid">
-                    <!-- method POST -->
-                    <form action="login" method="post">
-                        <label for="">Email</label>
-                        <input type="email" name="email" placeholder="Masukan email">
-                        <!-- <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div> -->
+                <a href="/signup">
+                    <button id="buttonSignUp" type="submit" value="signup">Sign Up</button>
+                </a>
 
-                        <label for="">Password</label>
-                        <input type="password" name="password" placeholder="Masukan password">
-                        <!-- <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div> -->
-
-                        <button type="submit">Log In</button>
-                    </form>
-                </div>
-
-                <div id="bottom">
-                    <div id="footerMain">
-                        <a href="">Forgot Password?</a>  
-                    </div>
-                    <div id="footerMain">
-                        <a href="/signup">Create a New Account</a>
-                    </div>
-                </div>
+                <div id="footerMain">By signing up for RunTracker, you agree to the <a href="">Terms of Service</a>. View our <a href="">Privacy Policy</a>.</div>
             </div>
         </div>
     </main>
