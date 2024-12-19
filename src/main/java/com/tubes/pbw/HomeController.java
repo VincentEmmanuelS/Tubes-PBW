@@ -19,4 +19,9 @@ public class HomeController {
     public String footer(){
         return "footeronboard";
     }
+
+    @GetMapping("/profile")
+    public String profile(){
+        return "profile";
+    }
 }
