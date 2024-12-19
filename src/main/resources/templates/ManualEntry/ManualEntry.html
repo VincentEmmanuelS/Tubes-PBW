@@ -18,15 +18,17 @@
             </div>
            
         </form>
-        <form class="MainEntry">
+        <form class="MainEntry" th:object="${manualEntry}">
             <p id="Judul">Manual Entry</p>
             <div class="Distance">
                 <legend>Distance</legend>
                 
-                <input type="number" min="0.01" max="99999" name="activity[distance]" id="activity_distance" >
-                <select class="MetricDistance">
+                <input type="number" step=".01" min="0" max="99999" name="activity[distance]" id="activity_distance" th:field="*{distance}" >
+                <span th:if="${#fields.hasErrors('distance')}" th:errors="*{distance}">Distance Error</span>   
+                
+                <select class="MetricDistance" name="matricDistance" th:field="*{matricDistance}">
                     <option value="km" >Kilometer</option>
-                    <option value="km">Meter</option>
+                    <option value="m">Meter</option>
                 </select>
                 
             </div>
@@ -34,9 +36,9 @@
             <div class="Duration">
                 <legend>Duration</legend>
                 <div class="DurationInputContainer">
-                    <div class="InputField">
+                    <!-- <div class="InputField">
                     <label for="activity_elapsed_time_hours"><abbr title="hours">hr</abbr>
-                    </label><input type="number" value="01" placeholder="1" name="activity[elapsed_time_hours]" id="activity_elapsed_time_hours" >
+                    </label><input type="number" value="01" placeholder="1" name="activity[elapsed_time_hours]" id="activity_elapsed_time_hours" th:field="">
                     </div>
                     <div class="InputField">
                     <label for="activity_elapsed_time_minutes"><abbr title="minutes">min</abbr>
@@ -46,14 +48,18 @@
                     <label for="activity_elapsed_time_seconds"><abbr title="seconds">s</abbr>
                     </label><input type="number" value="00" placeholder="00" name="activity[elapsed_time_seconds]" id="activity_elapsed_time_seconds">
                     </div>
-                    </div>
+                    </div> -->
+                    <input type="time" name="duration" step="2" th:field="*{duration}">
+                    <span th:if="${#fields.hasErrors('duration')}" th:errors="*{duration}">Duration Error</span>
             </div>
 
             <div class="Elevation">
                 <legend>Elevation</legend>
                 
-                <input type="number" min="0.01" max="99999" name="elevation[height]" id="elevation_height" >
-                <select class="MetricElevation">
+                <input type="number" min="0.01" max="99999" name="elevation[height]" id="elevation_height" th:field="*{elevation}">
+                <span th:if="${#fields.hasErrors('elevation')}" th:errors="*{elevation}">Elevation Error</span>
+
+                <select class="MetricElevation" th:field="*{matric_elevation}">
                     <option value="m" >
                     Meter
                     </option>
@@ -68,7 +74,7 @@
 
             <div class="RideType">
                 <legend>Sport</legend>
-                <select class="RideTypeSelection">
+                <select class="RideTypeSelection" th:field="*{rideType}">
                     <option value="Bike" >Bike</option>
                     <option value="Run">Run</option>
                 </select>
@@ -76,8 +82,8 @@
 
             <div class="DateAndTime">
                 <legend>Date & Time</legend>
-                <input type="date" id="dateinput">
-                <input type="time" id="timeinput">
+                <input type="datetime-local" id="dateinput" th:field="*{date}">
+                <span th:if="${#fields.hasErrors('date')}" th:errors="*{date}">Duration Error</span>
             </div>
 
             <div class="ActivityTitle">
@@ -85,9 +91,10 @@
                 <input type="text" name="activity[name]" id="activity_name" required="required" aria-required="true">
                 
             </div>
+
             <div class="Description">
                 <legend>Description</legend>
-                <textarea id="DescriptionTextArea"></textarea>
+                <textarea id="DescriptionTextArea" name="Description"></textarea>
                 
             </div>
 
@@ -95,7 +102,7 @@
 
             <div class="fileUpload">
                 <legend>UploadImage</legend>
-                <input type="file" id="myFile" name="filename">
+                <input type="file" id="myFile" name="filename" th:field="*{foto}">
             </div>
 
             <hr class="GarisPemisah">
@@ -103,5 +110,40 @@
             <button type="submit">SUBMITTT!!!</button>
         </form>
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Distance Conversion
+            const distanceInput = document.getElementById("activity_distance");
+            const metricDistanceSelect = document.querySelector(".MetricDistance");
+    
+            metricDistanceSelect.addEventListener("change", function () {
+                const currentValue = parseFloat(distanceInput.value) || 0;
+                const selectedMetric = metricDistanceSelect.value;
+    
+                if (selectedMetric === "km") {
+                    distanceInput.value = (currentValue / 1000).toFixed(2);
+                } else if (selectedMetric === "m") {
+                    distanceInput.value = (currentValue * 1000).toFixed(0);
+                }
+            });
+    
+            // Elevation Conversion
+            const elevationInput = document.getElementById("elevation_height");
+            const metricElevationSelect = document.querySelector(".MetricElevation");
+    
+            metricElevationSelect.addEventListener("change", function () {
+                const currentValue = parseFloat(elevationInput.value) || 0;
+                const selectedMetric = metricElevationSelect.value;
+    
+                if (selectedMetric === "m") {
+                    elevationInput.value = (currentValue / 3.281).toFixed(2);
+                } else if (selectedMetric === "ft") {
+                    elevationInput.value = (currentValue * 3.281).toFixed(2);
+                }
+            });
+        });
+    </script>
+    
 </body>
 </html>

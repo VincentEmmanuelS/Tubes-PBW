@@ -13,8 +13,8 @@ public class ManualEntryJDBC implements ManualEntryRepository {
 
     @Override
     public void makeActivity(ManualEntry data) {
-        String sql = "INSERT INTO manualEntryDummy (distance, matric_distance, duration, elevation, matric_elevation, RideType, tanggal, time_activity, deskripsi, email) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        jdbc.update(sql, data.getDistance(),data.getMatricDistance(),data.getDuration(),data.getElevation(),data.getMatric_elevation(),data.getRideType(),data.getDate(),data.getTime(),data.getTitle(), data.getDeskripsi(),data.getFoto(),data.getEmail());
+        String sql = "INSERT INTO manualEntryDummy (distance, matric_distance, duration, elevation, matric_elevation, RideType, tanggal, deskripsi, email) VALUES (?, ?, ?, ?, ?, ?,  ?, ?, ?)";
+        jdbc.update(sql, data.getDistance(),data.getMatricDistance(),data.getDuration(),data.getElevation(),data.getMatric_elevation(),data.getRideType(),data.getDate(),data.getTitle(), data.getDeskripsi(),data.getFoto(),data.getEmail());
     }
 
     @Override
