@@ -18,7 +18,7 @@
             </div>
            
         </form>
-        <form class="MainEntry" th:object="${manualEntry}">
+        <form class="MainEntry" th:object="${manualEntry}" action="/manualentry" method="post" enctype="multipart/form-data">
             <p id="Judul">Manual Entry</p>
             <div class="Distance">
                 <legend>Distance</legend>
@@ -56,7 +56,7 @@
             <div class="Elevation">
                 <legend>Elevation</legend>
                 
-                <input type="number" min="0.01" max="99999" name="elevation[height]" id="elevation_height" th:field="*{elevation}">
+                <input type="number" step=".01" max="99999" name="elevation[height]" id="elevation_height" th:field="*{elevation}">
                 <span th:if="${#fields.hasErrors('elevation')}" th:errors="*{elevation}">Elevation Error</span>
 
                 <select class="MetricElevation" th:field="*{matric_elevation}">
@@ -88,14 +88,14 @@
 
             <div class="ActivityTitle">
                 <legend>Title</legend>
-                <input type="text" name="activity[name]" id="activity_name" required="required" aria-required="true">
-                
+                <input type="text" name="activity[name]" id="activity_name" required="required" aria-required="true" th:field="*{title}">
+                <span th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Error activity</span>
             </div>
 
             <div class="Description">
                 <legend>Description</legend>
-                <textarea id="DescriptionTextArea" name="Description"></textarea>
-                
+                <textarea id="DescriptionTextArea" name="Description" th:field="*{deskripsi}"></textarea>
+                <span th:if="${#fields.hasErrors('deskripsi')}" th:errors="*{deskripsi}">Error activity</span>
             </div>
 
             <hr class="GarisPemisah">

@@ -7,9 +7,11 @@ import org.springframework.web.multipart.MultipartFile;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @AllArgsConstructor
 @Data
+@NoArgsConstructor
 public class ManualEntry {
     private Integer id;
     private Double distance;
@@ -22,6 +24,8 @@ public class ManualEntry {
     private String title;
     private String deskripsi;
     private String email;
+    //bisa null 
     private String namafoto;
+    //bisa null
     private MultipartFile foto;
 }
