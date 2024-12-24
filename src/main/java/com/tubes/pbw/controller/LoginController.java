@@ -38,16 +38,16 @@ public class LoginController {
     }
 
     @GetMapping("/onboarding")
-    @RequiredRole("*")
+    // @RequiredRole("*")
     public String dashboardPage(HttpSession session, Model model) {
 
-        User user = (User) session.getAttribute("user");
-        if (user == null) {
-            return "redirect:/login";
-        }
+        // User user = (User) session.getAttribute("user");
+        // if (user == null) {
+        //     return "redirect:/login";
+        // }
 
-        model.addAttribute("email", user.getEmail());
-        model.addAttribute("role", user.getRole());
+        // model.addAttribute("email", user.getEmail());
+        // model.addAttribute("role", user.getRole());
         return "onboarding";
 
     }

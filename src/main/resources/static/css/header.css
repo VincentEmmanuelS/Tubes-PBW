@@ -2,8 +2,8 @@
     --primary-color: #FF4F00;    /* Oranye Strava */
     --secondary-color: #F2F2F2;  /* Abu-abu Terang */
     
-    --header-footer-bg: #F2F2F2; /* Abu-abu Terang */
-    --background: #FFFFFF;       /* Putih */
+    --header-footer-bg: #FFFFFF; /* Abu-abu Terang */
+    --background: #F2F2F2;       /* Putih */
     
     --heading: #FF4F00;          /* Oranye Strava */
     --sub-heading: #006D7F;      /* Biru Gelap */
@@ -30,7 +30,8 @@
     --dropdown-border: #F2F2F2;  /* Border abu-abu terang */
     --dropdown-text: #333333;    /* Teks gelap untuk keterbacaan yang tinggi */
     --dropdown-hover-text: #FFFFFF; /* Teks putih saat hover di dropdown */
-    
+    --dropdown-inactive: #C4C4C4; /* Abu-abu Pucat untuk dropdown inactive */
+
     --error-text: #D32F2F;       /* Merah untuk pesan kesalahan */
     --success-text: #388E3C;     /* Hijau untuk pesan sukses */
     --warning-text: #FFA500;     /* Oranye untuk peringatan */
@@ -44,7 +45,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
+    padding: 10px 60px;
     z-index: 100;
 }
 
@@ -110,27 +111,40 @@ header {
     position: absolute;
     top: 100%;
     left: 0;
+
     background-color: var(--dropdown-bg);
     list-style: none;
-    padding: 10px 0;
     margin: 0;
     display: none;  /* Hide */
     z-index: 10;
+
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
-    width: 10vw;
+    white-space: nowrap;
 }
 
 .dropdown-list li {
-    padding: 5px 20px;
+    /* padding: 5px 20px; */
     font-size: small;
     color: var(--text-normal);
 }
 
+.dropdown-list li a {
+    padding: 5px 20px;
+}
+
 .dropdown-list li h2 {
     font-size: medium;
-    margin-top: 0px;
+    padding: 5px 20px;
+    margin-top: 5px;
     margin-bottom: 3px;
+}
+
+.dropdown-list li h3 {
+    font-size: smaller;
+    padding: 5px 20px;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .dropdown-list li a {
@@ -142,6 +156,58 @@ header {
     color: var(--text-normal);
 }
 
+.dropdown-list #subscription * {
+    background-color: var(--dropdown-inactive);
+    width: 100%;
+}
+
+.dropdown-list #subscriptionBottom {
+    background-color: var(--dropdown-inactive);
+    width: 100%;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
 .dropdown:hover .dropdown-list {
     display: block;     /* Show on hover */
+}
+
+/* Dropdown dengan ID 'left' terbuka ke kanan */
+#left .dropdown-list {
+    left: 0;
+    right: auto;
+    transform: translateX(0); /* Default posisi */
+}
+
+/* Dropdown dengan ID 'right' terbuka ke kiri */
+#right .dropdown-list {
+    left: auto;
+    right: 0;
+    transform: translateX(0); /* Default posisi */
+}
+
+/* Styling onboarding */
+.menu-dropdown li a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 20px;
+    font-size: 1em;
+    font-weight: 500;
+    color: var(--text-normal);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+/* Hover efek untuk dropdown khusus */
+.menu-dropdown li a:hover {
+    color: var(--text-hover);        /* Ganti warna teks saat hover */
+    /* background-color: var(--dropdown-hover-bg); Ganti background */
+}
+
+/* Styling untuk ikon di dropdown */
+.menu-dropdown li a img {
+    width: 20px;                /* Lebar ikon */
+    height: 20px;               /* Tinggi ikon */
+    flex-shrink: 0;             /* Pastikan ikon tidak mengecil */
 }

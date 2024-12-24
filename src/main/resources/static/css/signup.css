@@ -12,8 +12,8 @@ body {
     --primary-color: #FF4F00;    /* Oranye Strava */
     --secondary-color: #F2F2F2;  /* Abu-abu Terang */
     
-    --header-footer-bg: #F2F2F2; /* Abu-abu Terang */
-    --background: #FFFFFF;       /* Putih */
+    --header-footer-bg: #FFFFFF; /* Abu-abu Terang */
+    --background: #F2F2F2;       /* Putih */
     
     --heading: #FF4F00;          /* Oranye Strava */
     --sub-heading: #006D7F;      /* Biru Gelap */
@@ -72,6 +72,7 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    height: fit-content;
 }
 
 #signUpSection #top {
@@ -108,25 +109,31 @@ form button:hover {
     background-color: var(--button-hover);
 }
 
+form > div {
+    font-size: x-small;
+    color: var(--error-text);
+}
+
 label {
     align-self: flex-start;
     margin-bottom: 3px;
+    margin-top: 10px;
 }
 
 input {
     background-color: var(--text-box-bg);
-    margin-bottom: 15px;
+    margin-bottom: 3px;
     padding: 7px;
     border: none;
     border-radius: 5px;
 }
 
 form button {
-    margin-top: 5px;
+    margin-top: 15px;
     padding: 7px;
     border: none;
     border-radius: 5px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 #link {
@@ -138,5 +145,5 @@ form button {
 }
 
 #footerMain {
-    margin-top: 10px; 
+    margin-top: 10px;
 }
