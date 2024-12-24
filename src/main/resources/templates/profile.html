@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/css/header.css">
     <link rel="stylesheet" href="/css/footer.css">
     <link rel="stylesheet" href="/css/profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
     <div id="container">
@@ -26,18 +27,135 @@
         </header>
         <main>
             <div id="main-container">
-                <div id="box-profile">
-                    <div id="gambar-profile">
-                        <!-- <img src="images/candy.jpg" alt="">  -->
+                <div id="picture">
+                    <div id="box-profile">
+                        <div id="gambar-profile">
+                        </div>
+                        <h1 id="nama">Nama Akun</h1>
                     </div>
-                    <p id="nama">nama akun</p>
+                    <div id="activities">
+                        <p>This Month Activity</p>
+                    </div>
+                    <div id="calendar-activity">
+                        <p>yg hover kalender</p>
+                    </div>
+                    <div id="right-activity">
+                        <p>stats</p>
+                    </div>
                 </div>
-                <div id="activities">
-                    <p>Total Activities:</p>
+                <div class="container-overview">
+                    <div class="nav-tabs">
+                        <a href="#" class="active">Overview</a>
+                    </div>
+                    <div class="content">
+                        <div id="date-content">
+                            <h2>Activities for Dec 23, 2024 - Dec 29, 2024</h2> <!--ganti pake thymeleaf-->
+                            <button class="date-range">Dec 23, 2024 - Dec 23, 2024</button> <!--ganti pake thymeleaf-->
+                        </div>
+                        <div class="stats">
+                            <table class="track">
+                                <tr>
+                                    <th>0 mi</th>
+                                    <th class="mid">0 h 0 m</th>
+                                    <th>0 ft</th>
+                                </tr>
+                                
+                            </table>
+                        </div>
+                        <div class="chart">
+                            <div class="y-axis"> <!-- buat nandain pasti di ganti-->
+                                <div>5</div>
+                                <div>4</div>
+                                <div>3</div>
+                                <div>2</div>
+                                <div>1</div>
+                                <div>0h</div>
+                            </div>
+                            <p></p>
+                            <!-- graph -->
+                        </div>
+                        <div class="buttons">
+                            <button>Time</button>
+                            <button>Distance</button>
+                            <button>Elev Gain</button>
+                            <!-- <button>Weekly</button> -->
+                        </div>
+                    </div>
                 </div>
-                <div id="calendar">
-                    <input type="date" name="" id="">
+            </div>
+            <div class="container-stats">
+                <div>
+                    <h1>Clubs:</h1>
+                    <p>thymeleaf/data club ganti aja nanti</p>
+                    <br>
                 </div>
+                <h1>My Stats</h1>
+                <div class="tabs">
+                    <button><i class="fas fa-water"></i></button>
+                    <button class="active"><i class="fas fa-bicycle"></i></button>
+                    <button><i class="fas fa-running"></i></button>
+                    <button><i class="fas fa-swimmer"></i></button>
+                </div>
+                <table class="stats-table">
+                    <tr>
+                        <th colspan="2">Last 1 Month</th>
+                    </tr>
+                    <tr>
+                        <td>Activities / Week</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>Avg Distance / Week</td>
+                        <td>0 mi</td>
+                    </tr>
+                    <tr>
+                        <td>Elev Gain / Week</td>
+                        <td>0 ft</td>
+                    </tr>
+                    <tr>
+                        <td>Avg Time / Week</td>
+                        <td>0h 0m</td>
+                    </tr>
+                    <tr>
+                        <th colspan="2"><button class="year">2024 <i class="fas fa-chevron-down"></i></button></th>
+                    </tr>
+                    <tr>
+                        <td>Activities</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>Distance</td>
+                        <td>0 mi</td>
+                    </tr>
+                    <tr>
+                        <td>Elev Gain</td>
+                        <td>0 ft</td>
+                    </tr>
+                    <tr>
+                        <td>Time</td>
+                        <td>0h 0m</td>
+                    </tr>
+                    <tr>
+                        <th colspan="2">All-Time</th>
+                    </tr>
+                    <tr>
+                        <td>Activities</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>Distance</td>
+                        <td>0 mi</td>
+                    </tr>
+                    <tr>
+                        <td>Elev Gain</td>
+                        <td>0 ft</td>
+                    </tr>
+                    <tr>
+                        <td>Time</td>
+                        <td>0h 0m</td>
+                    </tr>
+                </table>
+                <button class="btn-refresh">Refresh Stats</button>
             </div>
         </main>
         <footer>
@@ -58,19 +176,19 @@
                     <a class="footerRef" href="">Privacy Policy</a>
                     <a class="footerRef" href="">Do Not Share My Personal<br> Information</a>
                     <a class="footerRef" href="">Terms and Condition</a>
-                    <a class="footerRef" href="">About Our Maps</a>
+                    <a class="footerRef" href="https://maps.google.com/">About Our Maps</a>
                 </div>
                 <div id="Routes">
                     <h2>Explore</h2>
-                    <a class="footerRef" href="">Routes</a>
+                    <a class="footerRef" href="https://maps.google.com/">Routes</a>
                 </div>
                 <div id="follow">
                     <h2>Follow</h2>
-                    <a class="footerRef" href="">Facebook</a>
-                    <a class="footerRef" href="">Twitter</a>
-                    <a class="footerRef" href="">Instagram</a>
-                    <a class="footerRef" href="">Youtube</a>
-                    <a class="footerRef" href="">LinkedIn</a>
+                    <a class="footerRef" href="https://www.facebook.com/">Facebook</a>
+                    <a class="footerRef" href="https://twitter.com">Twitter</a>
+                    <a class="footerRef" href="https://www.instagram.com/">Instagram</a>
+                    <a class="footerRef" href="https://www.youtube.com/">Youtube</a>
+                    <a class="footerRef" href="https://www.linkedin.com/">LinkedIn</a>
                     <a class="footerRef" href="">Stories</a>
                 </div>
                 <div id="help">
@@ -85,7 +203,7 @@
                     <a class="footerRef" href="">Partner Center</a>
                     <a class="footerRef" href="">Developers</a>
                     <a class="footerRef" href="">Labs</a>
-                    <a class="footerRef" href="">Strava Community<br> Standards</a>
+                    <a class="footerRef" href="">RunTracker Community<br> Standards</a>
                 </div>
             </div>
         </footer>

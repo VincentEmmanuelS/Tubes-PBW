@@ -1,0 +1,124 @@
+<html>
+<head>
+    <title>Activity Overview</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            padding: 20px;
+        }
+        .nav-tabs {
+            display: flex;
+            border-bottom: 1px solid #ddd;
+        }
+        .nav-tabs a {
+            padding: 10px 15px;
+            text-decoration: none;
+            color: black;
+            border: 1px solid transparent;
+            border-bottom: none;
+        }
+        .nav-tabs a.active {
+            border-color: #ddd #ddd white;
+            border-bottom: 2px solid orange;
+            color: orange;
+        }
+        .content {
+            padding: 20px 0;
+        }
+        .date-range {
+            float: right;
+            border: 1px solid #ddd;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        .stats {
+            display: flex;
+            gap: 20px;
+            font-size: 24px;
+            margin: 20px 0;
+        }
+        .chart {
+            margin: 20px 0;
+        }
+        .chart .y-axis {
+            float: left;
+            text-align: right;
+            margin-right: 10px;
+        }
+        .chart .y-axis div {
+            height: 20px;
+        }
+        .chart .graph {
+            border-top: 1px solid #ddd;
+            height: 120px;
+            position: relative;
+        }
+        .chart .graph::after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 1px;
+            background: #ddd;
+            position: absolute;
+            bottom: 0;
+        }
+        .buttons {
+            display: flex;
+            gap: 10px;
+        }
+        .buttons button {
+            border: 1px solid #ddd;
+            padding: 5px 10px;
+            border-radius: 5px;
+            background: #f5f5f5;
+            cursor: pointer;
+        }
+        .buttons button.active {
+            background: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav-tabs">
+            <a href="#" class="active">Overview</a>
+            <a href="#">Trophy Case</a>
+            <a href="#">Following</a>
+            <a href="#">KOMs / CRs / Top 10s</a>
+            <a href="#">Local Legends</a>
+            <a href="#">Posts</a>
+        </div>
+        <div class="content">
+            <div class="date-range">Dec 23, 2024 - Dec 23, 2024</div>
+            <h2>Activities for Dec 23, 2024 - Dec 29, 2024</h2>
+            <div class="stats">
+                <div>0 mi</div>
+                <div>0h 0m</div>
+                <div>0 ft</div>
+            </div>
+            <div class="chart">
+                <div class="y-axis">
+                    <div>5</div>
+                    <div>4</div>
+                    <div>3</div>
+                    <div>2</div>
+                    <div>1</div>
+                    <div>0h</div>
+                </div>
+                <div class="graph"></div>
+            </div>
+            <div class="buttons">
+                <button class="active">Time</button>
+                <button>Distance</button>
+                <button>Elev Gain</button>
+                <button>Weekly</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
