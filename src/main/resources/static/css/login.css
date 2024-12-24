@@ -8,10 +8,14 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-#imageProto {
+main {
     width: 100%;
     height: 80vh;
-    background-color: gray;
+    /* background-color: gray; */
+    background-image: url('/images/Jogging.jpg'); /* https://greencity.com.pa/wp-content/uploads/2017/10/maxresdefault.jpg */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     position: relative;
     display: flex;
     align-items: center;
@@ -21,21 +25,24 @@ body {
 #loginSection {
     height: auto;
     width: 25vw;
-    background-color: lightgray;
+    background-color: rgba(255, 255, 255, 0.7);  /* putih, opacity 70% */
     text-align: center;
     position: relative;
+    border-radius: 15px;
     z-index: 1;
 
-    opacity: 80%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
 #loginSection #top {
-    background-color: brown;
+    background-color: rgba(255, 79, 0, 0.8);    /* Oranye Strava, opacity 80% */
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
     padding-top: 20px;
     padding-bottom: 20px;
+    color: var(--button-text);
 }
 
 #loginSection #mid {
@@ -54,8 +61,13 @@ form {
     /* align-items: start; */
 }
 
+form button {
+    background-color: var(--button-active);
+    color: var(--button-text);
+}
+
 form button:hover {
-    background-color: gray;
+    background-color: var(--button-hover);
 }
 
 label {
@@ -64,6 +76,7 @@ label {
 }
 
 input {
+    background-color: var(--text-box-bg);
     margin-bottom: 15px;
     padding: 7px;
     border: none;
@@ -76,6 +89,14 @@ form button {
     border: none;
     border-radius: 5px;
     margin-bottom: 20px;
+}
+
+#link {
+    color: var(--link-text);
+}
+
+#link:hover {
+    color: var(--link-hover);
 }
 
 footer {

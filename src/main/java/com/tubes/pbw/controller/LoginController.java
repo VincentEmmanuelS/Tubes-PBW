@@ -1,5 +1,4 @@
-package com.tubes.pbw;
-
+package com.tubes.pbw.controller;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,10 +9,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
+import jakarta.servlet.http.HttpSession;
+
 import com.tubes.pbw.user.User;
 import com.tubes.pbw.user.UserService;
-
-import jakarta.servlet.http.HttpSession;
+import com.tubes.pbw.auth.RequiredRole;
 
 @Controller
 @EnableAspectJAutoProxy

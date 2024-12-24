@@ -1,4 +1,4 @@
-package com.tubes.pbw;
+package com.tubes.pbw.auth;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

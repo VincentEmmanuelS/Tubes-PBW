@@ -1,8 +1,46 @@
+:root {
+    --primary-color: #FF4F00;    /* Oranye Strava */
+    --secondary-color: #F2F2F2;  /* Abu-abu Terang */
+    
+    --header-footer-bg: #F2F2F2; /* Abu-abu Terang */
+    --background: #FFFFFF;       /* Putih */
+    
+    --heading: #FF4F00;          /* Oranye Strava */
+    --sub-heading: #006D7F;      /* Biru Gelap */
+    
+    --button-active: #FF4F00;    /* Oranye Strava */
+    --button-inactive: #F2F2F2;  /* Abu-abu Terang */
+    --button-hover: #A23402;     /* Oranye Gelap */
+    --button-text: #FFFFFF;      /* Putih */
+    
+    --text-normal: #333333;      /* Abu-abu Gelap */
+    --text-hover: #FF4F00;       /* Oranye Strava */
+    --sub-text: #808080;         /* Abu-abu Pucat */
+    
+    --text-box-bg: #FFFFFF;      /* Putih */
+    --text-box-border: #FF4F00;  /* Oranye Strava */
+    
+    --highlight-text: #FF4500;   /* Oranye Cerah untuk teks sorotan */
+    --link-text: #006D7F;        /* Biru Gelap untuk teks link */
+    --link-hover: #708090;       /* Abu-abu kebiruan untuk link hover */
+  
+    --dropdown-bg: #F8F8F8;      /* Abu-abu sangat pucat untuk background dropdown */
+    --dropdown-hover-bg: #FF4F00; /* Oranye Strava untuk background saat hover */
+    --dropdown-active-bg: #A23402; /* Oranye Gelap untuk background aktif dropdown */
+    --dropdown-border: #F2F2F2;  /* Border abu-abu terang */
+    --dropdown-text: #333333;    /* Teks gelap untuk keterbacaan yang tinggi */
+    --dropdown-hover-text: #FFFFFF; /* Teks putih saat hover di dropdown */
+    
+    --error-text: #D32F2F;       /* Merah untuk pesan kesalahan */
+    --success-text: #388E3C;     /* Hijau untuk pesan sukses */
+    --warning-text: #FFA500;     /* Oranye untuk peringatan */
+}
+
 footer{
     box-sizing: border-box;
     width: 100%;
     height: 550px;
-    background-color: black;
+    background-color: var(--header-footer-bg);
     display: flex;
     flex-direction: row;
     column-gap: 5rem;
@@ -18,8 +56,12 @@ footer{
 }
 
 .footerRef{
-    color: white;
+    color: var(--text-normal);
     text-decoration: none;
+}
+
+.footerRef:hover{
+    text-decoration: underline;
 }
 
 footer div{
@@ -30,13 +72,9 @@ footer div{
 }
 
 #download div{
-    color: white;
+    color: var(--text-normal);
     display: flex;
     
-}
-
-.footerRef:hover{
-    text-decoration: underline;
 }
 
 img {
@@ -50,4 +88,8 @@ img {
     flex-direction: row;
     gap: 15px;
     align-items: center;
+}
+
+#imageArea img {
+    filter: invert(1) grayscale(100%);
 }

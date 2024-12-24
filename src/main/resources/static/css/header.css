@@ -1,7 +1,45 @@
+:root {
+    --primary-color: #FF4F00;    /* Oranye Strava */
+    --secondary-color: #F2F2F2;  /* Abu-abu Terang */
+    
+    --header-footer-bg: #F2F2F2; /* Abu-abu Terang */
+    --background: #FFFFFF;       /* Putih */
+    
+    --heading: #FF4F00;          /* Oranye Strava */
+    --sub-heading: #006D7F;      /* Biru Gelap */
+    
+    --button-active: #FF4F00;    /* Oranye Strava */
+    --button-inactive: #F2F2F2;  /* Abu-abu Terang */
+    --button-hover: #A23402;     /* Oranye Gelap */
+    --button-text: #FFFFFF;      /* Putih */
+    
+    --text-normal: #333333;      /* Abu-abu Gelap */
+    --text-hover: #FF4F00;       /* Oranye Strava */
+    --sub-text: #808080;         /* Abu-abu Pucat */
+    
+    --text-box-bg: #FFFFFF;      /* Putih */
+    --text-box-border: #FF4F00;  /* Oranye Strava */
+    
+    --highlight-text: #FF4500;   /* Oranye Cerah untuk teks sorotan */
+    --link-text: #006D7F;        /* Biru Gelap untuk teks link */
+    --link-hover: #708090;       /* Abu-abu kebiruan untuk link hover */
+  
+    --dropdown-bg: #F8F8F8;      /* Abu-abu sangat pucat untuk background dropdown */
+    --dropdown-hover-bg: #FF4F00; /* Oranye Strava untuk background saat hover */
+    --dropdown-active-bg: #A23402; /* Oranye Gelap untuk background aktif dropdown */
+    --dropdown-border: #F2F2F2;  /* Border abu-abu terang */
+    --dropdown-text: #333333;    /* Teks gelap untuk keterbacaan yang tinggi */
+    --dropdown-hover-text: #FFFFFF; /* Teks putih saat hover di dropdown */
+    
+    --error-text: #D32F2F;       /* Merah untuk pesan kesalahan */
+    --success-text: #388E3C;     /* Hijau untuk pesan sukses */
+    --warning-text: #FFA500;     /* Oranye untuk peringatan */
+}
+
 header {
     position: sticky;
     top: 0;
-    background-color: black;
+    background-color: var(--header-footer-bg);
 
     display: flex;
     justify-content: space-between;
@@ -21,7 +59,7 @@ header {
 #leftSection h1 {
     font-size: 2em;
     font-weight: bold;
-    color: orange;
+    color: var(--heading);
 }
 
 #leftSection .links {
@@ -32,7 +70,7 @@ header {
 
 #leftSection a {
     font-size: 1.2em;
-    color: white;
+    color: var(--text-normal);
     text-decoration: none;
     cursor: pointer;
     margin-right: 15px;
@@ -40,6 +78,7 @@ header {
 
 #leftSection a:hover {
     text-decoration: underline;
+    color: var(--text-hover);
 }
 
 #rightSection {
@@ -52,14 +91,14 @@ header {
     padding: 15px 30px;
     font-size: 1.2em;
     cursor: pointer;
-    background-color: orange;
-    color: white;
+    background-color: var(--button-active);
+    color: var(--button-text);
     border: none;
     border-radius: 5px;
 }
 
 #rightSection button:hover {
-    background-color: rgb(179, 119, 9);
+    background-color: var(--button-hover);
 }
 
 .dropdown {
@@ -71,7 +110,7 @@ header {
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: black;
+    background-color: var(--dropdown-bg);
     list-style: none;
     padding: 10px 0;
     margin: 0;
@@ -85,7 +124,7 @@ header {
 .dropdown-list li {
     padding: 5px 20px;
     font-size: small;
-    color: white;
+    color: var(--text-normal);
 }
 
 .dropdown-list li h2 {
@@ -100,7 +139,7 @@ header {
 }
 
 .dropdown-list li a:hover {
-    color: black;
+    color: var(--text-normal);
 }
 
 .dropdown:hover .dropdown-list {

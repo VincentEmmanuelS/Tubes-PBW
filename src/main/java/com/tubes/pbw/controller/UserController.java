@@ -1,4 +1,4 @@
-package com.tubes.pbw.user;
+package com.tubes.pbw.controller;
 
 import java.util.Optional;
 
@@ -9,9 +9,12 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-// import jakarta.validation.Valid;
 
+// import jakarta.validation.Valid;
 import jakarta.servlet.http.HttpSession;
+
+import com.tubes.pbw.user.UserService;
+import com.tubes.pbw.user.User;
 
 @Controller
 public class UserController {

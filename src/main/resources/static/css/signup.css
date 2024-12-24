@@ -8,42 +8,87 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-#imageProto {
+:root {
+    --primary-color: #FF4F00;    /* Oranye Strava */
+    --secondary-color: #F2F2F2;  /* Abu-abu Terang */
+    
+    --header-footer-bg: #F2F2F2; /* Abu-abu Terang */
+    --background: #FFFFFF;       /* Putih */
+    
+    --heading: #FF4F00;          /* Oranye Strava */
+    --sub-heading: #006D7F;      /* Biru Gelap */
+    
+    --button-active: #FF4F00;    /* Oranye Strava */
+    --button-inactive: #F2F2F2;  /* Abu-abu Terang */
+    --button-hover: #A23402;     /* Oranye Gelap */
+    --button-text: #FFFFFF;      /* Putih */
+    
+    --text-normal: #333333;      /* Abu-abu Gelap */
+    --text-hover: #FF4F00;       /* Oranye Strava */
+    --sub-text: #808080;         /* Abu-abu Pucat */
+    
+    --text-box-bg: #FFFFFF;      /* Putih */
+    --text-box-border: #FF4F00;  /* Oranye Strava */
+    
+    --highlight-text: #FF4500;   /* Oranye Cerah untuk teks sorotan */
+    --link-text: #006D7F;        /* Biru Gelap untuk teks link */
+    --link-hover: #708090;       /* Abu-abu kebiruan untuk link hover */
+  
+    --dropdown-bg: #F8F8F8;         /* Abu-abu sangat pucat untuk background dropdown */
+    --dropdown-hover-bg: #FF4F00;   /* Oranye Strava untuk background saat hover */
+    --dropdown-active-bg: #A23402;  /* Oranye Gelap untuk background aktif dropdown */
+    --dropdown-border: #F2F2F2;     /* Border abu-abu terang */
+    --dropdown-text: #333333;       /* Teks gelap untuk keterbacaan yang tinggi */
+    --dropdown-hover-text: #FFFFFF; /* Teks putih saat hover di dropdown */
+    
+    --error-text: #D32F2F;       /* Merah untuk pesan kesalahan */
+    --success-text: #388E3C;     /* Hijau untuk pesan sukses */
+    --warning-text: #FFA500;     /* Oranye untuk peringatan */
+}
+
+main {
     width: auto;
     height: 80vh;
-    background-color: gray;
+    /* background-color: gray; */
+    background-image: url('/images/Running.jpg'); /* https://hips.hearstapps.com/hmg-prod/images/man-running-in-rural-landscape-at-sunset-royalty-free-image-1589511453.jpg?crop=1.00xw:0.752xh;0,0.202xh&resize=1200:* */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-#loginSection {
+#signUpSection {
     height: 80%;
     width: 25vw;
-    background-color: lightgray;
+    background-color: rgba(255, 255, 255, 0.7);  /* putih, opacity 70% */
     text-align: center;
     position: relative;
+    border-radius: 15px;
     z-index: 1;
 
-    opacity: 80%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-#loginSection #top {
-    background-color: brown;
+#signUpSection #top {
+    background-color: rgba(255, 79, 0, 0.8);    /* Oranye Strava, opacity 80% */
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
     padding-top: 20px;
     padding-bottom: 20px;
+    color: var(--button-text);
 }
 
-#loginSection #mid {
+#signUpSection #mid {
     padding: 30px;
     padding-bottom: 0px;
 }
 
-#loginSection #bottom {
+#signUpSection #bottom {
     padding: 30px;
     padding-top: 0px;
 }
@@ -54,8 +99,13 @@ form {
     /* align-items: start; */
 }
 
+form button {
+    background-color: var(--button-active);
+    color: var(--button-text);
+}
+
 form button:hover {
-    background-color: gray;
+    background-color: var(--button-hover);
 }
 
 label {
@@ -64,6 +114,7 @@ label {
 }
 
 input {
+    background-color: var(--text-box-bg);
     margin-bottom: 15px;
     padding: 7px;
     border: none;
@@ -78,12 +129,14 @@ form button {
     margin-bottom: 20px;
 }
 
-#footerMain {
-    margin-top: 10px; 
+#link {
+    color: var(--link-text);
 }
 
-footer {
-    width: 100%;
-    height: 400px;
-    background-color: black;
+#link:hover {
+    color: var(--link-hover);
+}
+
+#footerMain {
+    margin-top: 10px; 
 }

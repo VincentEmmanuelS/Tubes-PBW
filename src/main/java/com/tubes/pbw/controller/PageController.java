@@ -1,4 +1,4 @@
-// package com.tubes.pbw;
+// package com.tubes.pbw.controller;
 
 // import org.springframework.web.bind.annotation.GetMapping;
 // import org.springframework.stereotype.Controller;

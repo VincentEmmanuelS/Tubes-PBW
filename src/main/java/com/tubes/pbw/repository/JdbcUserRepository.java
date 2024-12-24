@@ -1,4 +1,4 @@
-package com.tubes.pbw.user;
+package com.tubes.pbw.repository;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -8,6 +8,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+
+import com.tubes.pbw.user.User;
 
 @Repository
 public class JdbcUserRepository implements UserRepository {
