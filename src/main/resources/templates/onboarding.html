@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/onboarding.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <title>Onboarding | RunTracker</title>
+</head>
+<body>
+    <header>
+        <div id="leftSection">
+            <h1>RunTracker</h1>
+
+            <!-- Search bar -->
+
+            <div class="buttons">
+                <div class="dropdown id="left"">
+                    <a href="">Dashboard</a>
+                    <ul class="dropdown-list">
+                        <li><a href="#">Activity Feed</a></li>
+                        <li><a href="#">Clubs</a></li>
+                        <li><a href="#">My Segments</a></li>
+                        <li><a href="#">My Routes</a></li>
+                        <li id="subscription"><h3>SUBSCRIPTION</h3></li>
+                        <li id="subscriptionBottom"><a href="#">My Goals</a></li>
+                    </ul>
+                </div>
+                <div class="dropdown" id="left">
+                    <a href="">Training</a>
+                    <ul class="dropdown-list">
+                        <li><a href="#">Training Calendar</a></li>
+                        <li><a href="#">My Activities</a></li>
+                        <li id="subscription"><h3>SUBSCRIPTION</h3></li>
+                        <li id="subscription"><a href="#">Training Log</a></li>
+                        <li id="subscription"><a href="#">Training Plans</a></li>
+                        <li id="subscription"><a href="#">Power Curve</a></li>
+                        <li id="subscriptionBottom" class="bottomSubs"><a href="#">Fitness & Freshness</a></li>
+                    </ul>
+                </div>
+                <a href="">Maps</a>
+                <a href="">Challenges</a>
+            </div>
+        </div>
+        <div id="rightSection">
+            <button>Start Trial</button>
+            <a href="">
+                <img src="images/icons/Notif_Icon.png" alt="Notification Icon">
+            </a>
+            <p id="dropdown">Profile</p>  <!-- ganti ke logo profile -->
+            <div class="dropdown" id="right">
+                <a href="">
+                    <img id="dropdown" src="images/icons/Add_Icon.png" alt="Circle add icon">
+                </a>
+                <ul class="dropdown-list menu-dropdown">
+                    <li><a href="#">
+                        <img src="images/icons/Upload_Icon.png" alt="Upload activity icon"> Upload Activity
+                    </a></li>
+                    <li><a href="#">
+                        <img src="images/icons/ManualEntry_Icon.png" alt="Manual entry icon"> Add Manual Entry
+                    </a></li>
+                    <li><a href="#">
+                        <img src="images/icons/Route_Icon.png" alt="Create route icon"> Create Route
+                    </a></li>
+                    <li><a href="#">
+                        <img src="images/icons/CreatePost_icon.png" alt="Create post icon"> Create post
+                    </a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- main content -->
+    <div class="mainContent">
+        <!-- left sidebar -->
+        <sidebar id="leftSidebar">
+            <div id="profileContainer">
+                <div id="profile">
+                    <img src="images/icons/Profile_Icon.png" alt="Profile icon logo">
+                    <h2>Nama</h2>
+                    <div id="profile-stats">
+                        <div>
+                            <h4>Following</h4>
+                            <p>0</p>
+                        </div>
+                        <div id="separator"></div>
+                        <div>
+                            <h4>Followers</h4>
+                            <p>0</p>
+                        </div>
+                        <div id="separator"></div>
+                        <div>
+                            <h4>Activities</h4>
+                            <p>0</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="footerProfile">
+                    <a href="">
+                        <p><a href="">Add an Activity.</a> Learn how to record or upload an activity on RunTracker.</p>
+                        <img src="images/icons/Arrow_Icon.png" alt="Arrow icon">
+                    </a>
+                </div>
+            </div>
+            <div id="tracker">
+                <div id="buttonContainer">
+                    <button>
+                        <img src="images/icons/Running_Icon.png" alt="Running icon">
+                    </button>
+                    <button>
+                        <img src="images/icons/Bicycle_Icon.png" alt="Bicycle icon">
+                    </button>
+                    <button>
+                        <img src="images/icons/Walking_Icon.png" alt="Walking icon">
+                    </button>
+                </div>
+                <div id="trackerContainer">
+                    <div>
+                        <p></p>
+                    </div>
+                    <div>
+                        <div id="footerTracker">
+                            <h5>THIS WEEK</h5>
+                            <p>0 mi</p>
+                        </div>
+                        <div>
+                            <!-- Graphs -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </sidebar>
+        <maincontent>
+            <card>
+                test
+            </card>
+            <card>
+                test
+            </card>
+            <card>
+                test
+            </card>
+            <card>
+                test
+            </card>
+            <card>
+                test
+            </card>
+            <card>
+                test
+            </card>
+            <card>
+                test
+            </card>
+            <card>
+                test
+            </card>
+        </maincontent>
+        <!-- right sidebar -->
+        <sidebar id="rightSidebar">
+            <div>
+                <img src="images/icons/Flag_Icon.png" alt="Clubs flag icon">
+                <div>
+                    <h3>
+                        Clubs on RunTracker
+                    </h3>
+                    <p>
+                        Why do it alone? Get more out of your RunTracker experience by joining or creating a Club.
+                    </p>
+                    <a href="">
+                        Find or Create a Club on RunTracker
+                    </a>
+                </div>
+            </div>
+            <div>
+                <img src="images/icons/Group_Icon.png" alt="Friends icon">
+                <div>
+                    <h3>
+                        Your Friends on RunTracker
+                    </h3>
+                    <p>
+                        Find and invite friends to see their adventures and share some encouragement.
+                    </p>
+                    <a href="">
+                        Find and Invite Your Friends
+                    </a>
+                </div>
+            </div>
+        </sidebar>
+    </div>
+
+    <footer>
+
+    </footer>
+</body>
+</html>
