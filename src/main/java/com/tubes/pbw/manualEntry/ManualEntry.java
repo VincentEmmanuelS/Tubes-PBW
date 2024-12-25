@@ -3,6 +3,7 @@ package com.tubes.pbw.manualEntry;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.multipart.MultipartFile;
 
 import lombok.AllArgsConstructor;
@@ -20,6 +21,7 @@ public class ManualEntry {
     private Double elevation;
     private String matric_elevation;
     private String rideType;
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private LocalDateTime date;
     private String title;
     private String deskripsi;

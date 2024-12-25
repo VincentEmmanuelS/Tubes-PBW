@@ -49,7 +49,7 @@
                     </label><input type="number" value="00" placeholder="00" name="activity[elapsed_time_seconds]" id="activity_elapsed_time_seconds">
                     </div>
                     </div> -->
-                    <input type="time" name="duration" step="2" th:field="*{duration}">
+                    <input type="time" name="duration"  step="1" th:field="*{duration}">
                     <span th:if="${#fields.hasErrors('duration')}" th:errors="*{duration}">Duration Error</span>
             </div>
 
@@ -103,6 +103,7 @@
             <div class="fileUpload">
                 <legend>UploadImage</legend>
                 <input type="file" id="myFile" name="filename" th:field="*{foto}">
+                <span th:if="${#fields.hasErrors('foto')}" th:errors="*{foto}">Error activity</span>
             </div>
 
             <hr class="GarisPemisah">
