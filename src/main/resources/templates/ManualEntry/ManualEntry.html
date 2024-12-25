@@ -49,7 +49,7 @@
                     </label><input type="number" value="00" placeholder="00" name="activity[elapsed_time_seconds]" id="activity_elapsed_time_seconds">
                     </div>
                     </div> -->
-                    <input type="time" name="duration"  step="1" th:field="*{duration}">
+                    <input type="time" name="duration"  step="1" th:field="*{duration}" required>
                     <span th:if="${#fields.hasErrors('duration')}" th:errors="*{duration}">Duration Error</span>
             </div>
 
@@ -82,13 +82,13 @@
 
             <div class="DateAndTime">
                 <legend>Date & Time</legend>
-                <input type="datetime-local" id="dateinput" th:field="*{date}">
+                <input type="datetime-local" id="dateinput" th:field="*{date}" required>
                 <span th:if="${#fields.hasErrors('date')}" th:errors="*{date}">Duration Error</span>
             </div>
 
             <div class="ActivityTitle">
                 <legend>Title</legend>
-                <input type="text" name="activity[name]" id="activity_name" required="required" aria-required="true" th:field="*{title}">
+                <input type="text" name="activity[name]" id="activity_name"  aria-required="true" th:field="*{title}">
                 <span th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Error activity</span>
             </div>
 

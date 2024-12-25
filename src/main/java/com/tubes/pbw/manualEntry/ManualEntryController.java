@@ -47,13 +47,57 @@ public class ManualEntryController {
             return "/ManualEntry/ManualEntry";
         }
 
+        //distance error handling
+        if(manualEntry.getDistance()==null){
+            bindingResult.rejectValue("distance", "error.distance", "Please enter a value");
+            return "/ManualEntry/ManualEntry";
+        }else if(manualEntry.getDistance()<0){
+            bindingResult.rejectValue("distance", "error.distance", "Please enter a value positive number");
+            return "/ManualEntry/ManualEntry";
+        }else{
+            if(manualEntry.getMatricDistance().equals("km")){
+                if(manualEntry.getDistance()>99999.99){
+                    bindingResult.rejectValue("distance", "error.distance", "Please enter a value less than or equal to 9999.99");
+                    return "/ManualEntry/ManualEntry";
+                }
+            }else{
+                if(manualEntry.getDistance()>9999999.99){
+                    bindingResult.rejectValue("distance", "error.distance", "Please enter a value less than or equal to 999999.99");
+                    return "/ManualEntry/ManualEntry";
+                } 
+            }
+        }
+
+        //elevation error handling
+        if(manualEntry.getElevation()==null){
+            bindingResult.rejectValue("elevation", "error.elevation", "Please enter a value");
+            return "/ManualEntry/ManualEntry";
+        }else if(manualEntry.getElevation()<0 || manualEntry.getElevation()>99999.99 ){
+            bindingResult.rejectValue("elevation", "error.elevation", "Please enter a value positive number and less then or equal to 9999,99");
+            return "/ManualEntry/ManualEntry";
+        }
+
+        //title error handling
+        if(manualEntry.getTitle().isEmpty()){
+            bindingResult.rejectValue("title", "error.title", "Please specify the activity title");
+            return "/ManualEntry/ManualEntry";
+        }
+
+         //get from http sesion
+        manualEntry.setEmail("user1@gmail.com");
+
+        //handling file foto 
         if (!manualEntry.getFoto().isEmpty()) {
             String contentType = manualEntry.getFoto().getContentType();
+            
+            //format file handling
             if (contentType == null || 
                 !(contentType.equals("image/jpeg") || contentType.equals("image/png"))) {
                 bindingResult.rejectValue("foto", "error.foto", "Only JPEG and PNG files are allowed.");
                 return "/ManualEntry/ManualEntry"; // Return to the same form view with an error message
             }
+
+            //save file foto to server
             try{
                 Path uploadfile = Paths.get(UPLOAD_DIR+"/imageActivity/");
                 Files.createDirectories(uploadfile);
@@ -64,6 +108,9 @@ public class ManualEntryController {
 
                 Path destFile = uploadfile.resolve(filename);
 
+                //insert to database
+                jdbc.makeActivity(manualEntry);
+
                 Files.copy(manualEntry.getFoto().getInputStream(), destFile);
 
             }catch(Exception e){
@@ -71,10 +118,14 @@ public class ManualEntryController {
                 return "/ManualEntry/ManualEntry";
             }
             
+        }else{
+             
+            //insert to database
+            jdbc.makeActivity(manualEntry);
         }
-        manualEntry.setEmail("user1@gmail.com");
 
-        jdbc.makeActivity(manualEntry);
+       
+       
         
 
         return "redirect:/result";
