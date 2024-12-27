@@ -1,4 +1,4 @@
-package com.tubes.pbw.manualEntry;
+package com.tubes.pbw.controller;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -10,6 +10,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.tubes.pbw.model.ManualEntry;
+import com.tubes.pbw.repository.ManualEntryRepository;
 
 import jakarta.validation.Valid;
 import org.springframework.validation.BindingResult;
@@ -99,12 +102,12 @@ public class ManualEntryController {
 
             //save file foto to server
             try{
-                Path uploadfile = Paths.get(UPLOAD_DIR+"/imageActivity/");
+                Path uploadfile = Paths.get(UPLOAD_DIR+"/upload/");
                 Files.createDirectories(uploadfile);
 
                 String filename = UUID.randomUUID().toString() + "_" + manualEntry.getFoto().getOriginalFilename();
                 
-                manualEntry.setNamafoto("/imageActivity/"+filename);
+                manualEntry.setNamafoto("/upload/"+filename);
 
                 Path destFile = uploadfile.resolve(filename);
 

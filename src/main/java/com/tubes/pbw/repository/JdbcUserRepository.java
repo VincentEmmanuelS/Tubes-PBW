@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import com.tubes.pbw.user.User;
+import com.tubes.pbw.model.User;
 
 @Repository
 public class JdbcUserRepository implements UserRepository {

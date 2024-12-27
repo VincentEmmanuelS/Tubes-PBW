@@ -1,4 +1,4 @@
-package com.tubes.pbw.manualEntry;
+package com.tubes.pbw.model;
 
 import java.time.LocalDateTime;
 import java.time.LocalTime;

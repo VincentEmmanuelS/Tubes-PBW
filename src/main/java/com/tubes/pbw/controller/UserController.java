@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 // import jakarta.validation.Valid;
 import jakarta.servlet.http.HttpSession;
 
-import com.tubes.pbw.user.UserService;
-import com.tubes.pbw.user.User;
+import com.tubes.pbw.model.User;
+import com.tubes.pbw.service.UserService;
 
 @Controller
 public class UserController {

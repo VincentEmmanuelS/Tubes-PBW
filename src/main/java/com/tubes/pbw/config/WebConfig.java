@@ -12,5 +12,6 @@ public class WebConfig implements WebMvcConfigurer {
     public void addFormatters(FormatterRegistry registry) {
         registry.addConverter(new StringToLocalDateTimeConverter());
         registry.addConverter(new StringToLocalTimeConverter());
+        registry.addFormatter(new LocalDateTimeFormatter());
     }
 }

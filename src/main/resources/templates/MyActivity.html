@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/onboarding.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <title>MyActivity | RunTracker</title>
+
+    <!-- style tambahan sementara buat jpanel saat mau delete data -->
+    <style>
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .modal-buttons {
+            text-align: center;
+        }
+
+        .modal-buttons button {
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div id="leftSection">
+            <h1>RunTracker</h1>
+
+            <!-- Search bar -->
+
+            <div class="buttons">
+                <div class="dropdown id="left"">
+                    <a href="">Dashboard</a>
+                    <ul class="dropdown-list">
+                        <li><a href="#">Activity Feed</a></li>
+                        <li><a href="#">Clubs</a></li>
+                        <li><a href="#">My Segments</a></li>
+                        <li><a href="#">My Routes</a></li>
+                        <li id="subscription"><h3>SUBSCRIPTION</h3></li>
+                        <li id="subscriptionBottom"><a href="#">My Goals</a></li>
+                    </ul>
+                </div>
+                <div class="dropdown" id="left">
+                    <a href="">Training</a>
+                    <ul class="dropdown-list">
+                        <li><a href="#">Training Calendar</a></li>
+                        <li><a href="#">My Activities</a></li>
+                        <li id="subscription"><h3>SUBSCRIPTION</h3></li>
+                        <li id="subscription"><a href="#">Training Log</a></li>
+                        <li id="subscription"><a href="#">Training Plans</a></li>
+                        <li id="subscription"><a href="#">Power Curve</a></li>
+                        <li id="subscriptionBottom" class="bottomSubs"><a href="#">Fitness & Freshness</a></li>
+                    </ul>
+                </div>
+                <a href="">Maps</a>
+                <a href="">Challenges</a>
+            </div>
+        </div>
+        <div id="rightSection">
+            <button>Start Trial</button>
+            <a href="">
+                <img src="images/icons/Notif_Icon.png" alt="Notification Icon">
+            </a>
+            <p id="dropdown">Profile</p>  <!-- ganti ke logo profile -->
+            <div class="dropdown" id="right">
+                <a href="">
+                    <img id="dropdown" src="images/icons/Add_Icon.png" alt="Circle add icon">
+                </a>
+                <ul class="dropdown-list menu-dropdown">
+                    <li><a href="#">
+                        <img src="images/icons/Upload_Icon.png" alt="Upload activity icon"> Upload Activity
+                    </a></li>
+                    <li><a href="/manualentry">
+                        <img src="images/icons/ManualEntry_Icon.png" alt="Manual entry icon"> Add Manual Entry
+                    </a></li>
+                    <li><a href="#">
+                        <img src="images/icons/Route_Icon.png" alt="Create route icon"> Create Route
+                    </a></li>
+                    <li><a href="#">
+                        <img src="images/icons/CreatePost_icon.png" alt="Create post icon"> Create post
+                    </a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Body -->
+    <div class="mainContent">
+        <!-- Judul -->
+         <h1>My Activity</h1>
+
+        <!-- filter -->
+        <div>
+            <fieldset>
+
+                <!--filter by keyWord -->
+                <div>
+                    <h2>Keyword</h2>
+                    <form action="myActivity" method="get">
+                        <div>
+                            <input type="text" name="keyword" th:value="${keyword}" placeholder="Search by title">
+                            <button type="submit">Search</button>
+                        </div>
+                    </form>
+                </div>
+                
+                <!-- filter by RideType -->
+                <div>
+                    <h2>Ride Type</h2>
+                    <form action="">
+                        <select name="" id="">
+                            <option value="Bike">Bike</option>
+                            <option value="Run">Run</option>
+                        </select>
+                    </form>
+                </div>
+            </fieldset>
+          </div>
+          <!-- tabel -->
+          <div >
+            <table>
+                <tr>
+                    <th>RideType</th>
+                    <th>Date</th>
+                    <th>Title</th>
+                    <th>Duration</th>
+                    <th>Distance</th>
+                    <th>Elevation</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <div th:each="row : ${object}">
+                    <tr>
+                        <td th:text="${row.rideType}">rideType</td>
+                        <td th:if="${row.date != null}" th:text="${#temporals.format(row.date, 'EEEE, dd MMMM yyyy, h:mm a')}">Date</td>
+                        <td th:if="${row.date == null}">No Date Available</td>
+                        <td th:text="${row.title}"></td>
+                        <td th:text="${row.duration}"></td>
+                        <td>
+                            <div>
+                                <span th:text="${row.distance}"></span>
+                                <span th:text="${row.matricDistance}"></span>
+                            </div>                
+                        </td>
+                        <td th:text="${row.elevation}+' '+${row.matric_elevation}"></td>
+                        <td><form action="">
+                            <input type="hidden" th:value="${row.id}">
+                            <button type="submit">edit</button>
+                        </form></td>
+                        <td><form action="" class="delete-form">
+                            <input type="hidden" th:value="${row.id}">
+                            <button type="submit" class="delete-btn">Delete</button>
+                        </form></td>
+                    </tr>
+                </div>
+            </table>
+          </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Are you sure you want to delete this activity?</p>
+            <div class="modal-buttons">
+                <button id="confirmDelete">Yes, Delete</button>
+                <button id="cancelDelete">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Get the modal and buttons
+        var modal = document.getElementById("confirmModal");
+        var deleteButtons = document.querySelectorAll(".delete-btn");
+        var closeModal = document.querySelector(".close");
+        var confirmDelete = document.getElementById("confirmDelete");
+        var cancelDelete = document.getElementById("cancelDelete");
+
+        var activityIdToDelete = null;
+
+        // When a delete button is clicked
+       deleteButtons.forEach(function(button) {
+            button.onclick = function(event) {
+                event.preventDefault(); // Prevent form submission
+                // Get the hidden activity ID
+                activityIdToDelete = this.closest('form').querySelector('input[type="hidden"]').value;
+
+                // Show the modal
+                modal.style.display = "block";
+            }
+        });
+
+        // When the user clicks "Yes, Delete"
+        confirmDelete.onclick = function() {
+            // Submit the form to delete the activity
+            var form = document.querySelector('input[type="hidden"][value="'+ activityIdToDelete +'"]').closest('form');
+            form.submit();
+        }
+
+        // When the user clicks "Cancel"
+        cancelDelete.onclick = function() {
+            // Close the modal
+            modal.style.display = "none";
+        }
+
+        // Close the modal when clicking the 'X' button
+        closeModal.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // Close the modal if the user clicks outside of the modal
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+    </script>
+</body>
+</html>

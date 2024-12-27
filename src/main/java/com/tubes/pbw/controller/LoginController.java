@@ -11,9 +11,9 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 import jakarta.servlet.http.HttpSession;
 
-import com.tubes.pbw.user.User;
-import com.tubes.pbw.user.UserService;
 import com.tubes.pbw.auth.RequiredRole;
+import com.tubes.pbw.model.User;
+import com.tubes.pbw.service.UserService;
 
 @Controller
 @EnableAspectJAutoProxy
