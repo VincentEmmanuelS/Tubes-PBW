@@ -27,7 +27,7 @@ public class ManualEntryController {
 
     @GetMapping("/manualentry")
     public String halamanManualEntry(ManualEntry manualEntry){
-        return "ManualEntry";
+        return "manualEntry";
     }
 
     @PostMapping("/manualentry")
@@ -47,26 +47,26 @@ public class ManualEntryController {
         // System.out.println("Foto: " + (manualEntry.getFoto() != null ? manualEntry.getFoto().getOriginalFilename() : "No file uploaded"));
 
         if(bindingResult.hasErrors()){
-            return "ManualEntry";
+            return "manualEntry";
         }
 
         //distance error handling
         if(manualEntry.getDistance()==null){
             bindingResult.rejectValue("distance", "error.distance", "Please enter a value");
-            return "ManualEntry";
+            return "manualEntry";
         }else if(manualEntry.getDistance()<0){
             bindingResult.rejectValue("distance", "error.distance", "Please enter a value positive number");
-            return "ManualEntry";
+            return "manualEntry";
         }else{
             if(manualEntry.getMatricDistance().equals("km")){
                 if(manualEntry.getDistance()>99999.99){
                     bindingResult.rejectValue("distance", "error.distance", "Please enter a value less than or equal to 9999.99");
-                    return "ManualEntry";
+                    return "manualEntry";
                 }
             }else{
                 if(manualEntry.getDistance()>9999999.99){
                     bindingResult.rejectValue("distance", "error.distance", "Please enter a value less than or equal to 999999.99");
-                    return "ManualEntry";
+                    return "manualEntry";
                 } 
             }
         }
@@ -74,16 +74,16 @@ public class ManualEntryController {
         //elevation error handling
         if(manualEntry.getElevation()==null){
             bindingResult.rejectValue("elevation", "error.elevation", "Please enter a value");
-            return "ManualEntry";
+            return "manualEntry";
         }else if(manualEntry.getElevation()<0 || manualEntry.getElevation()>99999.99 ){
             bindingResult.rejectValue("elevation", "error.elevation", "Please enter a value positive number and less then or equal to 9999,99");
-            return "ManualEntry";
+            return "manualEntry";
         }
 
         //title error handling
         if(manualEntry.getTitle().isEmpty()){
             bindingResult.rejectValue("title", "error.title", "Please specify the activity title");
-            return "ManualEntry";
+            return "manualEntry";
         }
 
          //get from http sesion
@@ -97,7 +97,7 @@ public class ManualEntryController {
             if (contentType == null || 
                 !(contentType.equals("image/jpeg") || contentType.equals("image/png"))) {
                 bindingResult.rejectValue("foto", "error.foto", "Only JPEG and PNG files are allowed.");
-                return "ManualEntry"; // Return to the same form view with an error message
+                return "manualEntry"; // Return to the same form view with an error message
             }
 
             //save file foto to server
@@ -118,7 +118,7 @@ public class ManualEntryController {
 
             }catch(Exception e){
                 bindingResult.rejectValue("foto", "error.foto", "Fail to upload file to server");
-                return "ManualEntry";
+                return "manualEntry";
             }
             
         }else{

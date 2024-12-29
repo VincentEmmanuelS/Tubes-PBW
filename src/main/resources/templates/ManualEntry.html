@@ -4,87 +4,139 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/css/ManualEntry.css">
+    <link rel="stylesheet" href="manualEntry.css">
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="footer.css">
 </head>
 <body>
-    <div class="navbar">
-        <h1>Lari Bang?</h1>
-    </div>
-    <div class="MainBody">
-        <form class="sidebar">
+    <header>
+        <div id="leftSection">
+            <h1>RunTracker</h1>
+
+            <!-- Search bar -->
+
+            <div class="buttons">
+                <div class="dropdown id="left"">
+                    <a href="">Dashboard</a>
+                    <ul class="dropdown-list">
+                        <li><a href="#">Activity Feed</a></li>
+                        <li><a href="#">Clubs</a></li>
+                        <li><a href="#">My Segments</a></li>
+                        <li><a href="#">My Routes</a></li>
+                        <li id="subscription"><h3>SUBSCRIPTION</h3></li>
+                        <li id="subscriptionBottom"><a href="#">My Goals</a></li>
+                    </ul>
+                </div>
+                <div class="dropdown" id="left">
+                    <a href="">Training</a>
+                    <ul class="dropdown-list">
+                        <li><a href="#">Training Calendar</a></li>
+                        <li><a href="#">My Activities</a></li>
+                        <li id="subscription"><h3>SUBSCRIPTION</h3></li>
+                        <li id="subscription"><a href="#">Training Log</a></li>
+                        <li id="subscription"><a href="#">Training Plans</a></li>
+                        <li id="subscription"><a href="#">Power Curve</a></li>
+                        <li id="subscriptionBottom" class="bottomSubs"><a href="#">Fitness & Freshness</a></li>
+                    </ul>
+                </div>
+                <a href="">Maps</a>
+                <a href="">Challenges</a>
+            </div>
+        </div>
+        <div id="rightSection">
+            <button>Start Trial</button>
+            <a href="">
+                <img src="images/icons/Notif_Icon.png" alt="Notification Icon">
+            </a>
+            <p id="dropdown">Profile</p>  <!-- ganti ke logo profile -->
+            <div class="dropdown" id="right">
+                <a href="">
+                    <img id="dropdown" src="images/icons/Add_Icon.png" alt="Circle add icon">
+                </a>
+                <ul class="dropdown-list menu-dropdown">
+                    <li><a href="#">
+                        <img src="images/icons/Upload_Icon.png" alt="Upload activity icon"> Upload Activity
+                    </a></li>
+                    <li><a href="#">
+                        <img src="images/icons/ManualEntry_Icon.png" alt="Manual entry icon"> Add Manual Entry
+                    </a></li>
+                    <li><a href="#">
+                        <img src="images/icons/Route_Icon.png" alt="Create route icon"> Create Route
+                    </a></li>
+                    <li><a href="#">
+                        <img src="images/icons/CreatePost_icon.png" alt="Create post icon"> Create post
+                    </a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- <form class="sidebar">
             <div class="sidebarcontainer">
                 <button id="FileButton">File</button>
                 <button id="ManualButton">Manual</button>
             </div>
-           
-        </form>
+        </form> -->
+
         <form class="MainEntry" th:object="${manualEntry}" action="/manualentry" method="post" enctype="multipart/form-data">
-            <p id="Judul">Manual Entry</p>
-            <div class="Distance">
-                <legend>Distance</legend>
-                
-                <input type="number" step=".01" min="0" max="99999" name="activity[distance]" id="activity_distance" th:field="*{distance}" >
-                <span th:if="${#fields.hasErrors('distance')}" th:errors="*{distance}">Distance Error</span>   
-                
-                <select class="MetricDistance" name="matricDistance" th:field="*{matricDistance}">
-                    <option value="km" >Kilometer</option>
-                    <option value="m">Meter</option>
-                </select>
-                
-            </div>
+            <h1>Manual Entry</h1>
 
-            <div class="Duration">
-                <legend>Duration</legend>
-                <div class="DurationInputContainer">
-                    <!-- <div class="InputField">
-                    <label for="activity_elapsed_time_hours"><abbr title="hours">hr</abbr>
-                    </label><input type="number" value="01" placeholder="1" name="activity[elapsed_time_hours]" id="activity_elapsed_time_hours" th:field="">
-                    </div>
-                    <div class="InputField">
-                    <label for="activity_elapsed_time_minutes"><abbr title="minutes">min</abbr>
-                    </label><input type="number" value="00" placeholder="00" aria-required="true" name="activity[elapsed_time_minutes]" id="activity_elapsed_time_minutes">
-                    </div>
-                    <div class="InputField">
-                    <label for="activity_elapsed_time_seconds"><abbr title="seconds">s</abbr>
-                    </label><input type="number" value="00" placeholder="00" name="activity[elapsed_time_seconds]" id="activity_elapsed_time_seconds">
-                    </div>
-                    </div> -->
-                    <input type="time" name="duration"  step="1" th:field="*{duration}" required>
-                    <span th:if="${#fields.hasErrors('duration')}" th:errors="*{duration}">Duration Error</span>
-            </div>
+            <container id="topCont">
+                <div class="EntryContainer">
+                    <legend>Distance</legend>
+                    
+                    <input type="number" step=".01" min="0" max="99999" name="activity[distance]" id="activity_distance" th:field="*{distance}" >
+                    <span th:if="${#fields.hasErrors('distance')}" th:errors="*{distance}">Distance Error</span>   
+                    
+                    <select class="MetricDistance" name="matricDistance" th:field="*{matricDistance}">
+                        <option value="km" >Kilometer</option>
+                        <option value="m">Meter</option>
+                    </select>
+                </div>
 
-            <div class="Elevation">
-                <legend>Elevation</legend>
-                
-                <input type="number" step=".01" max="99999" name="elevation[height]" id="elevation_height" th:field="*{elevation}">
-                <span th:if="${#fields.hasErrors('elevation')}" th:errors="*{elevation}">Elevation Error</span>
+                <div class="EntryContainer">
+                    <legend>Duration</legend>
+                    <div class="DurationInputContainer">
+                        <input id="DurationInput" type="time" name="duration" step="1" th:field="*{duration}" required>
+                        <span th:if="${#fields.hasErrors('duration')}" th:errors="*{duration}">Duration Error</span>
+                    </div>
+                </div>
 
-                <select class="MetricElevation" th:field="*{matric_elevation}">
-                    <option value="m" >
-                    Meter
-                    </option>
-                    <option value="ft">
-                    Feet
-                    </option>
-                </select>
-                
-            </div>
+                <div class="EntryContainer">
+                    <legend>Elevation</legend>
+                    
+                    <input type="number" step=".01" max="99999" name="elevation[height]" id="elevation_height" th:field="*{elevation}">
+                    <span th:if="${#fields.hasErrors('elevation')}" th:errors="*{elevation}">Elevation Error</span>
+
+                    <select class="MetricElevation" th:field="*{matric_elevation}">
+                        <option value="m" >
+                            Meter
+                        </option>
+                        <option value="ft">
+                            Feet
+                        </option>
+                    </select>
+                </div>
+            </container>
 
             <hr class="GarisPemisah">
 
-            <div class="RideType">
-                <legend>Sport</legend>
-                <select class="RideTypeSelection" th:field="*{rideType}">
-                    <option value="Bike" >Bike</option>
-                    <option value="Run">Run</option>
-                </select>
-            </div>
+            <container id="midCont">
+                <div class="EntryContainer">
+                    <legend>Sport</legend>
+                    <select id="RideTypeInput" class="RideTypeSelection" th:field="*{rideType}">
+                        <option value="Bike" >Bike</option>
+                        <option value="Run">Run</option>
+                    </select>
+                </div>
 
-            <div class="DateAndTime">
-                <legend>Date & Time</legend>
-                <input type="datetime-local" id="dateinput" th:field="*{date}" required>
-                <span th:if="${#fields.hasErrors('date')}" th:errors="*{date}">Duration Error</span>
-            </div>
+                <div class="EntryContainer">
+                    <legend>Date & Time</legend>
+                    <input id="TimeInput" type="datetime-local" id="dateinput" th:field="*{date}" required>
+                    <span th:if="${#fields.hasErrors('date')}" th:errors="*{date}">Duration Error</span>
+                </div>
+            </container>
 
             <div class="ActivityTitle">
                 <legend>Title</legend>
@@ -101,16 +153,59 @@
             <hr class="GarisPemisah">
 
             <div class="fileUpload">
-                <legend>UploadImage</legend>
+                <h3>Upload Image</h3>
                 <input type="file" id="myFile" name="filename" th:field="*{foto}">
                 <span th:if="${#fields.hasErrors('foto')}" th:errors="*{foto}">Error activity</span>
             </div>
 
             <hr class="GarisPemisah">
 
-            <button type="submit">SUBMITTT!!!</button>
+            <button type="submit">Create</button>
         </form>
-    </div>
+    </main>
+
+    <footer>
+        <div id="download">
+            <div>RunTracker</div>
+            <div>RunTracker protect your data read more our <a href="">Privacy Policy</a></div>
+            <div id="imageArea">
+                <a href="https://www.instagram.com" target="_blank">
+                    <img src="images/icons/InstagramWhite.png" alt="Instagram logo">
+                </a>
+                <a href="https://www.youtube.com" target="_blank">
+                    <img src="images/icons/YoutubeWhite.png" alt="Youtube logo">
+                </a>
+            </div>
+        </div>
+        <div id="footermid">
+            <div id="features">
+                <a class="footerRef" href="">Features</a>
+                <a class="footerRef" href="">Subscription</a>
+                <a class="footerRef" href="">Family Plan</a>
+                <a class="footerRef" href="">Student Discount</a>
+                <a class="footerRef" href="">Send a gift</a>
+                <a class="footerRef" href="">About</a>
+                <a class="footerRef" href="">Carrers</a>
+                <a class="footerRef" href="">Press</a>
+            </div>
+            <div id="Routes">
+                <a class="footerRef" href="">Routes</a>
+            </div>
+            <div id="information">
+                <a class="footerRef" href="">What's new</a>
+                <a class="footerRef" href="">Stories</a>
+                <a class="footerRef" href="">Support</a>
+                <a class="footerRef" href="">Bussiness</a>
+                <a class="footerRef" href="">Partner Center</a>
+            </div>
+            <div id="terms">
+                <a class="footerRef" href="">Terms</a>
+                <a class="footerRef" href="">Privacy</a>
+                <a class="footerRef" href="">Do Not Share My<br> Personal information</a>
+                <a class="footerRef" href="">Login</a>
+            </div>
+        </div>
+    </footer>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
