@@ -138,7 +138,8 @@
                 </div>
                 
                 <!-- filter by RideType -->
-                <div>
+                <!-------------------- tidak tau bakal dipake atau tidak  -------------------------->
+                <!-- <div>
                     <h2>Ride Type</h2>
                     <form action="">
                         <select name="" id="">
@@ -146,19 +147,44 @@
                             <option value="Run">Run</option>
                         </select>
                     </form>
-                </div>
+                </div> -->
+
             </fieldset>
           </div>
           <!-- tabel -->
           <div >
             <table>
                 <tr>
-                    <th>RideType</th>
-                    <th>Date</th>
-                    <th>Title</th>
-                    <th>Duration</th>
-                    <th>Distance</th>
-                    <th>Elevation</th>
+                    <th>
+                        <a th:href="@{/myActivity(sortBy='rideType', sortOrder=${sortBy == 'rideType' and sortOrder == 'asc' ? 'desc' : 'asc'})}">
+                            RideType
+                        </a>
+                    </th>
+                    <th>
+                        <a th:href="@{/myActivity(sortBy='tanggal_event', sortOrder=${sortBy == 'tanggal_event' and sortOrder == 'asc' ? 'desc' : 'asc'})}">
+                            Date
+                        </a>
+                    </th>
+                    <th>
+                        <a th:href="@{/myActivity(sortBy='title', sortOrder=${sortBy == 'title' and sortOrder == 'asc' ? 'desc' : 'asc'})}">
+                            Title
+                        </a>
+                    </th>
+                    <th>
+                        <a th:href="@{/myActivity(sortBy='duration', sortOrder=${sortBy == 'duration' and sortOrder == 'asc' ? 'desc' : 'asc'})}">
+                            Duration
+                        </a>
+                    </th>
+                    <th>
+                        <a th:href="@{/myActivity(sortBy='distance', sortOrder=${sortBy == 'distance' and sortOrder == 'asc' ? 'desc' : 'asc'})}">
+                            Distance
+                        </a>
+                    </th>
+                    <th>
+                        <a th:href="@{/myActivity(sortBy='elevation', sortOrder=${sortBy == 'elevation' and sortOrder == 'asc' ? 'desc' : 'asc'})}">
+                            Elevation
+                        </a>
+                    </th>
                     <th></th>
                     <th></th>
                 </tr>
@@ -180,8 +206,8 @@
                             <input type="hidden" th:value="${row.id}">
                             <button type="submit">edit</button>
                         </form></td>
-                        <td><form action="" class="delete-form">
-                            <input type="hidden" th:value="${row.id}">
+                        <td><form action="delete" class="delete-form" method="post">
+                            <input type="hidden" th:value="${row.id}" name="id">
                             <button type="submit" class="delete-btn">Delete</button>
                         </form></td>
                     </tr>
@@ -227,7 +253,8 @@
         // When the user clicks "Yes, Delete"
         confirmDelete.onclick = function() {
             // Submit the form to delete the activity
-            var form = document.querySelector('input[type="hidden"][value="'+ activityIdToDelete +'"]').closest('form');
+            var form = document.querySelector(`form input[name="id"][value="${activityIdToDelete}"]`).closest('form');
+
             form.submit();
         }
 

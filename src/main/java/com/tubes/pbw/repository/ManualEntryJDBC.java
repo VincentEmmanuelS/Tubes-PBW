@@ -39,7 +39,7 @@ public class ManualEntryJDBC implements ManualEntryRepository {
     
 
     @Override
-    public List<ManualEntry> findAllEntry(String email) {
+    public List<ManualEntry> findAllEntry(String email, String sortBy, String sortOrder) {
         String sqlString = 
                 """
                 select
@@ -47,13 +47,14 @@ public class ManualEntryJDBC implements ManualEntryRepository {
                 from
                     manualentrydummy
                 where
-                    email = ?;
-                """;
-        return jdbc.query(sqlString, this::mapToRoManualEntry,email);
+                    email = ?
+                order by 
+                    %s %s;
+                """.formatted(sortBy, sortOrder);  // Dynamic SQL for sorting
+        return jdbc.query(sqlString, this::mapToRoManualEntry, email);
     }
-    
-      // Add method to search by title containing a keyword
-    public List<ManualEntry> findByTitleContaining(String keyword, String email) {
+
+    public List<ManualEntry> findByTitleContaining(String keyword, String email, String sortBy, String sortOrder) {
         String sqlString = 
                 """
                 select
@@ -61,29 +62,42 @@ public class ManualEntryJDBC implements ManualEntryRepository {
                 from
                     manualentrydummy
                 where
-                    email = ? and title like ?;
-                """;
+                    email = ? and title like ?
+                order by 
+                    %s %s;
+                """.formatted(sortBy, sortOrder);  // Dynamic SQL for sorting
         return jdbc.query(sqlString, this::mapToRoManualEntry, email, "%" + keyword + "%");
     }
 
-    public ManualEntry mapToRoManualEntry(ResultSet resultSet, int rowNum)throws SQLException{
+    public ManualEntry mapToRoManualEntry(ResultSet resultSet, int rowNum) throws SQLException {
         return new ManualEntry(resultSet.getInt("id_entry"),
-         resultSet.getDouble("distance"), 
-         resultSet.getString("matric_distance"), 
-         resultSet.getObject("duration",LocalTime.class), 
-         resultSet.getDouble("elevation"), 
-         resultSet.getString("matric_elevation"), 
-         resultSet.getString("RideType"), 
-         resultSet.getObject("tanggal_event",LocalDateTime.class), 
-         resultSet.getString("title"), 
-         resultSet.getString("deskripsi"), 
-         resultSet.getString("email"), 
-         resultSet.getString("filefoto"), null);
+            resultSet.getDouble("distance"), 
+            resultSet.getString("matric_distance"), 
+            resultSet.getObject("duration", LocalTime.class), 
+            resultSet.getDouble("elevation"), 
+            resultSet.getString("matric_elevation"), 
+            resultSet.getString("RideType"), 
+            resultSet.getObject("tanggal_event", LocalDateTime.class), 
+            resultSet.getString("title"), 
+            resultSet.getString("deskripsi"), 
+            resultSet.getString("email"), 
+            resultSet.getString("filefoto"), null);
     }
+
     @Override
     public Optional<ManualEntry> getEntry(Integer id) {
-        // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getEntry'");
+    }
+
+
+    @Override
+    public void deleteManualentry(Integer id) {
+       String sql = 
+               """
+               DELETE FROM manualentrydummy
+               WHERE id_entry = ?;
+               """;
+        jdbc.update(sql, id);
     }
     
 }
