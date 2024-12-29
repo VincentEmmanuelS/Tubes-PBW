@@ -1,0 +1,21 @@
+package com.tubes.pbw.component;
+
+import org.springframework.core.convert.converter.Converter;
+import org.springframework.stereotype.Component;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+
+@Component
+public class StringToLocalTimeConverter implements Converter<String, LocalTime> {
+
+    private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+
+    @Override
+    public LocalTime convert(String source) {
+        try {
+            return LocalTime.parse(source, formatter);
+        } catch (Exception e) {
+            throw new IllegalArgumentException("Invalid time format. Please use HH:mm:ss.");
+        }
+    }
+}
