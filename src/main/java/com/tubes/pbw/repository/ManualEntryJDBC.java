@@ -86,7 +86,17 @@ public class ManualEntryJDBC implements ManualEntryRepository {
 
     @Override
     public Optional<ManualEntry> getEntry(Integer id) {
-        throw new UnsupportedOperationException("Unimplemented method 'getEntry'");
+       String sql = """
+               select
+                    *
+                from
+                    manualentrydummy
+                where
+                    id_entry = ?
+               """;
+        List<ManualEntry> result = jdbc.query(sql, this::mapToRoManualEntry, id);
+
+        return result.isEmpty()? Optional.empty() :Optional.of(result.get(0));
     }
 
 
@@ -98,6 +108,40 @@ public class ManualEntryJDBC implements ManualEntryRepository {
                WHERE id_entry = ?;
                """;
         jdbc.update(sql, id);
+    }
+
+
+    @Override
+    public void UpdateData(ManualEntry data) {
+       String sql = """
+               UPDATE 
+                manualEntryDummy
+                SET 
+                    distance = ?, 
+                    matric_distance = ?, 
+                    duration = ?, 
+                    elevation = ?, 
+                    matric_elevation = ?, 
+                    RideType = ?, 
+                    tanggal_event = ?, 
+                    title = ?, 
+                    deskripsi = ?, 
+                    fileFoto = ? 
+                WHERE 
+                    id_entry = ?;
+               """;
+        jdbc.update(sql, 
+        data.getDistance(),
+        data.getMatricDistance(),
+        data.getDuration(),
+        data.getElevation(),
+        data.getMatric_elevation(),
+        data.getRideType(),
+        data.getDate(),
+        data.getTitle(),
+        data.getDeskripsi(),
+        data.getNamafoto(),
+        data.getId());
     }
     
 }

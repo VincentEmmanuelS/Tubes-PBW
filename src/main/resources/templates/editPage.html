@@ -79,14 +79,14 @@
             </div>
         </form> -->
 
-        <form class="MainEntry" th:object="${manualEntry}" action="/manualentry" method="post" enctype="multipart/form-data">
-            <h1>Manual Entry</h1>
+        <form class="MainEntry" th:object="${manualEntry}" action="/update" method="post" enctype="multipart/form-data">
+            <h1>Edit Activity</h1>
 
             <container id="topCont">
                 <div class="EntryContainer">
                     <legend>Distance</legend>
                     
-                    <input type="number" step=".01" min="0" max="99999" name="activity[distance]" id="activity_distance" th:field="*{distance}" >
+                    <input type="number" step=".01" min="0" max="99999" name="activity[distance]" id="activity_distance" th:field="*{distance}" th:value="${durasi}">
                     <span th:if="${#fields.hasErrors('distance')}" th:errors="*{distance}">Distance Error</span>   
                     
                     <select class="MetricDistance" name="matricDistance" th:field="*{matricDistance}">
@@ -133,7 +133,7 @@
 
                 <div class="EntryContainer">
                     <legend>Date & Time</legend>
-                    <input id="TimeInput" type="datetime-local" th:field="*{date}" required>
+                    <input id="TimeInput" type="datetime-local"  th:field="*{date}" required>
                     <span th:if="${#fields.hasErrors('date')}" th:errors="*{date}">Duration Error</span>
                 </div>
             </container>
@@ -160,7 +160,9 @@
 
             <hr class="GarisPemisah">
 
-            <button type="submit">Create</button>
+            <input type="hidden" th:field="*{id}">
+            <input type="hidden" th:field="*{namafoto}">
+            <button type="submit">Edit</button>
         </form>
     </main>
 

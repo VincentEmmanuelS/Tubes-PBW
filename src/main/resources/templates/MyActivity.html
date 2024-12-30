@@ -202,8 +202,8 @@
                             </div>                
                         </td>
                         <td th:text="${row.elevation}+' '+${row.matric_elevation}"></td>
-                        <td><form action="">
-                            <input type="hidden" th:value="${row.id}">
+                        <td><form action="edit" method="get">
+                            <input type="hidden" th:value="${row.id}" name="id">
                             <button type="submit">edit</button>
                         </form></td>
                         <td><form action="delete" class="delete-form" method="post">

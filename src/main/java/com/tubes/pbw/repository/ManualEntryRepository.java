@@ -11,4 +11,5 @@ public interface ManualEntryRepository {
     Optional<ManualEntry> getEntry(Integer id);
     List<ManualEntry> findByTitleContaining(String keyword, String email, String sortBy, String sortOrder);
     void deleteManualentry(Integer id);
+    void UpdateData(ManualEntry data);
 }
