@@ -1,0 +1,19 @@
+package com.tubes.pbw.user.config;
+
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.format.FormatterRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import com.tubes.pbw.user.component.*;
+
+@Configuration
+@ComponentScan(basePackages = "com.tubes.pbw.user")
+public class WebConfig implements WebMvcConfigurer {
+
+    @Override
+    public void addFormatters(FormatterRegistry registry) {
+        registry.addConverter(new StringToLocalDateTimeConverter());
+        registry.addConverter(new StringToLocalTimeConverter());
+        // registry.addFormatter(new LocalDateTimeFormatter());
+    }
+}

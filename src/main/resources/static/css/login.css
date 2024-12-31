@@ -1,0 +1,176 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+:root {
+    --primary-color: #FF4F00;    /* Oranye Strava */
+    --secondary-color: #F2F2F2;  /* Abu-abu Terang */
+    
+    --header-footer-bg: #FFFFFF; /* Abu-abu Terang */
+    --background: #F2F2F2;       /* Putih */
+    
+    --heading: #FF4F00;          /* Oranye Strava */
+    --sub-heading: #006D7F;      /* Biru Gelap */
+    
+    --button-active: #FF4F00;    /* Oranye Strava */
+    --button-inactive: #F2F2F2;  /* Abu-abu Terang */
+    --button-hover: #A23402;     /* Oranye Gelap */
+    --button-text: #FFFFFF;      /* Putih */
+    
+    --text-normal: #333333;      /* Abu-abu Gelap */
+    --text-hover: #FF4F00;       /* Oranye Strava */
+    --sub-text: #808080;         /* Abu-abu Pucat */
+    
+    --text-box-bg: #FFFFFF;      /* Putih */
+    --text-box-border: #FF4F00;  /* Oranye Strava */
+    --input-border: #CAD1CE;     /* Abu-abu Pucat */
+    
+    --highlight-text: #FF4500;   /* Oranye Cerah untuk teks sorotan */
+    --link-text: #006D7F;        /* Biru Gelap untuk teks link */
+    --link-hover: #708090;       /* Abu-abu kebiruan untuk link hover */
+  
+    --dropdown-bg: #F8F8F8;         /* Abu-abu sangat pucat untuk background dropdown */
+    --dropdown-hover-bg: #FF4F00;   /* Oranye Strava untuk background saat hover */
+    --dropdown-active-bg: #A23402;  /* Oranye Gelap untuk background aktif dropdown */
+    --dropdown-border: #F2F2F2;     /* Border abu-abu terang */
+    --dropdown-text: #333333;       /* Teks gelap untuk keterbacaan yang tinggi */
+    --dropdown-hover-text: #FFFFFF; /* Teks putih saat hover di dropdown */
+    
+    --error-text: #D32F2F;       /* Merah untuk pesan kesalahan */
+    --success-text: #388E3C;     /* Hijau untuk pesan sukses */
+    --warning-text: #FFA500;     /* Oranye untuk peringatan */
+}
+
+main {
+    width: 100%;
+    height: 80vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#user {
+    /* background-color: gray; */
+    background-image: url('/images/Jogging.jpg'); /* https://greencity.com.pa/wp-content/uploads/2017/10/maxresdefault.jpg */
+}
+
+#admin {
+    /* background-color: gray; */
+    background-image: url('/images/Running-Admin.jpg'); /* https://wallpaperaccess.com/full/1986641.jpg */
+}
+
+#loginSection {
+    height: auto;
+    width: 25vw;
+    background-color: rgba(255, 255, 255, 0.7);  /* putih, opacity 70% */
+    text-align: center;
+    position: relative;
+    border-radius: 15px;
+    z-index: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#loginSection #top {
+    background-color: rgba(255, 79, 0, 0.8);    /* Oranye Strava, opacity 80% */
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: var(--button-text);
+}
+
+#loginSection #mid {
+    padding: 30px;
+    padding-bottom: 0px;
+}
+
+#loginSection #bottom {
+    padding: 30px;
+    padding-top: 0px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    /* align-items: start; */
+}
+
+form button {
+    background-color: var(--button-active);
+    color: var(--button-text);
+}
+
+form button:hover {
+    background-color: var(--button-hover);
+}
+
+form label {
+    font-size: small;
+}
+
+label {
+    align-self: flex-start;
+    margin-bottom: 3px;
+}
+
+input {
+    background-color: var(--text-box-bg);
+    margin-bottom: 15px;
+    padding: 7px;
+    border: none;
+    border-radius: 5px;
+}
+
+form button {
+    margin-top: 5px;
+    padding: 7px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+#link {
+    color: var(--link-text);
+}
+
+#link:hover {
+    color: var(--link-hover);
+}
+
+#text_small {
+    font-size: small;
+}
+
+#header_mid {
+    font-size: large;
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+#header_big {
+    font-size: x-large;
+}
+
+#footerMain {
+    margin-top: 20px;
+    font-size: small;
+}
+
+footer {
+    width: 100%;
+    height: 400px;
+    background-color: black;
+}

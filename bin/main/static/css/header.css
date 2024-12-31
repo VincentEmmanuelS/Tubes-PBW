@@ -1,0 +1,108 @@
+header {
+    position: sticky;
+    top: 0;
+    background-color: black;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    z-index: 100;
+}
+
+#leftSection {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    align-items: center; 
+    justify-content: space-between;
+}
+
+#leftSection h1 {
+    font-size: 2em;
+    font-weight: bold;
+    color: orange;
+}
+
+#leftSection .links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#leftSection a {
+    font-size: 1.2em;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    margin-right: 15px;
+}
+
+#leftSection a:hover {
+    text-decoration: underline;
+}
+
+#rightSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#rightSection button {
+    padding: 15px 30px;
+    font-size: 1.2em;
+    cursor: pointer;
+    background-color: orange;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+#rightSection button:hover {
+    background-color: rgb(179, 119, 9);
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: black;
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+    display: none;  /* Hide */
+    z-index: 10;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    width: 10vw;
+}
+
+.dropdown-list li {
+    padding: 5px 20px;
+    font-size: small;
+    color: white;
+}
+
+.dropdown-list li h2 {
+    font-size: medium;
+    margin-top: 0px;
+    margin-bottom: 3px;
+}
+
+.dropdown-list li a {
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-list li a:hover {
+    color: black;
+}
+
+.dropdown:hover .dropdown-list {
+    display: block;     /* Show on hover */
+}

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Page | RunTracker</title>
+    <link rel="stylesheet" href="/css/manualEntry.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/footerMain.css">
+</head>
+<body>
+    <header>
+        <div id="leftSection">
+            <h1>RunTracker</h1>
+
+            <!-- Search bar -->
+
+            <div class="buttons">
+                <div class="dropdown id="left"">
+                    <a href="">Dashboard</a>
+                    <ul class="dropdown-list">
+                        <li><a href="#">Activity Feed</a></li>
+                        <li><a href="#">Clubs</a></li>
+                        <li><a href="#">My Segments</a></li>
+                        <li><a href="#">My Routes</a></li>
+                        <li id="subscription"><h3>SUBSCRIPTION</h3></li>
+                        <li id="subscriptionBottom"><a href="#">My Goals</a></li>
+                    </ul>
+                </div>
+                <div class="dropdown" id="left">
+                    <a href="">Training</a>
+                    <ul class="dropdown-list">
+                        <li><a href="#">Training Calendar</a></li>
+                        <li><a href="#">My Activities</a></li>
+                        <li id="subscription"><h3>SUBSCRIPTION</h3></li>
+                        <li id="subscription"><a href="#">Training Log</a></li>
+                        <li id="subscription"><a href="#">Training Plans</a></li>
+                        <li id="subscription"><a href="#">Power Curve</a></li>
+                        <li id="subscriptionBottom" class="bottomSubs"><a href="#">Fitness & Freshness</a></li>
+                    </ul>
+                </div>
+                <a href="">Maps</a>
+                <a href="">Challenges</a>
+            </div>
+        </div>
+        <div id="rightSection">
+            <button>Start Trial</button>
+            <a href="">
+                <img src="images/icons/Notif_Icon.png" alt="Notification Icon">
+            </a>
+            <p id="dropdown">Profile</p>  <!-- ganti ke logo profile -->
+            <div class="dropdown" id="right">
+                <a href="">
+                    <img id="dropdown" src="images/icons/Add_Icon.png" alt="Circle add icon">
+                </a>
+                <ul class="dropdown-list menu-dropdown">
+                    <li><a href="#">
+                        <img src="images/icons/Upload_Icon.png" alt="Upload activity icon"> Upload Activity
+                    </a></li>
+                    <li><a href="#">
+                        <img src="images/icons/ManualEntry_Icon.png" alt="Manual entry icon"> Add Manual Entry
+                    </a></li>
+                    <li><a href="#">
+                        <img src="images/icons/Route_Icon.png" alt="Create route icon"> Create Route
+                    </a></li>
+                    <li><a href="#">
+                        <img src="images/icons/CreatePost_icon.png" alt="Create post icon"> Create post
+                    </a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- <form class="sidebar">
+            <div class="sidebarcontainer">
+                <button id="FileButton">File</button>
+                <button id="ManualButton">Manual</button>
+            </div>
+        </form> -->
+
+        <form class="MainEntry" th:object="${manualEntry}" action="/update" method="post" enctype="multipart/form-data">
+            <h1>Edit Activity</h1>
+
+            <container id="topCont">
+                <div class="EntryContainer">
+                    <legend>Distance</legend>
+                    
+                    <input type="number" step=".01" min="0" max="99999" name="activity[distance]" id="activity_distance" th:field="*{distance}" th:value="${durasi}">
+                    <span th:if="${#fields.hasErrors('distance')}" th:errors="*{distance}">Distance Error</span>   
+                    
+                    <select class="MetricDistance" name="matricDistance" th:field="*{matricDistance}">
+                        <option value="km" >Kilometer</option>
+                        <option value="m">Meter</option>
+                    </select>
+                </div>
+
+                <div class="EntryContainer">
+                    <legend>Duration</legend>
+                    <div class="DurationInputContainer">
+                        <input id="DurationInput" type="time" name="duration" step="1" th:field="*{duration}" required>
+                        <span th:if="${#fields.hasErrors('duration')}" th:errors="*{duration}">Duration Error</span>
+                    </div>
+                </div>
+
+                <div class="EntryContainer">
+                    <legend>Elevation</legend>
+                    
+                    <input type="number" step=".01" max="99999" name="elevation[height]" id="elevation_height" th:field="*{elevation}">
+                    <span th:if="${#fields.hasErrors('elevation')}" th:errors="*{elevation}">Elevation Error</span>
+
+                    <select class="MetricElevation" th:field="*{matric_elevation}">
+                        <option value="m" >
+                            Meter
+                        </option>
+                        <option value="ft">
+                            Feet
+                        </option>
+                    </select>
+                </div>
+            </container>
+
+            <hr class="GarisPemisah">
+
+            <container id="midCont">
+                <div class="EntryContainer">
+                    <legend>Sport</legend>
+                    <select id="RideTypeInput" class="RideTypeSelection" th:field="*{rideType}">
+                        <option value="Bike" >Bike</option>
+                        <option value="Run">Run</option>
+                    </select>
+                </div>
+
+                <div class="EntryContainer">
+                    <legend>Date & Time</legend>
+                    <input id="TimeInput" type="datetime-local"  th:field="*{date}" required>
+                    <span th:if="${#fields.hasErrors('date')}" th:errors="*{date}">Duration Error</span>
+                </div>
+            </container>
+
+            <div class="ActivityTitle">
+                <legend>Title</legend>
+                <input type="text" name="activity[name]" id="activity_name"  aria-required="true" th:field="*{title}">
+                <span th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Error activity</span>
+            </div>
+
+            <div class="Description">
+                <legend>Description</legend>
+                <textarea id="DescriptionTextArea" name="Description" th:field="*{deskripsi}"></textarea>
+                <span th:if="${#fields.hasErrors('deskripsi')}" th:errors="*{deskripsi}">Error activity</span>
+            </div>
+
+            <hr class="GarisPemisah">
+
+            <div class="fileUpload">
+                <h3>Upload Image</h3>
+                <input type="file" id="myFile" name="filename" th:field="*{foto}">
+                <span th:if="${#fields.hasErrors('foto')}" th:errors="*{foto}">Error activity</span>
+            </div>
+
+            <hr class="GarisPemisah">
+
+            <input type="hidden" th:field="*{id}">
+            <input type="hidden" th:field="*{namafoto}">
+            <button type="submit">Edit</button>
+        </form>
+    </main>
+
+    <footer>
+        <div id="footermid">
+            <div id="judul">
+                <h1>RunTracker</h1>
+                <p>Runtracker @2024</p>
+            </div>
+            <div id="About">
+                <h2>About</h2>
+                <a class="footerRef" href="https://en.wikipedia.org/wiki/About">About</a>
+                <a class="footerRef" href="https://en.wikipedia.org/wiki/Feature">Features</a>
+                <a class="footerRef" href="https://en.wikipedia.org/wiki/Mobile">Mobile</a>
+                <a class="footerRef" href="https://en.wikipedia.org/wiki/Subscription_business_model">Subscription</a>
+                <a class="footerRef" href="https://en.wikipedia.org/wiki/Family_Plan">Family Plan</a>
+                <a class="footerRef" href="https://en.wikipedia.org/wiki/Discounts_and_allowances#Student_discount">Student Discount</a>
+                <a class="footerRef" href="https://en.wikipedia.org/wiki/Gift">Send a gift</a>
+                <a class="footerRef" href="https://en.wikipedia.org/wiki/Privacy_policy">Privacy Policy</a>
+                <a class="footerRef" href="https://en.wikipedia.org/wiki/Personal_data">Do Not Share My Personal<br> Information</a>
+                <a class="footerRef" href="https://en.wikipedia.org/wiki/Terms_of_service">Terms and Condition</a>
+                <a class="footerRef" href="https://maps.google.com/">About Our Maps</a>
+            </div>
+            <div id="Routes">
+                <h2>Explore</h2>
+                <a class="footerRef" href="https://maps.google.com/">Routes</a>
+            </div>
+            <div id="follow">
+                <h2>Follow</h2>
+                <a class="footerRef" href="https://www.facebook.com/">Facebook</a>
+                <a class="footerRef" href="https://twitter.com">Twitter</a>
+                <a class="footerRef" href="https://www.instagram.com/">Instagram</a>
+                <a class="footerRef" href="https://www.youtube.com/">Youtube</a>
+                <a class="footerRef" href="https://www.linkedin.com/">LinkedIn</a>
+                <a class="footerRef" href="https://en.wikipedia.org/wiki/Story">Stories</a>
+            </div>
+            <div id="help">
+                <h2>Help</h2>
+                <a class="footerRef" href="https://en.wikipedia.org/wiki/Support">RunTracker Support</a>
+            </div>
+            <div id="more">
+                <h2>More</h2>
+                <a class="footerRef" href="https://en.wikipedia.org/wiki/Career">Careers</a>
+                <a class="footerRef" href="https://en.wikipedia.org/wiki/Press">Press</a>
+                <a class="footerRef" href="https://en.wikipedia.org/wiki/Business">Business</a>
+                <a class="footerRef" href="https://learn.microsoft.com/en-us/partner-center/">Partner Center</a>
+                <a class="footerRef" href="https://en.wikipedia.org/wiki/Developer">Developers</a>
+                <a class="footerRef" href="https://en.wikipedia.org/wiki/Labs">Labs</a>
+                <a class="footerRef" href="https://en.wikipedia.org/wiki/Standard">RunTracker Community<br> Standards</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Distance Conversion
+            const distanceInput = document.getElementById("activity_distance");
+            const metricDistanceSelect = document.querySelector(".MetricDistance");
+    
+            metricDistanceSelect.addEventListener("change", function () {
+                const currentValue = parseFloat(distanceInput.value) || 0;
+                const selectedMetric = metricDistanceSelect.value;
+    
+                if (selectedMetric === "km") {
+                    distanceInput.value = (currentValue / 1000).toFixed(2);
+                } else if (selectedMetric === "m") {
+                    distanceInput.value = (currentValue * 1000).toFixed(0);
+                }
+            });
+    
+            // Elevation Conversion
+            const elevationInput = document.getElementById("elevation_height");
+            const metricElevationSelect = document.querySelector(".MetricElevation");
+    
+            metricElevationSelect.addEventListener("change", function () {
+                const currentValue = parseFloat(elevationInput.value) || 0;
+                const selectedMetric = metricElevationSelect.value;
+    
+                if (selectedMetric === "m") {
+                    elevationInput.value = (currentValue / 3.281).toFixed(2);
+                } else if (selectedMetric === "ft") {
+                    elevationInput.value = (currentValue * 3.281).toFixed(2);
+                }
+            });
+        });
+    </script>
+    
+</body>
+</html>
