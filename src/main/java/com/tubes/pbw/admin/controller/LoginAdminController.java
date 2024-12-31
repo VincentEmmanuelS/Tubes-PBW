@@ -41,6 +41,11 @@ public class LoginAdminController {
         return "admin/onboarding";
     }
 
+    @GetMapping("/manage_member")
+    public String manageMember() {
+        return "admin/manageMember";
+    }
+
     @PostMapping("/login_admin")
     public String loginAdmin(@RequestParam String email, @RequestParam String password, HttpSession session, Model model) {
 
