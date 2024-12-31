@@ -1,0 +1,70 @@
+package com.tubes.pbw.admin.controller;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
+
+import jakarta.servlet.http.HttpSession;
+
+import com.tubes.pbw.admin.model.Admin;
+import com.tubes.pbw.admin.service.AdminService;
+
+@Controller
+@EnableAspectJAutoProxy
+public class LoginAdminController {
+
+    @Autowired
+    private AdminService adminService;
+
+    // @GetMapping("/admin")
+    // public String loginAdmin() {
+    //     return "admin/login";
+    // }
+
+    @GetMapping("/login_admin")
+    public String loginAdmin(HttpSession session, Model model) {
+
+        if (session.getAttribute("admin") != null) {
+            return "redirect:/onboarding_admin";
+        }
+        return "admin/login";
+
+    }
+
+    @GetMapping("/onboarding_admin")
+    public String onboardingAdmin(HttpSession session, Model model) {
+        return "admin/onboarding";
+    }
+
+    @PostMapping("/login_admin")
+    public String loginAdmin(@RequestParam String email, @RequestParam String password, HttpSession session, Model model) {
+
+        Optional<Admin> adminOptional = adminService.login(email, password);
+
+        if (adminOptional.isPresent()) {
+            Admin admin= adminOptional.get();
+
+            session.setAttribute("user", admin);
+            session.setAttribute("role", admin.getRole());
+
+            return "redirect:/onboarding_admin";
+        }
+        else {
+            model.addAttribute("status", "failed");
+            return "admin/login";
+        }
+
+    }
+
+    @GetMapping("/logout_admin")
+    public String logoutAdmin(HttpSession session) {
+        session.invalidate();
+        return "redirect:/login_admin";
+    }
+
+}

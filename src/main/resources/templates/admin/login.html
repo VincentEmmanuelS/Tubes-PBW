@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <title>Log In Admin | RunTracker</title>
+</head>
+<body>
+    <header>
+        <div id="leftSection">
+            <h1>RunTracker</h1>
+        </div>
+        <div id="rightSection">
+            <h4>Login Admin</h4>
+        </div>
+    </header>
+    <main id="admin">
+        <div id="loginSection">
+            <div id="top">
+                <h2 id="header_big">Log In</h2>
+            </div>
+
+            <div id="mid">
+                <!-- method POST -->
+                <form action="login_admin" method="post">
+                    <label for="">Email</label>
+                    <input type="email" name="email" placeholder="Masukan email">
+                    <!-- <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div> -->
+
+                    <label for="">Password</label>
+                    <input type="password" name="password" placeholder="Masukan password">
+                    <!-- <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div> -->
+
+                    <button type="submit">Log In</button>
+                </form>
+            </div>
+
+            <div id="bottom">
+                <div id="footerMain">
+                    <a id="link" href="">Forgot Password?</a>  
+                </div>
+                <div id="footerMain">
+                    <a id="link" href="/signup">Create a New Account</a>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

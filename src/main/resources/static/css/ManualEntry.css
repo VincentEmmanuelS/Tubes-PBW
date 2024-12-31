@@ -48,6 +48,17 @@ body {
     --warning-text: #FFA500;     /* Oranye untuk peringatan */
 }
 
+header #rightSection {
+    gap: 40px;
+}
+
+header #rightSection img {
+    width: 30px;
+    height: auto;
+    object-fit: contain;
+    filter: invert(1) grayscale(100%);
+}
+
 main {
     display: flex;
     flex-direction: row;
