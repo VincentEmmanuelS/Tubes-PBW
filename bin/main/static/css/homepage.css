@@ -8,10 +8,52 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-#imageProto {
+:root {
+    --primary-color: #FF4F00;    /* Oranye Strava */
+    --secondary-color: #F2F2F2;  /* Abu-abu Terang */
+    
+    --header-footer-bg: #F2F2F2; /* Abu-abu Terang */
+    --background: #FFFFFF;       /* Putih */
+    
+    --heading: #FF4F00;          /* Oranye Strava */
+    --sub-heading: #006D7F;      /* Biru Gelap */
+    
+    --button-active: #FF4F00;    /* Oranye Strava */
+    --button-inactive: #F2F2F2;  /* Abu-abu Terang */
+    --button-hover: #A23402;     /* Oranye Gelap */
+    --button-text: #FFFFFF;      /* Putih */
+    
+    --text-normal: #333333;      /* Abu-abu Gelap */
+    --text-hover: #FF4F00;       /* Oranye Strava */
+    --sub-text: #808080;         /* Abu-abu Pucat */
+    
+    --text-box-bg: #FFFFFF;      /* Putih */
+    --text-box-border: #FF4F00;  /* Oranye Strava */
+    
+    --highlight-text: #FF4500;   /* Oranye Cerah untuk teks sorotan */
+    --link-text: #006D7F;        /* Biru Gelap untuk teks link */
+    --link-hover: #708090;       /* Abu-abu kebiruan untuk link hover */
+  
+    --dropdown-bg: #F8F8F8;      /* Abu-abu sangat pucat untuk background dropdown */
+    --dropdown-hover-bg: #FF4F00; /* Oranye Strava untuk background saat hover */
+    --dropdown-active-bg: #A23402; /* Oranye Gelap untuk background aktif dropdown */
+    --dropdown-border: #F2F2F2;  /* Border abu-abu terang */
+    --dropdown-text: #333333;    /* Teks gelap untuk keterbacaan yang tinggi */
+    --dropdown-hover-text: #FFFFFF; /* Teks putih saat hover di dropdown */
+    
+    --error-text: #D32F2F;       /* Merah untuk pesan kesalahan */
+    --success-text: #388E3C;     /* Hijau untuk pesan sukses */
+    --warning-text: #FFA500;     /* Oranye untuk peringatan */
+}
+
+#image {
     width: 100%;
     height: 80vh;
-    background-color: gray;
+    /* background-color: gray; */
+    background-image: url('/images/Cycling.jpg');   /* https://storage.googleapis.com/gweb-uniblog-publish-prod/images/GettyImages-474057156.width-1200.format-webp.webp */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     position: relative;
     display: flex;
     align-items: center;
@@ -19,9 +61,10 @@ body {
 }
 
 #registerSection {
-    height: 100%;
+    height: 80%;
     width: 30vw;
-    background-color: lightgray;
+    background-color: rgb(255, 255, 255, 0.7);  /* putih, opacity 70% */
+    border-radius: 15px;
     padding: 30px;
     text-align: center;
     position: relative;
@@ -39,21 +82,14 @@ body {
 } 
 */
 
+#buttonSignUp {
+    background-color: var(--button-active);
+    color: var(--button-text);
+}
+
 #buttonSignUp:hover {
-    background-color: gray;
+    background-color: var(--button-hover);
 }
-
-/* label {
-    align-self: flex-start;
-    margin-bottom: 3px;
-}
-
-input {
-    margin-bottom: 15px;
-    padding: 7px;
-    border: none;
-    border-radius: 5px;
-} */
 
 button {
     margin-top: 5px;
@@ -63,10 +99,12 @@ button {
     width: 100%;
 }
 
-footer {
-    width: 100%;
-    height: 400px;
-    background-color: black;
+#link {
+    color: var(--link-text);
+}
+
+#link:hover {
+    color: var(--link-hover);
 }
 
 h2 {
@@ -76,4 +114,27 @@ h2 {
 
 p {
     margin-bottom: 20px;
+}
+
+form label {
+    font-size: small;
+}
+
+#text_small {
+    font-size: small;
+}
+
+#header_mid {
+    font-size: large;
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+#header_big {
+    font-size: x-large;
+}
+
+#footerMain {
+    margin-top: 20px;
+    font-size: small;
 }

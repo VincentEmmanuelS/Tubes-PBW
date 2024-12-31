@@ -64,6 +64,12 @@ header #rightSection {
     flex-wrap: nowrap;
     justify-content: space-evenly;
     margin: 4vh;
+    
+    
+
+    
+    
+    
 }
 
 /* Temporary styling DELETE color LATER */
@@ -81,8 +87,23 @@ maincontent {
 }
 
 /* Left sidebar bagian profile */
+
+
+#leftSidebar {
+    /* width: 250px;  */
+    height: 100vh; /* Full viewport height */
+    position: sticky;
+    top: 0;
+    overflow-y: auto; /* Allows scrolling within the sidebar if content overflows */
+    
+    
+    flex-shrink: 0; /* Prevents sidebar from shrinking */
+    z-index: 10;
+}
+
+
 #profileContainer {
-    background-color: #388E3C;
+    background-color: #ffffff;
     border-radius: 5px;
     /* padding: 10px; */
     margin-bottom: 20px;
@@ -100,6 +121,26 @@ maincontent {
     flex-direction: column;
 }
 
+/* Wrapper Div for Circular Cropping */
+#profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden; 
+    display: inline-block;
+    border: 1px solid #ffffff; 
+    position: relative;
+}
+
+#profile-pic img {
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    object-position: center; 
+    position: absolute; 
+    top: 0;
+    left: 0;
+}
 #profile > * {
     padding-top: 15px;
     padding-bottom: 10px;
@@ -144,7 +185,7 @@ maincontent {
     display: flex;
     flex-direction: row;
 
-    border-top: 1px solid black;
+    border-top: 2px solid #F2F2F2;
 }
 
 #footerProfile:hover {
@@ -167,13 +208,16 @@ maincontent {
 }
 
 #tracker > #buttonContainer {
+    
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
 #tracker button {
-    background-color: black;
+    padding: 10px;
+    
+    background-color: #ffffff;
     /* border-radius: 5px; */
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
@@ -183,7 +227,7 @@ maincontent {
 }
 
 #tracker button:hover {
-    background-color: #FFA500;
+    background-color: #FF4500;
 }
 
 #tracker button > img {
@@ -194,7 +238,7 @@ maincontent {
 
 #trackerContainer {
     padding-top: 10px;
-    background-color: #FFA500;
+    background-color: #ffffff;
     /* border-radius: 5px; */
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
@@ -229,6 +273,109 @@ maincontent {
     gap: 20px;
 }
 
+.feedcontainer{
+    width: 100%;
+    
+    padding: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+}
+
+.feedheader{
+    /* border: 3px solid black; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap:30px;
+}
+
+.feedheader-title{
+    display: flex;
+    flex-direction: column;
+    gap:10px
+}
+.feedprofilepic {
+    width:75px;
+    height: 75px;
+    border-radius: 50%;
+    overflow: hidden; 
+    display: inline-block;
+    border: 1px solid #ffffff; 
+    position: relative;
+}
+
+.feed-profile-name{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.feed-activity-date{
+    color:#6c6c6c;
+}
+
+.feedprofilepic img {
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    object-position: center; 
+    position: absolute; 
+    top: 0;
+    left: 0;
+}
+.feedbody{
+    display: flex;
+    flex-direction: column;
+    /* border: 3px solid black; */
+}
+.feedbody-title{
+    padding: 10px;
+    padding-left: 105px;
+    display: flex;
+    flex-direction: row;
+    /* border: 3px solid black; */
+    align-items: center;
+    gap:30px;
+}
+
+.feedbody-title legend{
+    color:#626262;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.feed-activitytitle{
+    font-size: 25px;
+    font-weight: bold;
+}
+.feedbody-stat{
+    
+    padding-left: 105px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    /* border: 3px solid black; */
+    align-items: center;
+    gap:30px;
+    
+}
+
+.map {
+    /* border: 3px solid black; */
+    width: 100%; /* Set your desired fixed width */
+    overflow: hidden; /* Prevent overflow if image is larger */
+    border: 1px solid #ccc; /* Optional border for visual clarity */
+    border-radius: 5px; /* Optional rounded corners */
+}
+
+/* Map Image Styling */
+.map img {
+    width: 100%; /* Fill the width of the container */
+    height: auto; /* Adjust height dynamically to maintain aspect ratio */
+    display: block; /* Remove unwanted space below the image */
+    object-fit: cover; /* Ensures the image scales properly */
+}
 card {
     width: 100%;
     height: 200px;
@@ -252,10 +399,19 @@ card {
     flex-direction: column;
     align-items: center;
     gap: 20px;
+
+    /* width: 250px; */
+    height: 100vh; 
+    position: sticky;
+    top: 0;
+    overflow-y: auto; 
+    
+    flex-shrink: 0; 
+    z-index: 10;
 }
 
 #rightSidebar > div {
-    background-color: #006D7F;
+    background-color: #ffffff;
     width: 100%;
 
     display: flex;
@@ -269,7 +425,7 @@ card {
 }
 
 #rightSidebar > div > div {
-    background-color: #006D7F;
+    background-color: #ffffff;
     width: 100%;
 }
 
