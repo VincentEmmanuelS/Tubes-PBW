@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Bar with Filter</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    .search-filter-box {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+    label {
+      font-size: 14px;
+      margin-bottom: 5px;
+      color: #333;
+    }
+    input[type="text"] {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      flex-grow: 1;
+    }
+    button {
+      padding: 8px 12px;
+      margin-left: 5px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    select {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      flex-grow: 1;
+    }
+    .search-wrapper {
+      display: flex;
+      flex-grow: 1;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="search-filter-box">
+    <!-- Search Bar with Button -->
+    <div class="form-group">
+      <label for="search-bar">Search Bar</label>
+      <div class="search-wrapper">
+        <input type="text" id="search-bar" placeholder="Type here...">
+        <button type="button">Search</button>
+      </div>
+    </div>
+
+    <!-- Dropdown Filter -->
+    <div class="form-group">
+      <label for="filter">Filter</label>
+      <select id="filter">
+        <option value="" disabled selected>Select a filter</option>
+        <option value="filter1">Filter 1</option>
+        <option value="filter2">Filter 2</option>
+        <option value="filter3">Filter 3</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

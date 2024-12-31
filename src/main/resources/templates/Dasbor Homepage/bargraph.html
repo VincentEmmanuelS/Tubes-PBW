@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>7-Day Bar Graph</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .chart-container {
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .bar-chart {
+      display: flex;
+      justify-content: space-around;
+      align-items: flex-end;
+      height: 300px;
+      border-left: 2px solid #333;
+      border-bottom: 2px solid #333;
+      padding: 10px;
+    }
+    .bar {
+      width: 40px;
+      background-color: #4CAF50;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      color: #fff;
+      transition: height 0.3s;
+    }
+    .bar:hover {
+      background-color: #45a049;
+    }
+    .label {
+      margin-top: 5px;
+      text-align: center;
+    }
+    .bar-labels {
+      display: flex;
+      justify-content: space-around;
+    }
+  </style>
+</head>
+<body>
+
+<div class="chart-container">
+  <h2>7-Day Bar Graph</h2>
+  <div class="bar-chart">
+    <div class="bar" style="height: 60px;" title="Monday">20</div>
+    <div class="bar" style="height: 120px;" title="Tuesday">40</div>
+    <div class="bar" style="height: 180px;" title="Wednesday">60</div>
+    <div class="bar" style="height: 100px;" title="Thursday">33</div>
+    <div class="bar" style="height: 140px;" title="Friday">47</div>
+    <div class="bar" style="height: 200px;" title="Saturday">67</div>
+    <div class="bar" style="height: 80px;" title="Sunday">27</div>
+  </div>
+  <div class="bar-labels">
+    <div class="label">Mon</div>
+    <div class="label">Tue</div>
+    <div class="label">Wed</div>
+    <div class="label">Thu</div>
+    <div class="label">Fri</div>
+    <div class="label">Sat</div>
+    <div class="label">Sun</div>
+  </div>
+</div>
+
+</body>
+</html>
