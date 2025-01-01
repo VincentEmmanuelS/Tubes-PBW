@@ -173,8 +173,6 @@ public class MyActivityController {
 
                 Path destFile = uploadfile.resolve(filename);
 
-                //insert to database
-                jdbc.makeActivity(manualEntry);
 
                 Files.copy(manualEntry.getFoto().getInputStream(), destFile);
 
