@@ -30,7 +30,6 @@ body {
     
     --text-box-bg: #FFFFFF;      /* Putih */
     --text-box-border: #FF4F00;  /* Oranye Strava */
-    --input-border: #CAD1CE;     /* Abu-abu Pucat */
     
     --highlight-text: #FF4500;   /* Oranye Cerah untuk teks sorotan */
     --link-text: #006D7F;        /* Biru Gelap untuk teks link */
@@ -48,133 +47,133 @@ body {
     --warning-text: #FFA500;     /* Oranye untuk peringatan */
 }
 
-header #rightSection {
-    gap: 40px;
+.mainContent {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    margin: 4vh;
 }
 
-header #rightSection img {
-    width: 30px;
+sidebar {
+    /* background-color: red; */
+    width: 22vw;
     height: auto;
-    object-fit: contain;
-    filter: invert(1) grayscale(100%);
 }
 
-main {
-    display: flex;
-    flex-direction: row;
-    padding-left: 10vw;
-    padding-right: 10vw;
-    padding-top: 5vh;
-    padding-bottom: 5vh;
+maincontent {
+    /* background-color: blue; */
+    width: 70vw;
+    height: auto;
+}
 
+#profileContainer {
+    background-color: #388E3C;
+    border-radius: 5px;
+    /* padding: 10px; */
+    margin-bottom: 20px;
+}
+
+#profile {
+    width: 100%;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+
+    display: flex;
+    align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
 
-legend {
-    margin-top: 3vh;
-    margin-bottom: 8px;
-    font-size: small;
+#profile > * {
+    padding-top: 15px;
+    padding-bottom: 10px;
 }
 
-hr {
-    margin-top: 3vh;
-    margin-bottom: 3vh;
+maincontent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+card {
     width: 100%;
+    height: 200px;
+    padding: 10px;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    background-color: var(--header-footer-bg);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
 }
 
-container {
+#rightCard {
+    /* background-color: #FFA500; */
+    max-width: 15vw;
+    height: 100%;
+}
+
+#rightCard > img {
+    height: 100%;
+    /* width: 100%; */
+    object-fit: contain;
+}
+
+#leftCard {
+    background-color: var(--header-footer-bg);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#leftCard h3 {
+    /* background-color: #006D7F; */
+    padding: 10px;
+}
+
+#leftCard #description {
+    /* background-color: #D32F2F; */
+    width: 100%;
+    height: 90px;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    /* overflow: auto; */
+    overflow: hidden;
+}
+
+#leftCard #bottomCard {
     display: flex;
     flex-direction: row;
-    gap: 30px;
+    justify-content: space-between;
 }
 
-label {
-    align-self: flex-start;
-    margin-bottom: 3px;
-    margin-top: 10px;
-}
+#leftCard #limit {
+    background-color: var(--sub-text);
+    width: auto;
+    height: 100%;
+    padding: 10px 20px;
+    margin-left: 10px;
 
-input {
-    background-color: var(--text-box-bg);
-    margin-bottom: 3px;
-    padding: 7px;
-    border: 1px solid var(--input-border);
     border-radius: 5px;
-    width: 49%;
-    height: 5vh;
 }
 
-#DurationInput{
-    width: 100%;
-    border: 1px solid var(--input-border);
-}
-
-#RideTypeInput{
-    width: 100%;
-    border: 1px solid var(--input-border);
-}
-
-#TimeInput {
-    width: 100%;
-    border: 1px solid var(--input-border);
-}
-
-select {
-    background-color: var(--text-box-bg);
-    margin-bottom: 3px;
-    padding: 7px;
-    border: 1px solid var(--input-border);
-    border-radius: 5px;
-    width: 49%;
-    height: 5vh;
-}
-
-form button {
+#bottomCard button {
+    width: 10vw;
     background-color: var(--button-active);
     color: var(--button-text);
-    width: 6vw;
-    padding: 7px;
     border: none;
     border-radius: 5px;
-    margin-bottom: 10px;
 }
 
-form button:hover {
+#bottomCard button:hover {
     background-color: var(--button-hover);
-}
-
-.EntryContainer {
-    width: 20vw;
-}
-
-.ActivityTitle input {
-    width: calc(20vw + 30px + 20vw);
-    border: 1px solid var(--input-border);
-}
-
-#midCont .EntryContainer legend {
-    margin-top: 0px;
-}
-
-.Description textarea {
-    resize: vertical;
-    min-width: calc(20vw + 30px + 20vw);
-    min-height: 30vh;
-    border: 1px solid var(--input-border);
-}
-
-.fileUpload input {
-    width: calc(20vw + 30px + 20vw);  
-    border: 1px solid var(--input-border);  
-}
-
-.fileUpload h3 {
-    margin-top: 3vh;
-    margin-bottom: 8px;
-    font-weight: none;
-    font-size: small;
-} 
-
-span {
-    display: none;
 }

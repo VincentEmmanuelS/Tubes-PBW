@@ -115,3 +115,26 @@ h2 {
 p {
     margin-bottom: 20px;
 }
+
+form label {
+    font-size: small;
+}
+
+#text_small {
+    font-size: small;
+}
+
+#header_mid {
+    font-size: large;
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+#header_big {
+    font-size: x-large;
+}
+
+#footerMain {
+    margin-top: 20px;
+    font-size: small;
+}

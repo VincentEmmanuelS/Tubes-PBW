@@ -6,7 +6,7 @@ import org.aspectj.lang.annotation.Before;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.tubes.pbw.model.User;
+import com.tubes.pbw.user.model.User;
 
 import jakarta.servlet.http.HttpSession;
 import java.util.Arrays;

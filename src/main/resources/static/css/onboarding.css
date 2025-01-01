@@ -241,6 +241,11 @@ card {
     border-radius: 5px;
 }
 
+/* sidebar {
+    position: sticky;
+    top: 0;
+} */
+
 /* Styling sidebar kanan */
 #rightSidebar {
     display: flex;
