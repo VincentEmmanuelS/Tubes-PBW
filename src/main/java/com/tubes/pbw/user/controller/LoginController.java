@@ -68,7 +68,8 @@ public class LoginController {
             return "redirect:/onboarding";
         }
         else {
-            model.addAttribute("status", "failed");
+            // model.addAttribute("status", "failed");
+            model.addAttribute("accountLocked", true);
             return "user/login";
         }
 

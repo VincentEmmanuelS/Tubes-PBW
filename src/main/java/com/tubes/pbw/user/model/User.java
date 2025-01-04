@@ -24,5 +24,5 @@ public class User {
     
     // @NotBlank(message = "Role tidak boleh kosong")
     private String role;
-
+    private Boolean active; // status akun aktif (true/false)
 }
