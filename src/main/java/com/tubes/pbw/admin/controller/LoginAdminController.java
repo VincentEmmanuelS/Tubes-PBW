@@ -46,6 +46,11 @@ public class LoginAdminController {
         return "admin/manageMember";
     }
 
+    @GetMapping("/add_event")
+    public String addEvent() {
+        return "admin/eventEntry";
+    }
+
     @PostMapping("/login_admin")
     public String loginAdmin(@RequestParam String email, @RequestParam String password, HttpSession session, Model model) {
 

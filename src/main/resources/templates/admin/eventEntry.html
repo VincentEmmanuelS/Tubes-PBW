@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/eventEntry.css">
+    <title>Event Entry | RunTracker</title>
+</head>
+<body>
+    <header>
+        <div id="leftSection">
+            <h1>RunTracker</h1>
+            <div class="buttons">
+                <a href="manage_member">Manage Members</a>
+                <a href="add_event">Add Event</a>
+            </div>
+        </div>
+        <div id="rightSection">
+            <h4>Admin</h4>
+        </div>
+    </header>
+    <main>
+        <form class="AddEvent" action="">
+            <h1>Add Event</h1>
+
+            <container id="topCont">
+                <div class="EntryContainer">
+                    <legend>Distance</legend>
+
+                    <input id="activity_distance" type="number" step=".01" min="0" max="99999">
+                    <span>Distance Error</span>
+
+                    <select class="MetricDistance" name="MetricDistance">
+                        <option value="km">Kilometer</option>
+                        <option value="m">Meter</option>
+                    </select>
+                </div>
+
+                <!-- <div class="EntryContainer">
+                    <legend>Duration</legend>
+                    <div class="DurationInputContainer">
+                        <input id="DurationInput" type="time" name="duration" step="1" required>
+                        <span>Duration Error</span>
+                    </div>
+                </div> -->
+
+                <div class="EntryContainer">
+                    <legend>Elevation</legend>
+                    
+                    <input type="number" step=".01" max="99999" name="elevation[height]" id="elevation_height">
+                    <span>Elevation Error</span>
+
+                    <select class="MetricElevation">
+                        <option value="m" >
+                            Meter
+                        </option>
+                        <option value="ft">
+                            Feet
+                        </option>
+                    </select>
+                </div>
+            </container>
+
+            <hr class="GarisPemisah">
+
+            <container id="midCont">
+                <div id="midTopContainer">
+                    <div class="EntryContainer">
+                        <legend>Sport</legend>
+                        <select id="RideTypeInput" class="RideTypeSelection">
+                            <option value="Bike" >Bike</option>
+                            <option value="Run">Run</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="midBottomContainer">
+                    <div class="EntryContainer">
+                        <legend>Start Time</legend>
+                        <input id="TimeInput" type="datetime-local" required>
+                        <span>Duration Error</span>
+                    </div>
+    
+                    <div class="EntryContainer">
+                        <legend>End Time</legend>
+                        <input id="TimeInput" type="datetime-local" required>
+                        <span>Duration Error</span>
+                    </div>
+                </div>
+            </container>
+
+            <div class="ActivityTitle">
+                <legend>Title</legend>
+                <input type="text" name="activity[name]" id="activity_name"  aria-required="true">
+                <span>Error activity</span>
+            </div>
+
+            <div class="Description">
+                <legend>Description</legend>
+                <textarea id="DescriptionTextArea" name="Description"></textarea>
+                <span>Error activity</span>
+            </div>
+
+            <hr class="GarisPemisah">
+
+            <div class="fileUpload">
+                <h3>Upload Image</h3>
+                <input type="file" id="myFile" name="filename">
+                <span>Error activity</span>
+            </div>
+
+            <hr class="GarisPemisah">
+
+            <div class="limitParticipant">
+                <legend>Limit Participant</legend>
+
+                <div id="limitContainer">
+                    <input type="checkbox" id="checkLimit" name="checkboxLimit">
+                    <input id="limitParticipant" type="number" step="1" min="1" max="99999">
+                </div>
+            </div>
+
+            <hr class="GarisPemisah">
+
+            <button type="submit">Add Event</button>
+        </form>
+    </main>
+</body>
+</html>
