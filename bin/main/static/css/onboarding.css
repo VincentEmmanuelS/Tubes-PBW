@@ -386,7 +386,7 @@ maincontent {
     display: block; /* Remove unwanted space below the image */
     object-fit: cover; /* Ensures the image scales properly */
 }
-card {
+/* card {
     width: 100%;
     height: 200px;
     padding: 10px;
@@ -396,7 +396,7 @@ card {
 
     background-color: hotpink;
     border-radius: 5px;
-}
+} */
 
 /* sidebar {
     position: sticky;

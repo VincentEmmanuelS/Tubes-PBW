@@ -32,6 +32,7 @@ public class MyActivityController {
     private static final String UPLOAD_DIR = "src/main/resources/static";
 
     @GetMapping("myActivity")
+    
     public String halamanActivity(@RequestParam(value = "keyword", required = false) String keyword,
                                   @RequestParam(value = "sortBy", defaultValue = "tanggal_event") String sortBy,
                                   @RequestParam(value = "sortOrder", defaultValue = "asc") String sortOrder,

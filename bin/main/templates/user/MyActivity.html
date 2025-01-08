@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/onboarding.css">
+    <link rel="stylesheet" href="/css/myActivity.css">
     <link rel="stylesheet" href="/css/header.css">
     <title>MyActivity | RunTracker</title>
 
@@ -120,11 +120,12 @@
     <!-- Body -->
     <div class="mainContent">
         <!-- Judul -->
-         <h1>My Activity</h1>
+         
+        <h1 id="MyActivity">My Activity</h1>
 
         <!-- filter -->
         <div>
-            <fieldset>
+            <fieldset class="filterpanel">
 
                 <!--filter by keyWord -->
                 <div>
@@ -139,7 +140,7 @@
                 
                 <!-- filter by RideType -->
                 <!-------------------- tidak tau bakal dipake atau tidak  -------------------------->
-                <!-- <div>
+                <div>
                     <h2>Ride Type</h2>
                     <form action="">
                         <select name="" id="">
@@ -147,13 +148,13 @@
                             <option value="Run">Run</option>
                         </select>
                     </form>
-                </div> -->
+                </div>
 
             </fieldset>
           </div>
           <!-- tabel -->
-          <div >
-            <table>
+          <div class="tablecontainer">
+            <table class="activity_table">
                 <tr>
                     <th>
                         <a th:href="@{/myActivity(sortBy='rideType', sortOrder=${sortBy == 'rideType' and sortOrder == 'asc' ? 'desc' : 'asc'})}">
