@@ -59,7 +59,9 @@ header #rightSection {
 }
 
 
-
+fieldset{
+    border:none;
+}
 #MyActivity{
     padding: 20px 60px;  
 }
@@ -67,12 +69,57 @@ header #rightSection {
     display: flex;
     
     align-items: center;
-    gap:30px;
-    padding: 10px 60px;
+    gap:40px;
+    padding: 10px 80px;
+}
+
+.filterpanel h3{
+    
+    padding-bottom: 10px;
+}
+
+
+
+.filterpanel input[type="text"],
+.filterpanel select {
+    width: 300px; 
+    height: 40px; 
+    padding: 5px; 
+    font-size: 16px; 
+    box-sizing: border-box; 
+    border: 1px solid #ccc; 
+    border-radius: 8px; 
+}
+
+.filterpanel button {
+    height: 40px; 
+    padding: 0 15px; 
+    background-color: white; 
+    color: black; 
+    border: none; 
+    font-size: 16px; 
+    cursor: pointer; 
+    box-sizing: border-box; 
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.filterpanel button:hover {
+    border: 2px solid #FF4F00; 
+    background-color: white;
+    color: black; 
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+
+.filterpanel select {
+    background-color: #f9f9f9; 
+    cursor: pointer; 
 }
 
 .tablecontainer{
-    padding: 5px 60px;
+    padding: 5px 80px;
 }
 
 /* General Table Styling */
@@ -82,7 +129,7 @@ header #rightSection {
     margin: 20px 0;
     font-size: 14px;
     text-align: left;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
 /* Table Header Styling */
@@ -90,12 +137,12 @@ header #rightSection {
     background-color: #f4f4f4;
     color: #333;
     padding: 10px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
 /* Table Row Styling */
 .activity_table tr {
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
 /* Alternating Row Colors */
@@ -147,6 +194,31 @@ header #rightSection {
     display: flex;
     gap: 5px;
     align-items: center;
+}
+
+/* Style for the <a> links in table headers */
+.activity_table th a {
+    color: black; /* Black text color */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold; /* Make the text bold */
+    position: relative; /* For positioning the symbol */
+    padding-right: 15px; /* Space for the down symbol */
+}
+
+/* Add the downward ">" symbol as a pseudo-element */
+.activity_table th a::after {
+    content: "▼"; /* Downward pointing triangle symbol */
+    font-size: 10px; /* Adjust size as needed */
+    position: absolute;
+    right: 5px; /* Space it to the right of the text */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%); /* Align properly with text */
+}
+
+/* Hover effect for the link */
+.activity_table th a:hover {
+    color: #555; /* Slightly lighter black for hover */
+    text-decoration: underline; /* Add underline on hover */
 }
 
 
