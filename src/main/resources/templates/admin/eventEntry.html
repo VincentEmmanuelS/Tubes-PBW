@@ -6,6 +6,30 @@
     <link rel="stylesheet" href="/css/header.css">
     <link rel="stylesheet" href="/css/eventEntry.css">
     <title>Event Entry | RunTracker</title>
+
+    <script>
+        // Fungsi untuk menangani checkbox limit participant
+        function toggleLimitParticipant() {
+            var checkbox = document.getElementById("checkLimit");
+            var limitInput = document.getElementById("limitParticipant");
+            
+            if (checkbox.checked) {
+                limitInput.disabled = false; // Enable limit input
+                limitInput.required = true; // Make limit input required
+            } else {
+                limitInput.disabled = true; // Disable limit input
+                limitInput.required = false; // Make limit input not required
+                limitInput.value = ""; // Reset the value
+            }
+        }
+
+        // Event listener untuk checkbox
+        window.onload = function() {
+            var checkbox = document.getElementById("checkLimit");
+            checkbox.addEventListener("change", toggleLimitParticipant);
+            toggleLimitParticipant(); // Initial check for the checkbox status
+        };
+    </script>
 </head>
 <body>
     <header>
@@ -21,17 +45,17 @@
         </div>
     </header>
     <main>
-        <form class="AddEvent" action="">
+        <form class="AddEvent" action="/add_event" enctype="multipart/form-data" method="POST">
             <h1>Add Event</h1>
 
             <container id="topCont">
                 <div class="EntryContainer">
                     <legend>Distance</legend>
 
-                    <input id="activity_distance" type="number" step=".01" min="0" max="99999">
+                    <input id="activity_distance" name="distance" type="number" step=".01" min="0" max="99999">
                     <span>Distance Error</span>
 
-                    <select class="MetricDistance" name="MetricDistance">
+                    <select class="MetricDistance" name="matricDistance">
                         <option value="km">Kilometer</option>
                         <option value="m">Meter</option>
                     </select>
@@ -48,10 +72,10 @@
                 <div class="EntryContainer">
                     <legend>Elevation</legend>
                     
-                    <input type="number" step=".01" max="99999" name="elevation[height]" id="elevation_height">
+                    <input type="number" step=".01" max="99999" name="elevation" id="elevation_height">
                     <span>Elevation Error</span>
 
-                    <select class="MetricElevation">
+                    <select class="MetricElevation" name="matricElevation">
                         <option value="m" >
                             Meter
                         </option>
@@ -68,7 +92,7 @@
                 <div id="midTopContainer">
                     <div class="EntryContainer">
                         <legend>Sport</legend>
-                        <select id="RideTypeInput" class="RideTypeSelection">
+                        <select id="RideTypeInput" class="RideTypeSelection" name="rideType">
                             <option value="Bike" >Bike</option>
                             <option value="Run">Run</option>
                         </select>
@@ -77,13 +101,13 @@
                 <div id="midBottomContainer">
                     <div class="EntryContainer">
                         <legend>Start Time</legend>
-                        <input id="TimeInput" type="datetime-local" required>
+                        <input id="TimeInput" type="datetime-local" name="waktuMulai" required>
                         <span>Duration Error</span>
                     </div>
     
                     <div class="EntryContainer">
                         <legend>End Time</legend>
-                        <input id="TimeInput" type="datetime-local" required>
+                        <input id="TimeInput" type="datetime-local" name="waktuSelesai" required>
                         <span>Duration Error</span>
                     </div>
                 </div>
@@ -91,13 +115,13 @@
 
             <div class="ActivityTitle">
                 <legend>Title</legend>
-                <input type="text" name="activity[name]" id="activity_name"  aria-required="true">
+                <input type="text" name="title" id="activity_name"  aria-required="true">
                 <span>Error activity</span>
             </div>
 
             <div class="Description">
                 <legend>Description</legend>
-                <textarea id="DescriptionTextArea" name="Description"></textarea>
+                <textarea id="DescriptionTextArea" name="deskripsi"></textarea>
                 <span>Error activity</span>
             </div>
 
@@ -105,7 +129,7 @@
 
             <div class="fileUpload">
                 <h3>Upload Image</h3>
-                <input type="file" id="myFile" name="filename">
+                <input type="file" id="myFile" name="fileFoto">
                 <span>Error activity</span>
             </div>
 
@@ -116,7 +140,7 @@
 
                 <div id="limitContainer">
                     <input type="checkbox" id="checkLimit" name="checkboxLimit">
-                    <input id="limitParticipant" type="number" step="1" min="1" max="99999">
+                    <input id="limitParticipant" name="limitParticipant" type="number" step="1" min="1" max="99999">
                 </div>
             </div>
 

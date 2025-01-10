@@ -75,9 +75,92 @@ sidebar {
 }
 
 maincontent {
-    /* background-color: blue; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
     width: 45vw;
     height: auto;
+}
+
+card {
+    width: 100%;
+    height: 200px;
+    padding: 10px;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    background-color: var(--header-footer-bg);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+
+#rightCard {
+    /* background-color: #FFA500; */
+    max-width: 15vw;
+    height: 100%;
+}
+
+#rightCard > img {
+    height: 100%;
+    /* width: 100%; */
+    object-fit: contain;
+}
+
+#leftCard {
+    background-color: var(--header-footer-bg);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#leftCard h3 {
+    /* background-color: #006D7F; */
+    padding: 10px;
+}
+
+#leftCard #description {
+    /* background-color: #D32F2F; */
+    width: 100%;
+    height: 90px;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    /* overflow: auto; */
+    overflow: hidden;
+}
+
+#leftCard #bottomCard {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#leftCard #limit {
+    background-color: var(--sub-text);
+    width: auto;
+    height: 100%;
+    padding: 10px 20px;
+    margin-left: 10px;
+
+    border-radius: 5px;
+}
+
+#bottomCard button {
+    width: 10vw;
+    background-color: var(--button-active);
+    color: var(--button-text);
+    border: none;
+    border-radius: 5px;
+}
+
+#bottomCard button:hover {
+    background-color: var(--button-hover);
 }
 
 /* Left sidebar bagian profile */

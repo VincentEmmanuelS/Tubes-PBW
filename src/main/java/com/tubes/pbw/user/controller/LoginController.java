@@ -37,20 +37,13 @@ public class LoginController {
 
     }
 
-    @GetMapping("/onboarding")
-    // @RequiredRole("user")
-    public String dashboardPage(HttpSession session, Model model) {
+    // @GetMapping("/onboarding")
+    // // @RequiredRole("user")
+    // public String dashboardPage(HttpSession session, Model model) {
+        
+    //     return "user/onboarding";
 
-        // User user = (User) session.getAttribute("user");
-        // if (user == null) {
-        //     return "redirect:/login";
-        // }
-
-        // model.addAttribute("email", user.getEmail());
-        // model.addAttribute("role", user.getRole());
-        return "user/onboarding";
-
-    }
+    // }
 
     @PostMapping("/login")
     public String login(@RequestParam String email, @RequestParam String password, HttpSession session, Model model) {
@@ -61,6 +54,7 @@ public class LoginController {
         if (userOptional.isPresent()) {
             // session.setAttribute("user", user.get());
             User user = userOptional.get();
+            // System.out.println(user);
 
             session.setAttribute("user", user);
             session.setAttribute("role", user.getRole());

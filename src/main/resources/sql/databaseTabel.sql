@@ -22,3 +22,14 @@ select
 	*
 from
 	manualEntryDummy
+
+-- buat join event
+drop table user_event;
+CREATE TABLE user_event (
+    email VARCHAR(30) NOT NULL,
+    id_event BIGINT NOT NULL,
+	flag CHAR(1) DEFAULT 'T',	-- T = true, F = false
+    PRIMARY KEY (email, id_event),
+    FOREIGN KEY (email) REFERENCES users(email),
+    FOREIGN KEY (id_event) REFERENCES event(id_event)
+);

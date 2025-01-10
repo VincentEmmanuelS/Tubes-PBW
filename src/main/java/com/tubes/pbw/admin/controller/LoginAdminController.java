@@ -36,20 +36,20 @@ public class LoginAdminController {
 
     }
 
-    @GetMapping("/onboarding_admin")
-    public String onboardingAdmin(HttpSession session, Model model) {
-        return "admin/onboarding";
-    }
+    // @GetMapping("/onboarding_admin")
+    // public String onboardingAdmin(HttpSession session, Model model) {
+    //     return "admin/onboarding";
+    // }
 
     @GetMapping("/manage_member")
     public String manageMember() {
         return "admin/manageMember";
     }
 
-    @GetMapping("/add_event")
-    public String addEvent() {
-        return "admin/eventEntry";
-    }
+    // @GetMapping("/add_event")
+    // public String addEvent() {
+    //     return "admin/eventEntry";
+    // }
 
     @PostMapping("/login_admin")
     public String loginAdmin(@RequestParam String email, @RequestParam String password, HttpSession session, Model model) {
@@ -61,6 +61,7 @@ public class LoginAdminController {
 
             session.setAttribute("user", admin);
             session.setAttribute("role", admin.getRole());
+            session.setAttribute("email", admin.getEmail());
 
             return "redirect:/onboarding_admin";
         }
