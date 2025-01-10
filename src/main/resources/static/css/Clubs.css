@@ -1,0 +1,178 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--background);
+}
+
+:root {
+    --primary-color: #FF4F00;    /* Oranye Strava */
+    --secondary-color: #F2F2F2;  /* Abu-abu Terang */
+    
+    --header-footer-bg: #FFFFFF; /* Abu-abu Terang */
+    --background: #F2F2F2;       /* Putih */
+    
+    --heading: #FF4F00;          /* Oranye Strava */
+    --sub-heading: #006D7F;      /* Biru Gelap */
+    
+    --button-active: #FF4F00;    /* Oranye Strava */
+    --button-inactive: #F2F2F2;  /* Abu-abu Terang */
+    --button-hover: #A23402;     /* Oranye Gelap */
+    --button-text: #FFFFFF;      /* Putih */
+    
+    --text-normal: #333333;      /* Abu-abu Gelap */
+    --text-hover: #FF4F00;       /* Oranye Strava */
+    --sub-text: #808080;         /* Abu-abu Pucat */
+    
+    --text-box-bg: #FFFFFF;      /* Putih */
+    --text-box-border: #FF4F00;  /* Oranye Strava */
+    
+    --highlight-text: #FF4500;   /* Oranye Cerah untuk teks sorotan */
+    --link-text: #006D7F;        /* Biru Gelap untuk teks link */
+    --link-hover: #708090;       /* Abu-abu kebiruan untuk link hover */
+  
+    --dropdown-bg: #F8F8F8;         /* Abu-abu sangat pucat untuk background dropdown */
+    --dropdown-hover-bg: #FF4F00;   /* Oranye Strava untuk background saat hover */
+    --dropdown-active-bg: #A23402;  /* Oranye Gelap untuk background aktif dropdown */
+    --dropdown-border: #F2F2F2;     /* Border abu-abu terang */
+    --dropdown-text: #333333;       /* Teks gelap untuk keterbacaan yang tinggi */
+    --dropdown-hover-text: #FFFFFF; /* Teks putih saat hover di dropdown */
+    
+    --error-text: #D32F2F;       /* Merah untuk pesan kesalahan */
+    --success-text: #388E3C;     /* Hijau untuk pesan sukses */
+    --warning-text: #FFA500;     /* Oranye untuk peringatan */
+}
+
+header #rightSection img {
+    width: 30px;
+    height: auto;
+    object-fit: contain;
+    filter: invert(1) grayscale(100%);
+}
+
+header #rightSection {
+    gap: 40px;
+}
+
+.mainContent{
+    border-top: 1px solid #a6a6a6;
+    min-height: 100vh;
+    background-color: white;
+}
+
+.mainContent legend{
+    padding: 20px 60px; 
+}
+
+.Title{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 60px;  
+}
+
+#createclub{
+    width: 150px;
+    height: 50px;
+    background-color: #000000;
+    padding: 10px;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    border: 1px solid #808080;
+    grid-area: i;
+}
+
+#createclub:hover{
+    background-color: #4e4e4e;
+}
+
+
+.filterpanel {
+    display: grid;
+    grid-template-areas:
+      "a x b c d"
+      "e f g h i";
+      grid-template-columns: auto ; 
+      grid-template-rows: 40px 50px ; 
+    gap: 2px;
+    margin: 0px 60px;
+    padding-right: 600px;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    background-color: #F2F2F2;
+  }
+  
+  #clubnameinput {
+    grid-area: e;
+  }
+  
+  #locationinput {
+    grid-area: f;
+  }
+  
+  #sportypelegend {
+    
+    grid-area: b;
+  }
+  
+  #selectsport {
+    grid-area: g;
+  }
+  
+  #clubtypelegend {
+    
+    grid-area: c;
+  }
+  
+  #selectclub {
+    grid-area: h;
+  }
+  
+  .filterpanel input[type="text"],
+  .filterpanel select {
+    width: 200px;
+    height: 30px;
+    padding: 5px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .filterpanel button {
+    width: 100px;
+    height: 30px;
+    background-color: #ffffff;
+    color: #808080;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    border: 1px solid #808080;
+    grid-area: i;
+  }
+  
+  .filterpanel button:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .dropdown-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  
+  .dropdown-container legend {
+    
+    font-size: 12px;
+    font-weight: bold;
+    color: #333;
+  }
+  

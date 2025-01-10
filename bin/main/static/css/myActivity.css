@@ -58,6 +58,9 @@ header #rightSection {
     gap: 40px;
 }
 
+.mainContent{
+    min-height: 100vh;
+}
 
 fieldset{
     border:none;
