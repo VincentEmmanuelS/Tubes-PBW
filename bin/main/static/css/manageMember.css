@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--background);
+}
+
+:root {
+    --primary-color: #FF4F00;    /* Oranye Strava */
+    --secondary-color: #F2F2F2;  /* Abu-abu Terang */
+    
+    --header-footer-bg: #FFFFFF; /* Abu-abu Terang */
+    --background: #F2F2F2;       /* Putih */
+    
+    --heading: #FF4F00;          /* Oranye Strava */
+    --sub-heading: #006D7F;      /* Biru Gelap */
+    
+    --button-active: #FF4F00;    /* Oranye Strava */
+    --button-inactive: #F2F2F2;  /* Abu-abu Terang */
+    --button-hover: #A23402;     /* Oranye Gelap */
+    --button-text: #FFFFFF;      /* Putih */
+    
+    --text-normal: #333333;      /* Abu-abu Gelap */
+    --text-hover: #FF4F00;       /* Oranye Strava */
+    --sub-text: #808080;         /* Abu-abu Pucat */
+    
+    --text-box-bg: #FFFFFF;      /* Putih */
+    --text-box-border: #FF4F00;  /* Oranye Strava */
+    
+    --highlight-text: #FF4500;   /* Oranye Cerah untuk teks sorotan */
+    --link-text: #006D7F;        /* Biru Gelap untuk teks link */
+    --link-hover: #708090;       /* Abu-abu kebiruan untuk link hover */
+  
+    --dropdown-bg: #F8F8F8;         /* Abu-abu sangat pucat untuk background dropdown */
+    --dropdown-hover-bg: #FF4F00;   /* Oranye Strava untuk background saat hover */
+    --dropdown-active-bg: #A23402;  /* Oranye Gelap untuk background aktif dropdown */
+    --dropdown-border: #F2F2F2;     /* Border abu-abu terang */
+    --dropdown-text: #333333;       /* Teks gelap untuk keterbacaan yang tinggi */
+    --dropdown-hover-text: #FFFFFF; /* Teks putih saat hover di dropdown */
+    
+    --error-text: #D32F2F;       /* Merah untuk pesan kesalahan */
+    --success-text: #388E3C;     /* Hijau untuk pesan sukses */
+    --warning-text: #FFA500;     /* Oranye untuk peringatan */
+}
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 2vw;
+}
+
+table {
+    border-collapse: collapse; /* Menghapus garis ganda */
+    margin: 20px auto; /* Tabel di tengah halaman */
+}
+
+th, td {
+    border: 1px solid black; /* Memberikan garis */
+    padding: 10px; /* Jarak teks ke garis */
+    text-align: center; /* Teks rata tengah */
+}
+
+th {
+    background-color: var(--sub-heading);
+    color: var(--button-text);
+}
+
+tr:nth-child(even) {
+    background-color: lightgray; /* Warna baris genap */
+}
+
+button {
+    background-color: var(--success-text);
+    width: 6vw;
+    height: 5vh;
+    border: none;
+    border-radius: 5px;
+}
+
+/* button:hover {
+    background-color: #244d26;
+} */
+
+button > img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+}

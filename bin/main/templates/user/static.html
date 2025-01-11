@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyStatic | RunTracker</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+    <!-- filter for distance -->
+    <fieldset>
+        <form id="distanceForm" action="/static" method="get">
+            <select name="yearDistance" onchange="submitForm('distanceForm')">
+                <option th:each="year : ${tahun}" 
+                        th:value="${year}" 
+                        th:text="${year}"
+                        th:selected="${year.toString()} == ${yearDistance.toString()}"></option>
+            </select>
+    
+            <select name="ridetypeDistance" onchange="submitForm('distanceForm')">
+                <option value="bike" th:selected="'bike' == ${ridetypeDistance}">bike</option>
+                <option value="run" th:selected="'run' == ${ridetypeDistance}">run</option>
+            </select>
+    
+            <select name="matricDistance" onchange="submitForm('distanceForm')">
+                <option value="km" th:selected="'km' == ${matricDistance}">Km</option>
+                <option value="m" th:selected="'m' == ${matricDistance}">M</option>
+            </select>
+        </form>
+    </fieldset>
+   
+    <canvas id="myChartDistance" style="width:100%;max-width:600px"></canvas>
+    <!-- filter for duration -->
+    <fieldset>
+        <form id="durationForm" action="/static" method="get">
+            <select name="yearDuration" onchange="submitForm('durationForm')">
+                <option th:each="year : ${tahun}" 
+                        th:value="${year}" 
+                        th:text="${year}" 
+                        th:selected="${year.toString()} == ${yearDuration.toString()}"></option>
+            </select>
+        </form>
+    </fieldset>
+
+    <canvas id="myChartDuration" style="width:100%;max-width:600px"></canvas>
+    <!-- filter for activity -->
+    <fieldset>
+        <form id="activityForm" action="/static" method="get">
+            <select name="yearActivity" onchange="submitForm('activityForm')">
+                <option th:each="year : ${tahun}" 
+                        th:value="${year}" 
+                        th:text="${year}" 
+                        th:selected="${year.toString()} == ${yearActivity.toString()}"></option>
+            </select>
+    
+            <select name="ridetypeActivity" onchange="submitForm('activityForm')">
+                <option value="bike" th:selected="'bike' == ${ridetypeActivity}">bike</option>
+                <option value="run" th:selected="'run' == ${ridetypeActivity}">run</option>
+            </select>
+        </form>
+    </fieldset>
+    
+    <canvas id="myChartActivity" style="width:100%;max-width:600px"></canvas>
+    <button id="btn">Save PDF</button>
+    
+    <script th:inline="javascript">
+        //method  untuk submit filter 
+        function submitForm(formId) {
+        // Get the form element by ID
+        const form = document.getElementById(formId);
+        // Submit the form
+        form.submit();
+        }
+        
+        // label sumbu x
+        const xValues = ['January','Febuary','March','April','May','June','July','September','October','November','December'];
+
+
+        // Get the data Distance
+        const data = /*[[${data}]]*/[];
+        console.log("Rendered Data:", data);
+        const month = data.map(item => item.bulan)
+        let valuePerMonth = Array(12).fill(0);
+        const yValues = data.map(item => item.value);
+        console.log("Rendered data month :"+ month);
+
+        // data sesuai dengan bulan
+        if(month.length<12){
+            for(var i = 0;i<month.length;i++){
+                valuePerMonth[month[i]-1]=yValues[i];
+            }
+        }else{
+            valuePerMonth = yValues;
+        }
+       
+        console.log("Rendered Data:", valuePerMonth);
+        
+        
+        // char untuk distance
+        new Chart("myChartDistance", {
+            type: "bar",
+            data: {
+                labels: xValues,
+                datasets: [{
+                    backgroundColor: "blue",
+                    data: valuePerMonth
+                }]
+            },
+            options: {
+                legend: { display: false },
+                title: {
+                    display: true,
+                    text: "Distance Grafik"
+                }
+            }
+        });
+
+        // data duration
+        const dataDuration = /*[[${dataDuration}]]*/[];
+        console.log("Rendered Data:", dataDuration);
+        const monthDuration = dataDuration.map(item => item.bulan)
+        let valuePerMonthDuration = Array(12).fill(0);
+        const yValuesDuration = dataDuration.map(item => item.value);
+
+        // kalau data duration monthny kurang dari 12
+        if(monthDuration.length<12){
+            for(var i = 0;i<monthDuration.length;i++){
+                valuePerMonthDuration[monthDuration[i]-1]=yValuesDuration[i];
+            }
+        }else{
+            valuePerMonthDuration = yValuesDuration;
+        } 
+
+        // chart untuk duration
+        new Chart("myChartDuration", {
+            type: "bar",
+            data: {
+                labels: xValues,
+                datasets: [{
+                    backgroundColor: "blue",
+                    data: valuePerMonthDuration
+                }]
+            },
+            options: {
+                legend: { display: false },
+                title: {
+                    display: true,
+                    text: "Duration Grafik (hr)"
+                }
+            }
+        });
+
+        // data activity
+        const dataActivity = /*[[${dataActivity}]]*/[];
+        console.log("Rendered Data:", dataActivity);
+        const monthActivity = dataActivity.map(item => item.bulan)
+        let valuePerMonthActivity = Array(12).fill(0);
+        const yValuesActivity = dataActivity.map(item => item.value);
+
+        // kalau data activity monthnya kurang dari 12
+        if(monthActivity.length<12){
+            for(var i = 0;i<monthActivity.length;i++){
+                valuePerMonthActivity[monthActivity[i]-1]=yValuesActivity[i];
+            }
+        }else{
+            valuePerMonthActivity = yValuesActivity;
+        } 
+
+        new Chart("myChartActivity", {
+            type: "bar",
+            data: {
+                labels: xValues,
+                datasets: [{
+                    backgroundColor: "blue",
+                    data: valuePerMonthActivity
+                }]
+            },
+            options: {
+                legend: { display: false },
+                title: {
+                    display: true,
+                    text: "How Many Activity"
+                }
+            }
+        });
+
+      // Add click event listener for the button
+    var button = document.getElementById("btn");
+    button.addEventListener("click", function () {
+        // Create a temporary container to hold all charts for the PDF
+        var pdfContainer = document.createElement('div');
+        pdfContainer.style.width = "800px"; // Ensure a fixed width
+        pdfContainer.style.display = "inline-block"; // Avoid unexpected block-level spacing
+        pdfContainer.style.padding = "0"; // Remove padding
+        pdfContainer.style.margin = "0"; // Remove margin
+
+        // Append each chart to the container
+        ['myChartDistance', 'myChartDuration', 'myChartActivity'].forEach(chartId => {
+            // Get the canvas element
+            var canvas = document.getElementById(chartId);
+
+            // Convert the canvas to a base64 image
+            var img = new Image();
+            img.src = canvas.toDataURL("image/png");
+            img.style.marginBottom = "50px"; // Remove image margins
+            img.style.padding = "0"; // Remove image padding
+            img.style.display = "block"; // Prevent inline spacing
+            pdfContainer.appendChild(img);
+        });
+
+
+        // Convert the container to a PDF
+        var opt = {
+            margin: 0.5, // Adjust as needed
+            filename: 'Charts.pdf',
+            html2canvas: { 
+                scale: 3, // Higher scale for better resolution
+                scrollX: 0, 
+                scrollY: 0, 
+                useCORS: true // Avoid cross-origin issues
+            },
+            jsPDF: { unit: 'in', format: 'letter', orientation: 'landscape' }
+        };
+
+        html2pdf()
+        .set(opt)
+        .from(pdfContainer)
+        .save()
+        .then(() => pdfContainer.remove()) // Remove the temporary container
+        .catch(err => console.error("Error generating PDF:", err));
+    });
+    </script>
+</body>
+</html>

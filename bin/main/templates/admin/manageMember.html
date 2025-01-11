@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Member | RunTracker</title>
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/manageMember.css">
+
+    <!-- Buat efek hover button -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const buttons = document.querySelectorAll("button");
+
+            buttons.forEach(button => {
+                button.addEventListener("click", function() {
+                    if (button.classList.contains("red")) {
+                        button.classList.remove("red");
+                        button.classList.add("green");
+                    } else {
+                        button.classList.remove("green");
+                        button.classList.add("red");
+                    }
+                });
+            });
+        });
+    </script>
+    <style>
+        button.green {
+            background-color: var(--success-text);
+        }
+
+        button.red {
+            background-color: var(--error-text);
+        }
+
+        button.green:hover {
+            background-color: #244d26;
+        }
+
+        button.red:hover {
+            background-color: #993030;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div id="leftSection">
+            <h1>RunTracker</h1>
+            <div class="buttons">
+                <a href="">Manage Members</a>
+            </div>
+        </div>
+        <div id="rightSection">
+            <h4>Admin</h4>
+        </div>
+    </header>
+
+    <main>
+        <table>
+            <tHead>
+                <tr>
+                    <th>First name</th>
+                    <th>Last name</th>
+                    <th>Date of Birth</th>
+                    <th>Gender</th>
+                    <th>Region</th>
+                    <th>Email</th>
+                    <th>Status</th>
+                </tr>
+            </tHead>
+            <tBody>
+                <tr>
+                    <td>Udin</td>
+                    <td>Petot</td>
+                    <td>9 / 11 / 2001</td>
+                    <td>Wallmart Bag</td>
+                    <td>Wakanda</td>
+                    <td>UdinPetot@PengenNgen.com</td>
+                    <td>
+                        <button class="green">
+                            <img src="images/icons/Flag_Icon.png" alt="">
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Udin</td>
+                    <td>Petot</td>
+                    <td>9 / 11 / 2001</td>
+                    <td>Wallmart Bag</td>
+                    <td>Wakanda</td>
+                    <td>UdinPetot@PengenNgen.com</td>
+                    <td>
+                        <button class="green">
+                            <img src="images/icons/Flag_Icon.png" alt="">
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Udin</td>
+                    <td>Petot</td>
+                    <td>9 / 11 / 2001</td>
+                    <td>Wallmart Bag</td>
+                    <td>Wakanda</td>
+                    <td>UdinPetot@PengenNgen.com</td>
+                    <td>
+                        <button class="green">
+                            <img src="images/icons/Flag_Icon.png" alt="">
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Udin</td>
+                    <td>Petot</td>
+                    <td>9 / 11 / 2001</td>
+                    <td>Wallmart Bag</td>
+                    <td>Wakanda</td>
+                    <td>UdinPetot@PengenNgen.com</td>
+                    <td>
+                        <button class="green">
+                            <img src="images/icons/Flag_Icon.png" alt="">
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Udin</td>
+                    <td>Petot</td>
+                    <td>9 / 11 / 2001</td>
+                    <td>Wallmart Bag</td>
+                    <td>Wakanda</td>
+                    <td>UdinPetot@PengenNgen.com</td>
+                    <td>
+                        <button class="green">
+                            <img src="images/icons/Flag_Icon.png" alt="">
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Udin</td>
+                    <td>Petot</td>
+                    <td>9 / 11 / 2001</td>
+                    <td>Wallmart Bag</td>
+                    <td>Wakanda</td>
+                    <td>UdinPetot@PengenNgen.com</td>
+                    <td>
+                        <button class="green">
+                            <img src="images/icons/Flag_Icon.png" alt="">
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Udin</td>
+                    <td>Petot</td>
+                    <td>9 / 11 / 2001</td>
+                    <td>Wallmart Bag</td>
+                    <td>Wakanda</td>
+                    <td>UdinPetot@PengenNgen.com</td>
+                    <td>
+                        <button class="green">
+                            <img src="images/icons/Flag_Icon.png" alt="">
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Udin</td>
+                    <td>Petot</td>
+                    <td>9 / 11 / 2001</td>
+                    <td>Wallmart Bag</td>
+                    <td>Wakanda</td>
+                    <td>UdinPetot@PengenNgen.com</td>
+                    <td>
+                        <button class="green">
+                            <img src="images/icons/Flag_Icon.png" alt="">
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Udin</td>
+                    <td>Petot</td>
+                    <td>9 / 11 / 2001</td>
+                    <td>Wallmart Bag</td>
+                    <td>Wakanda</td>
+                    <td>UdinPetot@PengenNgen.com</td>
+                    <td>
+                        <button class="green">
+                            <img src="images/icons/Flag_Icon.png" alt="">
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Udin</td>
+                    <td>Petot</td>
+                    <td>9 / 11 / 2001</td>
+                    <td>Wallmart Bag</td>
+                    <td>Wakanda</td>
+                    <td>UdinPetot@PengenNgen.com</td>
+                    <td>
+                        <button class="green">
+                            <img src="images/icons/Flag_Icon.png" alt="">
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Udin</td>
+                    <td>Petot</td>
+                    <td>9 / 11 / 2001</td>
+                    <td>Wallmart Bag</td>
+                    <td>Wakanda</td>
+                    <td>UdinPetot@PengenNgen.com</td>
+                    <td>
+                        <button class="green">
+                            <img src="images/icons/Flag_Icon.png" alt="">
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Udin</td>
+                    <td>Petot</td>
+                    <td>9 / 11 / 2001</td>
+                    <td>Wallmart Bag</td>
+                    <td>Wakanda</td>
+                    <td>UdinPetot@PengenNgen.com</td>
+                    <td>
+                        <button class="green">
+                            <img src="images/icons/Flag_Icon.png" alt="">
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Udin</td>
+                    <td>Petot</td>
+                    <td>9 / 11 / 2001</td>
+                    <td>Wallmart Bag</td>
+                    <td>Wakanda</td>
+                    <td>UdinPetot@PengenNgen.com</td>
+                    <td>
+                        <button class="green">
+                            <img src="images/icons/Flag_Icon.png" alt="">
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Udin</td>
+                    <td>Petot</td>
+                    <td>9 / 11 / 2001</td>
+                    <td>Wallmart Bag</td>
+                    <td>Wakanda</td>
+                    <td>UdinPetot@PengenNgen.com</td>
+                    <td>
+                        <button class="green">
+                            <img src="images/icons/Flag_Icon.png" alt="">
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Udin</td>
+                    <td>Petot</td>
+                    <td>9 / 11 / 2001</td>
+                    <td>Wallmart Bag</td>
+                    <td>Wakanda</td>
+                    <td>UdinPetot@PengenNgen.com</td>
+                    <td>
+                        <button class="green">
+                            <img src="images/icons/Flag_Icon.png" alt="">
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Udin</td>
+                    <td>Petot</td>
+                    <td>9 / 11 / 2001</td>
+                    <td>Wallmart Bag</td>
+                    <td>Wakanda</td>
+                    <td>UdinPetot@PengenNgen.com</td>
+                    <td>
+                        <button class="green">
+                            <img src="images/icons/Flag_Icon.png" alt="">
+                        </button>
+                    </td>
+                </tr>
+            </tBody>        
+        </table>
+    </main>
+
+</body>
+</html>
