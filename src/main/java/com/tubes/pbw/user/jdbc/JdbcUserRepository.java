@@ -22,8 +22,8 @@ public class JdbcUserRepository implements UserRepository {
 
         try {
 
-            String sql = "INSERT INTO users (email, password, roles) VALUES (?, ?, ?)";
-            jdbcTemplate.update(sql, user.getEmail(), user.getPassword(), user.getRole());
+            String sql = "INSERT INTO users (email, password, roles, active) VALUES (?, ?, ?, ?)";
+            jdbcTemplate.update(sql, user.getEmail(), user.getPassword(), user.getRole(), true);
 
         } catch (Exception e) {
 
@@ -44,7 +44,8 @@ public class JdbcUserRepository implements UserRepository {
             resultSet.getString("email"),
             resultSet.getString("password"),
             resultSet.getString("password"),
-            resultSet.getString("roles")
+            resultSet.getString("roles"),
+            resultSet.getBoolean("active")
         );
     }
 

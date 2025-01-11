@@ -12,18 +12,8 @@
         <div id="leftSection">
             <h1>RunTracker</h1>
             <div class="buttons">
-                <!-- <div class="dropdown">
-                    <a href="">Activities</a>
-                    <ul class="dropdown-list">
-                        <li><h2>Top Sports</h2></li>
-                        <li><a href="#">Running</a></li>
-                        <li><a href="#">Cycling</a></li>
-                    </ul>
-                </div> -->
                 <a href="manage_member">Manage Members</a>
-                <!-- <a href="">Maps</a>
-                <a href="">Challenges</a>
-                <a href="">Subscription</a> -->
+                <a href="add_event">Add Event</a>
             </div>
         </div>
         <div id="rightSection">
@@ -42,126 +32,26 @@
         </sidebar>
 
         <maincontent>
-            <card>
-                <div id="rightCard">
-                    <img src="images/Running.jpg" alt="">
-                </div>
-                <div id="leftCard">
-                    <div>
-                        <h3>Judul event</h3>
-                        <p id="description">deskripsi event bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla</p>
+            <!-- Iterasi untuk setiap event -->
+            <th:block th:each="event : ${events}">
+                <card>
+                    <div id="rightCard" th:if="${event.fileFoto != null}">
+                        <img th:src="@{${event.fileFoto}}" alt="Event image">
                     </div>
-                    <div id="bottomCard">
-                        <p id="limit">Limit: - / -</p>
-                        <button>Edit</button>
+                    <div id="leftCard">
+                        <div>
+                            <h3 th:text="${event.title}">Judul event</h3>
+                            <p id="description" th:text="${event.deskripsi}">deskripsi event</p>
+                        </div>
+                        <form id="bottomCard" th:action="@{/end_event}" method="post">
+                            <p id="limit" th:text="'Join: ' + ${event.limitParticipant == 2147483647 ? event.participant : event.participant + ' / ' + event.limitParticipant}"></p>
+                            <input type="hidden" name="eventId" th:value="${event.idEvent}" />
+                            <!-- <button type="submit" th:disabled="${'userAlreadyJoined_' + event.idEvent}">Join</button> -->
+                            <button type="submit">End</button>
+                        </form>
                     </div>
-                </div>
-            </card>
-            <card>
-                <div id="rightCard">
-                    <img src="images/Running.jpg" alt="">
-                </div>
-                <div id="leftCard">
-                    <div>
-                        <h3>Judul event</h3>
-                        <p id="description">deskripsi event bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla</p>
-                    </div>
-                    <div id="bottomCard">
-                        <p id="limit">Limit: - / -</p>
-                        <button>Edit</button>
-                    </div>
-                </div>
-            </card>
-            <card>
-                <div id="rightCard">
-                    <img src="images/Running.jpg" alt="">
-                </div>
-                <div id="leftCard">
-                    <div>
-                        <h3>Judul event</h3>
-                        <p id="description">deskripsi event bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla</p>
-                    </div>
-                    <div id="bottomCard">
-                        <p id="limit">Limit: - / -</p>
-                        <button>Edit</button>
-                    </div>
-                </div>
-            </card>
-            <card>
-                <div id="rightCard">
-                    <img src="images/Running.jpg" alt="">
-                </div>
-                <div id="leftCard">
-                    <div>
-                        <h3>Judul event</h3>
-                        <p id="description">deskripsi event bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla</p>
-                    </div>
-                    <div id="bottomCard">
-                        <p id="limit">Limit: - / -</p>
-                        <button>Edit</button>
-                    </div>
-                </div>
-            </card>
-            <card>
-                <div id="rightCard">
-                    <img src="images/Running.jpg" alt="">
-                </div>
-                <div id="leftCard">
-                    <div>
-                        <h3>Judul event</h3>
-                        <p id="description">deskripsi event bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla</p>
-                    </div>
-                    <div id="bottomCard">
-                        <p id="limit">Limit: - / -</p>
-                        <button>Edit</button>
-                    </div>
-                </div>
-            </card>
-            <card>
-                <div id="rightCard">
-                    <img src="images/Running.jpg" alt="">
-                </div>
-                <div id="leftCard">
-                    <div>
-                        <h3>Judul event</h3>
-                        <p id="description">deskripsi event bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla</p>
-                    </div>
-                    <div id="bottomCard">
-                        <p id="limit">Limit: - / -</p>
-                        <button>Edit</button>
-                    </div>
-                </div>
-            </card>
-            <card>
-                <div id="rightCard">
-                    <img src="images/Running.jpg" alt="">
-                </div>
-                <div id="leftCard">
-                    <div>
-                        <h3>Judul event</h3>
-                        <p id="description">deskripsi event bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla</p>
-                    </div>
-                    <div id="bottomCard">
-                        <p id="limit">Limit: - / -</p>
-                        <button>Edit</button>
-                    </div>
-                </div>
-            </card>
-            <card>
-                <div id="rightCard">
-                    <img src="images/Running.jpg" alt="">
-                </div>
-                <div id="leftCard">
-                    <div>
-                        <h3>Judul event</h3>
-                        <p id="description">deskripsi event bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla</p>
-                    </div>
-                    <div id="bottomCard">
-                        <p id="limit">Limit: - / -</p>
-                        <button>Edit</button>
-                    </div>
-                </div>
-            </card>
+                </card>
+            </th:block>
         </maincontent>
-</body>
+    </body>
 </html>

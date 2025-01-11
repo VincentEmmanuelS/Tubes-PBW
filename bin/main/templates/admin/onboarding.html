@@ -12,6 +12,7 @@
         <div id="leftSection">
             <h1>RunTracker</h1>
             <div class="buttons">
+<<<<<<< HEAD
                 <!-- <div class="dropdown">
                     <a href="">Activities</a>
                     <ul class="dropdown-list">
@@ -24,6 +25,10 @@
                 <!-- <a href="">Maps</a>
                 <a href="">Challenges</a>
                 <a href="">Subscription</a> -->
+=======
+                <a href="manage_member">Manage Members</a>
+                <a href="add_event">Add Event</a>
+>>>>>>> 8ed6281764ac393928a4dac961e4f0363c844673
             </div>
         </div>
         <div id="rightSection">
@@ -42,6 +47,7 @@
         </sidebar>
 
         <maincontent>
+<<<<<<< HEAD
             <card>
                 <div id="rightCard">
                     <img src="images/Running.jpg" alt="">
@@ -164,4 +170,28 @@
             </card>
         </maincontent>
 </body>
+=======
+            <!-- Iterasi untuk setiap event -->
+            <th:block th:each="event : ${events}">
+                <card>
+                    <div id="rightCard" th:if="${event.fileFoto != null}">
+                        <img th:src="@{${event.fileFoto}}" alt="Event image">
+                    </div>
+                    <div id="leftCard">
+                        <div>
+                            <h3 th:text="${event.title}">Judul event</h3>
+                            <p id="description" th:text="${event.deskripsi}">deskripsi event</p>
+                        </div>
+                        <form id="bottomCard" th:action="@{/end_event}" method="post">
+                            <p id="limit" th:text="'Join: ' + ${event.limitParticipant == 2147483647 ? event.participant : event.participant + ' / ' + event.limitParticipant}"></p>
+                            <input type="hidden" name="eventId" th:value="${event.idEvent}" />
+                            <!-- <button type="submit" th:disabled="${'userAlreadyJoined_' + event.idEvent}">Join</button> -->
+                            <button type="submit">End</button>
+                        </form>
+                    </div>
+                </card>
+            </th:block>
+        </maincontent>
+    </body>
+>>>>>>> 8ed6281764ac393928a4dac961e4f0363c844673
 </html>

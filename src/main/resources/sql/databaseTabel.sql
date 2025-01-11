@@ -23,6 +23,7 @@ select
 from
 	manualEntryDummy
 
+<<<<<<< HEAD
 --distance grafik
 select
 	sum(distance) as totaldistance , month
@@ -79,3 +80,15 @@ set
 	ridetype ='bike'
 where 
 	EXTRACT(MONTH FROM tanggal_event) = 12
+=======
+-- buat join event
+drop table user_event;
+CREATE TABLE user_event (
+    email VARCHAR(30) NOT NULL,
+    id_event BIGINT NOT NULL,
+	flag CHAR(1) DEFAULT 'T',	-- T = true, F = false
+    PRIMARY KEY (email, id_event),
+    FOREIGN KEY (email) REFERENCES users(email),
+    FOREIGN KEY (id_event) REFERENCES event(id_event)
+);
+>>>>>>> 8ed6281764ac393928a4dac961e4f0363c844673

@@ -5,7 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/onboarding.css">
     <link rel="stylesheet" href="/css/header.css">
-    <title>Onboarding | RunTracker</title>
+    <link rel="stylesheet" href="/css/popupForm.css">
+    <title>Onboarding | RunTracker</title>  
+    
+    <!-- <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const eventList = document.getElementById("eventList");
+            const isUserJoined = eventList.getAttribute("data-isUserJoined") === "true";
+
+            if (isUserJoined) {
+                const joinButtons = document.querySelectorAll(".joinButton");
+                joinButtons.forEach(button => {
+                    button.style.display = "none"; // Sembunyikan tombol
+                });
+            }
+        });
+    </script>
+     -->
 </head>
 <body>
     <header>
@@ -131,30 +147,36 @@
             </div>
         </sidebar>
         <maincontent>
-            <card>
-                test
-            </card>
-            <card>
-                test
-            </card>
-            <card>
-                test
-            </card>
-            <card>
-                test
-            </card>
-            <card>
-                test
-            </card>
-            <card>
-                test
-            </card>
-            <card>
-                test
-            </card>
-            <card>
-                test
-            </card>
+            <!-- Iterasi untuk setiap event -->
+            <th:block th:each="event : ${events}">
+                <card>
+                    <div id="rightCard" th:if="${event.fileFoto != null}">
+                        <img th:src="@{${event.fileFoto}}" alt="Event image">
+                    </div>
+                    <div id="leftCard">
+                        <div>
+                            <h3 th:text="${event.title}">Judul event</h3>
+                            <p id="description" th:text="${event.deskripsi}">deskripsi event</p>
+                        </div>
+                        <div id="bottomCard">
+                            <form th:action="@{/joinEvent}" method="post">
+                                <p id="limit" th:text="'Join: ' + ${event.limitParticipant == 2147483647 ? event.participant : event.participant + ' / ' + event.limitParticipant}"></p>
+                                <input type="hidden" th:value="${event.idEvent}" name="eventId">
+                                <input type="hidden" name="email" th:value="${user.email}">
+                                <input type="hidden" name="idEvent" th:value="${event.idEvent}">
+                                <button type="submit" th:classappend="${isUserJoinedAnyEvent} ? 'hidden' : 'show'">Join</button>
+               
+                            </form>
+                            <!-- <span th:text="${event.idEvent}"></span> -->
+                            <!-- <form th:action="@{/submitEvent/{id}(id=${event.idEvent})}" method="post"> -->
+                            <form action="/submitEvent" method="get">
+                                <input type="hidden" name="id" th:value="${event.idEvent}">
+                                <button th:classappend="${joinedEventIds.contains(event.idEvent) && isUserJoinedAnyEvent} ? 'show' : 'hidden'" type="submit" th:action="@{/submitEvent/{id}(id=${event.idEvent})}">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </card>
+            </th:block>
         </maincontent>
         <!-- right sidebar -->
         <sidebar id="rightSidebar">
@@ -188,6 +210,34 @@
             </div>
         </sidebar>
     </div>
+
+    <div id="overlay" th:if="${showOverlay}" style="display: block;"></div>
+    <popupForm th:if="${showPopupForm}" style="display: block;">
+        <h1>Complete Your Profile</h1>
+        <form action="/onboarding" method="post">
+            <label for="first_name">First Name:</label>
+            <input type="text" id="first_name" name="firstName" placeholder="Enter your first name" required>
+
+            <label for="last_name">Last Name:</label>
+            <input type="text" id="last_name" name="lastName" placeholder="Enter your last name" required>
+
+            <label for="tanggal_lahir">Date of Birth:</label>
+            <input type="date" id="tanggal_lahir" name="tanggalLahir" required>
+
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+
+            <label for="region">Region:</label>
+            <input type="text" id="region" name="region" placeholder="Enter your region" required>
+
+            <input type="hidden" id="email" name="email" value="${email}">
+
+            <button type="submit">Submit</button>
+        </form>
+    </popupForm>
 
     <footer>
 

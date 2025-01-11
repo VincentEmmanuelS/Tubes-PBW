@@ -75,9 +75,197 @@ sidebar {
 }
 
 maincontent {
+<<<<<<< HEAD
     /* background-color: blue; */
     width: 45vw;
     height: auto;
+}
+
+/* Left sidebar bagian profile */
+#profileContainer {
+    background-color: #388E3C;
+    border-radius: 5px;
+    /* padding: 10px; */
+    margin-bottom: 20px;
+}
+
+#profile {
+    width: 100%;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#profile > * {
+    padding-top: 15px;
+    padding-bottom: 10px;
+}
+
+#profile-stats {
+    width: 100%;
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+#profile-stats div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#profile-stats h4 {
+    padding-bottom: 5px;
+}
+
+#profile-stats h4 {
+    font-size: smaller;
+}
+
+#profile-stats #separator {
+    border-left: 1px solid black;
+    height: 30px;
+}
+
+#footerProfile {
+    padding-top: 10px;
+    padding-bottom: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    display: flex;
+    flex-direction: row;
+
+    border-top: 1px solid black;
+}
+
+#footerProfile:hover {
+    /* background-color: aquamarine; */
+    color: aquamarine;
+
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+#footerProfile p {
+    font-size: smaller;
+    padding-right: 5px;
+}
+
+#footerProfile img {
+    width: 20px;
+    height: auto;
+    object-fit: contain;
+}
+
+#tracker > #buttonContainer {
+=======
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 45vw;
+    height: auto;
+}
+
+card {
+    width: 100%;
+    height: 200px;
+    padding: 10px;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    background-color: var(--header-footer-bg);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+
+#rightCard {
+    /* background-color: #FFA500; */
+    max-width: 15vw;
+    height: 100%;
+}
+
+#rightCard > img {
+    height: 100%;
+    /* width: 100%; */
+    object-fit: contain;
+}
+
+#leftCard {
+    background-color: var(--header-footer-bg);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#leftCard h3 {
+    /* background-color: #006D7F; */
+    padding: 10px;
+}
+
+#leftCard #description {
+    /* background-color: #D32F2F; */
+    width: 100%;
+    height: 90px;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    /* overflow: auto; */
+    overflow: hidden;
+}
+
+#leftCard #bottomCard {
+>>>>>>> 8ed6281764ac393928a4dac961e4f0363c844673
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+<<<<<<< HEAD
+#tracker button {
+    background-color: black;
+    /* border-radius: 5px; */
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    width: calc(100% / 3);
+    height: 40px;
+    border: none;
+=======
+#leftCard #limit {
+    background-color: var(--sub-text);
+    width: auto;
+    height: 100%;
+    padding: 10px 20px;
+    margin-left: 10px;
+
+    border-radius: 5px;
+}
+
+#bottomCard button {
+    width: 10vw;
+    background-color: var(--button-active);
+    color: var(--button-text);
+    border: none;
+    border-radius: 5px;
+}
+
+#bottomCard button:hover {
+    background-color: var(--button-hover);
 }
 
 /* Left sidebar bagian profile */
@@ -180,6 +368,7 @@ maincontent {
     width: calc(100% / 3);
     height: 40px;
     border: none;
+>>>>>>> 8ed6281764ac393928a4dac961e4f0363c844673
 }
 
 #tracker button:hover {
@@ -241,6 +430,18 @@ card {
     border-radius: 5px;
 }
 
+<<<<<<< HEAD
+=======
+card form {
+    width: auto;
+    height: auto;
+}
+
+card form button {
+    height: 100%;
+}
+
+>>>>>>> 8ed6281764ac393928a4dac961e4f0363c844673
 /* sidebar {
     position: sticky;
     top: 0;
@@ -291,4 +492,15 @@ card {
 #rightSidebar a {
     font-size: smaller;
     text-decoration: none;
+<<<<<<< HEAD
+=======
+}
+
+.hidden {
+    display: none;
+}
+
+.show {
+    display: block;
+>>>>>>> 8ed6281764ac393928a4dac961e4f0363c844673
 }
