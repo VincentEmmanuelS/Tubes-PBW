@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/onboarding.css">
     <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/popupForm.css">
     <title>Onboarding | RunTracker</title>
 </head>
 <body>
@@ -188,6 +189,34 @@
             </div>
         </sidebar>
     </div>
+
+    <div id="overlay" th:if="${showOverlay}" style="display: block;"></div>
+    <popupForm th:if="${showPopupForm}" style="display: block;">
+        <h1>Complete Your Profile</h1>
+        <form action="/onboarding" method="post">
+            <label for="first_name">First Name:</label>
+            <input type="text" id="first_name" name="firstName" placeholder="Enter your first name" required>
+
+            <label for="last_name">Last Name:</label>
+            <input type="text" id="last_name" name="lastName" placeholder="Enter your last name" required>
+
+            <label for="tanggal_lahir">Date of Birth:</label>
+            <input type="date" id="tanggal_lahir" name="tanggalLahir" required>
+
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+
+            <label for="region">Region:</label>
+            <input type="text" id="region" name="region" placeholder="Enter your region" required>
+
+            <input type="hidden" id="email" name="email" value="${email}">
+
+            <button type="submit">Submit</button>
+        </form>
+    </popupForm>
 
     <footer>
 

@@ -44,6 +44,16 @@ public class UserController {
             return "user/signup";
         }
 
+        // memastikan input pengguna aman dari SQL injection atau XSS
+        if (user.getEmail().contains("<") || user.getEmail().contains(">")) {
+            bindingResult.rejectValue(
+                "email",
+                "InvalidEmailFormat",
+                "Invalid email format"
+            );
+            return "user/signup";
+        }
+
         Optional<User> existingUser = userService.findByEmail(user.getEmail());
         if (existingUser.isPresent()) {
             bindingResult.rejectValue(
