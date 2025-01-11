@@ -1,7 +1,9 @@
 package com.tubes.pbw.user.controller;
 
 import java.time.LocalDate;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,7 +47,6 @@ public class OnboardingController {
     public String showOnboardingPage(Model model, HttpSession session) {
         User user = (User) session.getAttribute("user");
 
-        // Periksa apakah user ada dalam session
         if (user == null) {
             return "redirect:/login";
         }
@@ -53,33 +54,36 @@ public class OnboardingController {
         String email = user.getEmail();
         Optional<User> userOptional = userService.findByEmail(email);
 
-        // Periksa apakah data user ada
         if (userOptional.isPresent()) {
             model.addAttribute("user", userOptional.get());
         } else {
             return "redirect:/login";
         }
 
-        // Periksa apakah user sudah ada di UserDetail
         Optional<UserDetail> userDetailOptional = userDetailService.findByEmail(email);
         if (userDetailOptional.isEmpty()) {
-            // Jika user belum melengkapi data, tampilkan overlay dan form onboarding
-            model.addAttribute("showOverlay", true); // Tambahkan flag untuk menampilkan overlay
-            model.addAttribute("showPopupForm", true); // Tambahkan flag untuk menampilkan popup form
+            model.addAttribute("showOverlay", true);
+            model.addAttribute("showPopupForm", true);
         } else {
             model.addAttribute("showOverlay", false);
             model.addAttribute("showPopupForm", false);
         }
-        List<Event> events = eventService.getAllEvents();
 
-        // Menambahkan flag untuk hide jika fileFoto kosong
+        List<Long> joinedEventIds = userEventService.getJoinedEventIdsByUser(email);
+        model.addAttribute("joinedEventIds", joinedEventIds);
+
+        boolean isUserJoinedAnyEvent = userEventService.isUserAlreadyJoinedOtherEvent(email);
+        model.addAttribute("isUserJoinedAnyEvent", isUserJoinedAnyEvent);
+
+        List<Event> events = eventService.getAllEvents();
         events.forEach(event -> {
             if (event.getFileFoto() == null || event.getFileFoto().isEmpty()) {
-                event.setFileFoto(null); // Set fileFoto ke null untuk kemudahan pengecekan
+                event.setFileFoto(null);
             }
 
-            boolean userAlreadyJoined = userEventService.isUserAlreadyJoinedEvent(user.getEmail(), event.getIdEvent());
+            boolean userAlreadyJoined = userEventService.isUserAlreadyJoinedEvent(email, event.getIdEvent());
             model.addAttribute("userAlreadyJoined_" + event.getIdEvent(), userAlreadyJoined);
+            // System.out.println("event detail id: " + event.getIdDetail());
         });
 
         model.addAttribute("events", events);
@@ -118,48 +122,45 @@ public class OnboardingController {
 
     @PostMapping("/joinEvent")
     public String joinEvent(@RequestParam Long eventId, HttpSession session, Model model) {
-        // Ambil event berdasarkan id
         Event event = eventService.getEventById(eventId);
         UserEvent userEvent = new UserEvent();
 
-        // Periksa apakah event ditemukan
         if (event == null) {
             model.addAttribute("error", "Event not found!");
             return "redirect:/onboarding";
         }
 
-        // Cek apakah user ada dalam session
         User user = (User) session.getAttribute("user");
         if (user == null) {
             model.addAttribute("error", "User not logged in.");
             return "redirect:/login";
         }
 
-        // Cek apakah user sudah terdaftar di event
-        if (userEventService.isUserAlreadyJoinedEvent(user.getEmail(), eventId)) {
+        String email = user.getEmail();
+        if (userEventService.isUserAlreadyJoinedEvent(email, eventId)) {
             model.addAttribute("error", "You have already joined this event.");
             return "redirect:/onboarding";
         }
 
-        // Cek apakah peserta sudah mencapai limit
-        if (event.getParticipant() < event.getLimitParticipant() && !userEventService.isUserAlreadyJoinedOtherEvent(user.getEmail())) {
-            // Jika belum mencapai limit, update jumlah peserta
-            event.setParticipant(event.getParticipant() + 1);   // Menambah jumlah peserta di objek Event
-            eventService.saveUpdateEvent(event);                // Menyimpan perubahan jumlah peserta ke database
+        if (event.getParticipant() < event.getLimitParticipant() && !userEventService.isUserAlreadyJoinedOtherEvent(email)) {
+            event.setParticipant(event.getParticipant() + 1);
+            eventService.saveUpdateEvent(event);
 
-            // Mengisi userEvent dengan data yang diperlukan
-            userEvent.setEmail(user.getEmail());
+            userEvent.setFlag("T");
+
+            userEvent.setEmail(email);
             userEvent.setIdEvent(eventId);
 
-            // Menambahkan user ke event melalui service
             String response = userEventService.addUserToEvent(userEvent);
-            model.addAttribute("message", response); // Pesan hasil operasi
+            model.addAttribute("message", response);
         } else {
-            // Jika sudah mencapai limit, tampilkan pesan kesalahan
             model.addAttribute("error", "Limit peserta sudah tercapai!");
         }
 
+        // Menyegarkan status partisipasi event
+        model.addAttribute("userAlreadyJoined_" + eventId, true);
+        
         return "redirect:/onboarding";
     }
-
 }
+

@@ -1,4 +1,5 @@
 package com.tubes.pbw.user.controller;
+
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +12,6 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 import jakarta.servlet.http.HttpSession;
 
-import com.tubes.pbw.auth.RequiredRole;
 import com.tubes.pbw.user.model.User;
 import com.tubes.pbw.user.service.UserService;
 

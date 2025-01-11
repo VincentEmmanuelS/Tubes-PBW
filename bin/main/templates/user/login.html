@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/popup.css">
+    <title>Log In | RunTracker</title>
+</head>
+<body>
+    <header>
+        <div id="leftSection">
+            <h1>RunTracker</h1>
+            <div class="buttons">
+                <div class="dropdown">
+                    <a href="">Activities</a>
+                    <ul class="dropdown-list">
+                        <li><h2>Top Sports</h2></li>
+                        <li><a href="#">Running</a></li>
+                        <li><a href="#">Cycling</a></li>
+                    </ul>
+                </div>
+                <a href="">Features</a>
+                <a href="">Maps</a>
+                <a href="">Challenges</a>
+                <a href="">Subscription</a>
+            </div>
+        </div>
+        <div id="rightSection">
+            <a href="/signup">
+                <button>Join For Free</button>
+            </a>
+        </div>
+    </header>
+
+    <main id="user">
+        <div id="loginSection">
+            <div id="top">
+                <h2 id="header_big">Log In</h2>
+            </div>
+
+            <div id="mid">
+                <!-- method POST -->
+                <form action="login" method="post">
+                    <label for="">Email</label>
+                    <input type="email" name="email" placeholder="Masukan email">
+                    <!-- <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div> -->
+
+                    <label for="">Password</label>
+                    <input type="password" name="password" placeholder="Masukan password">
+                    <!-- <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div> -->
+
+                    <button type="submit">Log In</button>
+                </form>
+            </div>
+
+            <div id="bottom">
+                <div id="footerMain">
+                    <a id="link" href="">Forgot Password?</a>  
+                </div>
+                <div id="footerMain">
+                    <a id="link" href="/signup">Create a New Account</a>
+                </div>
+
+                <p th:text="${accountLocked}"></p>
+            </div>
+        </div>
+
+        <!-- Pop-up jika akun di lock admin -->
+        <div id="overlay" th:if="${accountLocked}"></div>
+        <div id="popup" th:if="${accountLocked}">
+            <div>
+                <h3>Your account has been terminated!</h3>
+                <p>Please <a href="https://mail.google.com">contact</a> our admin</p>
+                <button onclick="document.getElementById('popup').style.display='none'; document.getElementById('overlay').style.display='none';">OK</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div id="download">
+            <div>RunTracker</div>
+            <div>RunTracker protect your data read more our <a href="">Privacy Policy</a></div>
+            <div id="imageArea">
+                <a href="https://www.instagram.com" target="_blank">
+                    <img src="images/icons/InstagramWhite.png" alt="Instagram logo">
+                </a>
+                <a href="https://www.youtube.com" target="_blank">
+                    <img src="images/icons/YoutubeWhite.png" alt="Youtube logo">
+                </a>
+            </div>
+        </div>
+        <div id="footermid">
+            <div id="features">
+                <a class="footerRef" href="">Features</a>
+                <a class="footerRef" href="">Subscription</a>
+                <a class="footerRef" href="">Family Plan</a>
+                <a class="footerRef" href="">Student Discount</a>
+                <a class="footerRef" href="">Send a gift</a>
+                <a class="footerRef" href="">About</a>
+                <a class="footerRef" href="">Carrers</a>
+                <a class="footerRef" href="">Press</a>
+            </div>
+            <div id="Routes">
+                <a class="footerRef" href="">Routes</a>
+            </div>
+            <div id="information">
+                <a class="footerRef" href="">What's new</a>
+                <a class="footerRef" href="">Stories</a>
+                <a class="footerRef" href="">Support</a>
+                <a class="footerRef" href="">Bussiness</a>
+                <a class="footerRef" href="">Partner Center</a>
+            </div>
+            <div id="terms">
+                <a class="footerRef" href="">Terms</a>
+                <a class="footerRef" href="">Privacy</a>
+                <a class="footerRef" href="">Do Not Share My<br> Personal information</a>
+                <a class="footerRef" href="">Login</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

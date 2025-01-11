@@ -3,6 +3,7 @@ package com.tubes.pbw.user.model;
 public class UserEvent {
     private String email;
     private Long idEvent;
+    private String flag;
 
     // Getters and Setters
     public String getEmail() {
@@ -19,5 +20,9 @@ public class UserEvent {
 
     public void setIdEvent(Long idEvent) {
         this.idEvent = idEvent;
+    }
+
+    public void setFlag(String flag) {
+        this.flag = flag;
     }
 }

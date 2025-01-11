@@ -63,6 +63,7 @@ public class EventRepository {
     }
 
     // Mendapatkan semua event
+    @SuppressWarnings("unused")
     public List<Event> getAllEvents() {
         String sql = "SELECT * FROM event WHERE active = 'T' ORDER BY id_event DESC";
         return jdbcTemplate.query(sql, (rs, rowNum) -> {
@@ -80,6 +81,7 @@ public class EventRepository {
     }
 
     // Mendapatkan event berdasarkan ID
+    @SuppressWarnings("unused")
     public Optional<Event> findById(Long eventId) {
         String sql = "SELECT * FROM event WHERE id_event = ?";
         
@@ -103,6 +105,54 @@ public class EventRepository {
         }
     }
 
+    public long findEventDetailIdByEventId(long eventId) {
+        String sql = "SELECT id_detail FROM event WHERE id_event = ?";
+
+        try {
+            return jdbcTemplate.queryForObject(sql, new Object[]{eventId}, Long.class);
+        } catch (EmptyResultDataAccessException e) {
+            return (Long)null; // Jika tidak ditemukan
+        }
+    }
+
+    public Optional<EventDetail> findEventDetailById(Long idEventDetail) {
+        String sql = "SELECT * FROM eventdetail WHERE id_eventdetail = ?";
+        
+        try {
+            EventDetail eventDetail = jdbcTemplate.queryForObject(sql, (rs, rowNum) -> {
+                EventDetail ed = new EventDetail();
+
+                // System.out.println("id event detail: " + rs.getLong("id_eventdetail"));
+                // System.out.println("distance: " + rs.getLong("distance"));
+                // System.out.println("matric distance: " + rs.getLong("matric_distance"));
+                // System.out.println("elevation: " + rs.getLong("elevation"));
+                // System.out.println("matric elevation: " + rs.getLong("matric_elevation"));
+                // System.out.println("ride type: " + rs.getLong("ridetype"));
+                // System.out.println("title: " + rs.getLong("title"));
+                // System.out.println("deskripsi: " + rs.getLong("deskripsi"));
+                // System.out.println("file foto: " + rs.getLong("file_foto"));
+
+                ed.setIdEventDetail(rs.getLong("id_eventdetail"));
+                ed.setDistance(rs.getDouble("distance"));
+                ed.setMatricDistance(rs.getString("matric_distance"));
+                ed.setElevation(rs.getDouble("elevation"));
+                ed.setMatricElevation(rs.getString("matric_elevation"));
+                ed.setRideType(rs.getString("ridetype"));
+                ed.setWaktuMulai(rs.getTimestamp("waktu_mulai"));
+                ed.setWaktuSelesai(rs.getTimestamp("waktu_selesai"));
+                ed.setTitle(rs.getString("title"));
+                ed.setDeskripsi(rs.getString("deskripsi"));
+                ed.setFileFoto(rs.getString("file_foto"));
+                ed.setLimitParticipant(rs.getInt("limit_participant"));
+                ed.setEmail(rs.getString("email"));
+                return ed;
+            }, idEventDetail);
+            
+            return Optional.ofNullable(eventDetail);
+        } catch (EmptyResultDataAccessException e) {
+            return Optional.empty();  // Jika tidak ditemukan
+        }
+    }
     
 }
 

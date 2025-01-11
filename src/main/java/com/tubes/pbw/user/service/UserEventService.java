@@ -1,8 +1,12 @@
 package com.tubes.pbw.user.service;
 
 import com.tubes.pbw.admin.model.Event;
+import com.tubes.pbw.admin.model.EventDetail;
 import com.tubes.pbw.user.model.UserEvent;
 import com.tubes.pbw.user.repository.UserEventRepository;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
@@ -44,8 +48,21 @@ public class UserEventService {
 
     public boolean isUserAlreadyJoinedOtherEvent(String email) {
         boolean check = userEventRepository.isUserAlreadyJoinedOtherEvent(email);
-        System.out.println(check);
+        // System.out.println(check);
         return check;
+    }
+
+    // @Override
+    public List<Long> getJoinedEventIdsByUser(String email) {
+        // Ambil semua UserEvent berdasarkan email user
+        List<UserEvent> userEvents = userEventRepository.findByEmail(email);
+
+        // Ekstrak ID event dari setiap UserEvent
+        List<Long> joinedEventIds = userEvents.stream()
+                                            .map(UserEvent::getIdEvent)
+                                            .collect(Collectors.toList());
+
+        return joinedEventIds;
     }
     
 }

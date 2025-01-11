@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Member | RunTracker</title>
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/manageMember.css">
+
+    <!-- Buat efek hover button -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const buttons = document.querySelectorAll("button");
+
+            buttons.forEach(button => {
+                button.addEventListener("click", function() {
+                    if (button.classList.contains("red")) {
+                        button.classList.remove("red");
+                        button.classList.add("green");
+                    } else {
+                        button.classList.remove("green");
+                        button.classList.add("red");
+                    }
+                });
+            });
+        });
+    </script>
+    <style>
+        button.green {
+            background-color: var(--success-text);
+        }
+
+        button.red {
+            background-color: var(--error-text);
+        }
+
+        button.green:hover {
+            background-color: #244d26;
+        }
+
+        button.red:hover {
+            background-color: #993030;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div id="leftSection">
+            <h1>RunTracker</h1>
+            <div class="buttons">
+                <a href="manage_member">Manage Members</a>
+                <a href="add_event">Add Event</a>
+            </div>
+        </div>
+        <div id="rightSection">
+            <h4>Admin</h4>
+        </div>
+    </header>
+
+    <main>
+        <table>
+            <tHead>
+                <tr>
+                    <th>First name</th>
+                    <th>Last name</th>
+                    <th>Date of Birth</th>
+                    <th>Gender</th>
+                    <th>Region</th>
+                    <th>Email</th>
+                    <th>Status</th>
+                </tr>
+            </tHead>
+            <tBody>
+                <!-- <tr>
+                    <td>Udin</td>
+                    <td>Petot</td>
+                    <td>9 / 11 / 2001</td>
+                    <td>Wallmart Bag</td>
+                    <td>Wakanda</td>
+                    <td>UdinPetot@PengenNgen.com</td>
+                    <td>
+                        <button class="green">
+                            <img src="images/icons/Flag_Icon.png" alt="">
+                        </button>
+                    </td>
+                </tr> -->
+            </tBody>        
+        </table>
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", async function() {
+            const tbody = document.querySelector("tBody");
+        
+            try {
+                const response = await fetch("/users");
+                const users = await response.json();
+        
+                users.forEach(user => {
+                    const row = document.createElement("tr");
+        
+                    row.innerHTML = `
+                        <td>${user.firstName}</td>
+                        <td>${user.lastName}</td>
+                        <td>${new Date(user.dateOfBirth).toLocaleDateString()}</td>
+                        <td>${user.gender}</td>
+                        <td>${user.region}</td>
+                        <td>${user.email}</td>
+                        <td>
+                            <button class="${user.active ? 'green' : 'red'}" data-email="${user.email}">
+                                <img src="images/icons/Flag_Icon.png" alt="">
+                            </button>
+                        </td>
+                    `;
+        
+                    tbody.appendChild(row);
+                });
+    
+                // Add event listener ke semua button
+                document.querySelectorAll("button").forEach(button => {
+                    button.addEventListener("click", async function() {
+                        const email = button.getAttribute("data-email");
+    
+                        try {
+                            const response = await fetch(`/users/${email}/status`, {
+                                method: 'PATCH',
+                            });
+    
+                            if (response.ok) {
+                                const updatedUser = await response.json();
+                                // Toggle button class berdasarkan status active di DB
+                                button.classList.remove('green', 'red');
+                                button.classList.add(updatedUser.active ? 'green' : 'red');
+                            }
+                        } catch (error) {
+                            console.error("Error updating user status:", error);
+                        }
+                    });
+                });
+            } catch (error) {
+                console.error("Error fetching users:", error);
+            }
+        });
+    </script>
+    
+</body>
+</html>

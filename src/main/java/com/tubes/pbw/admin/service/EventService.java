@@ -4,7 +4,6 @@ import com.tubes.pbw.admin.model.Event;
 import com.tubes.pbw.admin.model.EventDetail;
 import com.tubes.pbw.admin.repository.EventRepository;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -38,6 +37,12 @@ public class EventService {
         // Mengambil event berdasarkan ID
         Optional<Event> eventOptional = eventRepository.findById(eventId);
         return eventOptional.orElseThrow(() -> new RuntimeException("Event not found"));
+    }
+
+    public EventDetail getEventDetailById(Long id) {
+        long eventDetailId = eventRepository.findEventDetailIdByEventId(id);
+        Optional<EventDetail> eventDetailOptional = eventRepository.findEventDetailById(eventDetailId);
+        return eventDetailOptional.orElseThrow(() -> new RuntimeException("EventDetail not found"));
     }
 }
 

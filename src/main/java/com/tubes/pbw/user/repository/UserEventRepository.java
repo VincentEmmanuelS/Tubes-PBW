@@ -1,6 +1,9 @@
 package com.tubes.pbw.user.repository;
 
 import com.tubes.pbw.user.model.UserEvent;
+
+import java.util.List;
+
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -32,16 +35,16 @@ public class UserEventRepository {
             Integer newParticipantCount = currentParticipantCount;
             
             // Log untuk memeriksa jumlah peserta
-            System.out.println("Jumlah peserta sebelum update: " + currentParticipantCount);
-            System.out.println("Jumlah peserta setelah update: " + newParticipantCount);
+            // System.out.println("Jumlah peserta sebelum update: " + currentParticipantCount);
+            // System.out.println("Jumlah peserta setelah update: " + newParticipantCount);
         
             // Memperbarui jumlah peserta di tabel event
             String updateSql = "UPDATE event SET participant = ? WHERE id_event = ?";
             jdbcTemplate.update(updateSql, newParticipantCount, userEvent.getIdEvent());
         
             // Log untuk memastikan update berhasil
-            Integer updatedParticipantCount = jdbcTemplate.queryForObject(selectSql, Integer.class, userEvent.getIdEvent());
-            System.out.println("Jumlah peserta setelah update di DB: " + updatedParticipantCount);
+            // Integer updatedParticipantCount = jdbcTemplate.queryForObject(selectSql, Integer.class, userEvent.getIdEvent());
+            // System.out.println("Jumlah peserta setelah update di DB: " + updatedParticipantCount);
         }
     }
 
@@ -57,6 +60,13 @@ public class UserEventRepository {
         String sql = "SELECT COUNT(*) FROM user_event WHERE email = ? AND id_event = ? AND flag = 'T'";
         Integer count = jdbcTemplate.queryForObject(sql, Integer.class, email, eventId);
         return count != null && count > 0;  // Returns true if count > 0 (user is already joined)
+    }
+
+    // Memeriksa apakah user sudah terdaftar di event tertentu dengan flag T
+    public boolean existsByEmailAndEventId(String email, Long eventId) {
+        String sql = "SELECT COUNT(*) FROM user_event WHERE email = ? AND id_event = ? AND flag = 'T'";
+        Integer count = jdbcTemplate.queryForObject(sql, Integer.class, email, eventId);
+        return count != null && count > 0;  // Returns true if user already joined this event
     }
 
     // Update flag ke 'T' setelah user berhasil mengikuti event
@@ -76,5 +86,22 @@ public class UserEventRepository {
         String sql = "UPDATE event SET active = 'F' WHERE id_event = ?";
 
         jdbcTemplate.update(sql, eventId);
+    }
+    
+    // Fungsi untuk menyimpan UserEvent baru
+    public void save(UserEvent userEvent) {
+        String sql = "INSERT INTO user_event (email, id_event, flag) VALUES (?, ?, 'T')";
+        jdbcTemplate.update(sql, userEvent.getEmail(), userEvent.getIdEvent());
+    }
+
+    public List<UserEvent> findByEmail(String email) {
+        String sql = "SELECT email, id_event, flag FROM user_event WHERE email = ?";
+        return jdbcTemplate.query(sql, new Object[]{email}, (rs, rowNum) -> {
+            UserEvent userEvent = new UserEvent();
+            userEvent.setEmail(rs.getString("email"));
+            userEvent.setIdEvent(rs.getLong("id_event"));
+            userEvent.setFlag(rs.getString("flag"));
+            return userEvent;
+        });
     }
 }

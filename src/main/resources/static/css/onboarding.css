@@ -324,6 +324,15 @@ card {
     border-radius: 5px;
 }
 
+card form {
+    width: auto;
+    height: auto;
+}
+
+card form button {
+    height: 100%;
+}
+
 /* sidebar {
     position: sticky;
     top: 0;
@@ -374,4 +383,12 @@ card {
 #rightSidebar a {
     font-size: smaller;
     text-decoration: none;
+}
+
+.hidden {
+    display: none;
+}
+
+.show {
+    display: block;
 }

@@ -25,6 +25,7 @@ public class UserRepository {
                 WHERE u.roles = 'user'
                 """;
 
+        @SuppressWarnings("unused")
         RowMapper<UserDetail> rowMapper = (rs, rowNum) -> new UserDetail(
                 rs.getString("first_name"),
                 rs.getString("last_name"),
@@ -47,6 +48,7 @@ public class UserRepository {
             WHERE u.email = ?
         """;
 
+        @SuppressWarnings("unused")
         RowMapper<UserDetail> rowMapper = (rs, rowNum) -> new UserDetail(
             rs.getString("first_name"),
             rs.getString("last_name"),
