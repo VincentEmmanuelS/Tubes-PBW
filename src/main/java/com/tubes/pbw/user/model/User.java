@@ -24,5 +24,13 @@ public class User {
     
     // @NotBlank(message = "Role tidak boleh kosong")
     private String role;
+    private Boolean active; // status akun aktif (true/false)
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getEmail() {
+        return email;
+    }
 }

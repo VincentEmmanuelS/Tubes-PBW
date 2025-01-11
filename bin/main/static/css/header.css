@@ -1,15 +1,63 @@
+:root {
+    --primary-color: #FF4F00;    /* Oranye Strava */
+    --secondary-color: #F2F2F2;  /* Abu-abu Terang */
+    
+    --header-footer-bg: #FFFFFF; /* Abu-abu Terang */
+    --background: #F2F2F2;       /* Putih */
+    
+    --heading: #FF4F00;          /* Oranye Strava */
+    --sub-heading: #006D7F;      /* Biru Gelap */
+    
+    --button-active: #FF4F00;    /* Oranye Strava */
+    --button-inactive: #F2F2F2;  /* Abu-abu Terang */
+    --button-hover: #A23402;     /* Oranye Gelap */
+    --button-text: #FFFFFF;      /* Putih */
+    
+    --text-normal: #333333;      /* Abu-abu Gelap */
+    --text-hover: #FF4F00;       /* Oranye Strava */
+    --sub-text: #808080;         /* Abu-abu Pucat */
+    
+    --text-box-bg: #FFFFFF;      /* Putih */
+    --text-box-border: #FF4F00;  /* Oranye Strava */
+    
+    --highlight-text: #FF4500;   /* Oranye Cerah untuk teks sorotan */
+    --link-text: #006D7F;        /* Biru Gelap untuk teks link */
+    --link-hover: #708090;       /* Abu-abu kebiruan untuk link hover */
+  
+    --dropdown-bg: #F8F8F8;      /* Abu-abu sangat pucat untuk background dropdown */
+    --dropdown-hover-bg: #FF4F00; /* Oranye Strava untuk background saat hover */
+    --dropdown-active-bg: #A23402; /* Oranye Gelap untuk background aktif dropdown */
+    --dropdown-border: #F2F2F2;  /* Border abu-abu terang */
+    --dropdown-text: #333333;    /* Teks gelap untuk keterbacaan yang tinggi */
+    --dropdown-hover-text: #FFFFFF; /* Teks putih saat hover di dropdown */
+    --dropdown-inactive: #C4C4C4; /* Abu-abu Pucat untuk dropdown inactive */
+
+    --error-text: #D32F2F;       /* Merah untuk pesan kesalahan */
+    --success-text: #388E3C;     /* Hijau untuk pesan sukses */
+    --warning-text: #FFA500;     /* Oranye untuk peringatan */
+}
+
 header {
     position: sticky;
     top: 0;
-    background-color: black;
+    background-color: var(--header-footer-bg);
 
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
+    padding: 10px 60px;
     z-index: 100;
 }
+header #rightSection {
+    gap: 40px;
+}
 
+header #rightSection img {
+    width: 30px;
+    height: auto;
+    object-fit: contain;
+    filter: invert(1) grayscale(100%);
+}
 #leftSection {
     display: flex;
     flex-direction: row;
@@ -21,7 +69,7 @@ header {
 #leftSection h1 {
     font-size: 2em;
     font-weight: bold;
-    color: orange;
+    color: var(--heading);
 }
 
 #leftSection .links {
@@ -32,7 +80,7 @@ header {
 
 #leftSection a {
     font-size: 1.2em;
-    color: white;
+    color: var(--text-normal);
     text-decoration: none;
     cursor: pointer;
     margin-right: 15px;
@@ -40,6 +88,7 @@ header {
 
 #leftSection a:hover {
     text-decoration: underline;
+    color: var(--text-hover);
 }
 
 #rightSection {
@@ -49,17 +98,17 @@ header {
 }
 
 #rightSection button {
-    padding: 15px 30px;
+    /* padding: 15px 30px; */
     font-size: 1.2em;
     cursor: pointer;
-    background-color: orange;
-    color: white;
+    background-color: var(--button-active);
+    color: var(--button-text);
     border: none;
     border-radius: 5px;
 }
 
 #rightSection button:hover {
-    background-color: rgb(179, 119, 9);
+    background-color: var(--button-hover);
 }
 
 .dropdown {
@@ -69,29 +118,43 @@ header {
 
 .dropdown-list {
     position: absolute;
+    padding-top: 10px;
     top: 100%;
     left: 0;
-    background-color: black;
+
+    background-color: var(--dropdown-bg);
     list-style: none;
-    padding: 10px 0;
     margin: 0;
     display: none;  /* Hide */
     z-index: 10;
+
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
-    width: 10vw;
+    white-space: nowrap;
 }
 
 .dropdown-list li {
-    padding: 5px 20px;
+    /* padding: 5px 20px; */
     font-size: small;
-    color: white;
+    color: var(--text-normal);
+}
+
+.dropdown-list li a {
+    padding: 5px 20px;
 }
 
 .dropdown-list li h2 {
     font-size: medium;
-    margin-top: 0px;
+    padding: 5px 20px;
+    margin-top: 5px;
     margin-bottom: 3px;
+}
+
+.dropdown-list li h3 {
+    font-size: smaller;
+    padding: 5px 20px;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .dropdown-list li a {
@@ -100,9 +163,101 @@ header {
 }
 
 .dropdown-list li a:hover {
-    color: black;
+    color: var(--text-normal);
+}
+
+.dropdown-list #subscription * {
+    background-color: var(--dropdown-inactive);
+    width: 100%;
+}
+
+.dropdown-list #subscription h3 {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.dropdown-list #subscription a:hover{
+    color: var(--sub-text)
+}
+
+.dropdown-list #subscriptionBottom a:hover {
+    color: var(--sub-text)
+}
+
+.dropdown-list #subscriptionBottom {
+    background-color: var(--dropdown-inactive);
+    width: 100%;
+    padding-bottom: 10px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
 }
 
 .dropdown:hover .dropdown-list {
     display: block;     /* Show on hover */
+}
+
+/* Dropdown dengan ID 'left' terbuka ke kanan */
+#left .dropdown-list {
+    left: 0;
+    right: auto;
+    transform: translateX(0); /* Default posisi */
+}
+
+/* Dropdown dengan ID 'right' terbuka ke kiri */
+#right .dropdown-list {
+    left: auto;
+    right: 0;
+    transform: translateX(0); /* Default posisi */
+}
+
+/* Styling onboarding */
+.menu-dropdown li a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 20px;
+    font-size: 1em;
+    font-weight: 500;
+    color: var(--text-normal);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+/* Hover efek untuk dropdown khusus */
+.menu-dropdown li a:hover {
+    color: var(--text-hover);        /* Ganti warna teks saat hover */
+    /* background-color: var(--dropdown-hover-bg); Ganti background */
+}
+
+/* Styling untuk ikon di dropdown */
+.menu-dropdown li a img {
+    width: 20px;                /* Lebar ikon */
+    height: 20px;               /* Tinggi ikon */
+    flex-shrink: 0;             /* Pastikan ikon tidak mengecil */
+}
+
+a#head:hover{
+    text-decoration: none;
+}
+
+form#logout{
+    padding:0;
+    margin:0;
+    height: 2rem;
+    width: 5rem;
+    font-size: small;
+}
+
+button#logoutSubmit{
+    height: 2rem;
+    justify-content: center;
+    
+}
+
+form#logout button#logoutSubmit{
+    height: 2rem;
+    justify-content: center;
+}
+form button#logoutSubmit{
+    width: 5rem;
 }
