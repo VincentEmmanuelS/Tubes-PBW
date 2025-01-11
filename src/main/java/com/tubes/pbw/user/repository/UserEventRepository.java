@@ -66,9 +66,15 @@ public class UserEventRepository {
     }
 
     // Memperbarui flag menjadi 'F' untuk semua user_event yang berhubungan dengan event tertentu
+    public void setFlagToFalse(Long eventId) {
+        String sql = "UPDATE user_event SET flag = 'F' WHERE id_event = ?";
+        // String sql = "DELETE FROM user_event WHERE id_event = ?";
+        jdbcTemplate.update(sql, eventId);
+    }
+
     public void endEvent(Long eventId) {
-        // String sql = "UPDATE user_event SET flag = 'F' WHERE id_event = ?";
-        String sql = "DELETE FROM user_event WHERE id_event = ?";
+        String sql = "UPDATE event SET active = 'F' WHERE id_event = ?";
+
         jdbcTemplate.update(sql, eventId);
     }
 }

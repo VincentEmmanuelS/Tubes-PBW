@@ -173,6 +173,7 @@ public class EventController {
     public String endEvent(@RequestParam("eventId") Long eventId) {
         try {
             // Perbarui flag menjadi false untuk semua user_event yang berhubungan dengan event ini
+            userEventRepository.setFlagToFalse(eventId);
             userEventRepository.endEvent(eventId);
 
             // Mengarahkan kembali ke halaman yang menampilkan daftar event dengan status baru

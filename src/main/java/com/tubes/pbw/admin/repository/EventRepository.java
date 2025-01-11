@@ -64,7 +64,7 @@ public class EventRepository {
 
     // Mendapatkan semua event
     public List<Event> getAllEvents() {
-        String sql = "SELECT * FROM event ORDER BY id_event DESC";
+        String sql = "SELECT * FROM event WHERE active = 'T' ORDER BY id_event DESC";
         return jdbcTemplate.query(sql, (rs, rowNum) -> {
             Event event = new Event();
             event.setIdEvent(rs.getLong("id_event"));

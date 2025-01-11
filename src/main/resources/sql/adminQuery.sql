@@ -43,5 +43,6 @@ CREATE TABLE event (
     participant int,
     file_foto varchar(100),
     id_detail int NOT NULL,
+    active CHAR(1) DEFAULT 'T',
     CONSTRAINT fk_eventdetail FOREIGN KEY (id_detail) REFERENCES eventdetail(id_eventdetail)
 );
