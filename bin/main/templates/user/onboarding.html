@@ -35,8 +35,8 @@
                 <div class="dropdown id="left"">
                     <a href="onboarding">Dashboard</a>
                     <ul class="dropdown-list">
-                        <li><a href="#">Activity Feed</a></li>
-                        <li><a href="#">Clubs</a></li>
+                        <li><a href="/onboarding">Activity Feed</a></li>
+                        <li><a href="/Clubs">Clubs</a></li>
                         <li><a href="#">My Segments</a></li>
                         <li><a href="#">My Routes</a></li>
                         <li id="subscription"><h3>SUBSCRIPTION</h3></li>
@@ -64,7 +64,17 @@
             <a href="">
                 <img src="images/icons/Notif_Icon.png" alt="Notification Icon">
             </a>
-            <p id="dropdown">Profile</p>  <!-- ganti ke logo profile -->
+            <div class="dropdown">
+                <a href="">
+                    <img id="profile-picture" src="images/asukapp.png" alt="Profile Picture">
+                </a>
+                <ul class="dropdown-list menu-dropdown">
+                  <li><a href="#">Find Friends</a></li>
+                  <li><a href="#">My Profile</a></li>
+                  <li><a href="#">Settings</a></li>
+                  <li><a href="/login">Log Out</a></li>
+                </ul>
+            </div>
             <div class="dropdown" id="right">
                 <a href="">
                     <img id="dropdown" src="images/icons/Add_Icon.png" alt="Circle add icon">
@@ -93,17 +103,21 @@
         <sidebar id="leftSidebar">
             <div id="profileContainer">
                 <div id="profile">
-                    <img src="images/icons/Profile_Icon.png" alt="Profile icon logo">
-                    <h2>Nama</h2>
+                    <!-- nyoba masukin pp -->
+                    <div id="profile-pic">
+                        <img src="images/saop_asuna_wp_pc.png" alt="Profile icon logo">
+                    </div>
+                    
+                    <h2 id="profile-name">Asuna</h2>
                     <div id="profile-stats">
                         <div>
                             <h4>Following</h4>
-                            <p>0</p>
+                            <p>1</p>
                         </div>
                         <div id="separator"></div>
                         <div>
                             <h4>Followers</h4>
-                            <p>0</p>
+                            <p>10000000</p>
                         </div>
                         <div id="separator"></div>
                         <div>
@@ -122,13 +136,13 @@
             <div id="tracker">
                 <div id="buttonContainer">
                     <button>
-                        <img src="images/icons/Running_Icon.png" alt="Running icon">
+                        <img src="images/icons/run.png" alt="Running icon">
                     </button>
                     <button>
-                        <img src="images/icons/Bicycle_Icon.png" alt="Bicycle icon">
+                        <img src="images/icons/bikeicon.png" alt="Bicycle icon">
                     </button>
                     <button>
-                        <img src="images/icons/Walking_Icon.png" alt="Walking icon">
+                        <img src="images/icons/line-chart.png" alt="Walking icon">
                     </button>
                 </div>
                 <div id="trackerContainer">
@@ -148,6 +162,7 @@
             </div>
         </sidebar>
         <maincontent>
+
             <!-- Iterasi untuk setiap event -->
             <th:block th:each="event : ${events}">
                 <card>
@@ -178,6 +193,7 @@
                     </div>
                 </card>
             </th:block>
+
         </maincontent>
         <!-- right sidebar -->
         <sidebar id="rightSidebar">

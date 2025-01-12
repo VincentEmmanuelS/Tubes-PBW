@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Manual Entry | RunTracker</title>
+        <link rel="stylesheet" href="/css/MyRoute.css">
+        <link rel="stylesheet" href="/css/header.css">
+        <link rel="stylesheet" href="/css/footer.css">
+        
+    </head>
+    <body>
+        <header>
+            <div id="leftSection">
+                <h1>RunTracker</h1>
+    
+                <!-- Search bar -->
+    
+                <div class="buttons">
+                    <div class="dropdown id="left"">
+                        <a href="">Dashboard</a>
+                        <ul class="dropdown-list">
+                            <li><a href="#">Activity Feed</a></li>
+                            <li><a href="#">Clubs</a></li>
+                            <li><a href="#">My Segments</a></li>
+                            <li><a href="#">My Routes</a></li>
+                            <li id="subscription"><h3>SUBSCRIPTION</h3></li>
+                            <li id="subscriptionBottom"><a href="#">My Goals</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown" id="left">
+                        <a href="">Training</a>
+                        <ul class="dropdown-list">
+                            <li><a href="#">Training Calendar</a></li>
+                            <li><a href="#">My Activities</a></li>
+                            <li id="subscription"><h3>SUBSCRIPTION</h3></li>
+                            <li id="subscription"><a href="#">Training Log</a></li>
+                            <li id="subscription"><a href="#">Training Plans</a></li>
+                            <li id="subscription"><a href="#">Power Curve</a></li>
+                            <li id="subscriptionBottom" class="bottomSubs"><a href="#">Fitness & Freshness</a></li>
+                        </ul>
+                    </div>
+                    <a href="">Maps</a>
+                    <a href="">Challenges</a>
+                </div>
+            </div>
+            
+            <div id="rightSection">
+                <button>Start Trial</button>
+                <a href="">
+                    <img src="images/icons/Notif_Icon.png" alt="Notification Icon">
+                </a>
+                <div class="dropdown">
+                    <a href="">
+                        <img id="profile-picture" src="images/asukapp.png" alt="Profile Picture">
+                    </a>
+                    <ul class="dropdown-list menu-dropdown">
+                      <li><a href="#">Find Friends</a></li>
+                      <li><a href="#">My Profile</a></li>
+                      <li><a href="#">Settings</a></li>
+                      <li><a href="/login">Log Out</a></li>
+                    </ul>
+                </div>
+                <div class="dropdown" id="right">
+                    <a href="">
+                        <img id="dropdown" src="images/icons/Add_Icon.png" alt="Circle add icon">
+                    </a>
+                    <ul class="dropdown-list menu-dropdown">
+                        <li><a href="#">
+                            <img src="images/icons/Upload_Icon.png" alt="Upload activity icon"> Upload Activity
+                        </a></li>
+                        <li><a href="/manualentry">
+                            <img src="images/icons/ManualEntry_Icon.png" alt="Manual entry icon"> Add Manual Entry
+                        </a></li>
+                        <li><a href="#">
+                            <img src="images/icons/Route_Icon.png" alt="Create route icon"> Create Route
+                        </a></li>
+                        <li><a href="#">
+                            <img src="images/icons/CreatePost_icon.png" alt="Create post icon"> Create post
+                        </a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main body -->
+
+        <div class="mainContent">
+            <div class="Title">
+                <h1>MyRoutes</h1>
+                <button id="createnewroute">Create New Route</button>
+            </div>
+
+            <div class="filterpanel">
+                
+                <select name="" id="selectclub">
+                    <option value="All Sports">All Sports</option>
+                    <option value="Run">Run</option>
+                    <option value="Bike">Bike</option>
+                    
+                </select>
+
+                <input type="text" name="keyword" th:value="${keyword}" placeholder="Search for keywords" id="locationinput">
+            
+                <button type="submit">Search</button>
+              
+                
+            </div>
+
+            <div class="routecontainer">
+                <p>Your saved routes will apear here</p>
+                <button id="createnewroute2">Create New Route</button>
+            </div>
+        </div>
+
+
+        <footer>
+            <div id="download">
+                <div>RunTracker</div>
+                <div>RunTracker protect your data read more our <a href="">Privacy Policy</a></div>
+                <div id="imageArea">
+                    <a href="https://www.instagram.com" target="_blank">
+                        <img src="images/icons/InstagramWhite.png" alt="Instagram logo">
+                    </a>
+                    <a href="https://www.youtube.com" target="_blank">
+                        <img src="images/icons/YoutubeWhite.png" alt="Youtube logo">
+                    </a>
+                </div>
+            </div>
+            <div id="footermid">
+                <div id="features">
+                    <a class="footerRef" href="">Features</a>
+                    <a class="footerRef" href="">Subscription</a>
+                    <a class="footerRef" href="">Family Plan</a>
+                    <a class="footerRef" href="">Student Discount</a>
+                    <a class="footerRef" href="">Send a gift</a>
+                    <a class="footerRef" href="">About</a>
+                    <a class="footerRef" href="">Carrers</a>
+                    <a class="footerRef" href="">Press</a>
+                </div>
+                <div id="Routes">
+                    <a class="footerRef" href="">Routes</a>
+                </div>
+                <div id="information">
+                    <a class="footerRef" href="">What's new</a>
+                    <a class="footerRef" href="">Stories</a>
+                    <a class="footerRef" href="">Support</a>
+                    <a class="footerRef" href="">Bussiness</a>
+                    <a class="footerRef" href="">Partner Center</a>
+                </div>
+                <div id="terms">
+                    <a class="footerRef" href="">Terms</a>
+                    <a class="footerRef" href="">Privacy</a>
+                    <a class="footerRef" href="">Do Not Share My<br> Personal information</a>
+                    <a class="footerRef" href="">Login</a>
+                </div>
+            </div>
+        </footer>
+    
+    </body>
+</html>

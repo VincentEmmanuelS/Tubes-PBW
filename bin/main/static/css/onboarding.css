@@ -64,6 +64,12 @@ header #rightSection {
     flex-wrap: nowrap;
     justify-content: space-evenly;
     margin: 4vh;
+    
+    
+
+    
+    
+    
 }
 
 /* Temporary styling DELETE color LATER */
@@ -164,8 +170,23 @@ card {
 }
 
 /* Left sidebar bagian profile */
+
+
+#leftSidebar {
+    /* width: 250px;  */
+    height: 100vh; /* Full viewport height */
+    position: sticky;
+    top: 0;
+    overflow-y: auto; /* Allows scrolling within the sidebar if content overflows */
+    
+    
+    flex-shrink: 0; /* Prevents sidebar from shrinking */
+    z-index: 10;
+}
+
+
 #profileContainer {
-    background-color: #388E3C;
+    background-color: #ffffff;
     border-radius: 5px;
     /* padding: 10px; */
     margin-bottom: 20px;
@@ -183,6 +204,26 @@ card {
     flex-direction: column;
 }
 
+/* Wrapper Div for Circular Cropping */
+#profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden; 
+    display: inline-block;
+    border: 1px solid #ffffff; 
+    position: relative;
+}
+
+#profile-pic img {
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    object-position: center; 
+    position: absolute; 
+    top: 0;
+    left: 0;
+}
 #profile > * {
     padding-top: 15px;
     padding-bottom: 10px;
@@ -227,7 +268,7 @@ card {
     display: flex;
     flex-direction: row;
 
-    border-top: 1px solid black;
+    border-top: 2px solid #F2F2F2;
 }
 
 #footerProfile:hover {
@@ -250,13 +291,16 @@ card {
 }
 
 #tracker > #buttonContainer {
+    
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
 #tracker button {
-    background-color: black;
+    padding: 10px;
+    
+    background-color: #ffffff;
     /* border-radius: 5px; */
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
@@ -266,7 +310,7 @@ card {
 }
 
 #tracker button:hover {
-    background-color: #FFA500;
+    background-color: #FF4500;
 }
 
 #tracker button > img {
@@ -277,7 +321,7 @@ card {
 
 #trackerContainer {
     padding-top: 10px;
-    background-color: #FFA500;
+    background-color: #ffffff;
     /* border-radius: 5px; */
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
@@ -311,8 +355,237 @@ maincontent {
     align-items: center;
     gap: 20px;
 }
+.eventcontainer{
+    width: 100%;
+    
+    /* padding: 20px; */
+    /* padding-left: 30px;
+    padding-right: 30px; */
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+}
+  
+.eventheader img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover; 
+    object-position: center 
+}
 
-card {
+
+.eventbody {
+    display: flex;
+    flex-direction: column;
+    /* gap: 10px; */
+    padding: 20px 30px;
+}
+
+
+
+.eventbody h3 {
+margin: 0;
+font-size: 1.6em;
+color: #333;
+margin-bottom: 10px;
+}
+
+.eventcontainer:hover {
+transform: translateY(-5px); 
+box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+transition: all 0.3s ease;
+}
+
+
+.eventfooter p {
+    color: #000000;
+    font-size: 1em;
+    /* margin-top: 10px;
+    margin-left: 40px; */
+}
+
+.eventfooter{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    /* gap: 10px; */
+    padding: 20px 30px;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.eventfooter p{
+    
+    color:#6c6c6c;
+}
+
+.eventfooter button {
+    border-radius: 6px;
+    font-size: 15px;
+    /* font-weight: bold; */
+    margin-top: 10px;
+    width: 100%;
+    background-color:#FF4500 ;
+    color: white;
+    border: none;
+    height: 40px;
+}
+
+.eventfooter button:hover {
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 15px;
+    /* font-weight: bold; */
+    margin-top: 10px;
+    width: 100%;
+    background-color:#b23000 ;
+    color: white;
+    border: none;
+    height: 40px;
+}
+.eventdate{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    color: #6c6c6c;
+    font-weight: bold;
+    margin-left: 35px;
+    margin-top: 5px;
+}
+
+.event-desc {
+    display: flex;
+    align-items: center;
+
+}
+
+.event-desc p{
+    color:#6c6c6c;
+
+}
+  
+.event-icon {
+    width: 25px; 
+    height: 25px;
+    margin-right: 10px;
+
+}
+  
+
+.feedcontainer{
+    width: 100%;
+    
+    padding: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+}
+
+.feedheader{
+    /* border: 3px solid black; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap:30px;
+}
+
+.feedheader-title{
+    display: flex;
+    flex-direction: column;
+    gap:10px
+}
+.feedprofilepic {
+    width:75px;
+    height: 75px;
+    border-radius: 50%;
+    overflow: hidden; 
+    display: inline-block;
+    border: 1px solid #ffffff; 
+    position: relative;
+}
+
+.feed-profile-name{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.feed-activity-date{
+    color:#6c6c6c;
+}
+
+.feedprofilepic img {
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    object-position: center; 
+    position: absolute; 
+    top: 0;
+    left: 0;
+}
+.feedbody{
+    display: flex;
+    flex-direction: column;
+    /* border: 3px solid black; */
+}
+.feedbody-title{
+    padding: 10px;
+    padding-left: 105px;
+    display: flex;
+    flex-direction: row;
+    /* border: 3px solid black; */
+    align-items: center;
+    gap:30px;
+}
+
+.feedbody-title legend{
+    color:#6c6c6c;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.feed-activitytitle{
+    font-size: 25px;
+    font-weight: bold;
+}
+.feedbody-stat{
+    
+    padding-left: 105px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    /* border: 3px solid black; */
+    align-items: center;
+    gap:40px;
+    
+}
+
+.feedbody-stat legend{
+    color: #686868;
+    font-size: 15px;
+}
+
+.feedbody-stat p{
+    
+    font-size: 25px;
+}
+
+.map {
+    /* border: 3px solid black; */
+    width: 100%; /* Set your desired fixed width */
+    overflow: hidden; /* Prevent overflow if image is larger */
+    border: 1px solid #ccc; /* Optional border for visual clarity */
+    border-radius: 5px; /* Optional rounded corners */
+}
+
+/* Map Image Styling */
+.map img {
+    width: 100%; /* Fill the width of the container */
+    height: auto; /* Adjust height dynamically to maintain aspect ratio */
+    display: block; /* Remove unwanted space below the image */
+    object-fit: cover; /* Ensures the image scales properly */
+}
+/* card {
     width: 100%;
     height: 200px;
     padding: 10px;
@@ -322,7 +595,7 @@ card {
 
     background-color: hotpink;
     border-radius: 5px;
-}
+} */
 
 card form {
     width: auto;
@@ -344,10 +617,19 @@ card form button {
     flex-direction: column;
     align-items: center;
     gap: 20px;
+
+    /* width: 250px; */
+    height: 100vh; 
+    position: sticky;
+    top: 0;
+    overflow-y: auto; 
+    
+    flex-shrink: 0; 
+    z-index: 10;
 }
 
 #rightSidebar > div {
-    background-color: #006D7F;
+    background-color: #ffffff;
     width: 100%;
 
     display: flex;
@@ -361,7 +643,7 @@ card form button {
 }
 
 #rightSidebar > div > div {
-    background-color: #006D7F;
+    background-color: #ffffff;
     width: 100%;
 }
 

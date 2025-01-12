@@ -236,6 +236,7 @@ header #rightSection img {
     flex-shrink: 0;             /* Pastikan ikon tidak mengecil */
 }
 
+
 a#head:hover{
     text-decoration: none;
 }
@@ -261,3 +262,18 @@ form#logout button#logoutSubmit{
 form button#logoutSubmit{
     width: 5rem;
 }
+
+#profile-picture {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%; /* Makes the image round */
+    object-fit: cover; /* Ensures the image fits inside the circle */
+    filter:none !important;
+  
+    
+  }
+
+
+
+
+

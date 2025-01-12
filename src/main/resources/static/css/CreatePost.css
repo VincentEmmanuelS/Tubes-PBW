@@ -1,0 +1,154 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--background);
+}
+
+:root {
+    --primary-color: #FF4F00;    /* Oranye Strava */
+    --secondary-color: #F2F2F2;  /* Abu-abu Terang */
+    
+    --header-footer-bg: #FFFFFF; /* Abu-abu Terang */
+    --background: #F2F2F2;       /* Putih */
+    
+    --heading: #FF4F00;          /* Oranye Strava */
+    --sub-heading: #006D7F;      /* Biru Gelap */
+    
+    --button-active: #FF4F00;    /* Oranye Strava */
+    --button-inactive: #F2F2F2;  /* Abu-abu Terang */
+    --button-hover: #A23402;     /* Oranye Gelap */
+    --button-text: #FFFFFF;      /* Putih */
+    
+    --text-normal: #333333;      /* Abu-abu Gelap */
+    --text-hover: #FF4F00;       /* Oranye Strava */
+    --sub-text: #808080;         /* Abu-abu Pucat */
+    
+    --text-box-bg: #FFFFFF;      /* Putih */
+    --text-box-border: #FF4F00;  /* Oranye Strava */
+    
+    --highlight-text: #FF4500;   /* Oranye Cerah untuk teks sorotan */
+    --link-text: #006D7F;        /* Biru Gelap untuk teks link */
+    --link-hover: #708090;       /* Abu-abu kebiruan untuk link hover */
+  
+    --dropdown-bg: #F8F8F8;         /* Abu-abu sangat pucat untuk background dropdown */
+    --dropdown-hover-bg: #FF4F00;   /* Oranye Strava untuk background saat hover */
+    --dropdown-active-bg: #A23402;  /* Oranye Gelap untuk background aktif dropdown */
+    --dropdown-border: #F2F2F2;     /* Border abu-abu terang */
+    --dropdown-text: #333333;       /* Teks gelap untuk keterbacaan yang tinggi */
+    --dropdown-hover-text: #FFFFFF; /* Teks putih saat hover di dropdown */
+    
+    --error-text: #D32F2F;       /* Merah untuk pesan kesalahan */
+    --success-text: #388E3C;     /* Hijau untuk pesan sukses */
+    --warning-text: #FFA500;     /* Oranye untuk peringatan */
+}
+
+header #rightSection img {
+    width: 30px;
+    height: auto;
+    object-fit: contain;
+    filter: invert(1) grayscale(100%);
+}
+
+header #rightSection {
+    gap: 40px;
+}
+.post-container {
+    
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   gap:40px;
+   
+}
+.mainContent{
+    padding: 60px 60px;
+}
+.post-container h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .post-container input[type="text"] {
+    width: 600px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 15px;
+  }
+
+  .post-container textarea {
+    width: 600px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: vertical; /* Restrict resizing to up and down only */
+    margin-bottom: 15px;
+    min-height: 100px;
+  }
+
+  .upload-box {
+    width: 600px;
+    border: 2px dashed #007BFF;
+    border-radius: 5px;
+    padding: 20px;
+    text-align: center;
+    font-size: 16px;
+    color: #007BFF;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .upload-box:hover {
+    background-color: #f0f8ff;
+  }
+
+  .upload-box input[type="file"] {
+    display: none; /* Hide the file input field */
+  }
+
+.submitarea {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap:20px
+}
+
+#discard-btn, 
+#submit-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#discard-btn {
+    background-color: #ffffff; 
+    color: rgb(0, 0, 0);
+    border: 1px solid rgb(164, 164, 164);
+}
+
+#discard-btn:hover {
+    background-color: #a8a8a8; /* Darker red on hover */
+    transform: scale(1.05); /* Slightly enlarges button on hover */
+}
+
+#submit-btn {
+    background-color: #FF4500; /* Green for submit */
+    color: white;
+}
+
+#submit-btn:hover {
+    background-color: #A23402; /* Darker green on hover */
+    transform: scale(1.05); /* Slightly enlarges button on hover */
+}

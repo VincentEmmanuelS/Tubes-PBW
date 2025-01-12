@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/onboarding.css">
+    <link rel="stylesheet" href="/css/myActivity.css">
     <link rel="stylesheet" href="/css/header.css">
     <link rel="stylesheet" href="/css/footerMain.css">
+    <link rel="stylesheet" href="/css/footer.css">
     <title>MyActivity | RunTracker</title>
 
     <!-- style tambahan sementara buat jpanel saat mau delete data -->
@@ -95,7 +96,17 @@
             <a href="">
                 <img src="images/icons/Notif_Icon.png" alt="Notification Icon">
             </a>
-            <p id="dropdown">Profile</p>  <!-- ganti ke logo profile -->
+            <div class="dropdown">
+                <a href="">
+                    <img id="profile-picture" src="images/asukapp.png" alt="Profile Picture">
+                </a>
+                <ul class="dropdown-list menu-dropdown">
+                  <li><a href="#">Find Friends</a></li>
+                  <li><a href="#">My Profile</a></li>
+                  <li><a href="#">Settings</a></li>
+                  <li><a href="/login">Log Out</a></li>
+                </ul>
+            </div>
             <div class="dropdown" id="right">
                 <a href="">
                     <img id="dropdown" src="images/icons/Add_Icon.png" alt="Circle add icon">
@@ -121,15 +132,16 @@
     <!-- Body -->
     <div class="mainContent">
         <!-- Judul -->
-         <h1>My Activity</h1>
+         
+        <h1 id="MyActivity">My Activity</h1>
 
         <!-- filter -->
         <div>
-            <fieldset>
+            <fieldset class="filterpanel">
 
                 <!--filter by keyWord -->
                 <div>
-                    <h2>Keyword</h2>
+                    <h3>Keyword</h3>
                     <form action="myActivity" method="get">
                         <div>
                             <input type="text" name="keyword" th:value="${keyword}" placeholder="Search by title">
@@ -140,21 +152,21 @@
                 
                 <!-- filter by RideType -->
                 <!-------------------- tidak tau bakal dipake atau tidak  -------------------------->
-                <!-- <div>
-                    <h2>Ride Type</h2>
+                <div>
+                    <h3>Ride Type</h3>
                     <form action="">
                         <select name="" id="">
                             <option value="Bike">Bike</option>
                             <option value="Run">Run</option>
                         </select>
                     </form>
-                </div> -->
+                </div>
 
             </fieldset>
           </div>
           <!-- tabel -->
-          <div >
-            <table>
+          <div class="tablecontainer">
+            <table class="activity_table">
                 <tr>
                     <th>
                         <a th:href="@{/myActivity(sortBy='rideType', sortOrder=${sortBy == 'rideType' and sortOrder == 'asc' ? 'desc' : 'asc'})}">
@@ -188,6 +200,47 @@
                     </th>
                     <th></th>
                     <th></th>
+                </tr>
+                <!-- example display data -->
+                <tr>
+                    <td>Ride</td>
+                    <td>Sat, 10/10/2004</td>
+                    <td><a>Morning ride</a></td>
+                    <td>1:23:24</td>
+                    <td>15.18 km</td>
+                    <td>331 m</td>
+                    <td>edit ??</td>
+                    <td>Delete ??</td>
+                </tr>
+                <tr>
+                    <td>Run</td>
+                    <td>Sat, 10/10/2004</td>
+                    <a><td>Morning ride</td></a>
+                    <td>1:23:24</td>
+                    <td>15.18 km</td>
+                    <td>331 m</td>
+                    <td>edit ??</td>
+                    <td>Delete ??</td>
+                </tr>
+                <tr>
+                    <td>Ride</td>
+                    <td>Sat, 10/10/2004</td>
+                    <td><a>Morning ride</a></td>
+                    <td>1:23:24</td>
+                    <td>15.18 km</td>
+                    <td>331 m</td>
+                    <td>edit ??</td>
+                    <td>Delete ??</td>
+                </tr>
+                <tr>
+                    <td>Run</td>
+                    <td>Sat, 10/10/2004</td>
+                    <a><td>Morning ride</td></a>
+                    <td>1:23:24</td>
+                    <td>15.18 km</td>
+                    <td>331 m</td>
+                    <td>edit ??</td>
+                    <td>Delete ??</td>
                 </tr>
                 <div th:each="row : ${object}">
                     <tr>
@@ -228,6 +281,49 @@
             </div>
         </div>
     </div>
+
+    <footer>
+        <div id="download">
+            <div>RunTracker</div>
+            <div>RunTracker protect your data read more our <a href="">Privacy Policy</a></div>
+            <div id="imageArea">
+                <a href="https://www.instagram.com" target="_blank">
+                    <img src="images/icons/InstagramWhite.png" alt="Instagram logo">
+                </a>
+                <a href="https://www.youtube.com" target="_blank">
+                    <img src="images/icons/YoutubeWhite.png" alt="Youtube logo">
+                </a>
+            </div>
+        </div>
+        <div id="footermid">
+            <div id="features">
+                <a class="footerRef" href="">Features</a>
+                <a class="footerRef" href="">Subscription</a>
+                <a class="footerRef" href="">Family Plan</a>
+                <a class="footerRef" href="">Student Discount</a>
+                <a class="footerRef" href="">Send a gift</a>
+                <a class="footerRef" href="">About</a>
+                <a class="footerRef" href="">Carrers</a>
+                <a class="footerRef" href="">Press</a>
+            </div>
+            <div id="Routes">
+                <a class="footerRef" href="">Routes</a>
+            </div>
+            <div id="information">
+                <a class="footerRef" href="">What's new</a>
+                <a class="footerRef" href="">Stories</a>
+                <a class="footerRef" href="">Support</a>
+                <a class="footerRef" href="">Bussiness</a>
+                <a class="footerRef" href="">Partner Center</a>
+            </div>
+            <div id="terms">
+                <a class="footerRef" href="">Terms</a>
+                <a class="footerRef" href="">Privacy</a>
+                <a class="footerRef" href="">Do Not Share My<br> Personal information</a>
+                <a class="footerRef" href="">Login</a>
+            </div>
+        </div>
+    </footer>
 
     <script>
         // Get the modal and buttons
