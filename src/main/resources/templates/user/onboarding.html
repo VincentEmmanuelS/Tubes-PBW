@@ -5,7 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/onboarding.css">
     <link rel="stylesheet" href="/css/header.css">
-    <title>Onboarding | RunTracker</title>
+    <link rel="stylesheet" href="/css/footerMain.css">
+    <link rel="stylesheet" href="/css/popupForm.css">
+    <title>Onboarding | RunTracker</title>  
+    
+    <!-- <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const eventList = document.getElementById("eventList");
+            const isUserJoined = eventList.getAttribute("data-isUserJoined") === "true";
+
+            if (isUserJoined) {
+                const joinButtons = document.querySelectorAll(".joinButton");
+                joinButtons.forEach(button => {
+                    button.style.display = "none"; // Sembunyikan tombol
+                });
+            }
+        });
+    </script>
+     -->
 </head>
 <body>
     <header>
@@ -16,10 +33,11 @@
 
             <div class="buttons">
                 <div class="dropdown id="left"">
-                    <a href="">Dashboard</a>
+                    <a href="onboarding">Dashboard</a>
                     <ul class="dropdown-list">
                         <li><a href="/onboarding">Activity Feed</a></li>
                         <li><a href="/Clubs">Clubs</a></li>
+                        <li><a href="/myStatic">My Static</a></li>
                         <li><a href="#">My Segments</a></li>
                         <li><a href="#">My Routes</a></li>
                         <li id="subscription"><h3>SUBSCRIPTION</h3></li>
@@ -30,7 +48,7 @@
                     <a href="">Training</a>
                     <ul class="dropdown-list">
                         <li><a href="#">Training Calendar</a></li>
-                        <li><a href="#">My Activities</a></li>
+                        <li><a href="myActivity">My Activities</a></li>
                         <li id="subscription"><h3>SUBSCRIPTION</h3></li>
                         <li id="subscription"><a href="#">Training Log</a></li>
                         <li id="subscription"><a href="#">Training Plans</a></li>
@@ -55,7 +73,7 @@
                   <li><a href="#">Find Friends</a></li>
                   <li><a href="#">My Profile</a></li>
                   <li><a href="#">Settings</a></li>
-                  <li><a href="/login">Log Out</a></li>
+                  <li><a href="/logout">Log Out</a></li>
                 </ul>
             </div>
             <div class="dropdown" id="right">
@@ -145,92 +163,38 @@
             </div>
         </sidebar>
         <maincontent>
-            <card class="eventcontainer">
-                <div class="eventheader">
-                  <img src="images/Cycling.jpg" alt="Event Image">
-                </div>
-                <div class="eventbody">
-                  <h3>Gowes 16 Agustus Challenge</h3>
-                  <div class="event-desc">
-                    <img src="images/icons/bikeicon.png" alt="eventicon" class="event-icon">
-                    <p>Bike for a total of 769km in the given time</p>
-                  </div>
-                  <div class="eventdate">
-                    <p >start : dd mm yyyy hh:mm</p>
-                    <p >end: dd mm yyyy hh:mm</p>
-                  </div>
-                  
-                  
-                  
-                </div>
-                <div class="eventfooter">
-                    <p>Participants : 1 / 100</p>
-                    <button>Join Challenge</button>
-                </div>
-            </card>
-              
-            <card class="feedcontainer">
-                <div class="feedheader">
-                    <div class="feedprofilepic">
-                        <img src="images/asukapp.png">
-                    </div>
-                    <div class="feedheader-title">
-                        <p class="feed-profile-name">Asuka Langley</p>
-                        <p class="feed-activity-date">Monday 31/12/2024 07:00 AM</p>
-                    </div>
-                </div>
-                <div class="feedbody">
-                    <div class="feedbody-title">
-                        
-                        <p class="feed-activitytitle">Morning Ride</p>
-                        <legend>Cycling</legend>
-                    </div>
-                    <div class="feedbody-stat">
-                        <div class="distance-container">
-                            <legend>Distance</legend>
-                            <p>50.40 KM</p>
-                        </div>
-                        <div class="elev-container">
-                            <legend>Elev Gain</legend>
-                            <p>1250m</p>
-                        </div>
-                        <div class="time-container">
-                            <legend>Time </legend>
-                            <p>2h 3m</p>
-                        </div>
-                    </div>
-                    <div class="map">
-                        <img src="images/mapexample1.png">
-                    </div>
 
-                </div>
+            <!-- Iterasi untuk setiap event -->
+            <th:block th:each="event : ${events}">
+                <card>
+                    <div id="rightCard" th:if="${event.fileFoto != null}">
+                        <img th:src="@{${event.fileFoto}}" alt="Event image">
+                    </div>
+                    <div id="leftCard">
+                        <div>
+                            <h3 th:text="${event.title}">Judul event</h3>
+                            <p id="description" th:text="${event.deskripsi}">deskripsi event</p>
+                        </div>
+                        <div id="bottomCard">
+                            <form th:action="@{/joinEvent}" method="post">
+                                <p id="limit" th:text="'Join: ' + ${event.limitParticipant == 2147483647 ? event.participant : event.participant + ' / ' + event.limitParticipant}"></p>
+                                <input type="hidden" th:value="${event.idEvent}" name="eventId">
+                                <input type="hidden" name="email" th:value="${user.email}">
+                                <input type="hidden" name="idEvent" th:value="${event.idEvent}">
+                                <button type="submit" th:classappend="${isUserJoinedAnyEvent} ? 'hidden' : 'show'">Join</button>
+               
+                            </form>
+                            <!-- <span th:text="${event.idEvent}"></span> -->
+                            <!-- <form th:action="@{/submitEvent/{id}(id=${event.idEvent})}" method="post"> -->
+                            <form action="/submitEvent" method="get">
+                                <input type="hidden" name="id" th:value="${event.idEvent}">
+                                <button th:classappend="${joinedEventIds.contains(event.idEvent) && isUserJoinedAnyEvent} ? 'show' : 'hidden'" type="submit" th:action="@{/submitEvent/{id}(id=${event.idEvent})}">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </card>
+            </th:block>
 
-                
-            </card>
-            <!-- <card>
-                test
-            </card>
-            <card>
-                test
-            </card>
-            <card>
-                test
-            </card>
-            <card>
-                test
-            </card>
-            <card>
-                test
-            </card>
-            <card>
-                test
-            </card>
-            <card>
-                test
-            </card>
-            <card>
-                test
-            </card> -->
         </maincontent>
         <!-- right sidebar -->
         <sidebar id="rightSidebar">
@@ -265,8 +229,82 @@
         </sidebar>
     </div>
 
-    <footer>
+    <div id="overlay" th:if="${showOverlay}" style="display: block;"></div>
+    <popupForm th:if="${showPopupForm}" style="display: block;">
+        <h1>Complete Your Profile</h1>
+        <form action="/onboarding" method="post">
+            <label for="first_name">First Name:</label>
+            <input type="text" id="first_name" name="firstName" placeholder="Enter your first name" required>
 
+            <label for="last_name">Last Name:</label>
+            <input type="text" id="last_name" name="lastName" placeholder="Enter your last name" required>
+
+            <label for="tanggal_lahir">Date of Birth:</label>
+            <input type="date" id="tanggal_lahir" name="tanggalLahir" required>
+
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+
+            <label for="region">Region:</label>
+            <input type="text" id="region" name="region" placeholder="Enter your region" required>
+
+            <input type="hidden" id="email" name="email" value="${email}">
+
+            <button type="submit">Submit</button>
+        </form>
+    </popupForm>
+
+    <footer>
+        <div id="footermid">
+            <div id="judul">
+                <h1 id="footerTitle">RunTracker</h1>
+                <p>Runtracker @2024</p>
+            </div>
+            <div id="About">
+                <h2>About</h2>
+                <a class="footerRef" href="https://en.wikipedia.org/wiki/About">About</a>
+                <a class="footerRef" href="https://en.wikipedia.org/wiki/Feature">Features</a>
+                <a class="footerRef" href="https://en.wikipedia.org/wiki/Mobile">Mobile</a>
+                <a class="footerRef" href="https://en.wikipedia.org/wiki/Subscription_business_model">Subscription</a>
+                <a class="footerRef" href="https://en.wikipedia.org/wiki/Family_Plan">Family Plan</a>
+                <a class="footerRef" href="https://en.wikipedia.org/wiki/Discounts_and_allowances#Student_discount">Student Discount</a>
+                <a class="footerRef" href="https://en.wikipedia.org/wiki/Gift">Send a gift</a>
+                <a class="footerRef" href="https://en.wikipedia.org/wiki/Privacy_policy">Privacy Policy</a>
+                <a class="footerRef" href="https://en.wikipedia.org/wiki/Personal_data">Do Not Share My Personal<br> Information</a>
+                <a class="footerRef" href="https://en.wikipedia.org/wiki/Terms_of_service">Terms and Condition</a>
+                <a class="footerRef" href="https://maps.google.com/">About Our Maps</a>
+            </div>
+            <div id="Routes">
+                <h2>Explore</h2>
+                <a class="footerRef" href="https://maps.google.com/">Routes</a>
+            </div>
+            <div id="follow">
+                <h2>Follow</h2>
+                <a class="footerRef" href="https://www.facebook.com/">Facebook</a>
+                <a class="footerRef" href="https://twitter.com">Twitter</a>
+                <a class="footerRef" href="https://www.instagram.com/">Instagram</a>
+                <a class="footerRef" href="https://www.youtube.com/">Youtube</a>
+                <a class="footerRef" href="https://www.linkedin.com/">LinkedIn</a>
+                <a class="footerRef" href="https://en.wikipedia.org/wiki/Story">Stories</a>
+            </div>
+            <div id="help">
+                <h2>Help</h2>
+                <a class="footerRef" href="https://en.wikipedia.org/wiki/Support">RunTracker Support</a>
+            </div>
+            <div id="more">
+                <h2>More</h2>
+                <a class="footerRef" href="https://en.wikipedia.org/wiki/Career">Careers</a>
+                <a class="footerRef" href="https://en.wikipedia.org/wiki/Press">Press</a>
+                <a class="footerRef" href="https://en.wikipedia.org/wiki/Business">Business</a>
+                <a class="footerRef" href="https://learn.microsoft.com/en-us/partner-center/">Partner Center</a>
+                <a class="footerRef" href="https://en.wikipedia.org/wiki/Developer">Developers</a>
+                <a class="footerRef" href="https://en.wikipedia.org/wiki/Labs">Labs</a>
+                <a class="footerRef" href="https://en.wikipedia.org/wiki/Standard">RunTracker Community<br> Standards</a>
+            </div>
+        </div>
     </footer>
 </body>
 </html>

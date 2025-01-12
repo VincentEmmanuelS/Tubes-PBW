@@ -42,15 +42,23 @@ public class UserService {
 
     public Optional<User> login(String email, String password) {
 
-        // User user = userRepository.findByUsername(email);
         Optional<User> user = userRepository.findByEmail(email);
 
-        if (user.isPresent() && passwordEncoder.matches(password, user.get().getPassword())) {
-            return user;
+        if (user.isPresent()) {
+            User existingUser = user.get();
+
+            if (!existingUser.getActive()) {
+                return Optional.empty();
+            }
+    
+            if (user.isPresent() && passwordEncoder.matches(password, user.get().getPassword())) {
+                // return user;
+                return Optional.of(existingUser);
+            }
         }
 
-        return null;
-
+        // return null;
+        return Optional.empty();
     }
 
 }

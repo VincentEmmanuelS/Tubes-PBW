@@ -8,7 +8,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.context.annotation.RequestScope;
 
+import com.tubes.pbw.auth.RequiredRole;
 import com.tubes.pbw.user.model.ManualEntry;
 import com.tubes.pbw.user.repository.ManualEntryRepository;
 
@@ -24,6 +26,7 @@ public class MyRoutecontroller {
     private ManualEntryRepository jdbc;
 
     @GetMapping("/MyRoutes")
+    @RequiredRole("user")
     public String halamanMyRoute(){
         return "user/MyRoutes";
     }

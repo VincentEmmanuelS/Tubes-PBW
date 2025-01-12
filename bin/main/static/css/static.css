@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--background);
+}
+
+:root {
+    --primary-color: #FF4F00;    /* Oranye Strava */
+    --secondary-color: #F2F2F2;  /* Abu-abu Terang */
+    
+    --header-footer-bg: #FFFFFF; /* Abu-abu Terang */
+    --background: #F2F2F2;       /* Putih */
+    
+    --heading: #FF4F00;          /* Oranye Strava */
+    --sub-heading: #006D7F;      /* Biru Gelap */
+    
+    --button-active: #FF4F00;    /* Oranye Strava */
+    --button-inactive: #F2F2F2;  /* Abu-abu Terang */
+    --button-hover: #A23402;     /* Oranye Gelap */
+    --button-text: #FFFFFF;      /* Putih */
+    
+    --text-normal: #333333;      /* Abu-abu Gelap */
+    --text-hover: #FF4F00;       /* Oranye Strava */
+    --sub-text: #808080;         /* Abu-abu Pucat */
+    
+    --text-box-bg: #FFFFFF;      /* Putih */
+    --text-box-border: #FF4F00;  /* Oranye Strava */
+    
+    --highlight-text: #FF4500;   /* Oranye Cerah untuk teks sorotan */
+    --link-text: #006D7F;        /* Biru Gelap untuk teks link */
+    --link-hover: #708090;       /* Abu-abu kebiruan untuk link hover */
+  
+    --dropdown-bg: #F8F8F8;         /* Abu-abu sangat pucat untuk background dropdown */
+    --dropdown-hover-bg: #FF4F00;   /* Oranye Strava untuk background saat hover */
+    --dropdown-active-bg: #A23402;  /* Oranye Gelap untuk background aktif dropdown */
+    --dropdown-border: #F2F2F2;     /* Border abu-abu terang */
+    --dropdown-text: #333333;       /* Teks gelap untuk keterbacaan yang tinggi */
+    --dropdown-hover-text: #FFFFFF; /* Teks putih saat hover di dropdown */
+    
+    --error-text: #D32F2F;       /* Merah untuk pesan kesalahan */
+    --success-text: #388E3C;     /* Hijau untuk pesan sukses */
+    --warning-text: #FFA500;     /* Oranye untuk peringatan */
+}
+
+header #rightSection img {
+    width: 30px;
+    height: auto;
+    object-fit: contain;
+    filter: invert(1) grayscale(100%);
+}
+
+
+
+header #rightSection {
+    gap: 40px;
+}
+
+.Title{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 60px;  
+}
+
+.statisticcontainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid black; */
+    margin:20px 60px;
+}
+.filterbarform{
+    display: flex;
+    gap:29px;
+}
+.filterBar {
+    margin-top: 20px;
+    padding: 20px 60px; 
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    width: 500px;
+    
+}
+
+/* Style the select elements */
+.filterBar select {
+    width: 100%;
+    padding: 8px;
+    margin: 8px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: #fff;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+/* Change the border color on focus */
+.filterBar select:focus {
+    border-color: #FF4F00;
+    outline: none;
+}
+
+/* Style the options inside the select */
+.filterBar option {
+    padding: 8px;
+}
+
+/* Style the submit button if needed (if used in the form) */
+.filterBar button {
+    padding: 10px 15px;
+    background-color: #FF4F00;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+}
+
+/* Button hover effect */
+.filterBar button:hover {
+    background-color: #FF4F00;
+}
+
+
+
+#btn{
+    margin-top: 30px;
+    width: 150px;
+    height: 50px;
+    background-color: #FF4F00;
+    padding: 10px;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    border: 1px solid #808080;
+    grid-area: i;
+    margin-bottom: 60px;
+}
+
+#btn:hover{
+    background-color: #A23402;
+}

@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyStatic | RunTracker</title>
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/static.css">
+    <link rel="stylesheet" href="/css/footerMain.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+    <header>
+        <div id="leftSection">
+            <h1>RunTracker</h1>
+
+            <!-- Search bar -->
+
+            <div class="buttons">
+                <div class="dropdown id="left"">
+                    <a href="onboarding">Dashboard</a>
+                    <ul class="dropdown-list">
+                        <li><a href="/onboarding">Activity Feed</a></li>
+                        <li><a href="/Clubs">Clubs</a></li>
+                        <li><a href="/myStatic">My Static</a></li>
+                        <li><a href="#">My Segments</a></li>
+                        <li><a href="#">My Routes</a></li>
+                        <li id="subscription"><h3>SUBSCRIPTION</h3></li>
+                        <li id="subscriptionBottom"><a href="#">My Goals</a></li>
+                    </ul>
+                </div>
+                <div class="dropdown" id="left">
+                    <a href="">Training</a>
+                    <ul class="dropdown-list">
+                        <li><a href="#">Training Calendar</a></li>
+                        <li><a href="myActivity">My Activities</a></li>
+                        <li id="subscription"><h3>SUBSCRIPTION</h3></li>
+                        <li id="subscription"><a href="#">Training Log</a></li>
+                        <li id="subscription"><a href="#">Training Plans</a></li>
+                        <li id="subscription"><a href="#">Power Curve</a></li>
+                        <li id="subscriptionBottom" class="bottomSubs"><a href="#">Fitness & Freshness</a></li>
+                    </ul>
+                </div>
+                <a href="">Maps</a>
+                <a href="">Challenges</a>
+            </div>
+        </div>
+        <div id="rightSection">
+            <button>Start Trial</button>
+            <a href="">
+                <img src="images/icons/Notif_Icon.png" alt="Notification Icon">
+            </a>
+            <div class="dropdown">
+                <a href="">
+                    <img id="profile-picture" src="images/asukapp.png" alt="Profile Picture">
+                </a>
+                <ul class="dropdown-list menu-dropdown">
+                  <li><a href="#">Find Friends</a></li>
+                  <li><a href="#">My Profile</a></li>
+                  <li><a href="#">Settings</a></li>
+                  <li><a href="/logout">Log Out</a></li>
+                </ul>
+            </div>
+            <div class="dropdown" id="right">
+                <a href="">
+                    <img id="dropdown" src="images/icons/Add_Icon.png" alt="Circle add icon">
+                </a>
+                <ul class="dropdown-list menu-dropdown">
+                    <li><a href="#">
+                        <img src="images/icons/Upload_Icon.png" alt="Upload activity icon"> Upload Activity
+                    </a></li>
+                    <li><a href="/manualentry">
+                        <img src="images/icons/ManualEntry_Icon.png" alt="Manual entry icon"> Add Manual Entry
+                    </a></li>
+                    <li><a href="#">
+                        <img src="images/icons/Route_Icon.png" alt="Create route icon"> Create Route
+                    </a></li>
+                    <li><a href="#">
+                        <img src="images/icons/CreatePost_icon.png" alt="Create post icon"> Create post
+                    </a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <!-- filter for distance -->
+    <div class="mainContent">
+        <div class="Title">
+            <h1>My Statistic</h1>
+            
+        </div>
+        <div class="statisticcontainer">
+            <fieldset class="filterBar">
+                <form class="filterbarform" id="distanceForm" action="/myStatic" method="get">
+                    <select name="yearDistance" onchange="submitForm('distanceForm')">
+                        <option th:each="year : ${tahun}" 
+                                th:value="${year}" 
+                                th:text="${year}"
+                                th:selected="${year.toString()} == ${yearDistance.toString()}"></option>
+                    </select>
+            
+                    <select name="ridetypeDistance" onchange="submitForm('distanceForm')">
+                        <option value="Bike" th:selected="'bike' == ${ridetypeDistance}">bike</option>
+                        <option value="Run" th:selected="'run' == ${ridetypeDistance}">run</option>
+                    </select>
+            
+                    <select name="matricDistance" onchange="submitForm('distanceForm')">
+                        <option value="km" th:selected="'km' == ${matricDistance}">Km</option>
+                        <option value="m" th:selected="'m' == ${matricDistance}">M</option>
+                    </select>
+                </form>
+            </fieldset >
+           
+            <canvas id="myChartDistance" style="width:100%;max-width:600px"></canvas>
+            <!-- filter for duration -->
+            <fieldset class="filterBar">
+                <form class="filterbarform" id="durationForm" action="/myStatic" method="get">
+                    <select name="yearDuration" onchange="submitForm('durationForm')">
+                        <option th:each="year : ${tahun}" 
+                                th:value="${year}" 
+                                th:text="${year}" 
+                                th:selected="${year.toString()} == ${yearDuration.toString()}"></option>
+                    </select>
+                </form>
+            </fieldset>
+        
+            <canvas id="myChartDuration" style="width:100%;max-width:600px"></canvas>
+            <!-- filter for activity -->
+            <fieldset class="filterBar">
+                <form class="filterbarform" id="activityForm" action="/myStatic" method="get">
+                    <select name="yearActivity" onchange="submitForm('activityForm')">
+                        <option th:each="year : ${tahun}" 
+                                th:value="${year}" 
+                                th:text="${year}" 
+                                th:selected="${year.toString()} == ${yearActivity.toString()}"></option>
+                    </select>
+            
+                    <select name="ridetypeActivity" onchange="submitForm('activityForm')">
+                        <option value="bike" th:selected="'Bike' == ${ridetypeActivity}">bike</option>
+                        <option value="run" th:selected="'Run' == ${ridetypeActivity}">run</option>
+                    </select>
+                </form>
+            </fieldset>
+            
+            <canvas id="myChartActivity" style="width:100%;max-width:600px"></canvas>
+            <button id="btn">Save PDF</button>
+        </div>
+        
+    
+    </div>
+    
+    <footer>
+        <div id="footermid">
+            <div id="judul">
+                <h1 id="footerTitle">RunTracker</h1>
+                <p>Runtracker @2024</p>
+            </div>
+            <div id="About">
+                <h2>About</h2>
+                <a class="footerRef" href="https://en.wikipedia.org/wiki/About">About</a>
+                <a class="footerRef" href="https://en.wikipedia.org/wiki/Feature">Features</a>
+                <a class="footerRef" href="https://en.wikipedia.org/wiki/Mobile">Mobile</a>
+                <a class="footerRef" href="https://en.wikipedia.org/wiki/Subscription_business_model">Subscription</a>
+                <a class="footerRef" href="https://en.wikipedia.org/wiki/Family_Plan">Family Plan</a>
+                <a class="footerRef" href="https://en.wikipedia.org/wiki/Discounts_and_allowances#Student_discount">Student Discount</a>
+                <a class="footerRef" href="https://en.wikipedia.org/wiki/Gift">Send a gift</a>
+                <a class="footerRef" href="https://en.wikipedia.org/wiki/Privacy_policy">Privacy Policy</a>
+                <a class="footerRef" href="https://en.wikipedia.org/wiki/Personal_data">Do Not Share My Personal<br> Information</a>
+                <a class="footerRef" href="https://en.wikipedia.org/wiki/Terms_of_service">Terms and Condition</a>
+                <a class="footerRef" href="https://maps.google.com/">About Our Maps</a>
+            </div>
+            <div id="Routes">
+                <h2>Explore</h2>
+                <a class="footerRef" href="https://maps.google.com/">Routes</a>
+            </div>
+            <div id="follow">
+                <h2>Follow</h2>
+                <a class="footerRef" href="https://www.facebook.com/">Facebook</a>
+                <a class="footerRef" href="https://twitter.com">Twitter</a>
+                <a class="footerRef" href="https://www.instagram.com/">Instagram</a>
+                <a class="footerRef" href="https://www.youtube.com/">Youtube</a>
+                <a class="footerRef" href="https://www.linkedin.com/">LinkedIn</a>
+                <a class="footerRef" href="https://en.wikipedia.org/wiki/Story">Stories</a>
+            </div>
+            <div id="help">
+                <h2>Help</h2>
+                <a class="footerRef" href="https://en.wikipedia.org/wiki/Support">RunTracker Support</a>
+            </div>
+            <div id="more">
+                <h2>More</h2>
+                <a class="footerRef" href="https://en.wikipedia.org/wiki/Career">Careers</a>
+                <a class="footerRef" href="https://en.wikipedia.org/wiki/Press">Press</a>
+                <a class="footerRef" href="https://en.wikipedia.org/wiki/Business">Business</a>
+                <a class="footerRef" href="https://learn.microsoft.com/en-us/partner-center/">Partner Center</a>
+                <a class="footerRef" href="https://en.wikipedia.org/wiki/Developer">Developers</a>
+                <a class="footerRef" href="https://en.wikipedia.org/wiki/Labs">Labs</a>
+                <a class="footerRef" href="https://en.wikipedia.org/wiki/Standard">RunTracker Community<br> Standards</a>
+            </div>
+        </div>
+    </footer>
+
+    <script th:inline="javascript">
+        //method  untuk submit filter 
+        function submitForm(formId) {
+        // Get the form element by ID
+        const form = document.getElementById(formId);
+        // Submit the form
+        form.submit();
+        }
+        
+        // label sumbu x
+        const xValues = ['January','Febuary','March','April','May','June','July','September','October','November','December'];
+
+
+        // Get the data Distance
+        const data = /*[[${data}]]*/[];
+        console.log("Rendered Data:", data);
+        const month = data.map(item => item.bulan)
+        let valuePerMonth = Array(12).fill(0);
+        const yValues = data.map(item => item.value);
+        console.log("Rendered data month :"+ month);
+
+        // data sesuai dengan bulan
+        if(month.length<12){
+            for(var i = 0;i<month.length;i++){
+                valuePerMonth[month[i]-1]=yValues[i];
+            }
+        }else{
+            valuePerMonth = yValues;
+        }
+       
+        console.log("Rendered Data:", valuePerMonth);
+        
+        
+        // char untuk distance
+        new Chart("myChartDistance", {
+            type: "bar",
+            data: {
+                labels: xValues,
+                datasets: [{
+                    backgroundColor: "blue",
+                    data: valuePerMonth
+                }]
+            },
+            options: {
+                legend: { display: false },
+                title: {
+                    display: true,
+                    text: "Distance Grafik"
+                }
+            }
+        });
+
+        // data duration
+        const dataDuration = /*[[${dataDuration}]]*/[];
+        console.log("Rendered Data:", dataDuration);
+        const monthDuration = dataDuration.map(item => item.bulan)
+        let valuePerMonthDuration = Array(12).fill(0);
+        const yValuesDuration = dataDuration.map(item => item.value);
+
+        // kalau data duration monthny kurang dari 12
+        if(monthDuration.length<12){
+            for(var i = 0;i<monthDuration.length;i++){
+                valuePerMonthDuration[monthDuration[i]-1]=yValuesDuration[i];
+            }
+        }else{
+            valuePerMonthDuration = yValuesDuration;
+        } 
+
+        // chart untuk duration
+        new Chart("myChartDuration", {
+            type: "bar",
+            data: {
+                labels: xValues,
+                datasets: [{
+                    backgroundColor: "blue",
+                    data: valuePerMonthDuration
+                }]
+            },
+            options: {
+                legend: { display: false },
+                title: {
+                    display: true,
+                    text: "Duration Grafik (hr)"
+                }
+            }
+        });
+
+        // data activity
+        const dataActivity = /*[[${dataActivity}]]*/[];
+        console.log("Rendered Data:", dataActivity);
+        const monthActivity = dataActivity.map(item => item.bulan)
+        let valuePerMonthActivity = Array(12).fill(0);
+        const yValuesActivity = dataActivity.map(item => item.value);
+
+        // kalau data activity monthnya kurang dari 12
+        if(monthActivity.length<12){
+            for(var i = 0;i<monthActivity.length;i++){
+                valuePerMonthActivity[monthActivity[i]-1]=yValuesActivity[i];
+            }
+        }else{
+            valuePerMonthActivity = yValuesActivity;
+        } 
+
+        new Chart("myChartActivity", {
+            type: "bar",
+            data: {
+                labels: xValues,
+                datasets: [{
+                    backgroundColor: "blue",
+                    data: valuePerMonthActivity
+                }]
+            },
+            options: {
+                legend: { display: false },
+                title: {
+                    display: true,
+                    text: "How Many Activity"
+                }
+            }
+        });
+
+      // Add click event listener for the button
+    var button = document.getElementById("btn");
+    button.addEventListener("click", function () {
+        // Create a temporary container to hold all charts for the PDF
+        var pdfContainer = document.createElement('div');
+        pdfContainer.style.width = "800px"; // Ensure a fixed width
+        pdfContainer.style.display = "inline-block"; // Avoid unexpected block-level spacing
+        pdfContainer.style.padding = "0"; // Remove padding
+        pdfContainer.style.margin = "0"; // Remove margin
+
+        // Append each chart to the container
+        ['myChartDistance', 'myChartDuration', 'myChartActivity'].forEach(chartId => {
+            // Get the canvas element
+            var canvas = document.getElementById(chartId);
+
+            // Convert the canvas to a base64 image
+            var img = new Image();
+            img.src = canvas.toDataURL("image/png");
+            img.style.marginBottom = "50px"; // Remove image margins
+            img.style.padding = "0"; // Remove image padding
+            img.style.display = "block"; // Prevent inline spacing
+            pdfContainer.appendChild(img);
+        });
+
+
+        // Convert the container to a PDF
+        var opt = {
+            margin: 0.5, // Adjust as needed
+            filename: 'Charts.pdf',
+            html2canvas: { 
+                scale: 3, // Higher scale for better resolution
+                scrollX: 0, 
+                scrollY: 0, 
+                useCORS: true // Avoid cross-origin issues
+            },
+            jsPDF: { unit: 'in', format: 'letter', orientation: 'landscape' }
+        };
+
+        html2pdf()
+        .set(opt)
+        .from(pdfContainer)
+        .save()
+        .then(() => pdfContainer.remove()) // Remove the temporary container
+        .catch(err => console.error("Error generating PDF:", err));
+    });
+    </script>
+</body>
+</html>

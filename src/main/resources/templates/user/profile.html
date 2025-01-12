@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/footerMain.css">
+    <link rel="stylesheet" href="/css/profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div id="leftSection">
+            <h1>RunTracker</h1>
+
+            <!-- Search bar -->
+
+            <div class="buttons">
+                <div class="dropdown id="left"">
+                    <a href="onboarding">Dashboard</a>
+                    <ul class="dropdown-list">
+                        <li><a href="/onboarding">Activity Feed</a></li>
+                        <li><a href="/Clubs">Clubs</a></li>
+                        <li><a href="/myStatic">My Static</a></li>
+                        <li><a href="#">My Segments</a></li>
+                        <li><a href="#">My Routes</a></li>
+                        <li id="subscription"><h3>SUBSCRIPTION</h3></li>
+                        <li id="subscriptionBottom"><a href="#">My Goals</a></li>
+                    </ul>
+                </div>
+                <div class="dropdown" id="left">
+                    <a href="">Training</a>
+                    <ul class="dropdown-list">
+                        <li><a href="#">Training Calendar</a></li>
+                        <li><a href="myActivity">My Activities</a></li>
+                        <li id="subscription"><h3>SUBSCRIPTION</h3></li>
+                        <li id="subscription"><a href="#">Training Log</a></li>
+                        <li id="subscription"><a href="#">Training Plans</a></li>
+                        <li id="subscription"><a href="#">Power Curve</a></li>
+                        <li id="subscriptionBottom" class="bottomSubs"><a href="#">Fitness & Freshness</a></li>
+                    </ul>
+                </div>
+                <a href="">Maps</a>
+                <a href="">Challenges</a>
+            </div>
+        </div>
+        <div id="rightSection">
+            <button>Start Trial</button>
+            <a href="">
+                <img src="images/icons/Notif_Icon.png" alt="Notification Icon">
+            </a>
+            <div class="dropdown">
+                <a href="">
+                    <img id="profile-picture" src="images/asukapp.png" alt="Profile Picture">
+                </a>
+                <ul class="dropdown-list menu-dropdown">
+                  <li><a href="#">Find Friends</a></li>
+                  <li><a href="#">My Profile</a></li>
+                  <li><a href="#">Settings</a></li>
+                  <li><a href="/logout">Log Out</a></li>
+                </ul>
+            </div>
+            <div class="dropdown" id="right">
+                <a href="">
+                    <img id="dropdown" src="images/icons/Add_Icon.png" alt="Circle add icon">
+                </a>
+                <ul class="dropdown-list menu-dropdown">
+                    <li><a href="#">
+                        <img src="images/icons/Upload_Icon.png" alt="Upload activity icon"> Upload Activity
+                    </a></li>
+                    <li><a href="/manualentry">
+                        <img src="images/icons/ManualEntry_Icon.png" alt="Manual entry icon"> Add Manual Entry
+                    </a></li>
+                    <li><a href="#">
+                        <img src="images/icons/Route_Icon.png" alt="Create route icon"> Create Route
+                    </a></li>
+                    <li><a href="#">
+                        <img src="images/icons/CreatePost_icon.png" alt="Create post icon"> Create post
+                    </a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+        <main>
+            <div id="main-container">
+                <div id="picture">
+                    <div id="box-profile">
+                        <div id="gambar-profile">
+                        </div>
+                        <h1 id="nama">Nama Akun</h1>
+                    </div>
+                    <div id="activities">
+                    </div>
+                    <div id="calendar-activity">
+                    </div>
+                    <div id="stats">
+                    </div>
+                </div>
+                <div class="container-overview">
+                    <div class="nav-tabs">
+                        <a href="#" class="active">Overview</a>
+                    </div>
+                    <div class="content">
+                        <div id="date-content">
+                            <h2>Activities for Dec 23, 2024 - Dec 29, 2024</h2> <!--ganti pake thymeleaf-->
+                            <button class="date-range">Dec 23, 2024 - Dec 23, 2024</button> <!--ganti pake thymeleaf-->
+                        </div>
+                        <div class="stats">
+                            <table class="track">
+                                <tr>
+                                    <th>0 mi</th>
+                                    <th class="mid">0 h 0 m</th>
+                                    <th>0 ft</th>
+                                </tr>
+                                
+                            </table>
+                        </div>
+                        <div class="chart">
+                            <div class="y-axis"> <!-- buat nandain pasti di ganti-->
+                                <div>5</div>
+                                <div>4</div>
+                                <div>3</div>
+                                <div>2</div>
+                                <div>1</div>
+                                <div>0h</div>
+                            </div>
+                            <p></p>
+                            <!-- graph -->
+                        </div>
+                        <div class="buttons">
+                            <button>Time</button>
+                            <button>Distance</button>
+                            <button>Elev Gain</button>
+                            <!-- <button>Weekly</button> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-stats">
+                <div>
+                    <h1>Clubs:</h1>
+                    <p>thymeleaf/data club ganti aja nanti</p>
+                    <br>
+                </div>
+                <h1>My Stats</h1>
+                <div class="tabs">
+                    <button><i class="fas fa-water"></i></button>
+                    <button class="active"><i class="fas fa-bicycle"></i></button>
+                    <button><i class="fas fa-running"></i></button>
+                    <button><i class="fas fa-swimmer"></i></button>
+                </div>
+                <table class="stats-table">
+                    <tr>
+                        <th colspan="2">Last 1 Month</th>
+                    </tr>
+                    <tr>
+                        <td>Activities / Week</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>Avg Distance / Week</td>
+                        <td>0 mi</td>
+                    </tr>
+                    <tr>
+                        <td>Elev Gain / Week</td>
+                        <td>0 ft</td>
+                    </tr>
+                    <tr>
+                        <td>Avg Time / Week</td>
+                        <td>0h 0m</td>
+                    </tr>
+                    <tr>
+                        <th colspan="2"><button class="year">2024 <i class="fas fa-chevron-down"></i></button></th>
+                    </tr>
+                    <tr>
+                        <td>Activities</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>Distance</td>
+                        <td>0 mi</td>
+                    </tr>
+                    <tr>
+                        <td>Elev Gain</td>
+                        <td>0 ft</td>
+                    </tr>
+                    <tr>
+                        <td>Time</td>
+                        <td>0h 0m</td>
+                    </tr>
+                    <tr>
+                        <th colspan="2">All-Time</th>
+                    </tr>
+                    <tr>
+                        <td>Activities</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>Distance</td>
+                        <td>0 mi</td>
+                    </tr>
+                    <tr>
+                        <td>Elev Gain</td>
+                        <td>0 ft</td>
+                    </tr>
+                    <tr>
+                        <td>Time</td>
+                        <td>0h 0m</td>
+                    </tr>
+                </table>
+                <button class="btn-refresh">Refresh Stats</button>
+            </div>
+        </main>
+        <footer>
+            <div id="footermid">
+                <div id="judul">
+                    <h1 id="footerTitle">RunTracker</h1>
+                    <p>Runtracker @2024</p>
+                </div>
+                <div id="About">
+                    <h2>About</h2>
+                    <a class="footerRef" href="https://en.wikipedia.org/wiki/About">About</a>
+                    <a class="footerRef" href="https://en.wikipedia.org/wiki/Feature">Features</a>
+                    <a class="footerRef" href="https://en.wikipedia.org/wiki/Mobile">Mobile</a>
+                    <a class="footerRef" href="https://en.wikipedia.org/wiki/Subscription_business_model">Subscription</a>
+                    <a class="footerRef" href="https://en.wikipedia.org/wiki/Family_Plan">Family Plan</a>
+                    <a class="footerRef" href="https://en.wikipedia.org/wiki/Discounts_and_allowances#Student_discount">Student Discount</a>
+                    <a class="footerRef" href="https://en.wikipedia.org/wiki/Gift">Send a gift</a>
+                    <a class="footerRef" href="https://en.wikipedia.org/wiki/Privacy_policy">Privacy Policy</a>
+                    <a class="footerRef" href="https://en.wikipedia.org/wiki/Personal_data">Do Not Share My Personal<br> Information</a>
+                    <a class="footerRef" href="https://en.wikipedia.org/wiki/Terms_of_service">Terms and Condition</a>
+                    <a class="footerRef" href="https://maps.google.com/">About Our Maps</a>
+                </div>
+                <div id="Routes">
+                    <h2>Explore</h2>
+                    <a class="footerRef" href="https://maps.google.com/">Routes</a>
+                </div>
+                <div id="follow">
+                    <h2>Follow</h2>
+                    <a class="footerRef" href="https://www.facebook.com/">Facebook</a>
+                    <a class="footerRef" href="https://twitter.com">Twitter</a>
+                    <a class="footerRef" href="https://www.instagram.com/">Instagram</a>
+                    <a class="footerRef" href="https://www.youtube.com/">Youtube</a>
+                    <a class="footerRef" href="https://www.linkedin.com/">LinkedIn</a>
+                    <a class="footerRef" href="https://en.wikipedia.org/wiki/Story">Stories</a>
+                </div>
+                <div id="help">
+                    <h2>Help</h2>
+                    <a class="footerRef" href="https://en.wikipedia.org/wiki/Support">RunTracker Support</a>
+                </div>
+                <div id="more">
+                    <h2>More</h2>
+                    <a class="footerRef" href="https://en.wikipedia.org/wiki/Career">Careers</a>
+                    <a class="footerRef" href="https://en.wikipedia.org/wiki/Press">Press</a>
+                    <a class="footerRef" href="https://en.wikipedia.org/wiki/Business">Business</a>
+                    <a class="footerRef" href="https://learn.microsoft.com/en-us/partner-center/">Partner Center</a>
+                    <a class="footerRef" href="https://en.wikipedia.org/wiki/Developer">Developers</a>
+                    <a class="footerRef" href="https://en.wikipedia.org/wiki/Labs">Labs</a>
+                    <a class="footerRef" href="https://en.wikipedia.org/wiki/Standard">RunTracker Community<br> Standards</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

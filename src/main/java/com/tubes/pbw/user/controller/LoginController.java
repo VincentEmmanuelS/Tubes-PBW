@@ -1,4 +1,5 @@
 package com.tubes.pbw.user.controller;
+
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +12,6 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 import jakarta.servlet.http.HttpSession;
 
-import com.tubes.pbw.auth.RequiredRole;
 import com.tubes.pbw.user.model.User;
 import com.tubes.pbw.user.service.UserService;
 
@@ -37,20 +37,13 @@ public class LoginController {
 
     }
 
-    @GetMapping("/onboarding")
-    // @RequiredRole("user")
-    public String dashboardPage(HttpSession session, Model model) {
+    // @GetMapping("/onboarding")
+    // // @RequiredRole("user")
+    // public String dashboardPage(HttpSession session, Model model) {
+        
+    //     return "user/onboarding";
 
-        // User user = (User) session.getAttribute("user");
-        // if (user == null) {
-        //     return "redirect:/login";
-        // }
-
-        // model.addAttribute("email", user.getEmail());
-        // model.addAttribute("role", user.getRole());
-        return "user/onboarding";
-
-    }
+    // }
 
     @PostMapping("/login")
     public String login(@RequestParam String email, @RequestParam String password, HttpSession session, Model model) {
@@ -61,6 +54,7 @@ public class LoginController {
         if (userOptional.isPresent()) {
             // session.setAttribute("user", user.get());
             User user = userOptional.get();
+            // System.out.println(user);
 
             session.setAttribute("user", user);
             session.setAttribute("role", user.getRole());
@@ -68,7 +62,8 @@ public class LoginController {
             return "redirect:/onboarding";
         }
         else {
-            model.addAttribute("status", "failed");
+            // model.addAttribute("status", "failed");
+            model.addAttribute("accountLocked", true);
             return "user/login";
         }
 

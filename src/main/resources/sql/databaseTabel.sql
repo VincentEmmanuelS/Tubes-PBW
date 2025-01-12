@@ -21,4 +21,98 @@ insert into userdummy (email, password, roles) values ('admin1@gmail.com', '1234
 select
 	*
 from
-	manualEntryDummy
+	manualEntry
+
+
+--distance grafik
+select
+	sum(distance) as totaldistance , month
+from
+	(SELECT 
+		Extract(Day from tanggal_event) as tanggal, EXTRACT(MONTH FROM tanggal_event) as month, EXTRACT(YEAR FROM tanggal_event) as year , distance, matric_distance, elevation, matric_elevation, duration, ridetype, email
+	FROM manualentrydummy
+	ORDER BY tanggal_event)as data1
+where
+	email = 'user1@gmail.com' AND matric_distance = 'km' AND ridetype = 'run' and year = 2024
+group by
+	month
+
+--totalactivity
+select
+	count(rideType) as totaldistance , month
+from
+	(SELECT 
+		Extract(Day from tanggal_event) as tanggal, EXTRACT(MONTH FROM tanggal_event) as month, EXTRACT(YEAR FROM tanggal_event) as year , distance, matric_distance, elevation, matric_elevation, duration, ridetype, email
+	FROM manualentrydummy
+	ORDER BY tanggal_event)as data1
+where
+	email = 'user1@gmail.com' and year = 2024 and ridetype ='bike'
+group by
+	month
+
+
+select
+	CAST(EXTRACT(EPOCH FROM SUM(duration))/ 3600 AS decimal(6,3)) AS value , month
+from
+	(SELECT 
+		Extract(Day from tanggal_event) as tanggal, EXTRACT(MONTH FROM tanggal_event) as month, EXTRACT(YEAR FROM tanggal_event) as year , distance, matric_distance, elevation, matric_elevation, duration, ridetype, email
+	FROM manualentrydummy
+	ORDER BY tanggal_event)as data1
+where
+	email = 'user1@gmail.com' and year = 2024
+group by
+	month
+
+--list tahun
+select
+	distinct extract(year from tanggal_event) as year
+from
+	manualentrydummy
+where
+	email = 'user1@gmail.com'
+	
+--delete data
+DELETE FROM manualentrydummy
+WHERE email IS NULL;
+
+update manualentrydummy
+set
+	ridetype ='bike'
+where 
+	EXTRACT(MONTH FROM tanggal_event) = 12
+
+-- buat join event
+drop table user_event;
+CREATE TABLE user_event (
+    email VARCHAR(30) NOT NULL,
+    id_event BIGINT NOT NULL,
+	flag CHAR(1) DEFAULT 'T',	-- T = true, F = false
+	idactivity int
+    PRIMARY KEY (email, id_event),
+    FOREIGN KEY (email) REFERENCES users(email),
+    FOREIGN KEY (id_event) REFERENCES event(id_event)
+);
+
+select
+	*
+from
+	user_event
+	
+ALTER TABLE user_event ADD COLUMN idActivity int;
+
+ DELETE FROM manualentry
+               WHERE id_entry = 2;
+
+SELECT idactivity FROM user_event WHERE email = 'alexander@gmail.com' AND id_event = 1 AND flag = 'T'
+
+ select
+	sum(distance) as value , month
+from
+	(SELECT 
+		Extract(Day from tanggal_event) as tanggal, EXTRACT(MONTH FROM tanggal_event) as month, EXTRACT(YEAR FROM tanggal_event) as year , distance, matric_distance, elevation, matric_elevation, duration, ridetype, email
+	FROM manualentry
+	ORDER BY tanggal_event)as data1
+where
+	email = 'alexander@gmail.com' AND matric_distance = 'km' AND ridetype = 'Run' and year = 2025
+group by
+	month

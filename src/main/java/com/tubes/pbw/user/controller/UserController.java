@@ -4,14 +4,10 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-
-// import jakarta.validation.Valid;
-import jakarta.servlet.http.HttpSession;
 
 import com.tubes.pbw.user.model.User;
 import com.tubes.pbw.user.service.UserService;
@@ -44,6 +40,16 @@ public class UserController {
             return "user/signup";
         }
 
+        // memastikan input pengguna aman dari SQL injection atau XSS
+        if (user.getEmail().contains("<") || user.getEmail().contains(">")) {
+            bindingResult.rejectValue(
+                "email",
+                "InvalidEmailFormat",
+                "Invalid email format"
+            );
+            return "user/signup";
+        }
+
         Optional<User> existingUser = userService.findByEmail(user.getEmail());
         if (existingUser.isPresent()) {
             bindingResult.rejectValue(
@@ -56,7 +62,7 @@ public class UserController {
 
         boolean isRegistered = userService.register(user);
         if (isRegistered) {
-            return "user/onboarding";
+            return "redirect:/onboarding";
         }
         else {
             return "user/signup";
@@ -64,6 +70,10 @@ public class UserController {
 
     }
 
+    @GetMapping("/resetpassword")
+    public String ResetPassword(){
+        return "user/forgotPassword";
+    }
     // @GetMapping("/onboarding")
     // public String dashboardPage(HttpSession session, Model model){
     //     return "onboarding";

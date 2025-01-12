@@ -178,3 +178,8 @@ form button:hover {
 span {
     display: none;
 }
+
+select[readonly] {
+    pointer-events: none;
+    /* background-color: #f0f0f0; */
+}
