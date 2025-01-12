@@ -54,135 +54,101 @@ header #rightSection img {
     filter: invert(1) grayscale(100%);
 }
 
-#profile-picture {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%; /* Makes the image round */
-  object-fit: cover; /* Ensures the image fits inside the circle */
-  filter:none !important;
-
-  
-}
-
 header #rightSection {
     gap: 40px;
 }
-
+.post-container {
+    
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   gap:40px;
+   
+}
 .mainContent{
-    border-top: 1px solid #a6a6a6;
-    min-height: 100vh;
-    background-color: white;
+    padding: 60px 60px;
 }
+.post-container h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
 
-.mainContent legend{
-    padding: 20px 60px; 
-}
-
-.Title{
-    display: flex;
-    justify-content: space-between;
-    padding: 20px 60px;  
-}
-
-#createclub{
-    width: 150px;
-    height: 50px;
-    background-color: #000000;
+  .post-container input[type="text"] {
+    width: 600px;
     padding: 10px;
-    color: #ffffff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 15px;
-    font-weight: bold;
-    border: 1px solid #808080;
-    grid-area: i;
-}
-
-#createclub:hover{
-    background-color: #4e4e4e;
-}
-
-
-.filterpanel {
-    display: grid;
-    grid-template-areas:
-      "a x b c d"
-      "e f g h i";
-      grid-template-columns: auto ; 
-      grid-template-rows: 40px 50px ; 
-    gap: 2px;
-    margin: 0px 60px;
-    padding-right: 600px;
-    padding-left: 20px;
-    padding-bottom: 20px;
-    background-color: #F2F2F2;
-  }
-  
-  #clubnameinput {
-    grid-area: e;
-  }
-  
-  #locationinput {
-    grid-area: f;
-  }
-  
-  #sportypelegend {
-    
-    grid-area: b;
-  }
-  
-  #selectsport {
-    grid-area: g;
-  }
-  
-  #clubtypelegend {
-    
-    grid-area: c;
-  }
-  
-  #selectclub {
-    grid-area: h;
-  }
-  
-  .filterpanel input[type="text"],
-  .filterpanel select {
-    width: 200px;
-    height: 30px;
-    padding: 5px;
-    font-size: 14px;
+    font-size: 16px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 5px;
+    margin-bottom: 15px;
   }
-  
-  .filterpanel button {
-    width: 100px;
-    height: 30px;
-    background-color: #ffffff;
-    color: #808080;
-    border: none;
-    border-radius: 4px;
+
+  .post-container textarea {
+    width: 600px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: vertical; /* Restrict resizing to up and down only */
+    margin-bottom: 15px;
+    min-height: 100px;
+  }
+
+  .upload-box {
+    width: 600px;
+    border: 2px dashed #007BFF;
+    border-radius: 5px;
+    padding: 20px;
+    text-align: center;
+    font-size: 16px;
+    color: #007BFF;
     cursor: pointer;
-    font-size: 14px;
-    border: 1px solid #808080;
-    grid-area: i;
+    transition: background-color 0.3s ease;
   }
-  
-  .filterpanel button:hover {
-    background-color: #e0e0e0;
+
+  .upload-box:hover {
+    background-color: #f0f8ff;
   }
-  
-  .dropdown-container {
+
+  .upload-box input[type="file"] {
+    display: none; /* Hide the file input field */
+  }
+
+.submitarea {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-  }
-  
-  .dropdown-container legend {
-    
-    font-size: 12px;
-    font-weight: bold;
-    color: #333;
-  }
-  
+    flex-direction: row;
+    justify-content: flex-end;
+    gap:20px
+}
+
+#discard-btn, 
+#submit-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#discard-btn {
+    background-color: #ffffff; 
+    color: rgb(0, 0, 0);
+    border: 1px solid rgb(164, 164, 164);
+}
+
+#discard-btn:hover {
+    background-color: #a8a8a8; /* Darker red on hover */
+    transform: scale(1.05); /* Slightly enlarges button on hover */
+}
+
+#submit-btn {
+    background-color: #FF4500; /* Green for submit */
+    color: white;
+}
+
+#submit-btn:hover {
+    background-color: #A23402; /* Darker green on hover */
+    transform: scale(1.05); /* Slightly enlarges button on hover */
+}

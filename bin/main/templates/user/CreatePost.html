@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Manual Entry | RunTracker</title>
-        <link rel="stylesheet" href="/css/Clubs.css">
+        <link rel="stylesheet" href="/css/CreatePost.css">
         <link rel="stylesheet" href="/css/header.css">
         <link rel="stylesheet" href="/css/footer.css">
         
@@ -50,8 +50,6 @@
                 <a href="">
                     <img src="images/icons/Notif_Icon.png" alt="Notification Icon">
                 </a>
-
-                
                 <div class="dropdown">
                     <a href="">
                         <img id="profile-picture" src="images/asukapp.png" alt="Profile Picture">
@@ -63,7 +61,6 @@
                       <li><a href="/login">Log Out</a></li>
                     </ul>
                 </div>
-
                 <div class="dropdown" id="right">
                     <a href="">
                         <img id="dropdown" src="images/icons/Add_Icon.png" alt="Circle add icon">
@@ -89,44 +86,25 @@
         <!-- Main body -->
 
         <div class="mainContent">
-            <div class="Title">
-                <h1>Clubs</h1>
-                <button id="createclub">Create a Club</button>
-            </div>
+            <div class="post-container">
+                <!-- <h1>Create Post</h1> -->
+                <div class="submitarea">
+                    <button id="discard-btn">Discard</button>
+                    <button id="submit-btn">Submit</button>
+                </div>
+                <!-- Title Field -->
 
-            <div class="filterpanel">
-                <!-- Club Name -->
-                <input type="text" name="keyword" th:value="${keyword}" placeholder="Club name" id="clubnameinput">
-              
-                <!-- Location -->
-                <input type="text" name="keyword" th:value="${keyword}" placeholder="Location" id="locationinput">
-              
-                <!-- Sport Type -->
-                <div class="dropdown-container" id="sportypelegend">
-                  <legend>Sport Type</legend>
+                <input type="text" placeholder="Add title" id="post-title" />
+            
+                <!-- Text Content -->
+                <textarea placeholder="What's going on?" id="post-content"></textarea>
+            
+                <!-- Drag and Drop/Upload Box -->
+                <div class="upload-box" onclick="document.getElementById('file-input').click()">
+                  Drag and drop or click to upload a picture
+                  <input type="file" id="file-input" accept="image/*" />
                 </div>
-                <select name="" id="selectsport">
-                  <option value="Bike">Bike</option>
-                  <option value="Run">Run</option>
-                </select>
-              
-                <!-- Club Type -->
-                <div class="dropdown-container" id="clubtypelegend">
-                  <legend>Club Type</legend>
-                </div>
-                <select name="" id="selectclub">
-                  <option value="Bike">Club</option>
-                  <option value="Run">Racing team</option>
-                  <option value="Bike">Shop</option>
-                  <option value="Run">Other</option>
-                </select>
-              
-                <!-- Search Button -->
-                <button type="submit">Search</button>
-              
-                
-            </div>
-            <legend>Search for a club above</legend>
+              </div>
         </div>
 
 

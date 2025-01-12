@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Manual Entry | RunTracker</title>
-        <link rel="stylesheet" href="/css/Clubs.css">
+        <link rel="stylesheet" href="/css/TrainingCalendar.css">
         <link rel="stylesheet" href="/css/header.css">
         <link rel="stylesheet" href="/css/footer.css">
         
@@ -50,8 +50,6 @@
                 <a href="">
                     <img src="images/icons/Notif_Icon.png" alt="Notification Icon">
                 </a>
-
-                
                 <div class="dropdown">
                     <a href="">
                         <img id="profile-picture" src="images/asukapp.png" alt="Profile Picture">
@@ -63,7 +61,6 @@
                       <li><a href="/login">Log Out</a></li>
                     </ul>
                 </div>
-
                 <div class="dropdown" id="right">
                     <a href="">
                         <img id="dropdown" src="images/icons/Add_Icon.png" alt="Circle add icon">
@@ -90,43 +87,50 @@
 
         <div class="mainContent">
             <div class="Title">
-                <h1>Clubs</h1>
-                <button id="createclub">Create a Club</button>
-            </div>
+                <h1>Training Calendar</h1>
+                <div class="monthnavigation">
+                    <button class="navigationmonthbutton">&#60;</button>
+                    <h2>2024</h2>
+                    <button class="navigationmonthbutton">&#62;</button>
+                </div>
+                <div class="statcontainer">
+                    <div class="statistic">
+                        <h1>0</h1>
+                        <legend>Hours</legend>
+                    </div>
+                    <div class="statistic">
+                        <h1>0</h1>
+                        <legend>Kilometers</legend>
+                    </div>
+                    <div class="statistic">
+                        <h1>0</h1>
+                        <legend>Personal Records</legend>
+                    </div>
+                    <div class="statistic">
+                        <h1>0</h1>
+                        <legend>Activities</legend>
+                    </div>
+                </div>
 
-            <div class="filterpanel">
-                <!-- Club Name -->
-                <input type="text" name="keyword" th:value="${keyword}" placeholder="Club name" id="clubnameinput">
-              
-                <!-- Location -->
-                <input type="text" name="keyword" th:value="${keyword}" placeholder="Location" id="locationinput">
-              
-                <!-- Sport Type -->
-                <div class="dropdown-container" id="sportypelegend">
-                  <legend>Sport Type</legend>
+                <div class="monthboxcontainer">
+                    <div class="monthbox"><h1>JAN</h1></div>
+                    <div class="monthbox"><h1>FEB</h1></div>
+                    <div class="monthbox"><h1>MAR</h1></div>
+                    <div class="monthbox"><h1>APR</h1></div>
+                    <div class="monthbox"><h1>MAY</h1></div>
+                    <div class="monthbox"><h1>JUN</h1></div>
+                    <div class="monthbox"><h1>JUL</h1></div>
+                    <div class="monthbox"><h1>AUG</h1></div>
+                    <div class="monthbox"><h1>SEP</h1></div>
+                    <div class="monthbox"><h1>OCT</h1></div>
+                    <div class="monthbox"><h1>NOV</h1></div>
+                    <div class="monthbox"><h1>DEC</h1></div>
                 </div>
-                <select name="" id="selectsport">
-                  <option value="Bike">Bike</option>
-                  <option value="Run">Run</option>
-                </select>
-              
-                <!-- Club Type -->
-                <div class="dropdown-container" id="clubtypelegend">
-                  <legend>Club Type</legend>
-                </div>
-                <select name="" id="selectclub">
-                  <option value="Bike">Club</option>
-                  <option value="Run">Racing team</option>
-                  <option value="Bike">Shop</option>
-                  <option value="Run">Other</option>
-                </select>
-              
-                <!-- Search Button -->
-                <button type="submit">Search</button>
-              
+                
                 
             </div>
-            <legend>Search for a club above</legend>
+
+            
         </div>
 
 

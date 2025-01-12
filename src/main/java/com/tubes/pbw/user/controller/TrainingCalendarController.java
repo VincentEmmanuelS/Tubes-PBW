@@ -18,15 +18,15 @@ import jakarta.validation.Valid;
 import org.springframework.validation.BindingResult;
 
 @Controller
-public class ClubController {    
+public class TrainingCalendarController {    
     
     private static final String UPLOAD_DIR = "src/main/resources/static";
 
     @Autowired
     private ManualEntryRepository jdbc;
 
-    @GetMapping("/Clubs")
-    public String halamanClub(){
-        return "user/Clubs";
+    @GetMapping("/TrainingCalendar")
+    public String halamanTrainingCalendar(){
+        return "user/TrainingCalendar";
     }
 }

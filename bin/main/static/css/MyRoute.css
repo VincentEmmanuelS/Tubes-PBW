@@ -54,16 +54,6 @@ header #rightSection img {
     filter: invert(1) grayscale(100%);
 }
 
-#profile-picture {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%; /* Makes the image round */
-  object-fit: cover; /* Ensures the image fits inside the circle */
-  filter:none !important;
-
-  
-}
-
 header #rightSection {
     gap: 40px;
 }
@@ -80,14 +70,44 @@ header #rightSection {
 
 .Title{
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     padding: 20px 60px;  
 }
 
-#createclub{
+.filterpanel input[type="text"],
+.filterpanel select {
+  width: 300px;
+  height: 40px;
+  padding: 5px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.filterpanel button {
+  width: 150px;
+  height: 40px;
+  background-color: #ffffff;
+  color: #808080;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  border: 1px solid #808080;
+  grid-area: i;
+}
+
+.filterpanel button:hover {
+  background-color: #e0e0e0;
+}
+
+
+#createnewroute{
+    margin-top: 30px;
     width: 150px;
     height: 50px;
-    background-color: #000000;
+    background-color: #FF4F00;
     padding: 10px;
     color: #ffffff;
     border: none;
@@ -99,90 +119,45 @@ header #rightSection {
     grid-area: i;
 }
 
-#createclub:hover{
-    background-color: #4e4e4e;
+#createnewroute:hover{
+    background-color: #A23402;
 }
 
+.filterpanel{
+    padding: 20px 60px;  
+}
 
-.filterpanel {
-    display: grid;
-    grid-template-areas:
-      "a x b c d"
-      "e f g h i";
-      grid-template-columns: auto ; 
-      grid-template-rows: 40px 50px ; 
-    gap: 2px;
-    margin: 0px 60px;
-    padding-right: 600px;
-    padding-left: 20px;
-    padding-bottom: 20px;
-    background-color: #F2F2F2;
-  }
-  
-  #clubnameinput {
-    grid-area: e;
-  }
-  
-  #locationinput {
-    grid-area: f;
-  }
-  
-  #sportypelegend {
-    
-    grid-area: b;
-  }
-  
-  #selectsport {
-    grid-area: g;
-  }
-  
-  #clubtypelegend {
-    
-    grid-area: c;
-  }
-  
-  #selectclub {
-    grid-area: h;
-  }
-  
-  .filterpanel input[type="text"],
-  .filterpanel select {
-    width: 200px;
-    height: 30px;
-    padding: 5px;
-    font-size: 14px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  .filterpanel button {
-    width: 100px;
-    height: 30px;
-    background-color: #ffffff;
-    color: #808080;
-    border: none;
+.routecontainer{
+    display: flex;
+    min-height: 500px;
+    margin: 20px 60px;
+    padding: 20px 60px; 
+    border: 2px solid #c5c5c5; 
+    border-style: dotted;
+    border-radius: 10px;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap:20px;
+}
+
+#createnewroute2{
+    margin-top: 30px;
+    width: 150px;
+    height: 50px;
+    background-color: white;
+    padding: 10px;
+    color: #FF4F00;
+    border: 2px solid #FF4F00;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 15px;
+    font-weight: bold;
     border: 1px solid #808080;
     grid-area: i;
-  }
-  
-  .filterpanel button:hover {
-    background-color: #e0e0e0;
-  }
-  
-  .dropdown-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-  }
-  
-  .dropdown-container legend {
-    
-    font-size: 12px;
-    font-weight: bold;
-    color: #333;
-  }
-  
+}
+
+#createnewroute2:hover{
+    background-color: #FF4F00;
+    color: white;
+}

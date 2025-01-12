@@ -226,3 +226,17 @@ header {
     height: 20px;               /* Tinggi ikon */
     flex-shrink: 0;             /* Pastikan ikon tidak mengecil */
 }
+
+#profile-picture {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%; /* Makes the image round */
+    object-fit: cover; /* Ensures the image fits inside the circle */
+    filter:none !important;
+  
+    
+  }
+
+
+
+

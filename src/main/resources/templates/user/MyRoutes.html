@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Manual Entry | RunTracker</title>
-        <link rel="stylesheet" href="/css/Clubs.css">
+        <link rel="stylesheet" href="/css/MyRoute.css">
         <link rel="stylesheet" href="/css/header.css">
         <link rel="stylesheet" href="/css/footer.css">
         
@@ -50,8 +50,6 @@
                 <a href="">
                     <img src="images/icons/Notif_Icon.png" alt="Notification Icon">
                 </a>
-
-                
                 <div class="dropdown">
                     <a href="">
                         <img id="profile-picture" src="images/asukapp.png" alt="Profile Picture">
@@ -63,7 +61,6 @@
                       <li><a href="/login">Log Out</a></li>
                     </ul>
                 </div>
-
                 <div class="dropdown" id="right">
                     <a href="">
                         <img id="dropdown" src="images/icons/Add_Icon.png" alt="Circle add icon">
@@ -90,43 +87,30 @@
 
         <div class="mainContent">
             <div class="Title">
-                <h1>Clubs</h1>
-                <button id="createclub">Create a Club</button>
+                <h1>MyRoutes</h1>
+                <button id="createnewroute">Create New Route</button>
             </div>
 
             <div class="filterpanel">
-                <!-- Club Name -->
-                <input type="text" name="keyword" th:value="${keyword}" placeholder="Club name" id="clubnameinput">
-              
-                <!-- Location -->
-                <input type="text" name="keyword" th:value="${keyword}" placeholder="Location" id="locationinput">
-              
-                <!-- Sport Type -->
-                <div class="dropdown-container" id="sportypelegend">
-                  <legend>Sport Type</legend>
-                </div>
-                <select name="" id="selectsport">
-                  <option value="Bike">Bike</option>
-                  <option value="Run">Run</option>
-                </select>
-              
-                <!-- Club Type -->
-                <div class="dropdown-container" id="clubtypelegend">
-                  <legend>Club Type</legend>
-                </div>
+                
                 <select name="" id="selectclub">
-                  <option value="Bike">Club</option>
-                  <option value="Run">Racing team</option>
-                  <option value="Bike">Shop</option>
-                  <option value="Run">Other</option>
+                    <option value="All Sports">All Sports</option>
+                    <option value="Run">Run</option>
+                    <option value="Bike">Bike</option>
+                    
                 </select>
-              
-                <!-- Search Button -->
+
+                <input type="text" name="keyword" th:value="${keyword}" placeholder="Search for keywords" id="locationinput">
+            
                 <button type="submit">Search</button>
               
                 
             </div>
-            <legend>Search for a club above</legend>
+
+            <div class="routecontainer">
+                <p>Your saved routes will apear here</p>
+                <button id="createnewroute2">Create New Route</button>
+            </div>
         </div>
 
 

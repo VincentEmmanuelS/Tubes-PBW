@@ -1,7 +1,5 @@
 package com.tubes.pbw.user.controller;
 
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.UUID;
 
@@ -18,15 +16,15 @@ import jakarta.validation.Valid;
 import org.springframework.validation.BindingResult;
 
 @Controller
-public class ClubController {    
+public class MyRoutecontroller {    
     
     private static final String UPLOAD_DIR = "src/main/resources/static";
 
     @Autowired
     private ManualEntryRepository jdbc;
 
-    @GetMapping("/Clubs")
-    public String halamanClub(){
-        return "user/Clubs";
+    @GetMapping("/MyRoutes")
+    public String halamanMyRoute(){
+        return "user/MyRoutes";
     }
 }
