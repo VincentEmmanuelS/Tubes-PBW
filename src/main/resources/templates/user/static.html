@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyStatic | RunTracker</title>
     <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/static.css">
     <link rel="stylesheet" href="/css/footerMain.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
@@ -83,61 +84,71 @@
         </div>
     </header>
     <!-- filter for distance -->
-    <fieldset>
-        <form id="distanceForm" action="/myStatic" method="get">
-            <select name="yearDistance" onchange="submitForm('distanceForm')">
-                <option th:each="year : ${tahun}" 
-                        th:value="${year}" 
-                        th:text="${year}"
-                        th:selected="${year.toString()} == ${yearDistance.toString()}"></option>
-            </select>
+    <div class="mainContent">
+        <div class="Title">
+            <h1>My Statistic</h1>
+            
+        </div>
+        <div class="statisticcontainer">
+            <fieldset class="filterBar">
+                <form class="filterbarform" id="distanceForm" action="/myStatic" method="get">
+                    <select name="yearDistance" onchange="submitForm('distanceForm')">
+                        <option th:each="year : ${tahun}" 
+                                th:value="${year}" 
+                                th:text="${year}"
+                                th:selected="${year.toString()} == ${yearDistance.toString()}"></option>
+                    </select>
+            
+                    <select name="ridetypeDistance" onchange="submitForm('distanceForm')">
+                        <option value="Bike" th:selected="'bike' == ${ridetypeDistance}">bike</option>
+                        <option value="Run" th:selected="'run' == ${ridetypeDistance}">run</option>
+                    </select>
+            
+                    <select name="matricDistance" onchange="submitForm('distanceForm')">
+                        <option value="km" th:selected="'km' == ${matricDistance}">Km</option>
+                        <option value="m" th:selected="'m' == ${matricDistance}">M</option>
+                    </select>
+                </form>
+            </fieldset >
+           
+            <canvas id="myChartDistance" style="width:100%;max-width:600px"></canvas>
+            <!-- filter for duration -->
+            <fieldset class="filterBar">
+                <form class="filterbarform" id="durationForm" action="/myStatic" method="get">
+                    <select name="yearDuration" onchange="submitForm('durationForm')">
+                        <option th:each="year : ${tahun}" 
+                                th:value="${year}" 
+                                th:text="${year}" 
+                                th:selected="${year.toString()} == ${yearDuration.toString()}"></option>
+                    </select>
+                </form>
+            </fieldset>
+        
+            <canvas id="myChartDuration" style="width:100%;max-width:600px"></canvas>
+            <!-- filter for activity -->
+            <fieldset class="filterBar">
+                <form class="filterbarform" id="activityForm" action="/myStatic" method="get">
+                    <select name="yearActivity" onchange="submitForm('activityForm')">
+                        <option th:each="year : ${tahun}" 
+                                th:value="${year}" 
+                                th:text="${year}" 
+                                th:selected="${year.toString()} == ${yearActivity.toString()}"></option>
+                    </select>
+            
+                    <select name="ridetypeActivity" onchange="submitForm('activityForm')">
+                        <option value="bike" th:selected="'Bike' == ${ridetypeActivity}">bike</option>
+                        <option value="run" th:selected="'Run' == ${ridetypeActivity}">run</option>
+                    </select>
+                </form>
+            </fieldset>
+            
+            <canvas id="myChartActivity" style="width:100%;max-width:600px"></canvas>
+            <button id="btn">Save PDF</button>
+        </div>
+        
     
-            <select name="ridetypeDistance" onchange="submitForm('distanceForm')">
-                <option value="Bike" th:selected="'bike' == ${ridetypeDistance}">bike</option>
-                <option value="Run" th:selected="'run' == ${ridetypeDistance}">run</option>
-            </select>
+    </div>
     
-            <select name="matricDistance" onchange="submitForm('distanceForm')">
-                <option value="km" th:selected="'km' == ${matricDistance}">Km</option>
-                <option value="m" th:selected="'m' == ${matricDistance}">M</option>
-            </select>
-        </form>
-    </fieldset>
-   
-    <canvas id="myChartDistance" style="width:100%;max-width:600px"></canvas>
-    <!-- filter for duration -->
-    <fieldset>
-        <form id="durationForm" action="/myStatic" method="get">
-            <select name="yearDuration" onchange="submitForm('durationForm')">
-                <option th:each="year : ${tahun}" 
-                        th:value="${year}" 
-                        th:text="${year}" 
-                        th:selected="${year.toString()} == ${yearDuration.toString()}"></option>
-            </select>
-        </form>
-    </fieldset>
-
-    <canvas id="myChartDuration" style="width:100%;max-width:600px"></canvas>
-    <!-- filter for activity -->
-    <fieldset>
-        <form id="activityForm" action="/myStatic" method="get">
-            <select name="yearActivity" onchange="submitForm('activityForm')">
-                <option th:each="year : ${tahun}" 
-                        th:value="${year}" 
-                        th:text="${year}" 
-                        th:selected="${year.toString()} == ${yearActivity.toString()}"></option>
-            </select>
-    
-            <select name="ridetypeActivity" onchange="submitForm('activityForm')">
-                <option value="bike" th:selected="'Bike' == ${ridetypeActivity}">bike</option>
-                <option value="run" th:selected="'Run' == ${ridetypeActivity}">run</option>
-            </select>
-        </form>
-    </fieldset>
-    
-    <canvas id="myChartActivity" style="width:100%;max-width:600px"></canvas>
-    <button id="btn">Save PDF</button>
-
     <footer>
         <div id="footermid">
             <div id="judul">

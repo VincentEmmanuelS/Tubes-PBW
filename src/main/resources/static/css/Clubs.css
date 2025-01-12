@@ -54,15 +54,7 @@ header #rightSection img {
     filter: invert(1) grayscale(100%);
 }
 
-#profile-picture {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%; /* Makes the image round */
-  object-fit: cover; /* Ensures the image fits inside the circle */
-  filter:none !important;
 
-  
-}
 
 header #rightSection {
     gap: 40px;
