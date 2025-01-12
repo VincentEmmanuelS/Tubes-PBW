@@ -16,9 +16,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.tubes.pbw.auth.RequiredRole;
 import com.tubes.pbw.user.model.ManualEntry;
+import com.tubes.pbw.user.model.User;
 import com.tubes.pbw.user.repository.ManualEntryRepository;
 
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 
 
@@ -31,19 +34,24 @@ public class MyActivityController {
     
     private static final String UPLOAD_DIR = "src/main/resources/static";
 
+    @Autowired
+    private HttpSession session;
+
     @GetMapping("myActivity")
+    @RequiredRole("user")
     public String halamanActivity(@RequestParam(value = "keyword", required = false) String keyword,
                                   @RequestParam(value = "sortBy", defaultValue = "tanggal_event") String sortBy,
                                   @RequestParam(value = "sortOrder", defaultValue = "asc") String sortOrder,
                                   Model model) {
+        User user =(User)this.session.getAttribute("user"); 
         List<ManualEntry> result;
-
+        
         if (keyword != null && !keyword.isEmpty()) {
             // Perform search by title if a keyword is provided
-            result = jdbc.findByTitleContaining(keyword, "user1@gmail.com", sortBy, sortOrder);
+            result = jdbc.findByTitleContaining(keyword, user.getEmail(), sortBy, sortOrder);
         } else {
             // Otherwise, fetch all entries for the user
-            result = jdbc.findAllEntry("user1@gmail.com", sortBy, sortOrder);
+            result = jdbc.findAllEntry(user.getEmail(), sortBy, sortOrder);
         }
 
         model.addAttribute("object", result);
@@ -84,6 +92,7 @@ public class MyActivityController {
     }
 
     @GetMapping("edit")
+    @RequiredRole("user")
     public String halamanEdit(@RequestParam("id") Integer id, Model model) {
         Optional<ManualEntry> optionalEntry = jdbc.getEntry(id);
         if (optionalEntry.isPresent()) {
@@ -105,6 +114,7 @@ public class MyActivityController {
     }
 
     @PostMapping("/update")
+    @RequiredRole("user")
     public String updateData(@Valid ManualEntry manualEntry, BindingResult bindingResult, Model model) {
         System.out.println("Id :" + manualEntry.getId()); 
         System.out.println("Distance :" + manualEntry.getDistance());

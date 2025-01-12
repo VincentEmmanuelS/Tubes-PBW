@@ -41,6 +41,10 @@ public class UserEventService {
         return userEventRepository.isUserAlreadyJoinedEvent(email, eventId);
     }
 
+    public boolean isUserSubmit(String email, Long eventID){
+        return userEventRepository.isUserAlreadySubmit(email, eventID);
+    }
+
     public void saveUpdateEvent(Event event) {
         String sql = "UPDATE event SET participant = ? WHERE id_event = ?";
         jdbcTemplate.update(sql, event.getParticipant(), event.getIdEvent());
@@ -64,5 +68,7 @@ public class UserEventService {
 
         return joinedEventIds;
     }
-    
+    public boolean userAddActivityEvent(int idActivity, String email, int id_Event){
+        return userEventRepository.userAddActivity(id_Event, email, idActivity);
+    }
 }

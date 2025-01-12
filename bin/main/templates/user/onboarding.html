@@ -5,9 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/onboarding.css">
     <link rel="stylesheet" href="/css/header.css">
-<<<<<<< HEAD
-    <title>Onboarding | RunTracker</title>
-=======
     <link rel="stylesheet" href="/css/popupForm.css">
     <title>Onboarding | RunTracker</title>  
     
@@ -25,7 +22,6 @@
         });
     </script>
      -->
->>>>>>> 8ed6281764ac393928a4dac961e4f0363c844673
 </head>
 <body>
     <header>
@@ -36,7 +32,7 @@
 
             <div class="buttons">
                 <div class="dropdown id="left"">
-                    <a href="">Dashboard</a>
+                    <a href="onboarding">Dashboard</a>
                     <ul class="dropdown-list">
                         <li><a href="#">Activity Feed</a></li>
                         <li><a href="#">Clubs</a></li>
@@ -50,7 +46,7 @@
                     <a href="">Training</a>
                     <ul class="dropdown-list">
                         <li><a href="#">Training Calendar</a></li>
-                        <li><a href="#">My Activities</a></li>
+                        <li><a href="myActivity">My Activities</a></li>
                         <li id="subscription"><h3>SUBSCRIPTION</h3></li>
                         <li id="subscription"><a href="#">Training Log</a></li>
                         <li id="subscription"><a href="#">Training Plans</a></li>
@@ -151,32 +147,6 @@
             </div>
         </sidebar>
         <maincontent>
-<<<<<<< HEAD
-            <card>
-                test
-            </card>
-            <card>
-                test
-            </card>
-            <card>
-                test
-            </card>
-            <card>
-                test
-            </card>
-            <card>
-                test
-            </card>
-            <card>
-                test
-            </card>
-            <card>
-                test
-            </card>
-            <card>
-                test
-            </card>
-=======
             <!-- Iterasi untuk setiap event -->
             <th:block th:each="event : ${events}">
                 <card>
@@ -207,7 +177,6 @@
                     </div>
                 </card>
             </th:block>
->>>>>>> 8ed6281764ac393928a4dac961e4f0363c844673
         </maincontent>
         <!-- right sidebar -->
         <sidebar id="rightSidebar">
@@ -242,8 +211,6 @@
         </sidebar>
     </div>
 
-<<<<<<< HEAD
-=======
     <div id="overlay" th:if="${showOverlay}" style="display: block;"></div>
     <popupForm th:if="${showPopupForm}" style="display: block;">
         <h1>Complete Your Profile</h1>
@@ -272,7 +239,6 @@
         </form>
     </popupForm>
 
->>>>>>> 8ed6281764ac393928a4dac961e4f0363c844673
     <footer>
 
     </footer>

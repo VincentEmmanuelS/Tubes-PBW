@@ -177,12 +177,9 @@ form button:hover {
 
 span {
     display: none;
-<<<<<<< HEAD
-=======
 }
 
 select[readonly] {
     pointer-events: none;
     /* background-color: #f0f0f0; */
->>>>>>> 8ed6281764ac393928a4dac961e4f0363c844673
 }

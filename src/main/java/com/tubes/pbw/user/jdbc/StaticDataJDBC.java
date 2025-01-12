@@ -27,7 +27,7 @@ public class StaticDataJDBC implements StaticRepository{
                 from
                     (SELECT 
                         Extract(Day from tanggal_event) as tanggal, EXTRACT(MONTH FROM tanggal_event) as month, EXTRACT(YEAR FROM tanggal_event) as year , distance, matric_distance, elevation, matric_elevation, duration, ridetype, email
-                    FROM manualentrydummy
+                    FROM manualentry
                     ORDER BY tanggal_event)as data1
                 where
                     email = ? AND matric_distance = ? AND ridetype = ? and year = ?
@@ -47,7 +47,7 @@ public class StaticDataJDBC implements StaticRepository{
                 SELECT DISTINCT 
                     CAST(EXTRACT(YEAR FROM tanggal_event) AS INT) AS tahun
                 FROM 
-                    manualentrydummy
+                    manualentry
                 WHERE 
                     email = ?;
 
@@ -67,7 +67,7 @@ public class StaticDataJDBC implements StaticRepository{
                 from
                     (SELECT 
                         Extract(Day from tanggal_event) as tanggal, EXTRACT(MONTH FROM tanggal_event) as month, EXTRACT(YEAR FROM tanggal_event) as year , distance, matric_distance, elevation, matric_elevation, duration, ridetype, email
-                    FROM manualentrydummy
+                    FROM manualentry
                     ORDER BY tanggal_event)as data1
                 where
                     email = ? and year = ?
@@ -85,7 +85,7 @@ public class StaticDataJDBC implements StaticRepository{
             from
                 (SELECT 
                     Extract(Day from tanggal_event) as tanggal, EXTRACT(MONTH FROM tanggal_event) as month, EXTRACT(YEAR FROM tanggal_event) as year , distance, matric_distance, elevation, matric_elevation, duration, ridetype, email
-                FROM manualentrydummy
+                FROM manualentry
                 ORDER BY tanggal_event)as data1
             where
                 email = ? and year = ? and ridetype = ?

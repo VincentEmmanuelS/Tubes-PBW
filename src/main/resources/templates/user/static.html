@@ -4,13 +4,75 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyStatic | RunTracker</title>
+    <link rel="stylesheet" href="/css/header.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 <body>
+    <header>
+        <div id="leftSection">
+            <h1>RunTracker</h1>
+
+            <!-- Search bar -->
+
+            <div class="buttons">
+                <div class="dropdown id="left"">
+                    <a href="">Dashboard</a>
+                    <ul class="dropdown-list">
+                        <li><a href="#">Activity Feed</a></li>
+                        <li><a href="#">Clubs</a></li>
+                        <li><a href="#">My Segments</a></li>
+                        <li><a href="#">My Routes</a></li>
+                        <li id="subscription"><h3>SUBSCRIPTION</h3></li>
+                        <li id="subscriptionBottom"><a href="#">My Goals</a></li>
+                    </ul>
+                </div>
+                <div class="dropdown" id="left">
+                    <a href="">Training</a>
+                    <ul class="dropdown-list">
+                        <li><a href="#">Training Calendar</a></li>
+                        <li><a href="#">My Activities</a></li>
+                        <li id="subscription"><h3>SUBSCRIPTION</h3></li>
+                        <li id="subscription"><a href="#">Training Log</a></li>
+                        <li id="subscription"><a href="#">Training Plans</a></li>
+                        <li id="subscription"><a href="#">Power Curve</a></li>
+                        <li id="subscriptionBottom" class="bottomSubs"><a href="#">Fitness & Freshness</a></li>
+                    </ul>
+                </div>
+                <a href="">Maps</a>
+                <a href="">Challenges</a>
+            </div>
+        </div>
+        <div id="rightSection">
+            <button>Start Trial</button>
+            <a href="">
+                <img src="images/icons/Notif_Icon.png" alt="Notification Icon">
+            </a>
+            <p id="dropdown">Profile</p>  <!-- ganti ke logo profile -->
+            <div class="dropdown" id="right">
+                <a href="">
+                    <img id="dropdown" src="images/icons/Add_Icon.png" alt="Circle add icon">
+                </a>
+                <ul class="dropdown-list menu-dropdown">
+                    <li><a href="#">
+                        <img src="images/icons/Upload_Icon.png" alt="Upload activity icon"> Upload Activity
+                    </a></li>
+                    <li><a href="/manualentry">
+                        <img src="images/icons/ManualEntry_Icon.png" alt="Manual entry icon"> Add Manual Entry
+                    </a></li>
+                    <li><a href="#">
+                        <img src="images/icons/Route_Icon.png" alt="Create route icon"> Create Route
+                    </a></li>
+                    <li><a href="#">
+                        <img src="images/icons/CreatePost_icon.png" alt="Create post icon"> Create post
+                    </a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
     <!-- filter for distance -->
     <fieldset>
-        <form id="distanceForm" action="/static" method="get">
+        <form id="distanceForm" action="/myStatic" method="get">
             <select name="yearDistance" onchange="submitForm('distanceForm')">
                 <option th:each="year : ${tahun}" 
                         th:value="${year}" 
@@ -19,8 +81,8 @@
             </select>
     
             <select name="ridetypeDistance" onchange="submitForm('distanceForm')">
-                <option value="bike" th:selected="'bike' == ${ridetypeDistance}">bike</option>
-                <option value="run" th:selected="'run' == ${ridetypeDistance}">run</option>
+                <option value="Bike" th:selected="'bike' == ${ridetypeDistance}">bike</option>
+                <option value="Run" th:selected="'run' == ${ridetypeDistance}">run</option>
             </select>
     
             <select name="matricDistance" onchange="submitForm('distanceForm')">
@@ -33,7 +95,7 @@
     <canvas id="myChartDistance" style="width:100%;max-width:600px"></canvas>
     <!-- filter for duration -->
     <fieldset>
-        <form id="durationForm" action="/static" method="get">
+        <form id="durationForm" action="/myStatic" method="get">
             <select name="yearDuration" onchange="submitForm('durationForm')">
                 <option th:each="year : ${tahun}" 
                         th:value="${year}" 
@@ -46,7 +108,7 @@
     <canvas id="myChartDuration" style="width:100%;max-width:600px"></canvas>
     <!-- filter for activity -->
     <fieldset>
-        <form id="activityForm" action="/static" method="get">
+        <form id="activityForm" action="/myStatic" method="get">
             <select name="yearActivity" onchange="submitForm('activityForm')">
                 <option th:each="year : ${tahun}" 
                         th:value="${year}" 
@@ -55,8 +117,8 @@
             </select>
     
             <select name="ridetypeActivity" onchange="submitForm('activityForm')">
-                <option value="bike" th:selected="'bike' == ${ridetypeActivity}">bike</option>
-                <option value="run" th:selected="'run' == ${ridetypeActivity}">run</option>
+                <option value="bike" th:selected="'Bike' == ${ridetypeActivity}">bike</option>
+                <option value="run" th:selected="'Run' == ${ridetypeActivity}">run</option>
             </select>
         </form>
     </fieldset>

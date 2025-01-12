@@ -11,9 +11,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.tubes.pbw.auth.RequiredRole;
 import com.tubes.pbw.user.model.ManualEntry;
+import com.tubes.pbw.user.model.User;
 import com.tubes.pbw.user.repository.ManualEntryRepository;
 
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import org.springframework.validation.BindingResult;
 
@@ -25,7 +28,11 @@ public class ManualEntryController {
     @Autowired
     private ManualEntryRepository jdbc;
 
+    @Autowired
+    private HttpSession session;
+
     @GetMapping("/manualentry")
+    @RequiredRole("user")
     public String halamanManualEntry(ManualEntry manualEntry){
         return "user/manualEntry";
     }
@@ -87,7 +94,8 @@ public class ManualEntryController {
         }
 
          //get from http sesion
-        manualEntry.setEmail("user1@gmail.com");
+        User user = (User) session.getAttribute("user");
+        manualEntry.setEmail(user.getEmail());
 
         //handling file foto 
         if (!manualEntry.getFoto().isEmpty()) {
@@ -131,7 +139,7 @@ public class ManualEntryController {
        
         
 
-        return "redirect:/result";
+        return "redirect:/myActivity";
     }
 
     @GetMapping("/result")

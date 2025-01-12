@@ -111,7 +111,7 @@
             <div class="EntryContainer">
                 <legend>Duration</legend>
                 <div class="DurationInputContainer">
-                    <input id="DurationInput" type="time" name="duration" th:field="*{duration}" required>
+                    <input id="DurationInput" type="time" step="1" name="duration" th:field="*{duration}" required>
                     <span th:if="${#fields.hasErrors('duration')}" th:errors="*{duration}">Duration Error</span>
                 </div>
             </div>
@@ -158,7 +158,7 @@
                 <input type="file" id="myFile" name="foto" th:field="*{foto}" readonly>
                 <span th:if="${#fields.hasErrors('foto')}" th:errors="*{foto}">Error activity</span>
             </div> -->
-        
+            <input type="hidden" name="idEvent" th:value="${idEvent}">
             <button type="submit">Submit</button>
         </form>
     </main>

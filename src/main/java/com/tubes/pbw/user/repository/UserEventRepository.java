@@ -104,4 +104,29 @@ public class UserEventRepository {
             return userEvent;
         });
     }
+
+    public boolean userAddActivity(int id, String email, int idActivity){
+        String sql = """
+                    UPDATE user_event
+                    SET idactivity = ?
+                    WHERE id_event =? AND email = ?;
+                """;
+        try{
+            jdbcTemplate.update(sql, idActivity, id, email);
+            return true;
+        }catch(Exception e){
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean isUserAlreadySubmit(String email, Long eventId) {
+        String sql = "SELECT idactivity FROM user_event WHERE email = ? AND id_event = ? AND flag = 'T' LIMIT 1";
+        List<Integer> results = jdbcTemplate.query(
+            sql,
+            new Object[]{email, eventId},
+            (rs, rowNum) -> rs.getInt("idactivity")
+        );
+        return !results.isEmpty(); // Returns true if at least one record is found
+    }
 }

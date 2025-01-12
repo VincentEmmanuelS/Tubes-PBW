@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.tubes.pbw.admin.model.Event;
 import com.tubes.pbw.admin.service.EventService;
+import com.tubes.pbw.auth.RequiredRole;
 import com.tubes.pbw.user.model.User;
 import com.tubes.pbw.user.model.UserEvent;
 import com.tubes.pbw.user.model.UserDetail;
@@ -44,6 +45,7 @@ public class OnboardingController {
     }
 
     @GetMapping("/onboarding")
+    @RequiredRole("user")
     public String showOnboardingPage(Model model, HttpSession session) {
         User user = (User) session.getAttribute("user");
 
@@ -75,6 +77,7 @@ public class OnboardingController {
         boolean isUserJoinedAnyEvent = userEventService.isUserAlreadyJoinedOtherEvent(email);
         model.addAttribute("isUserJoinedAnyEvent", isUserJoinedAnyEvent);
 
+       
         List<Event> events = eventService.getAllEvents();
         events.forEach(event -> {
             if (event.getFileFoto() == null || event.getFileFoto().isEmpty()) {
@@ -82,6 +85,7 @@ public class OnboardingController {
             }
 
             boolean userAlreadyJoined = userEventService.isUserAlreadyJoinedEvent(email, event.getIdEvent());
+            // boolean isUserAlreadySubmit = userEventService.isUserSubmit(email, event.getIdEvent());
             model.addAttribute("userAlreadyJoined_" + event.getIdEvent(), userAlreadyJoined);
             // System.out.println("event detail id: " + event.getIdDetail());
         });

@@ -19,10 +19,10 @@ insert into userdummy (email, password, roles) values ('admin1@gmail.com', '1234
 
 --testing
 select
-<<<<<<< HEAD
-	
+	*
 from
-	manualEntryDummy
+	manualEntry
+
 
 --distance grafik
 select
@@ -80,10 +80,6 @@ set
 	ridetype ='bike'
 where 
 	EXTRACT(MONTH FROM tanggal_event) = 12
-=======
-	*
-from
-	manualEntryDummy
 
 -- buat join event
 drop table user_event;
@@ -91,8 +87,32 @@ CREATE TABLE user_event (
     email VARCHAR(30) NOT NULL,
     id_event BIGINT NOT NULL,
 	flag CHAR(1) DEFAULT 'T',	-- T = true, F = false
+	idactivity int
     PRIMARY KEY (email, id_event),
     FOREIGN KEY (email) REFERENCES users(email),
     FOREIGN KEY (id_event) REFERENCES event(id_event)
 );
->>>>>>> 8ed6281764ac393928a4dac961e4f0363c844673
+
+select
+	*
+from
+	user_event
+	
+ALTER TABLE user_event ADD COLUMN idActivity int;
+
+ DELETE FROM manualentry
+               WHERE id_entry = 2;
+
+SELECT idactivity FROM user_event WHERE email = 'alexander@gmail.com' AND id_event = 1 AND flag = 'T'
+
+ select
+	sum(distance) as value , month
+from
+	(SELECT 
+		Extract(Day from tanggal_event) as tanggal, EXTRACT(MONTH FROM tanggal_event) as month, EXTRACT(YEAR FROM tanggal_event) as year , distance, matric_distance, elevation, matric_elevation, duration, ridetype, email
+	FROM manualentry
+	ORDER BY tanggal_event)as data1
+where
+	email = 'alexander@gmail.com' AND matric_distance = 'km' AND ridetype = 'Run' and year = 2025
+group by
+	month

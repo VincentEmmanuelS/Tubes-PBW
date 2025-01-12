@@ -22,7 +22,7 @@ public class ManualEntryJDBC implements ManualEntryRepository {
 
     @Override
     public void makeActivity(ManualEntry data) {
-        String sql = "INSERT INTO manualEntryDummy (distance, matric_distance, duration, elevation, matric_elevation, RideType, tanggal_event, title, deskripsi, filefoto, email) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO manualEntry (distance, matric_distance, duration, elevation, matric_elevation, RideType, tanggal_event, title, deskripsi, filefoto, email) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         jdbc.update(sql, 
             data.getDistance(),
             data.getMatricDistance(),
@@ -46,7 +46,7 @@ public class ManualEntryJDBC implements ManualEntryRepository {
                 select
                     *
                 from
-                    manualentrydummy
+                    manualentry
                 where
                     email = ?
                 order by 
@@ -61,7 +61,7 @@ public class ManualEntryJDBC implements ManualEntryRepository {
                 select
                     *
                 from
-                    manualentrydummy
+                    manualentry
                 where
                     email = ? and title like ?
                 order by 
@@ -91,7 +91,7 @@ public class ManualEntryJDBC implements ManualEntryRepository {
                select
                     *
                 from
-                    manualentrydummy
+                    manualentry
                 where
                     id_entry = ?
                """;
@@ -116,7 +116,7 @@ public class ManualEntryJDBC implements ManualEntryRepository {
     public void UpdateData(ManualEntry data) {
        String sql = """
                UPDATE 
-                manualEntryDummy
+                manualEntry
                 SET 
                     distance = ?, 
                     matric_distance = ?, 
@@ -143,6 +143,22 @@ public class ManualEntryJDBC implements ManualEntryRepository {
         data.getDeskripsi(),
         data.getNamafoto(),
         data.getId());
+    }
+
+
+    @Override
+    public Optional<ManualEntry> getEntryEvent(String email, String title, LocalDateTime date) {
+        String sql = """
+            select
+                 *
+             from
+                 manualentry
+             where
+                 email = ? AND title = ? AND tanggal_event = ?
+            """;
+        List<ManualEntry> result = jdbc.query(sql, this::mapToRoManualEntry, email, title, date);
+
+        return result.isEmpty()? Optional.empty() :Optional.of(result.get(0));
     }
     
 }
