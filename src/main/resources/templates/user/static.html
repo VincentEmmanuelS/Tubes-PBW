@@ -312,24 +312,25 @@
       // Add click event listener for the button
     var button = document.getElementById("btn");
     button.addEventListener("click", function () {
-        // Create a temporary container to hold all charts for the PDF
+        //Bikin temporary container untuk menyimpan image chart yang akan dijadikan pdf 
         var pdfContainer = document.createElement('div');
         pdfContainer.style.width = "800px"; // Ensure a fixed width
         pdfContainer.style.display = "inline-block"; // Avoid unexpected block-level spacing
         pdfContainer.style.padding = "0"; // Remove padding
         pdfContainer.style.margin = "0"; // Remove margin
 
-        // Append each chart to the container
+        //looping setiap id chart yang ada
         ['myChartDistance', 'myChartDuration', 'myChartActivity'].forEach(chartId => {
-            // Get the canvas element
+            //ambil id canvas chart
             var canvas = document.getElementById(chartId);
 
-            // Convert the canvas to a base64 image
+            // convert chart ke element iamge
             var img = new Image();
             img.src = canvas.toDataURL("image/png");
             img.style.marginBottom = "50px"; // Remove image margins
             img.style.padding = "0"; // Remove image padding
             img.style.display = "block"; // Prevent inline spacing
+            //masuk ke container 
             pdfContainer.appendChild(img);
         });
 
@@ -338,20 +339,22 @@
         var opt = {
             margin: 0.5, // Adjust as needed
             filename: 'Charts.pdf',
+            // libary html2pdf 
             html2canvas: { 
                 scale: 3, // Higher scale for better resolution
                 scrollX: 0, 
                 scrollY: 0, 
                 useCORS: true // Avoid cross-origin issues
             },
-            jsPDF: { unit: 'in', format: 'letter', orientation: 'landscape' }
+            jsPDF: { unit: 'in', format: 'letter', orientation: 'landscape' }//format untuk model ukuran kertas, orientation posisi kertasnya
         };
 
+        // convert container ke pdf 
         html2pdf()
         .set(opt)
         .from(pdfContainer)
         .save()
-        .then(() => pdfContainer.remove()) // Remove the temporary container
+        .then(() => pdfContainer.remove()) // Remove the temporary container kalau sudah di export 
         .catch(err => console.error("Error generating PDF:", err));
     });
     </script>
