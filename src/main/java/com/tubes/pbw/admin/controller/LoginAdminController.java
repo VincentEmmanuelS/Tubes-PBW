@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.tubes.pbw.admin.model.Admin;
 import com.tubes.pbw.admin.service.AdminService;
+import com.tubes.pbw.auth.RequiredRole;
+import com.tubes.pbw.user.model.User;
+import com.tubes.pbw.user.service.UserService;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -19,7 +22,7 @@ import jakarta.servlet.http.HttpSession;
 public class LoginAdminController {
 
     @Autowired
-    private AdminService adminService;
+    private UserService userService;
 
     // @GetMapping("/admin")
     // public String loginAdmin() {
@@ -42,6 +45,7 @@ public class LoginAdminController {
     // }
 
     @GetMapping("/manage_member")
+    @RequiredRole("admin")
     public String manageMember() {
         return "admin/manageMember";
     }
@@ -55,10 +59,10 @@ public class LoginAdminController {
     @PostMapping("/login_admin")
     public String loginAdmin(@RequestParam String email, @RequestParam String password, HttpSession session, Model model) {
 
-        Optional<Admin> adminOptional = adminService.login(email, password);
-
+        Optional<User> adminOptional = userService.login(email, password);
+        
         if (adminOptional.isPresent()) {
-            Admin admin= adminOptional.get();
+            User admin= adminOptional.get();
 
             session.setAttribute("user", admin);
             session.setAttribute("role", admin.getRole());

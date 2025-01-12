@@ -3,6 +3,7 @@ package com.tubes.pbw.admin.controller;
 import com.tubes.pbw.admin.model.Event;
 import com.tubes.pbw.admin.model.EventDetail;
 import com.tubes.pbw.admin.service.EventService;
+import com.tubes.pbw.auth.RequiredRole;
 import com.tubes.pbw.user.repository.UserEventRepository;
 
 import jakarta.servlet.http.HttpSession;
@@ -38,6 +39,7 @@ public class EventController {
 
     // Menampilkan form untuk menambah event
     @GetMapping("/add_event")
+    @RequiredRole("admin")
     public String showEventForm() {
         return "admin/eventEntry";
     }
@@ -148,6 +150,7 @@ public class EventController {
 
     // Menampilkan event pada dashboard admin
     @GetMapping("/onboarding_admin")
+    @RequiredRole("admin")
     public String viewAllEvents(Model model) {
 
         List<Event> events = eventService.getAllEvents();

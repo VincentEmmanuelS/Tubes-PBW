@@ -41,17 +41,17 @@ public class ManualEntryController {
     public String insertDataActivity(@Valid ManualEntry manualEntry, BindingResult bindingResult){
         
         // test data 
-        // System.out.println("Distance :"+ manualEntry.getDistance());
-        // System.out.println("Matric Distance :"+manualEntry.getMatricDistance());
-        // System.out.println("Duration :"+manualEntry.getDuration());
-        // System.out.println("elevation :"+manualEntry.getElevation());
-        // System.out.println("Matric elevation :"+manualEntry.getMatric_elevation());
-        // System.out.println("Ride Type :"+manualEntry.getRideType());
-        // System.out.println("Date :"+manualEntry.getDate().toString());
-        // System.out.println("Title :"+manualEntry.getTitle());
-        // System.out.println("Deskripsi :"+manualEntry.getDeskripsi());
-        // System.out.println("Email :"+manualEntry.getEmail());
-        // System.out.println("Foto: " + (manualEntry.getFoto() != null ? manualEntry.getFoto().getOriginalFilename() : "No file uploaded"));
+        System.out.println("Distance :"+ manualEntry.getDistance());
+        System.out.println("Matric Distance :"+manualEntry.getMatricDistance());
+        System.out.println("Duration :"+manualEntry.getDuration());
+        System.out.println("elevation :"+manualEntry.getElevation());
+        System.out.println("Matric elevation :"+manualEntry.getMatric_elevation());
+        System.out.println("Ride Type :"+manualEntry.getRideType());
+        System.out.println("Date :"+manualEntry.getDate().toString());
+        System.out.println("Title :"+manualEntry.getTitle());
+        System.out.println("Deskripsi :"+manualEntry.getDeskripsi());
+        System.out.println("Email :"+manualEntry.getEmail());
+        System.out.println("Foto: " + (manualEntry.getFoto() != null ? manualEntry.getFoto().getOriginalFilename() : "No file uploaded"));
 
         if(bindingResult.hasErrors()){
             return "user/manualEntry";
