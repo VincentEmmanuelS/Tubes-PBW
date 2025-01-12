@@ -65,10 +65,11 @@
 
             <div class="buttons">
                 <div class="dropdown id="left"">
-                    <a href="">Dashboard</a>
+                    <a href="onboarding">Dashboard</a>
                     <ul class="dropdown-list">
-                        <li><a href="#">Activity Feed</a></li>
-                        <li><a href="#">Clubs</a></li>
+                        <li><a href="/onboarding">Activity Feed</a></li>
+                        <li><a href="/Clubs">Clubs</a></li>
+                        <li><a href="/myStatic">My Static</a></li>
                         <li><a href="#">My Segments</a></li>
                         <li><a href="#">My Routes</a></li>
                         <li id="subscription"><h3>SUBSCRIPTION</h3></li>
@@ -79,7 +80,7 @@
                     <a href="">Training</a>
                     <ul class="dropdown-list">
                         <li><a href="#">Training Calendar</a></li>
-                        <li><a href="#">My Activities</a></li>
+                        <li><a href="myActivity">My Activities</a></li>
                         <li id="subscription"><h3>SUBSCRIPTION</h3></li>
                         <li id="subscription"><a href="#">Training Log</a></li>
                         <li id="subscription"><a href="#">Training Plans</a></li>
@@ -104,7 +105,7 @@
                   <li><a href="#">Find Friends</a></li>
                   <li><a href="#">My Profile</a></li>
                   <li><a href="#">Settings</a></li>
-                  <li><a href="/login">Log Out</a></li>
+                  <li><a href="/logout">Log Out</a></li>
                 </ul>
             </div>
             <div class="dropdown" id="right">
@@ -202,7 +203,7 @@
                     <th></th>
                 </tr>
                 <!-- example display data -->
-                <tr>
+                <!-- <tr>
                     <td>Ride</td>
                     <td>Sat, 10/10/2004</td>
                     <td><a>Morning ride</a></td>
@@ -241,7 +242,7 @@
                     <td>331 m</td>
                     <td>edit ??</td>
                     <td>Delete ??</td>
-                </tr>
+                </tr> -->
                 <div th:each="row : ${object}">
                     <tr>
                         <td th:text="${row.rideType}">rideType</td>

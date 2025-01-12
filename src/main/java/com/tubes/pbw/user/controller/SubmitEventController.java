@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.tubes.pbw.admin.model.EventDetail;
 import com.tubes.pbw.admin.service.EventService;
+import com.tubes.pbw.auth.RequiredRole;
 import com.tubes.pbw.user.jdbc.ManualEntryJDBC;
 import com.tubes.pbw.user.model.ManualEntry;
 import com.tubes.pbw.user.model.User;
@@ -34,6 +35,7 @@ public class SubmitEventController {
 
 
     @GetMapping("/submitEvent")
+    @RequiredRole("user")
     public String showEventForm(@RequestParam("id") Long id, Model model, HttpSession session ) {
         User user = (User) session.getAttribute("user");
 
