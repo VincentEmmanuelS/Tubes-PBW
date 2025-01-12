@@ -55,14 +55,17 @@ main {
     padding-right: 10vw;
     padding-top: 5vh;
     padding-bottom: 5vh;
-
+    box-sizing: border-box;
     justify-content: center;
+    background-image: url("/images/Running.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
 }
 
 legend {
     margin-top: 3vh;
     margin-bottom: 8px;
-    font-size: small;
+    font-size: medium;
 }
 
 hr {
@@ -172,13 +175,17 @@ form button:hover {
     margin-top: 3vh;
     margin-bottom: 8px;
     font-weight: none;
-    font-size: small;
+    font-size: medium;
 } 
 
 #limitContainer {
     display: flex;
     align-items: flex-start;
     align-items: center;
+}
+
+#limitContainer input{
+    height: 1.5rem;
 }
 
 #checkLimit {
@@ -193,6 +200,21 @@ form button:hover {
     width: 27%;
 }
 
+
+
 span {
     display: none;
+}
+
+div#box_background {
+    padding: 2rem;
+    background-color: var(--text-box-bg);
+    box-shadow: var(--dropdown-hover-bg) 1rem 1rem;
+    border-radius: 5px;
+}
+
+button#addEvent{
+    width: 15vh;
+    height: 2.5rem;
+    font-size: medium;
 }

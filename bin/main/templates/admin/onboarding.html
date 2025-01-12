@@ -10,48 +10,53 @@
 <body>
     <header>
         <div id="leftSection">
-            <h1>RunTracker</h1>
+            <a id="head" href="/onboarding_admin"><h1>RunTracker</h1></a>
             <div class="buttons">
                 <a href="manage_member">Manage Members</a>
                 <a href="add_event">Add Event</a>
             </div>
         </div>
         <div id="rightSection">
-            <h4>Admin</h4>
+            <h4>Hi, Admin</h4>
+            <form id="logout" action="/logout_admin">
+                <button id="logoutSubmit" type="submit">Logout</button>
+            </form>
         </div>
     </header>
-    <div class="mainContent">
-        <!-- left sidebar -->
-        <sidebar id="leftSidebar">
-            <div id="profileContainer">
-                <div id="profile">
-                    <img src="images/icons/Profile_Icon.png" alt="Profile icon logo">
-                    <h2>Nama</h2>
+    <div id="box_background">
+        <div class="mainContent">
+            <!-- left sidebar -->
+            <sidebar id="leftSidebar">
+                <div id="profileContainer">
+                    <div id="profile">
+                        <img src="images/icons/Profile_Icon.png" alt="Profile icon logo">
+                        <h2>Nama</h2>
+                    </div>
                 </div>
-            </div>
-        </sidebar>
+            </sidebar>
 
-        <maincontent>
-            <!-- Iterasi untuk setiap event -->
-            <th:block th:each="event : ${events}">
-                <card>
-                    <div id="rightCard" th:if="${event.fileFoto != null}">
-                        <img th:src="@{${event.fileFoto}}" alt="Event image">
-                    </div>
-                    <div id="leftCard">
-                        <div>
-                            <h3 th:text="${event.title}">Judul event</h3>
-                            <p id="description" th:text="${event.deskripsi}">deskripsi event</p>
+            <maincontent>
+                <!-- Iterasi untuk setiap event -->
+                <th:block th:each="event : ${events}">
+                    <card>
+                        <div id="rightCard" th:if="${event.fileFoto != null}">
+                            <img th:src="@{${event.fileFoto}}" alt="Event image">
                         </div>
-                        <form id="bottomCard" th:action="@{/end_event}" method="post">
-                            <p id="limit" th:text="'Join: ' + ${event.limitParticipant == 2147483647 ? event.participant : event.participant + ' / ' + event.limitParticipant}"></p>
-                            <input type="hidden" name="eventId" th:value="${event.idEvent}" />
-                            <!-- <button type="submit" th:disabled="${'userAlreadyJoined_' + event.idEvent}">Join</button> -->
-                            <button type="submit">End</button>
-                        </form>
-                    </div>
-                </card>
-            </th:block>
-        </maincontent>
+                        <div id="leftCard">
+                            <div>
+                                <h3 th:text="${event.title}">Judul event</h3>
+                                <p id="description" th:text="${event.deskripsi}">deskripsi event</p>
+                            </div>
+                            <form id="bottomCard" th:action="@{/end_event}" method="post">
+                                <p id="limit" th:text="'Join: ' + ${event.limitParticipant == 2147483647 ? event.participant : event.participant + ' / ' + event.limitParticipant}"></p>
+                                <input type="hidden" name="eventId" th:value="${event.idEvent}" />
+                                <!-- <button type="submit" th:disabled="${'userAlreadyJoined_' + event.idEvent}">Join</button> -->
+                                <button type="submit">End</button>
+                            </form>
+                        </div>
+                    </card>
+                </th:block>
+            </maincontent>
+        </div>
     </body>
 </html>

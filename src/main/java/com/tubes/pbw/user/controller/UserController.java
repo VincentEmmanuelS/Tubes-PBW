@@ -70,6 +70,10 @@ public class UserController {
 
     }
 
+    @GetMapping("/resetpassword")
+    public String ResetPassword(){
+        return "user/forgotPassword";
+    }
     // @GetMapping("/onboarding")
     // public String dashboardPage(HttpSession session, Model model){
     //     return "onboarding";

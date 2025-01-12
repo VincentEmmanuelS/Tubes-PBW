@@ -48,7 +48,16 @@ header {
     padding: 10px 60px;
     z-index: 100;
 }
+header #rightSection {
+    gap: 40px;
+}
 
+header #rightSection img {
+    width: 30px;
+    height: auto;
+    object-fit: contain;
+    filter: invert(1) grayscale(100%);
+}
 #leftSection {
     display: flex;
     flex-direction: row;
@@ -89,7 +98,7 @@ header {
 }
 
 #rightSection button {
-    padding: 15px 30px;
+    /* padding: 15px 30px; */
     font-size: 1.2em;
     cursor: pointer;
     background-color: var(--button-active);
@@ -225,4 +234,30 @@ header {
     width: 20px;                /* Lebar ikon */
     height: 20px;               /* Tinggi ikon */
     flex-shrink: 0;             /* Pastikan ikon tidak mengecil */
+}
+
+a#head:hover{
+    text-decoration: none;
+}
+
+form#logout{
+    padding:0;
+    margin:0;
+    height: 2rem;
+    width: 5rem;
+    font-size: small;
+}
+
+button#logoutSubmit{
+    height: 2rem;
+    justify-content: center;
+    
+}
+
+form#logout button#logoutSubmit{
+    height: 2rem;
+    justify-content: center;
+}
+form button#logoutSubmit{
+    width: 5rem;
 }

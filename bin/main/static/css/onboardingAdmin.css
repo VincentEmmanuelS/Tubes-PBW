@@ -177,3 +177,11 @@ card {
 #bottomCard button:hover {
     background-color: var(--button-hover);
 }
+
+div#box_background {
+    margin: 2rem;
+    padding: 2rem;
+    background-color: var(--text-box-bg);
+    box-shadow: var(--dropdown-hover-bg) 1rem 1rem;
+    border-radius: 5px;
+}

@@ -46,46 +46,51 @@
 <body>
     <header>
         <div id="leftSection">
-            <h1>RunTracker</h1>
+            <a id="head" href="/onboarding_admin"><h1>RunTracker</h1></a>
             <div class="buttons">
                 <a href="manage_member">Manage Members</a>
                 <a href="add_event">Add Event</a>
             </div>
         </div>
         <div id="rightSection">
-            <h4>Admin</h4>
+            <h4>Hi, Admin</h4>
+            <form id="logout" action="/logout_admin">
+                <button id="logoutSubmit" type="submit">Logout</button>
+            </form>
         </div>
     </header>
 
     <main>
-        <table>
-            <tHead>
-                <tr>
-                    <th>First name</th>
-                    <th>Last name</th>
-                    <th>Date of Birth</th>
-                    <th>Gender</th>
-                    <th>Region</th>
-                    <th>Email</th>
-                    <th>Status</th>
-                </tr>
-            </tHead>
-            <tBody>
-                <!-- <tr>
-                    <td>Udin</td>
-                    <td>Petot</td>
-                    <td>9 / 11 / 2001</td>
-                    <td>Wallmart Bag</td>
-                    <td>Wakanda</td>
-                    <td>UdinPetot@PengenNgen.com</td>
-                    <td>
-                        <button class="green">
-                            <img src="images/icons/Flag_Icon.png" alt="">
-                        </button>
-                    </td>
-                </tr> -->
-            </tBody>        
-        </table>
+        <div id="box_background">
+            <table>
+                <tHead>
+                    <tr>
+                        <th>First name</th>
+                        <th>Last name</th>
+                        <th>Date of Birth</th>
+                        <th>Gender</th>
+                        <th>Region</th>
+                        <th>Email</th>
+                        <th>Status</th>
+                    </tr>
+                </tHead>
+                <tBody>
+                    <!-- <tr>
+                        <td>Udin</td>
+                        <td>Petot</td>
+                        <td>9 / 11 / 2001</td>
+                        <td>Wallmart Bag</td>
+                        <td>Wakanda</td>
+                        <td>UdinPetot@PengenNgen.com</td>
+                        <td>
+                            <button class="green">
+                                <img src="images/icons/Flag_Icon.png" alt="">
+                            </button>
+                        </td>
+                    </tr> -->
+                </tBody>        
+            </table>
+        </div>
     </main>
 
     <script>

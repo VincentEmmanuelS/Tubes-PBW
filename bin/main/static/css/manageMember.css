@@ -51,7 +51,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-
+    background-image: url("/images/Running-Admin.jpg");
     padding: 2vw;
 }
 
@@ -91,4 +91,11 @@ button > img {
     height: 100%;
     width: auto;
     object-fit: contain;
+}
+
+div#box_background {
+    padding: 2rem;
+    background-color: var(--text-box-bg);
+    box-shadow: var(--dropdown-hover-bg) 1rem 1rem;
+    border-radius: 5px;
 }
