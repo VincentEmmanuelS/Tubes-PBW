@@ -1,0 +1,513 @@
+[33mcommit d4dd9e09ce0b8b757f0b7d59ea003b3dc1062987[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32malex2[m[33m, [m[1;31morigin/alex2[m[33m)[m
+Merge: 46855a3 4b758b0
+Author: Alexander Vinchent N <alexvinchent312.talenta@gmail.com>
+Date:   Sun Jan 12 23:28:40 2025 +0700
+
+    Merge branch 'branchstylingstatistic' of https://github.com/VincentEmmanuelS/Tubes-PBW into alex2
+
+[33mcommit 4b758b09863895cb016455fd166862b68eeb7a17[m[33m ([m[1;31morigin/branchstylingstatistic[m[33m)[m
+Author: legion laptop <ruslie.vincent@gmail.com>
+Date:   Sun Jan 12 23:28:11 2025 +0700
+
+    build clean
+
+[33mcommit 46855a32a73025102ff7b40fabe2e11d6322bd71[m
+Author: Alexander Vinchent N <alexvinchent312.talenta@gmail.com>
+Date:   Sun Jan 12 23:26:51 2025 +0700
+
+    fix comment
+
+[33mcommit 5a7d819cdf273772d4167d663fca7ffb129955d5[m
+Merge: e7de0c2 143cede
+Author: legion laptop <ruslie.vincent@gmail.com>
+Date:   Sun Jan 12 23:25:18 2025 +0700
+
+    add styling static
+
+[33mcommit e7de0c20ea3ec6579598020a6d5337204b908fec[m
+Author: legion laptop <ruslie.vincent@gmail.com>
+Date:   Sun Jan 12 22:52:01 2025 +0700
+
+    temp
+
+[33mcommit 143ceded80476912de8ed5c1985969e7d496ce87[m
+Author: Alexander Vinchent N <alexvinchent312.talenta@gmail.com>
+Date:   Sun Jan 12 22:45:48 2025 +0700
+
+    build clean
+
+[33mcommit fe912de0720e3ec5fa52a55d75cf670d43cfc3ac[m
+Author: Alexander Vinchent N <alexvinchent312.talenta@gmail.com>
+Date:   Sun Jan 12 22:44:57 2025 +0700
+
+    bug fix sama required role user
+
+[33mcommit 3551e56ab4c2a6f624c9cd586b2d3c9d319e859c[m
+Author: Alexander Vinchent N <alexvinchent312.talenta@gmail.com>
+Date:   Sun Jan 12 22:23:30 2025 +0700
+
+    fix footer css editpage
+
+[33mcommit 3d38a6a1d56e714efaf3304079ed9a61a16c3870[m
+Author: Alexander Vinchent N <alexvinchent312.talenta@gmail.com>
+Date:   Sun Jan 12 22:21:51 2025 +0700
+
+    bug fix
+
+[33mcommit ad39c818929d5545372d5874d9b1268074985cc2[m
+Merge: 003c10e 1b86894
+Author: Alexander Vinchent N <alexvinchent312.talenta@gmail.com>
+Date:   Sun Jan 12 22:19:23 2025 +0700
+
+    Merge branch 'vincentui' of https://github.com/VincentEmmanuelS/Tubes-PBW into alex2
+
+[33mcommit 1b8689415d326d816f53b334a0955bae4fcaeec6[m[33m ([m[1;31morigin/vincentui[m[33m)[m
+Author: legion laptop <ruslie.vincent@gmail.com>
+Date:   Sun Jan 12 21:59:44 2025 +0700
+
+    clean build
+
+[33mcommit 003c10e3ccad5d833c34871fde755693f22083c2[m
+Author: Alexander Vinchent N <alexvinchent312.talenta@gmail.com>
+Date:   Sun Jan 12 21:58:04 2025 +0700
+
+    set Required role buat admin dan ganti model login buat admin
+
+[33mcommit c718a42ec3d42193a9b3631c99c3da66c53cdd9d[m
+Author: legion laptop <ruslie.vincent@gmail.com>
+Date:   Sun Jan 12 21:57:22 2025 +0700
+
+    finishing ui user
+
+[33mcommit 5340c9b93749919dccf333ddf051fae813c4475d[m
+Author: Alexander Vinchent N <alexvinchent312.talenta@gmail.com>
+Date:   Sun Jan 12 21:15:53 2025 +0700
+
+    bug fix
+
+[33mcommit 47ae04436fe67432237b0c579966e5d74e6c78cf[m
+Merge: 5c3405a a0aae50
+Author: Alexander Vinchent N <alexvinchent312.talenta@gmail.com>
+Date:   Sun Jan 12 21:10:44 2025 +0700
+
+    Merge branch 'michael2' of https://github.com/VincentEmmanuelS/Tubes-PBW into alex2
+
+[33mcommit 5c3405a629ec6bc5befcc2bbfb12fe1eba628bce[m
+Author: Alexander Vinchent N <alexvinchent312.talenta@gmail.com>
+Date:   Sun Jan 12 21:00:52 2025 +0700
+
+    bug fix backend join event admin dan setting requiredrole
+
+[33mcommit a0aae509f418bedd8380a33f275c9165d1bcdff6[m[33m ([m[1;31morigin/michael2[m[33m)[m
+Merge: fd5fec8 8ed6281
+Author: Michael <michaelwilliam0930@gmail.com>
+Date:   Sun Jan 12 01:11:13 2025 +0700
+
+    admin styling + logout button
+
+[33mcommit 37aaaaefa8c48e67f282656c50d6e1379c82286f[m
+Merge: dd8f544 8ed6281
+Author: Alexander Vinchent N <alexvinchent312.talenta@gmail.com>
+Date:   Sat Jan 11 21:48:45 2025 +0700
+
+    Merge branch 'frontendV' of https://github.com/VincentEmmanuelS/Tubes-PBW into alex2
+
+[33mcommit 8ed6281764ac393928a4dac961e4f0363c844673[m[33m ([m[1;31morigin/frontendV[m[33m)[m
+Author: VincentEmmanuelS <suwardyvincent@gmail.com>
+Date:   Sat Jan 11 21:46:10 2025 +0700
+
+    add: event system. fix: admin add event, user join event, connect to db manual entry. update: sql. ToDo: frontend fix, user can only submit once and winner selection
+
+[33mcommit dd8f544797f7da2f29c7597358674344cf258d24[m
+Author: Alexander Vinchent N <alexvinchent312.talenta@gmail.com>
+Date:   Sat Jan 11 20:36:41 2025 +0700
+
+    MyStatPage
+
+[33mcommit 26c92d3284a3d42cd41bcdb604a1520279087072[m
+Author: VincentEmmanuelS <suwardyvincent@gmail.com>
+Date:   Sat Jan 11 11:33:02 2025 +0700
+
+    add: method do handle user detail
+
+[33mcommit 1e754f31c20c37959777d27b84e95f89bd443108[m
+Author: VincentEmmanuelS <suwardyvincent@gmail.com>
+Date:   Sat Jan 11 10:12:57 2025 +0700
+
+    fix: end event manual. update: database event
+
+[33mcommit 7876467b7aef394418f7711fbed17d59fde3338b[m
+Author: VincentEmmanuelS <suwardyvincent@gmail.com>
+Date:   Fri Jan 10 21:01:22 2025 +0700
+
+    add: event entry admin, user join event, admin end event. fix: html onboard for admin n user. update: sql database. ToDo: error handling
+
+[33mcommit bd02ba803772f91cb45168d899e091c3ba735715[m
+Author: legion laptop <ruslie.vincent@gmail.com>
+Date:   Fri Jan 10 20:26:46 2025 +0700
+
+    onboarding add event card ui
+
+[33mcommit ba2bafbbdf615e5320980764d2722d5da5ab9678[m
+Author: legion laptop <ruslie.vincent@gmail.com>
+Date:   Fri Jan 10 17:50:13 2025 +0700
+
+    my activity fix + club page
+
+[33mcommit 19d9f38586d993e87a01c1904c53fa63295ab715[m
+Author: legion laptop <ruslie.vincent@gmail.com>
+Date:   Fri Jan 10 11:03:41 2025 +0700
+
+    final my activity fix ui
+
+[33mcommit f4ee2df20f15c98670281f800140b91c46ebe86c[m
+Author: legion laptop <ruslie.vincent@gmail.com>
+Date:   Fri Jan 10 00:59:27 2025 +0700
+
+    finishing my activity html and css
+
+[33mcommit 7407dd627b69b068abe9dad07c9c901ae48b7ab5[m
+Author: legion laptop <ruslie.vincent@gmail.com>
+Date:   Thu Jan 9 00:33:33 2025 +0700
+
+    onboarding fix + myactivity progress
+
+[33mcommit 22e67a1cec5d7d76d820c9393d50a9117cd553b9[m
+Author: VincentEmmanuelS <suwardyvincent@gmail.com>
+Date:   Sun Jan 5 16:32:17 2025 +0700
+
+    add: adminQuery.sql, eventEntry frontend. fix: header for admin page. ToDo: backend eventEntry
+
+[33mcommit 31bceca530ee68706cd49bb0225c50e6b4e982e5[m
+Author: VincentEmmanuelS <suwardyvincent@gmail.com>
+Date:   Sat Jan 4 17:42:17 2025 +0700
+
+    add: manage member feature for admin, handler if user account is deactivated, connect to DB. fix: error for deactivated account. ToDo: event entry for admin, connect it to DB and show it on onboarding (user and admin)
+
+[33mcommit cf410036d3d66b2b3c3dd9a1ca9eda7bf34dc2b7[m
+Author: legion laptop <ruslie.vincent@gmail.com>
+Date:   Wed Jan 1 22:39:45 2025 +0700
+
+    rapihin onboarding tahap 1
+
+[33mcommit 31baf87f9272558203f5b52db49a7ec54f779404[m
+Merge: 772117a a498efc
+Author: Alexander Vinchent N <alexvinchent312.talenta@gmail.com>
+Date:   Wed Jan 1 18:40:58 2025 +0700
+
+    Merge branch 'frontendV' of https://github.com/VincentEmmanuelS/Tubes-PBW into alex2
+
+[33mcommit 772117a9bfec34d76df7e2c81a349ecf5c12478f[m
+Author: Alexander Vinchent N <alexvinchent312.talenta@gmail.com>
+Date:   Wed Jan 1 18:38:01 2025 +0700
+
+    update myactivity Controller
+
+[33mcommit 2c657e0e63cd0638fba981044d9e27f18d2ae5a5[m
+Author: Alexander Vinchent N <alexvinchent312.talenta@gmail.com>
+Date:   Wed Jan 1 18:21:35 2025 +0700
+
+    fix myActivity Controller
+
+[33mcommit 6c0bb4b7bc5b8c8f6790cc91a913679aae5c017b[m
+Author: legion laptop <ruslie.vincent@gmail.com>
+Date:   Wed Jan 1 00:06:36 2025 +0700
+
+    new year push, update css onboarding, btw happy new year, mari lanjut nugas
+
+[33mcommit fd5fec8ebefc47a0d669e943792fa3645c276be1[m
+Merge: 760c536 fd03def
+Author: Michael <michaelwilliam0930@gmail.com>
+Date:   Tue Dec 31 18:24:19 2024 +0700
+
+    footer fix profile + reset password
+
+[33mcommit a498efc7911eab3470a89ae69c700fa79a087b89[m
+Author: VincentEmmanuelS <suwardyvincent@gmail.com>
+Date:   Tue Dec 31 18:22:40 2024 +0700
+
+    add: manage member for admin. fix: onboarding admin frontend, styling button. ToDo: connect DB and finish backend for admin
+
+[33mcommit fd03def17028ad9cac3b82dd1bac51d681c79576[m
+Merge: a22f505 7f296f8
+Author: VincentEmmanuelS <suwardyvincent@gmail.com>
+Date:   Tue Dec 31 15:46:53 2024 +0700
+
+    fix: folder hierarchy. add: admin, sys admin
+
+[33mcommit a22f50545dd85fa51d9e7c55ac097666118d8068[m
+Author: VincentEmmanuelS <suwardyvincent@gmail.com>
+Date:   Tue Dec 31 11:02:31 2024 +0700
+
+    temp
+
+[33mcommit 7f296f811f6dd7d6d8fb4b469a17ffc966b9a845[m
+Author: Alexander Vinchent N <alexvinchent312.talenta@gmail.com>
+Date:   Mon Dec 30 22:25:35 2024 +0700
+
+    back end edit dan delete
+
+[33mcommit bddcfadebe729eda039052ac126190eeab5b0f3c[m
+Author: Alexander Vinchent N <alexvinchent312.talenta@gmail.com>
+Date:   Sun Dec 29 15:06:19 2024 +0700
+
+    bug fix build
+
+[33mcommit 297c755e23c4c151c3b37a5ff1856d1a6379bb06[m
+Merge: e30472f fe19933
+Author: Alexander Vinchent N <alexvinchent312.talenta@gmail.com>
+Date:   Sun Dec 29 15:03:40 2024 +0700
+
+    Merge branch 'frontendV' of https://github.com/VincentEmmanuelS/Tubes-PBW into alex2
+
+[33mcommit 219d1a1fb3bc51f48b139330186c04c82cf726e3[m
+Author: VincentEmmanuelS <suwardyvincent@gmail.com>
+Date:   Sun Dec 29 15:02:08 2024 +0700
+
+    clean build
+
+[33mcommit e30472f9e732c03347e0291d1d56a28643fc4af8[m
+Author: Alexander Vinchent N <alexvinchent312.talenta@gmail.com>
+Date:   Sun Dec 29 14:57:05 2024 +0700
+
+    bug fix MyActivity Controller dan html
+
+[33mcommit fe19933c033f5eb42a6a7a07b8cba0ceee92e8f0[m
+Merge: 9821f36 cc7be5b
+Author: VincentEmmanuelS <suwardyvincent@gmail.com>
+Date:   Sun Dec 29 14:51:48 2024 +0700
+
+    add: frontend manualEntry
+
+[33mcommit 45e399c1bef038aa80e298b6072bd35590605376[m
+Author: Alexander Vinchent N <alexvinchent312.talenta@gmail.com>
+Date:   Fri Dec 27 23:11:41 2024 +0700
+
+    My Activity page, backend, database, dan filter search
+
+[33mcommit 9821f3667d0631c12ff42656749c0b2efd6a2ec0[m
+Author: VincentEmmanuelS <suwardyvincent@gmail.com>
+Date:   Fri Dec 27 16:39:44 2024 +0700
+
+    temp
+
+[33mcommit cc7be5b833a3b038800670e99d7f6fc6fa9aab27[m[33m ([m[1;32mfrontendV[m[33m)[m
+Merge: 02c7af9 f151ea8
+Author: Alexander Vinchent N <68997545+Basin312@users.noreply.github.com>
+Date:   Wed Dec 25 17:57:14 2024 +0700
+
+    Merge pull request #4 from VincentEmmanuelS/alex
+    
+    Alex
+
+[33mcommit f151ea8de6170ab9e4290641afee27a77a50348c[m[33m ([m[1;31morigin/alex[m[33m, [m[1;32malex[m[33m)[m
+Merge: 69b17e8 02c7af9
+Author: Alexander Vinchent N <alexvinchent312.talenta@gmail.com>
+Date:   Wed Dec 25 17:55:38 2024 +0700
+
+    Merge remote-tracking branch 'origin/frontendV' into alex
+
+[33mcommit 69b17e875c78f56e76ec3b808dff6da7b728c9df[m
+Author: Alexander Vinchent N <alexvinchent312.talenta@gmail.com>
+Date:   Wed Dec 25 17:32:31 2024 +0700
+
+    refactoring file dan folder
+
+[33mcommit 128ab52ccdbdde4a323ebf5f930dfcaf5eea9da7[m
+Author: Alexander Vinchent N <alexvinchent312.talenta@gmail.com>
+Date:   Wed Dec 25 16:43:29 2024 +0700
+
+    error handling manualentry
+
+[33mcommit c684b0fbb8b73cd5f4d63f9e49ba733d4b6fac8f[m
+Author: Alexander Vinchent N <alexvinchent312.talenta@gmail.com>
+Date:   Wed Dec 25 14:19:51 2024 +0700
+
+    manualentry nyambung ke database
+
+[33mcommit 02c7af94f5b7333d2d29f553a42219bf9a3f09e7[m
+Author: VincentEmmanuelS <suwardyvincent@gmail.com>
+Date:   Tue Dec 24 18:17:13 2024 +0700
+
+    fix: homepage, header, footer, login, signup. add: onboarding frontend. ToDo: onboarding backend, styling dikit lagi
+
+[33mcommit e0d1e1b7842eaafb1976772a375a0c27b85c7cf6[m
+Author: VincentEmmanuelS <suwardyvincent@gmail.com>
+Date:   Tue Dec 24 12:22:00 2024 +0700
+
+    fix: folder hierarchy, finish frontend for homepage, login and signup. add: image asset, sql file, color var template in css, modified: application.properties, build.gradle
+
+[33mcommit 9c03de61580a55258c8dcb66c20fcb3c7c4bc68e[m
+Author: Alexander Vinchent N <alexvinchent312.talenta@gmail.com>
+Date:   Mon Dec 23 23:13:52 2024 +0700
+
+    bug fiv form manual entry, add dependecy javax dan seeting multipart properties application
+
+[33mcommit d11bb6ca490d726fd7160a5840328806654dfeeb[m
+Author: Alexander Vinchent N <alexvinchent312.talenta@gmail.com>
+Date:   Thu Dec 19 11:47:11 2024 +0700
+
+    bikin thymleaf html  manualentry
+
+[33mcommit 2a9b9c4f28fe2d7b01661554303b164e021392f9[m
+Author: VINCENT EMMANUEL SUWARDY <i22067@ftis>
+Date:   Thu Dec 19 11:34:24 2024 +0700
+
+    add: login and register method, connect to database. fix: html error messages.
+
+[33mcommit f3e82814fd221d50b865b3d3815ddcf9fc9b0f18[m
+Author: Alexander Vinchent N <alexvinchent312.talenta@gmail.com>
+Date:   Mon Dec 16 11:50:54 2024 +0700
+
+    bikin backend manual entry
+
+[33mcommit a640b63d16756a88aeea81ff30e03305100633e9[m
+Author: VINCENT EMMANUEL SUWARDY <i22067@ftis>
+Date:   Mon Dec 16 11:41:48 2024 +0700
+
+    add: footer, images,  fix: homepage
+
+[33mcommit 70e41de81beb07d5b0883cf2bfa7d40257116a3a[m
+Merge: 81520fb 911e45e
+Author: Alexander Vinchent N <68997545+Basin312@users.noreply.github.com>
+Date:   Mon Dec 16 10:44:09 2024 +0700
+
+    Merge pull request #1 from VincentEmmanuelS/vincent
+    
+    Vincent
+
+[33mcommit 911e45e1927c0a7367b8eb1bb4a5e0ece7b83228[m[33m ([m[1;32mvincent[m[33m)[m
+Merge: d44f76b 81520fb
+Author: Alexander Vinchent N <alexvinchent312.talenta@gmail.com>
+Date:   Mon Dec 16 10:41:25 2024 +0700
+
+    Merge branch 'alex' into vincent
+
+[33mcommit 81520fb2cae49d57cd1775e2e1efed9733b5ba0d[m
+Author: Alexander Vinchent N <alexvinchent312.talenta@gmail.com>
+Date:   Mon Dec 16 10:33:12 2024 +0700
+
+    file database
+
+[33mcommit 793819ec291f57b799a5924c428e7049c5dfbd29[m
+Author: VINCENT EMMANUEL SUWARDY <i22067@ftis>
+Date:   Mon Dec 16 10:26:56 2024 +0700
+
+    temp: run
+
+[33mcommit a182f669a864f5e1e69c48f329d8d8b0b8ced550[m
+Author: VINCENT EMMANUEL SUWARDY <i22067@ftis>
+Date:   Mon Dec 16 10:26:06 2024 +0700
+
+    temp: run
+
+[33mcommit d44f76b7ce61a9bec274996436e5ed4617b08c9d[m
+Merge: 14885a8 230385f
+Author: Alexander Vinchent N <alexvinchent312.talenta@gmail.com>
+Date:   Mon Dec 16 10:15:45 2024 +0700
+
+    Merge branch 'vincent' of https://github.com/VincentEmmanuelS/Tubes-PBW into vincent
+
+[33mcommit 14885a8ec0eba53b18541a807ba4d38ae1eb4bf8[m
+Author: Alexander Vinchent N <alexvinchent312.talenta@gmail.com>
+Date:   Mon Dec 16 10:08:58 2024 +0700
+
+    update
+
+[33mcommit f30a00e5226d6598db983c448a9a1d8489e1cbea[m
+Author: VincentEmmanuelS <suwardyvincent@gmail.com>
+Date:   Sun Dec 15 15:46:55 2024 +0700
+
+    fix: header in login & signup, sizing element in login & signup, add: header.css & text.css for styling text
+
+[33mcommit 760c53647e741edbf48a97a0bf0119dae6e0f5dc[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: VincentEmmanuelS <suwardyvincent@gmail.com>
+Date:   Sun Dec 15 15:20:13 2024 +0700
+
+    fix: out from pbw/
+
+[33mcommit 15e39a26e4491bed242f6e7683dffe8a7eb9c222[m
+Author: VincentEmmanuelS <suwardyvincent@gmail.com>
+Date:   Sun Dec 15 15:16:17 2024 +0700
+
+    add: dropdown list homepage, fix: homepage element size
+
+[33mcommit 230385fb51722d63a3c50108f759e18baacdf6f2[m
+Author: legion laptop <ruslie.vincent@gmail.com>
+Date:   Thu Dec 12 15:55:11 2024 +0700
+
+    coba push 2
+
+[33mcommit 49832338c327bb34bb7cdda3915a8455b953cf39[m
+Author: VincentEmmanuelS <suwardyvincent@gmail.com>
+Date:   Thu Dec 12 12:10:36 2024 +0700
+
+    fix: out from /pbw
+
+[33mcommit 7c6c4efa8577b17652e190bd17d1d1d58473d029[m
+Author: legion laptop <ruslie.vincent@gmail.com>
+Date:   Thu Dec 12 11:32:55 2024 +0700
+
+    dasborfeed
+
+[33mcommit 5f137c5ec65e642375fcf5534707e9277ef46d64[m
+Author: VINCENT EMMANUEL SUWARDY <i22067@ftis>
+Date:   Thu Dec 12 10:47:36 2024 +0700
+
+    add: login page & sign up page, fix: post method, ToDo: homepage
+
+[33mcommit 4daa6333486d65b1f9518fc4519f6c01f103778f[m
+Author: VincentEmmanuelS <suwardyvincent@gmail.com>
+Date:   Tue Dec 10 15:48:55 2024 +0700
+
+    fix homepage, add onboarding
+
+[33mcommit 679ff76bf111722c7912a543ab7888878462844c[m
+Author: JUAN VINCENT RUSLIE <ruslie.vincent@gmail.com>
+Date:   Mon Dec 9 11:29:44 2024 +0700
+
+    initialisasi branch vincent + page manual entry
+
+[33mcommit 647624bba924707f3eb8dc378aa3916c0d287661[m
+Author: VINCENT EMMANUEL SUWARDY <i22067@ftis>
+Date:   Mon Dec 9 11:29:31 2024 +0700
+
+    fix frontend
+
+[33mcommit 058efe26e8687e3ce8cbc087c5e1b5331b6e8513[m
+Author: VINCENT EMMANUEL SUWARDY <i22067@ftis>
+Date:   Mon Dec 9 11:03:55 2024 +0700
+
+    homepage frontend
+
+[33mcommit 4f667e63d83dc2b198e69728655a37c5d8c186dc[m
+Author: Alexander Vinchent N <alexvinchent312.talenta@gmail.com>
+Date:   Mon Dec 9 10:23:34 2024 +0700
+
+    git ignore update
+
+[33mcommit 6c721978b1cb4d1445c1ea6340065df4f8f52eeb[m
+Author: Alexander Vinchent N <alexvinchent312.talenta@gmail.com>
+Date:   Sat Dec 7 11:21:46 2024 +0700
+
+    keluarin file di folder gradle dan bikin home page
+
+[33mcommit 68bff390bcb9a88bd09234915421474138172f1c[m[33m ([m[1;32mmain[m[33m)[m
+Author: VincentEmmanuelS <suwardyvincent@gmail.com>
+Date:   Thu Dec 5 12:13:00 2024 +0700
+
+    Initial commit
+    
+    Project using gradle from Spring Initializr
+    
+    Dependencies:
+    - Thymeleaf
+    - Spring Web
+    - Spring Boot DevTools
+    - Lombok
+
+[33mcommit 186759062f6133ed91c15239e1d1b1cf49e4bd6b[m
+Author: VincentEmmanuelS <suwardyvincent@gmail.com>
+Date:   Thu Dec 5 12:06:01 2024 +0700
+
+    Initial commit

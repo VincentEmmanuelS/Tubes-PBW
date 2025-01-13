@@ -66,15 +66,7 @@ main{
     /* border: 1px solid black; */
 }
 
-#gambar-profile{
-    display: flex;
-    background-color: black;
-    /* background-image: url("/image/icons/Profile_Icon.png"); profile pict */
-    height: 15rem;
-    width: 15rem;
-    /* border:2px solid black; */
-    border-radius: 100%;
-}
+
 
 #nama{
     text-align: center;
@@ -357,4 +349,23 @@ table.track .mid{
 
 .buttons button:hover{
     background-color: var(--button-hover);
+}
+
+
+#gambar-profile {
+    display: flex; /* Ensures proper alignment */
+    justify-content: center;
+    align-items: center;
+    height: 15rem;
+    width: 15rem;
+    border-radius: 50%; /* Makes the container round */
+    overflow: hidden; /* Ensures the image doesn't overflow the round container */
+    border: 2px solid #ccc; /* Optional: Add a border for aesthetics */
+}
+
+
+#mainprofilepicture {
+    width: 100%; /* Make the image fill the container */
+    height: 100%; /* Maintain the aspect ratio */
+    object-fit: cover; /* Ensures the image scales nicely within the container */
 }

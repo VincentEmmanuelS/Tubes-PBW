@@ -36,10 +36,11 @@
 
             <div class="buttons">
                 <div class="dropdown id="left"">
-                    <a href="">Dashboard</a>
+                    <a href="onboarding">Dashboard</a>
                     <ul class="dropdown-list">
-                        <li><a href="#">Activity Feed</a></li>
-                        <li><a href="#">Clubs</a></li>
+                        <li><a href="/onboarding">Activity Feed</a></li>
+                        <li><a href="/Clubs">Clubs</a></li>
+                        <li><a href="/myStatic">My Static</a></li>
                         <li><a href="#">My Segments</a></li>
                         <li><a href="#">My Routes</a></li>
                         <li id="subscription"><h3>SUBSCRIPTION</h3></li>
@@ -50,7 +51,7 @@
                     <a href="">Training</a>
                     <ul class="dropdown-list">
                         <li><a href="#">Training Calendar</a></li>
-                        <li><a href="#">My Activities</a></li>
+                        <li><a href="myActivity">My Activities</a></li>
                         <li id="subscription"><h3>SUBSCRIPTION</h3></li>
                         <li id="subscription"><a href="#">Training Log</a></li>
                         <li id="subscription"><a href="#">Training Plans</a></li>
@@ -62,12 +63,22 @@
                 <a href="">Challenges</a>
             </div>
         </div>
-        <!-- <div id="rightSection">
+        <div id="rightSection">
             <button>Start Trial</button>
             <a href="">
                 <img src="images/icons/Notif_Icon.png" alt="Notification Icon">
             </a>
-            <p id="dropdown">Profile</p>  
+            <div class="dropdown">
+                <a href="">
+                    <img id="profile-picture" src="images/asukapp.png" alt="Profile Picture">
+                </a>
+                <ul class="dropdown-list menu-dropdown">
+                  <li><a href="#">Find Friends</a></li>
+                  <li><a href="profile">My Profile</a></li>
+                  <li><a href="#">Settings</a></li>
+                  <li><a href="/logout">Log Out</a></li>
+                </ul>
+            </div>
             <div class="dropdown" id="right">
                 <a href="">
                     <img id="dropdown" src="images/icons/Add_Icon.png" alt="Circle add icon">
@@ -87,7 +98,7 @@
                     </a></li>
                 </ul>
             </div>
-        </div> -->
+        </div>
     </header>
 
     <!-- action="@{/submitEvent/{id}(id=${eventDetail.id})}" -->

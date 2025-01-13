@@ -57,7 +57,7 @@
                 </a>
                 <ul class="dropdown-list menu-dropdown">
                   <li><a href="#">Find Friends</a></li>
-                  <li><a href="#">My Profile</a></li>
+                  <li><a href="profile">My Profile</a></li>
                   <li><a href="#">Settings</a></li>
                   <li><a href="/logout">Log Out</a></li>
                 </ul>
@@ -323,25 +323,24 @@
       // Add click event listener for the button
     var button = document.getElementById("btn");
     button.addEventListener("click", function () {
-        //Bikin temporary container untuk menyimpan image chart yang akan dijadikan pdf 
+        // Create a temporary container to hold all charts for the PDF
         var pdfContainer = document.createElement('div');
         pdfContainer.style.width = "800px"; // Ensure a fixed width
         pdfContainer.style.display = "inline-block"; // Avoid unexpected block-level spacing
         pdfContainer.style.padding = "0"; // Remove padding
         pdfContainer.style.margin = "0"; // Remove margin
 
-        //looping setiap id chart yang ada
+        // Append each chart to the container
         ['myChartDistance', 'myChartDuration', 'myChartActivity'].forEach(chartId => {
-            //ambil id canvas chart
+            // Get the canvas element
             var canvas = document.getElementById(chartId);
 
-            // convert chart ke element iamge
+            // Convert the canvas to a base64 image
             var img = new Image();
             img.src = canvas.toDataURL("image/png");
             img.style.marginBottom = "50px"; // Remove image margins
             img.style.padding = "0"; // Remove image padding
             img.style.display = "block"; // Prevent inline spacing
-            //masuk ke container 
             pdfContainer.appendChild(img);
         });
 
@@ -350,22 +349,20 @@
         var opt = {
             margin: 0.5, // Adjust as needed
             filename: 'Charts.pdf',
-            // libary html2pdf 
             html2canvas: { 
                 scale: 3, // Higher scale for better resolution
                 scrollX: 0, 
                 scrollY: 0, 
                 useCORS: true // Avoid cross-origin issues
             },
-            jsPDF: { unit: 'in', format: 'letter', orientation: 'landscape' }//format untuk model ukuran kertas, orientation posisi kertasnya
+            jsPDF: { unit: 'in', format: 'letter', orientation: 'landscape' }
         };
 
-        // convert container ke pdf 
         html2pdf()
         .set(opt)
         .from(pdfContainer)
         .save()
-        .then(() => pdfContainer.remove()) // Remove the temporary container kalau sudah di export 
+        .then(() => pdfContainer.remove()) // Remove the temporary container
         .catch(err => console.error("Error generating PDF:", err));
     });
     </script>
